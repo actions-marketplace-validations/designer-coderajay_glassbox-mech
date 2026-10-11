@@ -332,3 +332,23 @@ python scripts/validate_models_matrix.py            # the small-model matrix
 python scripts/validate_models_matrix.py --models EleutherAI/pythia-1b --device cpu --max-units 12
 # On a GPU box, add --device cuda and larger --models (e.g. a small GQA model with an HF token).
 ```
+
+## Run 14 — full test suite with coverage (after V7 Experiments 3–5 and the demo)
+
+- **Date:** 2026-10-11
+- **Hardware:** Apple Silicon Mac (owner's machine), Python 3.11.9. This was a **local
+  run, not CI**.
+- **Code:** commit `df7e073` (glassbox-mech-interp 4.5.1). The working tree also had two
+  untracked items: `demo_output/` (not in `tests/`) and `tests/_peek_tmp_test.py`,
+  which is docstring-only and contains no tests.
+- **Command:** `python3 -m pytest -q --cov=glassbox --cov-fail-under=58 -x`
+- **Result:** **1241 passed, 12 skipped**, 1 warning, 205.69 s.
+- **Coverage:** total 75.80% (8574 statements, 2075 missed). The gate is 58%.
+- **Supersedes:** Run 13 (1080 passed / 72.99%).
+- **CI at the same time:** the GitHub "Test + coverage" job was failing **before any test
+  ran**.
+  - Failure: `ImportError: pyarrow requires NumPy 2.0 or newer, found 1.26.4`, when
+    importing `transformer_lens` → `datasets` → `pyarrow`.
+  - Cause: CI pins `numpy==1.26.4` but did not pin `datasets`/`pyarrow`.
+  - First failing run: commit `3462ed1` on 2026-10-11.
+

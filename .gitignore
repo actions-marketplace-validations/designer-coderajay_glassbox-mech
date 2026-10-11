@@ -97,3 +97,6 @@ docs/*.pdf
 
 # TMLR submission drafts (anonymized; must not be linked to this named repo)
 paper/
+
+# Local demo runs (python -m glassbox.v7.investigate demo --out demo_output/...)
+demo_output/

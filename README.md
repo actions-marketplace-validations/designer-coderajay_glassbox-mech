@@ -84,7 +84,7 @@ When a model genuinely *can't* do a task, Glassbox says so instead of inventing 
 | **IOI benchmark** (GPT-2) | suff 1.00 · comp 0.543 · **F1 0.704 · Grade B** |
 | **Key finding** | confidence ↔ faithfulness correlation **r = 0.009** (orthogonal) |
 | **Validated scale** | **82M → 12B** across **9 architecture families** (10 model series) |
-| **Quality** | **1,080 tests** passing, 73% coverage (full run 2026-10-05; see `docs/VALIDATION_LOG.md`) |
+| **Quality** | **1,241 tests** passing, 76% coverage (full run 2026-10-11; see `docs/VALIDATION_LOG.md`) |
 
 Full methodology and raw data: [`BENCHMARKS.md`](BENCHMARKS.md) · reproduce with `scripts/benchmark.py`.
 
