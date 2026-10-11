@@ -151,3 +151,32 @@ The gates are G1–G5 exactly as in Experiment 7 §4, for the selected model.
 
 ---
 *(Addenda, if any, go below this line, with dates.)*
+
+### Addendum 1 (2026-10-11): machine change and progress logging. No change to the design.
+
+**Why the run moved.**
+- The first run was started on the owner's 8 GB Mac at commit `b807af7`.
+- After about 1 h 52 min it was thrashing: swap 20.1 GB used of 21.5 GB, the process at
+  2.1% CPU and only about 0.75 GB resident. That was during the
+  `Qwen/Qwen2.5-1.5B-Instruct` competence computation.
+- It was stopped. **No `results.json` was written, and no factor effects had been
+  computed.**
+
+**Disclosed observation from the aborted run.** The ladder had moved past
+`Qwen/Qwen2.5-0.5B-Instruct`, which means that model scored below the 0.6 competence
+threshold. Its exact competence value was not printed. This observation uses only
+baseline behaviour, which is what the competence rule allows.
+
+**Changes.**
+1. **Machine.** The run is repeated **from the start of the ladder** on a Kaggle
+   notebook (CPU session). It uses the same commit, pinned package versions, seeds and
+   `device="cpu"`; only the machine differs.
+   - RESULTS.md must record the notebook's CPU count, RAM, Python version and key
+     package versions, as printed by the runbook (`KAGGLE_RUN.md`).
+   - Because the computation is deterministic, the 0.5B-Instruct competence on Kaggle is
+     expected to repeat the Mac result. Any difference must be reported.
+2. **Progress logging.** `run.py` now prints progress lines to stderr: model loading,
+   competence, a count every 25 prompts scored, and per-case stages. These lines do not
+   affect any computation. The tests are unchanged and still pass.
+
+The design, ladder, threshold, gates, N, permutations and seeds are all unchanged.

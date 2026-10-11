@@ -28,6 +28,7 @@ import json
 import random
 import sys
 import tempfile
+import time
 from pathlib import Path
 from types import ModuleType
 from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
@@ -53,6 +54,12 @@ LABEL_SETS = ((" 1", " 2", " 3"), ("1", "2", "3"))
 
 Scorer = Callable[[str, str], float]
 _EXP7: Dict[str, ModuleType] = {}
+
+
+def progress(msg: str) -> None:
+    """Progress line on stderr (added 2026-10-11, addendum 1; no effect on results)."""
+    sys.stderr.write(f"[exp7b {time.strftime('%H:%M:%S')}] {msg}\n")
+    sys.stderr.flush()
 
 
 def load_exp7() -> ModuleType:
@@ -94,6 +101,8 @@ class MenuPolicy:
         if prompt not in self._scores:
             menu = menu_prompt(prompt)
             self._scores[prompt] = tuple(self.scorer(menu, lab) for lab in self.labels)
+            if len(self._scores) % 25 == 0:
+                progress(f"{len(self._scores)} distinct prompts scored")
         return self._scores[prompt]
 
     def probs(self, prompt: str) -> Tuple[float, ...]:
@@ -130,6 +139,7 @@ def select_model(
     """Walk the ladder; return (selected name and policy, per-model record)."""
     ladder: List[Dict[str, Any]] = []
     for name in LADDER:
+        progress(f"loading {name}")
         try:
             scorer = factory(name)
         except (
@@ -156,7 +166,9 @@ def select_model(
             gc.collect()
             continue
         policy = MenuPolicy(scorer, labels)
+        progress(f"{name}: labels {labels}; computing competence (baseline only)")
         comp = competence(policy)
+        progress(f"{name}: competence {comp:.4f} (threshold {COMPETENCE_MIN})")
         ok = comp >= COMPETENCE_MIN
         ladder.append(
             {
@@ -228,7 +240,9 @@ def investigate_case(policy: MenuPolicy, case: str, tmp: Path) -> Dict[str, Any]
     """Experiment 7's per-case investigation with the menu runner and 7b seeds."""
     e7 = load_exp7()
     person, day = e7.CASES[case]
+    progress(f"case {case}: exact ground truth")
     truth = e7._ground_truth(policy, person, day)
+    progress(f"case {case}: interventions ({e7.N_PER_CELL} runs per cell)")
     settings = InterventionSettings(
         e7.N_PER_CELL, e7.N_PERM, e7.ALPHA, f"{SEED_PREFIX}:{case}"
     )
