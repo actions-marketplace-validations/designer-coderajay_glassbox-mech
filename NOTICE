@@ -1,38 +1,44 @@
-Glassbox AI — Mechanistic Interpretability for EU AI Act Compliance
-====================================================================
+Glassbox AI — Mechanistic Interpretability and AI-System Investigation
+======================================================================
 
 Copyright (C) 2026 Ajay Pravin Mahale <mahale.ajay01@gmail.com>
-All rights reserved.
 
 DUAL LICENSE NOTICE
 -------------------
 
-This software is distributed under a dual-license model:
+This repository is distributed under two licenses. The file list below is
+the authoritative map; LICENSE-COMMERCIAL repeats the BSL file list.
 
-  1. MIT License (see LICENSE)
-     Applies to the core attribution engine and utilities:
-       glassbox/core.py
-       glassbox/composition.py
-       glassbox/sae_attribution.py
-       glassbox/telemetry.py
-       glassbox/types.py
-       glassbox/utils.py
-       glassbox/cli.py
-       glassbox/widget.py
-       glassbox/audit.py
-       glassbox/__init__.py
-
-  2. Business Source License 1.1 (see LICENSE-COMMERCIAL)
-     Applies to the commercial compliance engine:
+  1. Business Source License 1.1 (see LICENSE-COMMERCIAL)
+     Applies ONLY to these files:
        glassbox/compliance.py       — EU AI Act Annex IV report generation
        glassbox/circuit_diff.py     — CircuitDiff mechanistic diff (Article 72)
        glassbox/risk_register.py    — Persistent risk tracking (Article 9)
        glassbox/bias.py             — Bias/fairness analysis (Articles 10, 15)
        glassbox/audit_log.py        — Tamper-evident audit chain
+       glassbox/cross_model.py      — Cross-model circuit comparison
+       glassbox/v7/                 — AI-system investigation layer (trace,
+                                      diff, group diff, interventions,
+                                      investigation report, evidence packages)
+       dashboard/v7_investigation.py — Investigation tab of the web demo
 
-     BSL Summary: Free for non-commercial and internal production use.
-     Commercial redistribution or SaaS use requires a separate license.
+     cross_model.py, glassbox/v7/ and dashboard/v7_investigation.py are
+     covered from 2026-10-11 and from the first PyPI release after 4.5.1.
+     Copies obtained before that remain under the terms they were
+     published with.
+
+     BSL summary (not a substitute for the license text): free for
+     non-production use and for production use inside your own organisation.
+     Offering a commercial compliance, AI-governance, AI-investigation,
+     debugging or observability service or product to third parties requires
+     a separate commercial license. Each version converts to Apache-2.0 four
+     years after its first public release.
      Contact: mahale.ajay01@gmail.com
+
+  2. MIT License (see LICENSE)
+     Applies to every other file in this repository, including the
+     interpretability core (glassbox/core.py and the remaining glassbox/
+     modules), tests, examples, experiments, scripts and documentation.
 
 THIRD-PARTY COMPONENTS
 -----------------------
@@ -54,8 +60,8 @@ ACADEMIC ATTRIBUTION
 
 If you use Glassbox AI in academic research, please cite:
 
-  Mahale, A. P. (2026). Glassbox: Causal Circuit Analysis for EU AI Act
-  Annex IV Technical Documentation. ICML 2026.
+  Mahale, A. P. (2026). Causally Grounded Mechanistic Interpretability for
+  LLMs with Faithful Natural-Language Explanations. arXiv:2603.09988.
 
   Wang, K., et al. (2022). Interpretability in the Wild: a Circuit for
   Indirect Object Identification in GPT-2 small. arXiv:2211.00593.

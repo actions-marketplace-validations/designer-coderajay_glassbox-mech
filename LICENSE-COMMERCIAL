@@ -9,23 +9,44 @@ Licensed Work:        Glassbox AI — Commercial Components
                         glassbox/risk_register.py
                         glassbox/bias.py
                         glassbox/audit_log.py
+                        glassbox/cross_model.py
+                        glassbox/v7/ (every file in this directory)
+                        dashboard/v7_investigation.py
+
+                      glassbox/cross_model.py, glassbox/v7/ and
+                      dashboard/v7_investigation.py are covered from the
+                      first repository commit that lists them here
+                      (2026-10-11) and from the first PyPI release after
+                      4.5.1. Copies of those files obtained earlier remain
+                      under the terms they were published with.
+
+                      All other files in the repository are licensed under
+                      the MIT License (see LICENSE and NOTICE).
 
 Additional Use Grant: You may make production use of the Licensed Work,
-                      provided that you do not use it to offer a commercial
-                      compliance documentation service, regulatory reporting
-                      service, or AI governance platform to third parties,
-                      without a separate commercial license from the Licensor.
+                      provided that you do not use it to offer to third
+                      parties, without a separate commercial license from
+                      the Licensor:
+                        (a) a commercial compliance documentation service,
+                            regulatory reporting service, or AI governance
+                            platform; or
+                        (b) a commercial AI-system investigation, debugging,
+                            incident-analysis, tracing or observability
+                            service or product.
 
-                      "Production use" for internal compliance documentation
-                      (i.e., documenting your own AI systems for EU AI Act
-                      Annex IV purposes) is permitted without a separate
-                      commercial license, subject to the terms below.
+                      Production use inside your own organisation (for
+                      example, documenting or investigating your own AI
+                      systems) is permitted without a separate commercial
+                      license, subject to the terms below.
 
 Change Date:          2036-03-21
 
-                      Ten years from the initial commercial release (2026-03-21).
-                      On the Change Date, the Licensed Work will be made
-                      available under the Apache License, Version 2.0.
+                      Under paragraph 2 below, each version of the Licensed
+                      Work converts to the Change License on the Change Date
+                      or on the fourth anniversary of that version's first
+                      public distribution, WHICHEVER COMES FIRST. In
+                      practice each version becomes Apache-2.0 four years
+                      after it is first published.
 
 Change License:       Apache License, Version 2.0
 
@@ -114,8 +135,8 @@ by Licensor:
 COMMERCIAL LICENSE INQUIRY
 
 If you wish to use the BSL-licensed components of Glassbox AI in a
-commercial product, SaaS platform, or compliance service offered to third
-parties, please contact:
+commercial product, SaaS platform, compliance service, or AI investigation
+or observability service offered to third parties, please contact:
 
   Ajay Pravin Mahale
   mahale.ajay01@gmail.com

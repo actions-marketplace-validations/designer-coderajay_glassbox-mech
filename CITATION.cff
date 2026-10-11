@@ -1,49 +1,42 @@
 cff-version: 1.2.0
-message: "If you use Glassbox in your research, please cite it as below."
+message: "If you use Glassbox in your research, please cite the paper below (preferred) or this software."
 type: software
-title: "Glassbox 3.6.0: Mechanistic Interpretability, EU AI Act Compliance, Bias Analysis, and Enterprise Audit Infrastructure"
-version: 3.6.0
-date-released: "2026-04-02"
-license: MIT
+title: "Glassbox: mechanistic interpretability and AI-system investigation toolkit"
+version: 4.5.1
+date-released: "2026-06-27"
+license:
+  - MIT
+  - BUSL-1.1
 repository-code: "https://github.com/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool"
-url: "https://project-gu05p.vercel.app"
+url: "https://repo-ashen-psi.vercel.app"
 authors:
   - family-names: Mahale
-    given-names: Ajay
+    given-names: Ajay Pravin
     email: mahale.ajay01@gmail.com
 abstract: >
-  Glassbox 3.6.0 is a free, open-source mechanistic interpretability and EU AI Act
-  compliance audit toolkit for transformer language models, built on TransformerLens.
-  It implements attribution patching in O(3) forward passes,
-  auto-discovers minimum faithful circuits (MFC),
-  computes bootstrap 95% confidence intervals on faithfulness metrics,
-  measures cross-model circuit alignment via the Functional Circuit Alignment Score (FCAS),
-  projects the residual stream via a logit lens,
-  scores directed computation-graph edges via Edge Attribution Patching (EAP),
-  decomposes circuit components into SAE features via sae-lens,
-  computes Q/K/V head-composition scores (Elhage et al. 2021),
-  maps token-level gradient-times-embedding saliency,
-  provides a tamper-evident SHA-256 hash-chained audit log,
-  a GitHub Actions composite action for CI/CD compliance gating,
-  a zero-dependency TypeScript SDK (Node/Deno/Bun/browser),
-  Jupyter notebook widgets for interactive circuit visualization,
-  a BiasAnalyzer for demographic parity and counterfactual fairness testing
-  per EU AI Act Article 10(2)(f), a webhook system for async job delivery,
-  and a multi-audit history dashboard for compliance trend analysis.
-  Key finding (arXiv:2603.09988): r=0.009 structural overlap between faithful
-  circuits and attention heads. Full 26-head IOI circuit: sufficiency=1.00,
-  comprehensiveness=0.47, F1=0.64.
+  Glassbox is a Python toolkit for transformer language models, built on
+  TransformerLens. It ranks attention heads by causal contribution with
+  attribution patching (3 forward passes per analysis), selects a minimal
+  circuit, and measures its faithfulness (sufficiency, comprehensiveness, F1)
+  by ablation. It can draft EU AI Act Annex IV technical documentation from
+  that evidence (8 of 9 sections; the Declaration of Conformity is a human
+  sign-off). The repository also contains an AI-system investigation layer
+  (traces, noise-aware diffs, one-factor interventions and verifiable evidence
+  packages), validated so far in pre-registered experiments on small
+  open-weight models. Key finding (arXiv:2603.09988): model confidence and
+  explanation faithfulness are essentially uncorrelated (r = 0.009). IOI on
+  GPT-2 Small, current build, default circuit: sufficiency 1.00,
+  comprehensiveness 0.543, F1 0.704. Licensing: MIT core; BSL 1.1 for the
+  compliance engine and the investigation layer (see NOTICE).
 keywords:
   - mechanistic-interpretability
   - attribution-patching
-  - sparse-autoencoder
-  - head-composition
-  - transformer-circuits
-  - explainability
-  - deep-learning
-  - TransformerLens
-  - GPT-2
   - circuit-discovery
+  - faithfulness
+  - explainability
+  - TransformerLens
+  - eu-ai-act
+  - ai-debugging
 references:
   - type: article
     title: "Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 small"
@@ -59,26 +52,14 @@ references:
         given-names: Aaquib
     year: 2024
     url: "https://arxiv.org/abs/2310.10348"
-  - type: article
-    title: "A Mathematical Framework for Transformer Circuits"
-    authors:
-      - family-names: Elhage
-        given-names: Nelson
-    year: 2021
-    url: "https://transformer-circuits.pub/2021/framework/index.html"
-  - type: article
-    title: "Scaling and evaluating sparse autoencoders"
-    authors:
-      - family-names: Gao
-        given-names: Leo
-    year: 2024
-    url: "https://arxiv.org/abs/2406.04093"
 preferred-citation:
-  type: software
-  title: "Glassbox 3.6.0: Mechanistic Interpretability and EU AI Act Enterprise Compliance Toolkit"
+  type: article
+  title: "Causally Grounded Mechanistic Interpretability for LLMs with Faithful Natural-Language Explanations"
   authors:
     - family-names: Mahale
-      given-names: Ajay
+      given-names: Ajay Pravin
   year: 2026
-  version: 3.6.0
-  url: "https://github.com/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool"
+  identifiers:
+    - type: doi
+      value: "10.48550/arXiv.2603.09988"
+  url: "https://arxiv.org/abs/2603.09988"

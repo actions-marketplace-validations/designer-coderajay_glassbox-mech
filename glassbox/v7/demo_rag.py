@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: BUSL-1.1
+# Copyright (C) 2026 Ajay Pravin Mahale <mahale.ajay01@gmail.com>
+# Licensed under the Business Source License 1.1 (see LICENSE-COMMERCIAL).
+# Free for non-production use and for production use inside your own organisation.
+# Offering it as a commercial service or product to third parties needs a license.
 """Built-in demo incident: a small RAG assistant whose answers got worse.
 
 Story: in one week the knowledge base was re-indexed (and the re-index silently

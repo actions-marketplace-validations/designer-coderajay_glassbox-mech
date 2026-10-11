@@ -6,6 +6,36 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [Unreleased]
+
+### Changed — licensing (effective 2026-10-11)
+
+- **The AI-system investigation layer is now BSL 1.1:** `glassbox/v7/` and
+  `dashboard/v7_investigation.py`. `glassbox/cross_model.py`, which already carried a
+  BSL 1.1 header, is now also listed in `LICENSE-COMMERCIAL`. Copies of these files
+  obtained before 2026-10-11 remain under the terms they were published with. Of
+  these files, only `cross_model.py` was in a PyPI release up to 4.5.1.
+- **The BSL Additional Use Grant now also covers** offering a commercial AI-system
+  investigation, debugging, tracing or observability service or product to third
+  parties. Internal production use stays free.
+- **The licence's conversion date is stated accurately.** Each version converts to
+  Apache-2.0 four years after its first publication (BSL 1.1 paragraph 2). This
+  replaces the misleading "ten years" wording.
+- **NOTICE is now the authoritative file map.** Everything not listed under BSL is MIT,
+  replacing the incomplete MIT file list. SPDX headers were added to the BSL files, and
+  `pyproject.toml` gains the `License :: Other/Proprietary License` classifier.
+  CONTRIBUTING.md explains how contributions to BSL files are licensed.
+
+### Fixed — citations and README
+
+- The citation in NOTICE, README and CITATION.cff now matches the arXiv record
+  (arXiv:2603.09988, *Causally Grounded Mechanistic Interpretability for LLMs with
+  Faithful Natural-Language Explanations*). The unsupported "ICML 2026" venue was
+  removed. CITATION.cff's description of r = 0.009 now matches the paper
+  (confidence–faithfulness correlation).
+- The README was rewritten: it adds the investigation layer, the status of every V7
+  experiment (including the FAIL and INCONCLUSIVE results) and a licence table.
+
 ## [4.5.1] — 2026-06-27
 
 ### Fixed — benchmark-number reconciliation (single canonical set, measured on current build)

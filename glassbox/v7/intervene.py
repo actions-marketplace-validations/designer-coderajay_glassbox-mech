@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: BUSL-1.1
+# Copyright (C) 2026 Ajay Pravin Mahale <mahale.ajay01@gmail.com>
+# Licensed under the Business Source License 1.1 (see LICENSE-COMMERCIAL).
+# Free for non-production use and for production use inside your own organisation.
+# Offering it as a commercial service or product to third parties needs a license.
 """Controlled one-factor-at-a-time interventions (V7 plan §12–13, Hard Gate 4).
 
 Specified in ``experiments/v7/intervention/PROTOCOL.md`` §2, committed before this
