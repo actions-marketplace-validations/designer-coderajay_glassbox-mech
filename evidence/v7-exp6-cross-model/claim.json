@@ -1,0 +1,9 @@
+{
+  "claim": "Experiment 5's investigation, unchanged, on three further model families (Pythia-160m, OPT-125m, Qwen2.5-0.5B) blamed every large true effect (3/3, 3/3, 4/4), none of the 36 exactly-zero effects, and re-scored deterministically.",
+  "created_utc": "2026-10-11T12:45:11+00:00",
+  "integrity_note": "Integrity is not truth: a verifying manifest shows these files are unchanged since packaging; it does not show the experiment or the claim is correct.",
+  "package_id": "v7-exp6-cross-model",
+  "schema": "glassbox.evidence/0.1",
+  "scope": "Pre-registered (protocol 74f1958). Ground truth computed exactly from each model's deterministic margins. Large effects were mostly near-deterministic. Detection limit at 30 runs per configuration: true effects of about 0.41 and above detected, about 0.16 and below missed. Small local open-weights models only, no hosted providers, two-option sampling, factors chosen by the author. Traces are regenerable and not included. Single author.",
+  "status": "EXPERIMENTALLY_SUPPORTED"
+}
