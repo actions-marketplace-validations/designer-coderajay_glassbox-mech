@@ -1,4 +1,4 @@
-"""Evidence packages for V7 Experiments 3, 3b, 4 and 5 build and verify.
+"""Evidence packages for V7 Experiments 3, 3b, 4, 5 and 6 build and verify.
 
 Each package must carry the ASSURANCE status of its row, so a REFUTED result is never
 repackaged as supported.
@@ -33,6 +33,7 @@ CASES = [
         "EXPERIMENTALLY_SUPPORTED",
         "V3.3",
     ),
+    ("cross_model", "v7-exp6-cross-model", "EXPERIMENTALLY_SUPPORTED", "V3.6"),
 ]
 
 
