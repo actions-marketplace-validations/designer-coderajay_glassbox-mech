@@ -1,0 +1,8 @@
+{
+  "assurance_row": "V2.7",
+  "code_commit": "21ceb61",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "protocol_commit": "31f80c7",
+  "python": "3.11.9",
+  "results_commit": "3cf24ac"
+}

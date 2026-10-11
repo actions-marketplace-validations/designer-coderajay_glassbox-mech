@@ -1,0 +1,9 @@
+{
+  "claim": "Pre-registered claim: at N = 30 per group, the noise-aware group diff localises a single injected change in at least 80% of replications while controlling false alarms. Result: FAIL. Chat-step localisation was 0.79 (158/200) against the 0.80 threshold; the other gated criteria passed (false alarms 0.015; GPT-2 real null 8/8; real retrieval fault localised 4/4).",
+  "created_utc": "2026-10-11T09:59:47+00:00",
+  "integrity_note": "Integrity is not truth: a verifying manifest shows these files are unchanged since packaging; it does not show the experiment or the claim is correct.",
+  "package_id": "v7-exp3-noise-baseline",
+  "schema": "glassbox.evidence/0.1",
+  "scope": "Synthetic three-step pipeline (Part A, 200 replications per world) and GPT-2 small sampling on Experiment 1's corpus (Part B, 20 runs per condition). Post-hoc diagnosis: missed detections, not mislocalisation, plausibly from redundant fields inflating Holm. The pairwise diff fired on every pair of same-configuration sampled runs. Single author, not blind. The library code at the time of the run is commit 21ceb61; later versions add field merging (Experiment 3b).",
+  "status": "REFUTED"
+}

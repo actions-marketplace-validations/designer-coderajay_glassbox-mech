@@ -1,0 +1,9 @@
+{
+  "claim": "With redundant fields merged, the group diff localised a single injected change at the right step in 0.875 of replications at N = 30 (threshold 0.80) and kept false alarms at or below 0.02 at every N from 10 to 50, on a synthetic three-step pipeline.",
+  "created_utc": "2026-10-11T09:59:49+00:00",
+  "integrity_note": "Integrity is not truth: a verifying manifest shows these files are unchanged since packaging; it does not show the experiment or the claim is correct.",
+  "package_id": "v7-exp3b-noise-baseline-merge",
+  "schema": "glassbox.evidence/0.1",
+  "scope": "Pre-registered (protocol ff75707), new master seed 20261006, 200 replications per world and N. Same synthetic worlds where Experiment 3's problem was found, so not an independent test of generality. Power 0.235 at N = 10. The unmerged method reached 0.82 at N = 30 on the same data, so merging is a moderate gain. Downstream propagation is flagged more as N grows. Traces are regenerable from seeds and not included. Single author, not blind.",
+  "status": "EXPERIMENTALLY_SUPPORTED"
+}
