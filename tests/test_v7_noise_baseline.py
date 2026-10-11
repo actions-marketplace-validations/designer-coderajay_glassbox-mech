@@ -135,6 +135,28 @@ def test_part_a_tested_free_text_fails_a4(pa):
     assert not pa.evaluate(world)["A4_free_text_untestable"]["pass"]
 
 
+RESULTS_A = EXP / "results" / "part_a" / "results.json"
+RESULTS_B = EXP / "results" / "part_b" / "results.json"
+
+
+@pytest.mark.skipif(not RESULTS_A.exists(), reason="official Part A results absent")
+@pytest.mark.parametrize("world,rep", [("W1", 0), ("W1", 8), ("W0", 0)])
+def test_experiment3_part_a_still_reproduces(pa, world, rep):
+    """Committed Experiment 3 summaries must reproduce after the 3b merge change."""
+    committed = json.loads(RESULTS_A.read_text())["summaries"][world][rep]
+    assert pa.replicate(world, rep) == committed
+
+
+@pytest.mark.skipif(not RESULTS_B.exists(), reason="official Part B results absent")
+def test_experiment3_part_b_still_reproduces(pb):
+    committed = json.loads(RESULTS_B.read_text())["criteria"]
+    qids = [f"q{i}" for i in range(1, 9)]
+    now = pb.evaluate(EXP / "results" / "part_b", qids)
+    for key in ("B1_real_null", "B2_real_localisation", "B3_real_specificity"):
+        assert now[key] == committed[key], key
+    assert now["B4_descriptive"] == committed["B4_descriptive"]
+
+
 # --- Part B ---------------------------------------------------------------------
 
 

@@ -17,6 +17,12 @@ Method:
     4. Tested fields: total-variation distance between the A and B value distributions,
        with a seeded permutation p-value ``(1 + #{TVD_perm >= TVD_obs}) / (1 + n_perm)``.
     5. Holm–Bonferroni across the tested fields of one comparison at ``alpha``.
+    6. Redundant-field merging (``merge_redundant=True``, the default; Experiment 3b
+       protocol §2): tested fields whose pooled values induce the same partition of the
+       runs are tested once. The earliest in run order is the representative; the others
+       are listed in its ``merged_with`` and share its result. Merging looks only at
+       pooled values, never at group labels, so the permutation test stays valid.
+       ``merge_redundant=False`` reproduces Experiment 3 exactly.
 
 Scope of the claim: a significant step says **where** the groups' behaviour differs
 beyond noise, never **why** and never **how many causes** there are. A change upstream
@@ -69,6 +75,8 @@ class FieldResult:
     n_distinct: int = 0
     dist_a: Dict[str, int] = dc_field(default_factory=dict)
     dist_b: Dict[str, int] = dc_field(default_factory=dict)
+    merged_with: List[str] = dc_field(default_factory=list)
+    merged_into: Optional[str] = None
 
 
 @dataclass
@@ -86,6 +94,8 @@ class GroupDiffReport:
     n_b: int
     alpha: float
     n_perm: int
+    merge_redundant: bool = True
+    n_tests: int = 0
 
     @property
     def significant(self) -> List[FieldResult]:
@@ -118,6 +128,8 @@ class GroupDiffReport:
             "n_b": self.n_b,
             "alpha": self.alpha,
             "n_perm": self.n_perm,
+            "merge_redundant": self.merge_redundant,
+            "n_tests": self.n_tests,
             "first_beyond_noise": asdict(first) if first else None,
             "significant": [asdict(f) for f in self.significant],
             "untestable": [list(k) for k in self.untestable],
@@ -162,6 +174,17 @@ def holm(p_values: Sequence[float], alpha: float) -> List[bool]:
             break
         reject[i] = True
     return reject
+
+
+def partition_key(values: Sequence[Hashable]) -> Tuple[int, ...]:
+    """Canonical code of the partition that ``values`` induce on positions.
+
+    Two value vectors get the same key iff, for every pair of positions, the positions
+    are equal in one vector exactly when they are equal in the other. Value names do not
+    matter: ``["x", "y", "x"]`` and ``[1, 2, 1]`` share a key.
+    """
+    codes: Dict[Hashable, int] = {}
+    return tuple(codes.setdefault(v, len(codes)) for v in values)
 
 
 # --- feature extraction ---------------------------------------------------------
@@ -262,14 +285,43 @@ def _positions(indexes: List[Dict[str, int]]) -> Dict[str, float]:
     return {s: sum(v) / len(v) for s, v in sums.items()}
 
 
+def _test_fields(
+    tested: List[Tuple[FieldResult, List[Hashable], List[Hashable]]],
+    n_perm: int,
+    seed: int,
+    merge: bool,
+) -> List[FieldResult]:
+    """Run permutation tests on representatives; return the representatives."""
+    reps: Dict[Tuple[int, ...], FieldResult] = {}
+    members: List[Tuple[FieldResult, FieldResult]] = []
+    for res, va, vb in tested:
+        key = partition_key(va + vb) if merge else (len(reps),)
+        if key in reps:
+            members.append((res, reps[key]))
+            continue
+        reps[key] = res
+        res.tvd = tvd(va, vb)
+        res.p_value = permutation_p(va, vb, n_perm, f"{seed}:{res.step}:{res.field}")
+    for member, rep in members:
+        rep.merged_with.append(f"{member.step} {member.field}")
+        member.merged_into = f"{rep.step} {rep.field}"
+        member.tvd, member.p_value = rep.tvd, rep.p_value
+    return list(reps.values())
+
+
 def group_diff(
     paths_a: Sequence[PathLike],
     paths_b: Sequence[PathLike],
     n_perm: int = 999,
     alpha: float = 0.05,
     seed: int = 0,
+    *,
+    merge_redundant: bool = True,
 ) -> GroupDiffReport:
     """Compare a baseline group of traces with a candidate group, beyond noise.
+
+    ``merge_redundant`` is keyword-only and named by the Experiment 3b protocol; it is
+    the one documented exception to the five-parameter limit in the coding standards.
 
     Raises:
         ValueError: If either group has fewer than two runs.
@@ -285,19 +337,33 @@ def group_diff(
         key=lambda k: (positions[k[0]], k[0], k[1] != "present", k[1]),
     )
     results: List[FieldResult] = []
+    tested: List[Tuple[FieldResult, List[Hashable], List[Hashable]]] = []
     for key in keys:
         va = [_value(f, key) for f, _, _ in parsed_a]
         vb = [_value(f, key) for f, _, _ in parsed_b]
         res = _field_result(key, va, vb, positions[key[0]])
         if res.classification == "tested":
-            res.tvd = tvd(va, vb)
-            res.p_value = permutation_p(va, vb, n_perm, f"{seed}:{key[0]}:{key[1]}")
+            tested.append((res, va, vb))
         results.append(res)
-    tested = [r for r in results if r.classification == "tested"]
-    for r, rejected in zip(tested, holm([r.p_value or 1.0 for r in tested], alpha)):
+    reps = _test_fields(tested, n_perm, seed, merge_redundant)
+    for r, rejected in zip(reps, holm([r.p_value or 1.0 for r in reps], alpha)):
         r.significant = rejected
+    for res, _, _ in tested:
+        if res.merged_into is not None:
+            res.significant = next(
+                r.significant for r in reps if f"{r.step} {r.field}" == res.merged_into
+            )
     env = _environment([x[2] for x in parsed_a], [x[2] for x in parsed_b])
-    return GroupDiffReport(results, env, len(paths_a), len(paths_b), alpha, n_perm)
+    return GroupDiffReport(
+        results,
+        env,
+        len(paths_a),
+        len(paths_b),
+        alpha,
+        n_perm,
+        merge_redundant=merge_redundant,
+        n_tests=len(reps),
+    )
 
 
 # --- CLI ------------------------------------------------------------------------
@@ -319,8 +385,20 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--alpha", type=float, default=0.05)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--json", action="store_true", help="print the full report")
+    parser.add_argument(
+        "--no-merge",
+        action="store_true",
+        help="test redundant fields separately (Experiment 3 behaviour)",
+    )
     args = parser.parse_args(argv)
-    report = group_diff(args.a, args.b, args.n_perm, args.alpha, args.seed)
+    report = group_diff(
+        args.a,
+        args.b,
+        args.n_perm,
+        args.alpha,
+        args.seed,
+        merge_redundant=not args.no_merge,
+    )
     code = 1 if report.significant else 0
     if args.json:
         sys.stdout.write(json.dumps(report.to_dict(), indent=2) + "\n")

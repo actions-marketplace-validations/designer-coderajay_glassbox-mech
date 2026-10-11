@@ -213,6 +213,97 @@ def test_cli_exit_codes(tmp_path, capsys):
     assert payload["first_beyond_noise"]["step"] == "chat#0"
 
 
+# --- redundant-field merging (Experiment 3b protocol §2) -------------------------
+
+TOOL_FIELDS = {
+    "execute_tool:send#0 present",
+    "execute_tool:send#0 status",
+    "execute_tool:send#0 gen_ai.tool.name",
+}
+
+
+def _shift_groups(tmp_path, n: int = 10):
+    """Label shift where the tool step is present iff the label is 'correct'."""
+    a = [
+        _run(tmp_path, f"a{i}", label="correct" if i < 8 else "distractor", tool=i < 8)
+        for i in range(n)
+    ]
+    b = [
+        _run(tmp_path, f"b{i}", label="correct" if i < 2 else "distractor", tool=i < 2)
+        for i in range(n)
+    ]
+    return a, b
+
+
+def test_redundant_fields_are_tested_once(tmp_path):
+    a, b = _shift_groups(tmp_path)
+    r = group_diff(a, b, n_perm=199)
+    rep = _field(r, "chat#0", "glassbox.answer.label")
+    assert rep.classification == "tested" and rep.merged_into is None
+    assert set(rep.merged_with) == TOOL_FIELDS
+    for name in ("present", "status", "gen_ai.tool.name"):
+        member = _field(r, "execute_tool:send#0", name)
+        assert member.merged_into == "chat#0 glassbox.answer.label"
+        assert member.merged_with == []
+        assert member.p_value == rep.p_value and member.tvd == rep.tvd
+        assert member.significant == rep.significant
+    assert r.n_tests == 1  # retrieval is constant; one representative tested
+
+
+def test_merged_members_share_significance(tmp_path):
+    a, b = _shift_groups(tmp_path)
+    r = group_diff(a, b, n_perm=199)
+    first = r.first_beyond_noise
+    assert (first.step, first.field) == ("chat#0", "glassbox.answer.label")
+    sig = {f"{f.step} {f.field}" for f in r.significant}
+    assert sig == {"chat#0 glassbox.answer.label"} | TOOL_FIELDS
+
+
+def test_merge_disabled_tests_every_field(tmp_path):
+    a, b = _shift_groups(tmp_path)
+    r = group_diff(a, b, n_perm=199, merge_redundant=False)
+    tested = [f for f in r.fields if f.classification == "tested"]
+    assert len(tested) == 4 and r.n_tests == 4
+    assert all(f.merged_with == [] and f.merged_into is None for f in tested)
+    assert len({f.p_value for f in tested}) >= 1
+
+
+def test_different_partitions_are_not_merged(tmp_path):
+    a = [
+        _run(tmp_path, f"a{i}", doc="right" if i % 2 else "wrong", label="correct")
+        for i in range(6)
+    ] + [_run(tmp_path, f"a{i + 6}", doc="right", label="distractor") for i in range(4)]
+    b = [
+        _run(tmp_path, f"b{i}", doc="wrong", label="distractor" if i % 3 else "correct")
+        for i in range(10)
+    ]
+    r = group_diff(a, b, n_perm=99)
+    ret = _field(r, "retrieval#0", "glassbox.content.gen_ai.retrieval.documents.sha256")
+    lab = _field(r, "chat#0", "glassbox.answer.label")
+    assert ret.classification == lab.classification == "tested"
+    assert ret.merged_with == [] and lab.merged_into is None
+    assert r.n_tests == 2
+
+
+def test_partition_key_ignores_value_names_and_group_labels():
+    from glassbox.v7.groupdiff import partition_key
+
+    assert partition_key(["x", "y", "x", "z"]) == partition_key([1, 2, 1, 3])
+    assert partition_key(["x", "y", "x"]) != partition_key(["x", "x", "y"])
+    assert partition_key([None, "OK", None]) == partition_key([False, True, False])
+
+
+def test_cli_no_merge_flag(tmp_path, capsys):
+    a, b = _shift_groups(tmp_path)
+    base = ["--a", *map(str, a), "--b", *map(str, b), "--n-perm", "99", "--json"]
+    main(base)
+    merged = json.loads(capsys.readouterr().out)
+    main([*base, "--no-merge"])
+    unmerged = json.loads(capsys.readouterr().out)
+    assert merged["n_tests"] == 1 and unmerged["n_tests"] == 4
+    assert merged["merge_redundant"] is True and unmerged["merge_redundant"] is False
+
+
 def test_cli_reports_untestable_and_environment(tmp_path, capsys):
     a = [_run(tmp_path, f"a{i}", nonce=f"ta{i}", env="1.0") for i in range(4)]
     b = [_run(tmp_path, f"b{i}", nonce=f"tb{i}", env="2.0") for i in range(4)]

@@ -92,7 +92,9 @@ def replicate(
         out = Path(tmp)
         a = _group(f"{MASTER_SEED}:{world}:{rep}:A", BASELINE, out, "a", n)
         b = _group(f"{MASTER_SEED}:{world}:{rep}:B", CANDIDATE[world], out, "b", n)
-        report = group_diff(a, b, n_perm=n_perm, alpha=ALPHA, seed=rep)
+        report = group_diff(
+            a, b, n_perm=n_perm, alpha=ALPHA, seed=rep, merge_redundant=False
+        )  # Experiment 3 method: fields not merged (merging came in 3b)
         pairwise: Optional[float] = None
         if world == "W0":
             hits = sum(bool(diff_traces(x, y).divergences) for x, y in zip(a, b))

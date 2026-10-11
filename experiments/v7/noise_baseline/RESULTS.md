@@ -118,3 +118,16 @@ below).
 - Gate localisation at the N where the declared power is reached.
 
 The A2 result above stays FAIL regardless of what 3b finds.
+
+## Reproducibility note (added 2026-10-11, after the 3b protocol ff75707)
+
+- The 3b change made redundant-field merging the default in
+  `glassbox.v7.groupdiff.group_diff`.
+- To keep this experiment reproducible, `part_a.py` and `part_b.py` now pass
+  `merge_redundant=False` explicitly. This is the method used for the results above.
+  Nothing else in either script changed.
+- `tests/test_v7_noise_baseline.py` checks the reproduction:
+  - it regenerates committed Part A replications W1/0, W1/8 and W0/0 and compares them
+    with `results/part_a/results.json`;
+  - it re-evaluates Part B's committed traces against `results/part_b/results.json`.
+- Both reproduce exactly.

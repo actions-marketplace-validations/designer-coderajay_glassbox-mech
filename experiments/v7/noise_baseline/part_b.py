@@ -175,10 +175,20 @@ def evaluate(out: Path, qids: Sequence[str]) -> Dict[str, Any]:
     for q in qids:
         base = trace_paths(out, "baseline", q)
         null[q] = group_diff(
-            base, trace_paths(out, "baseline_more", q), N_PERM, ALPHA, 0
+            base,
+            trace_paths(out, "baseline_more", q),
+            N_PERM,
+            ALPHA,
+            0,
+            merge_redundant=False,
         ).to_dict()
         fault[q] = group_diff(
-            base, trace_paths(out, "fault", q), N_PERM, ALPHA, 0
+            base,
+            trace_paths(out, "fault", q),
+            N_PERM,
+            ALPHA,
+            0,
+            merge_redundant=False,
         ).to_dict()
     b1 = {q: not null[q]["significant"] for q in qids}
     b2 = {
