@@ -33,7 +33,7 @@ jobs:
   # ---------------------------------------------------------------------------
   lint:
     name: Lint (ruff)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -57,7 +57,7 @@ jobs:
   # ---------------------------------------------------------------------------
   test:
     name: Test + coverage (full stack)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Only pay the heavy cost where it matters, not on every feature-branch push.
     if: >
       github.event_name == 'pull_request' ||
@@ -140,7 +140,7 @@ jobs:
   # ---------------------------------------------------------------------------
   mcp-check:
     name: MCP server import + tool registration
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
