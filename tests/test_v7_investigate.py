@@ -117,3 +117,16 @@ def test_cli_demo_toy(tmp_path, capsys, monkeypatch):
     assert verify_package(out / "evidence" / "investigation") == []
     with pytest.raises(FileExistsError):
         main(["demo", "--out", str(out), "--scorer", "toy", "--runs", "6"])
+
+
+def test_incident_with_subset_of_changes(tmp_path):
+    inc = demo_rag.make_incident(demo_rag.toy_scorer, ["template", "log_level"])
+    assert [f.name for f in inc.factors] == ["template", "log_level"]
+    assert "re-indexed" not in inc.description
+    assert "prompt template was edited" in inc.description
+    inv = investigate(inc, tmp_path, FAST)
+    assert all(not c.attributed for c in inv.findings)  # index stays full
+    with pytest.raises(ValueError):
+        demo_rag.make_incident(demo_rag.toy_scorer, [])
+    with pytest.raises(ValueError):
+        demo_rag.make_incident(demo_rag.toy_scorer, ["model"])

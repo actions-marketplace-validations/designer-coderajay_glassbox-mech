@@ -8,7 +8,8 @@ Tabs:
   2. Logit Lens         — residual stream projection by layer
   3. Attention Patterns — raw attention weight heatmap
   4. Compliance Report  — EU AI Act Annex IV explainability grade + bias check + plain English
-  5. About / Docs       — methodology, references, citation
+  5. Investigate        — V7: which of several changes altered the behaviour (needs glassbox.v7)
+  6. About / Docs       — methodology, references, citation
 
 v4.1.0: HessianErrorBounds (Pearlmutter 1994), CausalScrubbing (Anthropic 2022), DAS (Geiger 2023)
 v4.0.0: FoldedLayerNorm, BenjaminiHochberg FDR, PolysemanticityScorerSAE
@@ -1153,7 +1154,19 @@ with gr.Blocks(
                 outputs=[cr_report, cr_modelcard],
             )
 
-        # ── Tab 5: About ───────────────────────────────────────────────────────
+        # ── Tab 5: V7 investigation (needs glassbox with glassbox.v7) ─────────
+        with gr.Tab("🧪 Investigate a change"):
+            try:
+                from v7_investigation import build_tab as _build_v7_tab
+            except ImportError as _v7_exc:
+                gr.Markdown(
+                    "This tab needs a Glassbox release that includes `glassbox.v7` "
+                    f"(not in the installed version). Details: `{_v7_exc}`"
+                )
+            else:
+                _build_v7_tab(gr)
+
+        # ── Tab 6: About ───────────────────────────────────────────────────────
         with gr.Tab("📖 About"):
             gr.Markdown(ABOUT_MD)
 

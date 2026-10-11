@@ -22,7 +22,7 @@ import random
 import re
 from collections import Counter
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Sequence, Tuple
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
 from glassbox.v7.intervene import Factor, Runner
 from glassbox.v7.investigate import Incident
@@ -71,6 +71,13 @@ FACTORS = (
     Factor("template", base="context_first", candidate="question_first"),
     Factor("log_level", base="info", candidate="debug"),
 )
+
+BASE_CONFIG: Dict[str, Any] = {f.name: f.base for f in FACTORS}
+CHANGE_LABELS: Dict[str, str] = {
+    "index": "the knowledge base was re-indexed",
+    "template": "the prompt template was edited",
+    "log_level": "the log level was raised",
+}
 
 #: ``scorer(prompt, answer) -> log-probability-like score``.
 Scorer = Callable[[str, str], float]
@@ -171,6 +178,7 @@ def make_runner(case: str, margins: Callable[[str, str, str], float]) -> Runner:
     question, correct, distractor = QUESTIONS[case]
 
     def run(config: Dict[str, Any], seed: int, out: Path, run_id: str) -> Path:
+        config = {**BASE_CONFIG, **config}  # factors not under test stay at base
         hits = retrieve(question, config["index"])
         prompt = build_prompt(
             config["template"], [DOCUMENTS[d] for d, _ in hits], question
@@ -212,18 +220,33 @@ def answer_label(path: Path) -> str:
     return str(chat[0]["attributes"]["glassbox.answer.label"])
 
 
-def make_incident(scorer: Scorer) -> Incident:
-    """The demo incident with all 8 questions as test cases."""
+def make_incident(scorer: Scorer, changes: Optional[Sequence[str]] = None) -> Incident:
+    """The demo incident with all 8 questions as test cases.
+
+    Args:
+        scorer: ``toy_scorer`` or a :class:`GPT2Scorer`.
+        changes: Which factor names changed (default: all three). Factors not listed
+            stay at their base value and are not tested.
+
+    Raises:
+        ValueError: If ``changes`` is empty or names an unknown factor.
+    """
+    names = [f.name for f in FACTORS]
+    chosen = list(names if changes is None else changes)
+    unknown = sorted(set(chosen) - set(names))
+    if not chosen or unknown:
+        raise ValueError(f"choose one or more of {names}; got {chosen}")
+    factors = tuple(f for f in FACTORS if f.name in chosen)
     margins = _Margins(scorer)
     return Incident(
         name="RAG assistant answers got worse after a busy week",
         description=(
-            "In one week the knowledge base was re-indexed, the prompt template was "
-            "edited, and the log level was raised. Users report wrong answers. Each "
-            "test question is run repeatedly before and after, and with one change "
-            "at a time."
+            "In one week: "
+            + "; ".join(CHANGE_LABELS[f.name] for f in factors)
+            + ". Users report wrong answers. Each test question is run repeatedly "
+            "before and after, and with one change at a time."
         ),
-        factors=FACTORS,
+        factors=factors,
         cases=tuple(QUESTIONS),
         runner_for=lambda case: make_runner(case, margins),
         outcome=answer_label,
