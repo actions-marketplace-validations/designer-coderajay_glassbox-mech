@@ -93,3 +93,27 @@ def test_module_does_not_import_gradio_at_top_level():
         n.module for n in top if isinstance(n, ast.ImportFrom) and n.module
     }
     assert "gradio" not in names
+
+
+def test_model_load_failure_returns_readable_message(tab, monkeypatch):
+    def broken(kind):
+        raise ImportError("pyarrow requires NumPy 2.0 or newer, found 1.26.4")
+
+    monkeypatch.setattr(tab, "_scorer", broken)
+    report, archive = tab.run_investigation(
+        list(tab.CHANGES), 10, "GPT-2 small (real model)"
+    )
+    assert archive is None
+    assert "Could not load the model (ImportError" in report
+    assert "pyarrow==23.0.0" in report
+
+
+def test_evidence_package_records_toy_scorer(tab, tmp_path):
+    import json
+
+    _, archive = tab.run_investigation(list(tab.CHANGES), 10, TOY, tmp_path)
+    out = tmp_path / "unz"
+    with zipfile.ZipFile(archive) as zf:
+        zf.extractall(out)
+    prov = json.loads((out / "provenance.json").read_text())
+    assert "toy heuristic (NOT a language model)" in json.dumps(prov)

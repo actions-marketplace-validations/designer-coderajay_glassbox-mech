@@ -79,7 +79,17 @@ def run_investigation(
     if not 5 <= runs <= 100:
         return "Runs per configuration must be between 5 and 100.", None
     base = Path(workdir) if workdir else Path(tempfile.mkdtemp(prefix="glassbox_v7_"))
-    incident = demo_rag.make_incident(_scorer(SCORERS[scorer_label]), changes)
+    try:
+        scorer = _scorer(SCORERS[scorer_label])
+    except (ImportError, OSError, RuntimeError) as exc:
+        logger.exception("could not load the model")
+        return (
+            f"Could not load the model ({type(exc).__name__}: {exc}). "
+            "If this mentions pyarrow and NumPy, install the pinned stack: "
+            '`pip install "pyarrow==23.0.0" "datasets==4.5.0"`.',
+            None,
+        )
+    incident = demo_rag.make_incident(scorer, changes)
     settings = InterventionSettings(runs, 999, 0.05, SEED)
     inv = investigate(incident, base / "work", settings)
     pkg = inv.export_evidence(base / "evidence", "investigation")

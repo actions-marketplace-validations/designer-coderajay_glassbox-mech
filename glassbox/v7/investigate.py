@@ -140,6 +140,7 @@ class Investigation:
             artifacts=artifacts,
             provenance={
                 "incident": self.incident.name,
+                "incident_description": self.incident.description,
                 "settings": json.dumps(self.settings.__dict__, sort_keys=True),
                 "method_evidence": "ASSURANCE.md rows V2.9, V3.1, V3.3",
             },

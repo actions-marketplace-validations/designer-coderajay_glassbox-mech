@@ -130,3 +130,9 @@ def test_incident_with_subset_of_changes(tmp_path):
         demo_rag.make_incident(demo_rag.toy_scorer, [])
     with pytest.raises(ValueError):
         demo_rag.make_incident(demo_rag.toy_scorer, ["model"])
+
+
+def test_model_label_is_in_description():
+    inc = demo_rag.make_incident(demo_rag.toy_scorer)
+    assert "toy heuristic (NOT a language model)" in inc.description
+    assert demo_rag.model_label(lambda p, a: 0.0).startswith("custom scorer")

@@ -150,6 +150,15 @@ class GPT2Scorer:
         return float(sum(logp[n - 1 + i, a_tok[0, i]] for i in range(a_tok.shape[1])))
 
 
+def model_label(scorer: Scorer) -> str:
+    """Human-readable name of the scorer, recorded in every report and package."""
+    if scorer is toy_scorer:
+        return "toy heuristic (NOT a language model)"
+    if isinstance(scorer, GPT2Scorer):
+        return "GPT-2 small (via TransformerLens)"
+    return f"custom scorer {type(scorer).__name__}"
+
+
 def make_scorer(kind: str) -> Scorer:
     """``toy`` (heuristic, instant) or ``gpt2`` (GPT-2 small on CPU)."""
     if kind == "toy":
@@ -244,7 +253,8 @@ def make_incident(scorer: Scorer, changes: Optional[Sequence[str]] = None) -> In
             "In one week: "
             + "; ".join(CHANGE_LABELS[f.name] for f in factors)
             + ". Users report wrong answers. Each test question is run repeatedly "
-            "before and after, and with one change at a time."
+            "before and after, and with one change at a time. Model behind the "
+            f"assistant: {model_label(scorer)}."
         ),
         factors=factors,
         cases=tuple(QUESTIONS),
