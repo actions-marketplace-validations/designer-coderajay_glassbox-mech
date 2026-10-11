@@ -1,0 +1,12 @@
+{
+  "files": {
+    "README.md": "33abfe8360f12ced9881f27538a8cac96e180013b36ff18cdbdd8e995687b5f5",
+    "artifacts/code/run.py": "ec965553500af793025c4f14d5c8379160ddcb9912a4cd266ab4280b99e715a1",
+    "artifacts/measurements/RESULTS.md": "5a1b67baaae70d869839804124654dfad0c73f665910a99a8bbf6ef7e3921a3e",
+    "artifacts/measurements/results.json": "cd9dc38eeb21934af526c9db02d1aa55aba0d21688525cbe332811d5de206bdd",
+    "artifacts/protocol/PROTOCOL.md": "89fca5c7df0fd1e70dd3928f964a770db083d25ea628cfdd6480d52b6708dbdf",
+    "claim.json": "cbd95a5e281023010381c36d68a2b4006a0658b59cea14443181abb2f5ffca14",
+    "provenance.json": "ba61afeb788473620d4128290cea2e96564be8c035bc1469d46a3d9d8988b07c"
+  },
+  "schema": "glassbox.evidence/0.1"
+}
