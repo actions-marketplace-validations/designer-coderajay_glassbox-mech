@@ -1,156 +1,116 @@
-# Enterprise Onboarding — Glassbox AI v4.5.1
+# Deployment and Licensing Guide — Glassbox AI v4.5.1
 
-This guide is for engineering and compliance teams at EU-regulated organisations
-deploying AI in finance, healthcare, employment, or critical infrastructure.
+This guide is for engineering and compliance teams who want to run Glassbox on their own
+infrastructure. It covers installation, a first documentation draft, CI use, container use
+and licensing. It states what has been verified and what has not.
 
----
-
-## What you get
-
-- **Annex IV automation** — all 9 sections generated in under 2 seconds (§8, the EU Declaration of Conformity, is a provider-signed legal reference)
-- **Any-prompt support** — credit scoring, medical triage, HR screening, legal, dialogue
-- **Billion-parameter support** — gradient checkpointing + activation offload implemented for Llama-3-70B-class models; benchmark verification scheduled (verified today: GPT-2 family, GPT-Neo, Pythia, OPT — see README "Supported Models")
-- **CI/CD gate** — CircuitDiff detects model behaviour changes on every deployment
-- **Air-gapped deployment** — fully self-contained Docker image, no external calls
-- **Signed evidence vaults** — tamper-evident audit trail for regulators
+> **Not legal advice.** Glassbox drafts technical documentation from measured model
+> behaviour. It does not decide whether a system is high-risk, does not produce a
+> declaration of conformity (Article 47) or a notified-body certificate (Article 43), and
+> does not by itself make anyone compliant. Confirm classification and sufficiency with
+> qualified counsel.
 
 ---
 
-## Onboarding in 4 steps
+## What is available
 
-### Step 1 — Install
+| Capability | Status |
+|---|---|
+| Annex IV draft: 9-section structure, **8 sections auto-filled**, §8 (Declaration of Conformity) left for a human to sign | Released (PyPI 4.5.1) |
+| Circuit discovery and faithfulness metrics (suff / comp / F1, grade A–D) | Released; validated 82M → 12B across 9 architecture families (see `docs/VALIDATION_LOG.md`) |
+| Larger models (> ~13B) via gradient checkpointing and offload | Implemented, **not yet validated live** |
+| CircuitDiff (version-to-version circuit comparison) | Released |
+| Content-hashed reports and a SHA-256 hash-chained audit log | Released. Hashing supports integrity checks; it is **not** a digital signature. |
+| Container image for self-hosted scans (`scan.Dockerfile`) | Available; build it yourself |
+| AI-system investigation layer (`glassbox/v7/`) | In the repository, not yet in a PyPI release; research stage (see `ASSURANCE.md`) |
+
+There is currently **no hosted service, no SLA and no paid support plan**.
+
+---
+
+## 1. Install
 
 ```bash
-# Production install with compliance extras
-pip install "glassbox-mech-interp[compliance]>=4.3.0"
-
-# For large models (7B+)
-pip install "glassbox-mech-interp[compliance,large]>=4.3.0"
+pip install "glassbox-mech-interp[compliance]"
 ```
 
-### Step 2 — Run your first compliance audit
-
-Replace the example prompt with your actual production use case:
+## 2. Draft your first Annex IV document
 
 ```python
 from transformer_lens import HookedTransformer
 from glassbox import GlassboxV2
 from glassbox.compliance import AnnexIVReport, DeploymentContext
 
-# Load your model
-model = HookedTransformer.from_pretrained("your-model-name")
+model = HookedTransformer.from_pretrained("gpt2")   # your open-weight model
 gb    = GlassboxV2(model)
 
-# Run analysis — auto-selects best corruption strategy for your domain
 result = gb.analyze(
-    prompt    = "Your production prompt here",
+    prompt    = "Your decision prompt here",
     correct   = " expected_output_token",
-    incorrect = " wrong_output_token",
+    incorrect = " alternative_output_token",
 )
 
-# Generate Annex IV evidence package
 report = AnnexIVReport(
     model_name         = "YourModelV1",
-    system_purpose     = "Description of what your AI system does",
-    provider_name      = "Your Legal Entity Name",
-    provider_address   = "Your Registered Address",
-    deployment_context = DeploymentContext.FINANCIAL_SERVICES,  # or HEALTHCARE, EMPLOYMENT, etc.
+    system_purpose     = "What your AI system does",
+    provider_name      = "Your legal entity",
+    provider_address   = "Your registered address",
+    deployment_context = DeploymentContext.FINANCIAL_SERVICES,
 )
 report.add_analysis(result)
-report.to_pdf("annex_iv_report.pdf")   # hand this to your notified body
-report.to_json("annex_iv_report.json") # for regulator submission systems
+report.to_pdf("annex_iv_draft.pdf")    # review before adding to your technical file
+with open("annex_iv_draft.json", "w", encoding="utf-8") as f:
+    f.write(report.to_json())
 ```
 
-### Step 3 — Add to CI/CD (Article 72 post-market monitoring)
+Fields marked `[PROVIDER TO COMPLETE]` must be filled in by you. A low grade (C or D) means
+Glassbox could not find a faithful explanation; it does not certify the system either way.
 
-```yaml
-# .github/workflows/compliance.yml
-name: AI Act Compliance Gate
+## 3. CI use
 
-on:
-  push:
-    branches: [main]
+`action.yml` provides a GitHub Action that fails a build when the explainability grade
+falls below a threshold.
 
-jobs:
-  compliance:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: designer-coderajay/glassbox-mech@v4
-        with:
-          model:         your-model-name
-          prompt:        "Your production prompt"
-          correct:       " correct_token"
-          incorrect:     " wrong_token"
-          fail_below_f1: 0.40
-```
+> **Data warning.** By default the action calls the **public demo** on Hugging Face Spaces
+> (`api_url`). Do not send confidential or personal data to it. For real data, run your
+> own instance and set `api_url` to it.
 
-The action uploads a full Annex IV report as a build artifact on every commit.
-If faithfulness F1 drops below `fail_below_f1`, the CI job fails — alerting
-your team before the model goes to production.
-
-### Step 4 — Air-gapped / on-premises deployment
-
-For regulated environments where no external network calls are permitted:
+## 4. Container use
 
 ```bash
-# Build the standalone scan container
 git clone https://github.com/designer-coderajay/glassbox-mech
-docker build -f scan.Dockerfile -t glassbox-scan:4.3.0 .
+cd glassbox-mech
+docker build -f scan.Dockerfile -t glassbox-scan .
 
-# Export for air-gapped transfer
-docker save glassbox-scan:4.3.0 | gzip > glassbox-scan-4.3.0.tar.gz
-
-# On the air-gapped machine
-docker load < glassbox-scan-4.3.0.tar.gz
-
-# Run compliance scan
-docker run --rm -v $(pwd)/output:/output \
-    -v /path/to/your/model:/model \
-    glassbox-scan:4.3.0 \
-    --model-path /model \
-    --prompt "Your production prompt" \
+docker run --rm -v "$(pwd)/output:/output" glassbox-scan \
+    --model gpt2 \
+    --prompt "Your decision prompt" \
     --correct " correct_token" \
     --incorrect " wrong_token" \
     --purpose "Your system purpose" \
     --provider "Your organisation" \
-    --output /output/annex_iv.pdf
+    --output /output/annex_iv_draft.pdf
 ```
 
+**Offline / air-gapped use:** the container downloads model weights from Hugging Face
+unless they are already available. For an offline environment, pre-load the weights into
+the image or a mounted cache and set `HF_HUB_OFFLINE=1`. This setup has not been verified
+end-to-end by the maintainer; test it in your environment.
+
 ---
 
-## What the Annex IV report covers
+## Licensing
 
-| Section | EU AI Act Reference | Generated from |
+| Component | License | Your use |
 |---|---|---|
-| 1. General description | Art. 13(3)(a) | Model name, version, purpose, deployment context |
-| 2. Design & development | Art. 10, 11(1)(d) | Architecture metadata, training description |
-| 3. Monitoring & oversight | Art. 9(6), 14 | CircuitDiff configuration, oversight measures |
-| 4. Explainability assessment | Art. 13 | Circuit heads, faithfulness F1, grade A–F |
-| 5. Data requirements | Art. 10 | Data quality statement, bias probe results |
-| 6. Risk assessment | Art. 9 | Risk register entries, failure modes |
-| 7. Accuracy & robustness | Art. 15 | Task accuracy, confidence calibration |
-| 8. Post-market monitoring | Art. 72 | CircuitDiff baseline, alert configuration |
+| Interpretability core and everything not listed below | MIT | Free for any use |
+| Compliance engine (`compliance.py`, `circuit_diff.py`, `risk_register.py`, `bias.py`, `audit_log.py`, `cross_model.py`) and the investigation layer (`glassbox/v7/`, `dashboard/v7_investigation.py`) | BSL 1.1 | Free for non-production use and for production use inside your own organisation. A separate commercial license is needed to offer them to third parties as a compliance, governance, investigation, debugging or observability service or product. Each version converts to Apache-2.0 four years after first publication. |
+
+`NOTICE` is the authoritative file-by-file map; `LICENSE` and `LICENSE-COMMERCIAL` contain
+the license texts. Commercial license and design-partner enquiries:
+**mahale.ajay01@gmail.com**.
 
 ---
 
-## Pricing
-
-| Plan | Price | Audits | Features |
-|---|---|---|---|
-| **Open source** | Free (MIT) | Unlimited self-hosted | Full engine, all frameworks |
-| **Pro** | €499/month | 500 / month | Signed vaults, API, dashboard |
-| **Enterprise** | From €24,000/year | Unlimited | On-prem Docker, SLA, ISO 42001, NIST AI RMF, legal indemnification support |
-
-Contact: **mahale.ajay01@gmail.com**
-
----
-
-## Legal notice
-
-Glassbox-generated documentation aids preparation of technical files under EU AI Act
-Article 11. It is a documentation tool, not a legal certification. Whether your system
-qualifies as high-risk under Article 6/Annex III, and whether this documentation
-satisfies all applicable obligations, must be confirmed by qualified legal counsel
-and/or a notified body (Article 43).
-
-Non-compliance fine for documentation obligations: up to €15M or 3% of global annual turnover (Article 99(4)).
+Penalty context: documentation non-compliance under the EU AI Act can be fined up to
+€15M or 3% of global annual turnover (Article 99(4)).

@@ -26,6 +26,42 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   `pyproject.toml` gains the `License :: Other/Proprietary License` classifier.
   CONTRIBUTING.md explains how contributions to BSL files are licensed.
 
+### Changed — documentation audit (2026-10-11)
+
+- **Removed public commercial promises that no longer held:**
+  - prices, "launch before August 2026", the SLA and the legal-indemnification offer
+    (website, `ENTERPRISE.md`, USER_GUIDE);
+  - "signed" vaults: hashing is not a signature;
+  - offers to classify systems under Annex III.
+
+  The website's pricing section is replaced by a licensing summary, and the waitlist
+  becomes release updates.
+- **Toned down overclaims:**
+  - "regulator-ready", "works on any LLM", "the only/first tool", "Production-ready";
+  - grade labels that implied legal compliance;
+  - "peer-reviewed" for an arXiv preprint.
+
+  The PyPI classifier changes from Production/Stable to Beta.
+- **`ENTERPRISE.md` rewritten** as a deployment and licensing guide, with:
+  - correct container flags;
+  - an honest statement of the offline set-up;
+  - a data warning: the GitHub Action defaults to the public demo Space (also noted in
+    `action.yml`).
+- **Paper reference corrected in USER_GUIDE:** title, description and preprint status
+  now match arXiv:2603.09988. The unsupported "Submitted to ICML 2026" line is removed.
+- **Strategy documents moved out of the public repository** into a gitignored
+  `private/` folder: competitor analysis, the V8 business plan and the internal tooling
+  map. `.dockerignore` excludes private material, and `.vercelignore` stops superseded
+  page drafts from being served.
+- **New `docs/README.md`:** a documentation index with writing rules.
+- **Smaller fixes:**
+  - `SECURITY.md` supported versions are now 4.5.x;
+  - `METHODOLOGY.md` no longer calls itself "proprietary, all rights reserved"
+    (contradicting its MIT license);
+  - `LARGE_MODELS.md` states validation status;
+  - the privacy policy purpose now matches the form;
+  - the Impressum template is updated.
+
 ### Fixed — citations and README
 
 - The citation in NOTICE, README and CITATION.cff now matches the arXiv record

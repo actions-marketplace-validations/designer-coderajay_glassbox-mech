@@ -4,8 +4,8 @@
 
 # Glassbox 4.5.1
 
-**Open-source EU AI Act Annex IV compliance documentation toolkit. Works on any LLM.**
-**21 mathematical frameworks. ACDC + GQA/RMSNorm multi-arch + cross-model comparison. Production-ready.**
+**Causal circuit analysis, measured faithfulness and EU AI Act Annex IV documentation drafts for open-weight transformer models.**
+**Validated from 82M to 12B parameters across 9 architecture families. Closed APIs get a weaker black-box tier.**
 
 [![PyPI version](https://img.shields.io/pypi/v/glassbox-mech-interp?color=blue)](https://pypi.org/project/glassbox-mech-interp/)
 [![PyPI downloads](https://img.shields.io/pypi/dm/glassbox-mech-interp?color=blue&label=downloads%2Fmonth)](https://pypistats.org/packages/glassbox-mech-interp)
@@ -210,7 +210,7 @@ print(result["explainability_grade"])        # 'A' through 'F' per Annex IV Arti
 
 ### Step 4 — Generate the Annex IV evidence package
 
-One call generates a regulator-ready PDF + machine-readable JSON covering all 9 Annex IV sections (Section 8, the EU Declaration of Conformity per Article 47, is a provider-signed legal reference — see `docs/EU_AI_ACT_COMPLIANCE_GUIDE.md`):
+One call drafts a PDF + machine-readable JSON in the 9-section Annex IV structure; 8 sections are auto-filled (Section 8, the EU Declaration of Conformity per Article 47, is a provider-signed legal reference — see `docs/EU_AI_ACT_COMPLIANCE_GUIDE.md`):
 
 ```python
 from glassbox.compliance import AnnexIVReport, DeploymentContext
@@ -326,29 +326,25 @@ docker run --rm \
 
 ---
 
-### Step 7 — Present to your regulator or notified body
+### Step 7 — Add the evidence to your technical file
 
-The PDF output from Step 4 is structured to match the section headings regulators expect. What you hand to a notified body (Article 43 conformity assessment):
+The PDF output from Step 4 follows the Annex IV section structure. Files you can add to your own technical documentation, after your own review:
 
 1. `annex_iv_report.pdf` — primary documentation
 2. `annex_iv_report.json` — machine-readable evidence vault
 3. `baseline_circuit.json` — Article 72 monitoring baseline
 4. CI/CD logs showing the compliance gate passing on each deployment
 
-> **What Glassbox does not replace.** The Annex IV documentation package supports your technical file. It does not constitute: a conformity declaration (Article 47), a notified body certificate (Article 43), or a legal opinion on risk classification. These require qualified legal counsel. Glassbox dramatically reduces the time and cost to prepare the technical file — it does not eliminate the need for human review.
+> **What Glassbox does not replace.** The Annex IV documentation package supports your technical file. It does not constitute: a conformity declaration (Article 47), a notified body certificate (Article 43), or a legal opinion on risk classification. These require qualified legal counsel. Glassbox is designed to make preparing the technical file faster; it does not remove the need for human and legal review.
 
 ---
 
-### Enterprise support
+### Commercial licensing
 
-For organisations that need:
-- Air-gapped / on-premises deployment
-- Signed evidence vaults with audit log
-- Custom risk classification frameworks (ISO 42001, NIST AI RMF)
-- SLA and legal indemnification
-- Dedicated compliance engineering support
-
-Contact: **mahale.ajay01@gmail.com** | Enterprise pricing from **€24,000/year**
+The compliance engine and the investigation layer are licensed under BSL 1.1 (see
+[NOTICE](../NOTICE)). Use inside your own organisation is free. Offering them as a
+commercial service or product to third parties needs a separate license. Contact:
+**mahale.ajay01@gmail.com**.
 
 ---
 
@@ -566,7 +562,7 @@ bounds = hb.compute(
 print(bounds.summary_line())
 # Hessian [reliable ✓] | max_ratio=0.043 dominated=0/144 heads (threshold=0.2)
 
-print(bounds.approximation_reliable)   # True — first-order ranking is certified
+print(bounds.approximation_reliable)   # True — second-order terms are small for every head
 print(bounds.to_dict()["dominated_heads"])  # [] — no heads dominated by second-order terms
 ```
 
@@ -869,7 +865,7 @@ bias_suite = exporter.extract_bias_suite(model, layer=8)
 
 ### 3. AnnexIVEvidenceVault — Full Article 11 Documentation Package
 
-The only tool that assembles *all* interpretability findings — circuit analysis, bias tests, steering vectors, multi-agent audits, SAE features, stability scores — into a single machine-readable, regulation-mapped Annex IV evidence vault.
+Assembles interpretability findings — circuit analysis, bias tests, steering vectors, multi-agent audits, SAE features, stability scores — into a single machine-readable, regulation-mapped Annex IV evidence vault.
 
 ```python
 from glassbox import build_annex_iv_vault
@@ -2149,7 +2145,7 @@ z = atanh(r),   SE = 1/√(n−3),   Z = z/SE  ~  N(0,1)  under H₀: ρ = 0
 Reference values from Mahale (2026) / arXiv:2603.09988:
 `r = 0.009`, `S = 1.00`, `Comp = 0.47`, `F1 = 0.64` (full 26-head Wang et al. IOI circuit; the 6-head minimal circuit scores Comp 0.22 / F1 0.36, and the current build's default 1-head circuit scores Comp 0.543 / F1 0.704 / Grade B).
 Circuit coverage: **61.4%** of logit difference explained by 6 identified heads.
-Full results documented in [`BENCHMARKS.md § 8`](../BENCHMARKS.md#8-peer-reviewed-results--arxiv26039988).
+Full results documented in [`BENCHMARKS.md § 8`](../BENCHMARKS.md#8-paper-results--arxiv260309988-preprint).
 
 ---
 
@@ -2196,9 +2192,9 @@ Full mathematical details: [`MATH_FOUNDATIONS.md`](../MATH_FOUNDATIONS.md)
 
 ## Paper
 
-**[Glassbox: A Causal Mechanistic Interpretability Toolkit with Circuit Alignment Scoring](https://arxiv.org/abs/2603.09988)**
+**[Causally Grounded Mechanistic Interpretability for LLMs with Faithful Natural-Language Explanations](https://arxiv.org/abs/2603.09988)** (Mahale, 2026; arXiv preprint, not peer-reviewed).
 
-Introduces the **Functional Circuit Alignment Score (FCAS)**, automated Minimum Faithful Circuit (MFC) discovery, and bootstrap CIs on circuit faithfulness. Submitted to ICML 2026 Mechanistic Interpretability Workshop (deadline April 24, 2026).
+Identifies causally important attention heads by activation patching, generates template-based and LLM-based explanations, and evaluates their faithfulness with ERASER-style metrics adapted to circuits, on IOI in GPT-2 Small. Key finding: model confidence and explanation faithfulness are uncorrelated (r = 0.009).
 
 ---
 

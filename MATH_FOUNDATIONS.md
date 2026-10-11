@@ -306,10 +306,10 @@ Glassbox maps `F1_faith` to a letter grade via the following piecewise function:
 
 ```
 grade(F1) =
-  "A"  if  F1 ≥ 0.80    (Excellent — fully compliant)
-  "B"  if  0.65 ≤ F1 < 0.80  (Good — compliant with monitoring)
-  "C"  if  0.50 ≤ F1 < 0.65  (Marginal — conditional compliance)
-  "D"  if  F1 < 0.50    (Poor — non-compliant)
+  "A"  if  F1 ≥ 0.80    (Excellent faithfulness)
+  "B"  if  0.65 ≤ F1 < 0.80  (Good faithfulness)
+  "C"  if  0.50 ≤ F1 < 0.65  (Marginal faithfulness)
+  "D"  if  F1 < 0.50    (Poor faithfulness)
 ```
 
 **Threshold derivation:** The 0.65 boundary for Grade B (the minimum acceptable

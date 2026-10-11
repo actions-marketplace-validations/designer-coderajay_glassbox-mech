@@ -89,8 +89,7 @@ Glassbox is dual-licensed; [NOTICE](NOTICE) lists which files are under which li
 
 - **MIT files:** contributions are accepted under the MIT License.
 - **BSL 1.1 files** (the compliance engine, `glassbox/cross_model.py`, `glassbox/v7/` and
-  `dashboard/v7_investigation.py`): the maintainer also offers these files under separate
-  commercial licenses. Before a pull request that changes one of them can be merged, the
-  contributor must agree in writing that the maintainer may distribute the contribution
-  under both BSL 1.1 and commercial licenses. Open an issue first and we will send the
-  agreement.
+  `dashboard/v7_investigation.py`): pull requests that change these files are **not
+  accepted at present**. A contributor license agreement for them is being prepared.
+  Until it is published, please open an issue to report a bug or suggest a change, and
+  the maintainer will implement it.

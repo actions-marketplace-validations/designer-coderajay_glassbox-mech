@@ -2,13 +2,13 @@
 
 Status: **fill in before publishing.** This file lives outside `docs/`, so it is not served by
 the website. Once the fields below are filled, it becomes `docs/impressum.html` and is linked
-from the footer and from `docs/privacy.html` (which already points to `impressum.html`).
+from the footer and from `docs/privacy.html`.
 
-Why it is needed: the website offers paid plans (pricing section with Pro and Enterprise), so
-it is a business-like online service and falls under the provider-identification duty in
-§ 5 Digitale-Dienste-Gesetz (DDG, which replaced § 5 TMG in May 2024). A private hobby page
-would not need one; a page advertising paid plans does. This is not legal advice; if unsure,
-check with a lawyer or your chamber of commerce.
+Why it may be needed: as of 2026-10-11 the website no longer shows prices or paid plans,
+but it still offers commercial licenses and collects emails for release updates. Whether
+that makes it a "business-like" online service under § 5 Digitale-Dienste-Gesetz (DDG) is a
+legal question. If in doubt, publishing an Impressum is the safer choice. This is not legal
+advice; check with a lawyer or your chamber of commerce (IHK).
 
 Required fields (§ 5 DDG):
 

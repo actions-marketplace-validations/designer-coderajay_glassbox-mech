@@ -1,7 +1,9 @@
 # Glassbox v4.0 Roadmap — Foundational Mathematical Rigor
 
 > **From proof-of-concept to research-grade.**
-> This roadmap closes every mathematical gap identified against Anthropic, DeepMind, Stanford, MIT, and Meta interpretability standards. Each fix is grounded in a specific peer-reviewed paper and ships as a versioned, testable feature.
+> *Archived historical roadmap (superseded). Kept for provenance of code comments that cite it; it does not describe current status. See `ASSURANCE.md` for what is supported today.*
+>
+> This roadmap listed mathematical gaps relative to methods in the published interpretability literature. Each fix was grounded in a cited paper and planned as a versioned, testable feature.
 
 ---
 

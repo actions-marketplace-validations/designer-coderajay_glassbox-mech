@@ -7,7 +7,7 @@
 <meta name="description" content="Glassbox traces the exact circuit behind a model's decision, measures how faithful that explanation is, and writes the EU AI Act Annex IV documentation. One function call, on open-weight models.">
 <link rel="canonical" href="https://repo-ashen-psi.vercel.app">
 <meta property="og:title" content="Glassbox — prove what your model did">
-<meta property="og:description" content="Causal circuit discovery + measured faithfulness + regulator-ready EU AI Act Annex IV documentation, from one function call.">
+<meta property="og:description" content="Causal circuit discovery + measured faithfulness + draft EU AI Act Annex IV documentation, from one function call.">
 <meta property="og:url" content="https://repo-ashen-psi.vercel.app">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://repo-ashen-psi.vercel.app/assets/og-image.png">
@@ -346,7 +346,7 @@ footer .fcol a:hover{color:#fff}
     glassbox <span class="v">v4.5.1</span>
   </a>
   <div class="navlinks">
-    <a href="#method">Method</a><a href="#results">Results</a><a href="#compliance">Compliance</a><a href="#pricing">Pricing</a><a href="#models">Models</a>
+    <a href="#method">Method</a><a href="#results">Results</a><a href="#compliance">Compliance</a><a href="#pricing">Licensing</a><a href="#models">Models</a>
   </div>
   <div class="navcta">
     <a class="btn btn-ghost gh" id="ghlink" href="https://github.com/designer-coderajay/glassbox-mech">
@@ -358,7 +358,7 @@ footer .fcol a:hover{color:#fff}
   </div>
 </div>
 <div id="m-menu">
-  <a href="#method">Method</a><a href="#results">Results</a><a href="#compliance">Compliance</a><a href="#pricing">Pricing</a><a href="#models">Models</a><a href="https://huggingface.co/spaces/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool">Live demo</a>
+  <a href="#method">Method</a><a href="#results">Results</a><a href="#compliance">Compliance</a><a href="#pricing">Licensing</a><a href="#models">Models</a><a href="https://huggingface.co/spaces/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool">Live demo</a>
 </div>
 </nav>
 
@@ -491,7 +491,7 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
     <div class="steps reveal">
       <div class="step"><span class="sn">1</span><div><h4>Point it at a model</h4><p>Load any open-weight transformer. No fine-tuning, no labels, no setup.</p></div></div>
       <div class="step"><span class="sn">2</span><div><h4>Run one call</h4><p>It finds the circuit, verifies the counterfactual actually moved the decision, and scores how faithful the explanation is — then grades its own evidence tier.</p></div></div>
-      <div class="step"><span class="sn">3</span><div><h4>Get the vault</h4><p>A regulator-ready Annex IV record, content-hashed and ready to hand over.</p></div></div>
+      <div class="step"><span class="sn">3</span><div><h4>Get the vault</h4><p>A draft Annex IV record, content-hashed, for your own review and sign-off.</p></div></div>
     </div>
   </div>
 </div></section>
@@ -537,52 +537,49 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
 
 <section id="pricing"><div class="wrap">
   <div class="section-head reveal">
-    <span class="eyebrow">Pricing</span>
-    <h2 class="h">The core is free, forever.<br>Pay when compliance is on the line.</h2>
-    <p class="lead">Circuit discovery and faithfulness metrics stay MIT-licensed and open. Commercial plans cover the compliance engine, hosted infrastructure, and the guarantees an audit demands.</p>
+    <span class="eyebrow">Licensing</span>
+    <h2 class="h">The core is open.<br>Commercial use is licensed.</h2>
+    <p class="lead">Circuit discovery and faithfulness metrics are MIT-licensed. The compliance engine and the investigation layer are under the Business Source License 1.1: free inside your own organisation, licensed when offered to others.</p>
   </div>
   <div class="plans">
     <div class="plan reveal">
       <span class="pl">Open source</span>
-      <h3>Community</h3>
-      <div class="pp">€0 <small>forever</small></div>
+      <h3>MIT core</h3>
+      <div class="pp">Free</div>
       <p class="pd">For researchers and engineers exploring circuits.</p>
       <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Full circuit discovery — all 21 frameworks</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Faithfulness metrics &amp; CLI</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> MIT core · community support on GitHub</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Circuit discovery and faithfulness metrics</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> CLI and Python API</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Community support on GitHub</li>
       </ul>
       <a class="btn btn-ghost" href="https://pypi.org/project/glassbox-mech-interp/">pip install glassbox-mech-interp</a>
     </div>
     <div class="plan feat reveal">
-      <span class="pl">For teams shipping to the EU</span>
-      <h3>Pro</h3>
-      <div class="pp">€499 <small>/ month · launch pricing</small></div>
-      <p class="pd">Hosted audits and signed evidence, without running infrastructure.</p>
+      <span class="pl">Your own AI systems</span>
+      <h3>Internal use</h3>
+      <div class="pp">Free</div>
+      <p class="pd">BSL 1.1 components, used inside your own organisation.</p>
       <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hosted audit API — white-box and black-box</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Signed Annex IV vaults (PDF + JSON)</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> CircuitDiff CI gate for every deploy</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Email support, 2-business-day SLA</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Annex IV documentation drafts for your own systems</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Investigation of your own AI systems</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Each version becomes Apache-2.0 after four years</li>
       </ul>
-      <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
-      <div class="note">Launching before August 2026 · early members lock launch pricing</div>
+      <a class="btn btn-primary" href="https://github.com/designer-coderajay/glassbox-mech/blob/main/NOTICE">Read the license map</a>
     </div>
     <div class="plan reveal">
-      <span class="pl">Regulated industries</span>
-      <h3>Enterprise</h3>
-      <div class="pp">Custom</div>
-      <p class="pd">For banks, insurers, health and HR platforms under Annex III.</p>
+      <span class="pl">Offering it to others</span>
+      <h3>Commercial license</h3>
+      <div class="pp">On request</div>
+      <p class="pd">For products or services built on the BSL components.</p>
       <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> On-prem / air-gapped Docker deployment</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Tamper-evident audit log, SHA-256 chained</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Onboarding with your compliance team</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority support &amp; custom SLA</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Compliance, governance or investigation services</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Redistribution and hosted use</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Design-partner pilots by agreement</li>
       </ul>
-      <a class="btn btn-ghost" href="mailto:mahale.ajay01@gmail.com?subject=Glassbox%20Enterprise%20—%20walkthrough%20request&body=Company%3A%0AAI%20system%20%2F%20use%20case%3A%0ADeployment%20(cloud%20%2F%20on-prem)%3A%0A">Book a walkthrough</a>
+      <a class="btn btn-ghost" href="mailto:mahale.ajay01@gmail.com?subject=Glassbox%20commercial%20license">Contact</a>
     </div>
   </div>
-  <p class="disc">Pro launch pricing is introductory and may change at general availability; early waitlist members keep it. The open-source core (MIT) is never feature-gated — commercial plans add packaging, hosting, signing, and support, not capability.</p>
+  <p class="disc">This summary is not the license text; LICENSE, LICENSE-COMMERCIAL and NOTICE in the repository govern. No hosted service is offered at present.</p>
 </div></section>
 
 <section id="compare" class="alt"><div class="wrap">
@@ -682,12 +679,12 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
 
 <section class="ctaband" id="waitlist"><div class="wrap"><div class="inner">
   <div class="reveal">
-    <h2>Be audit-ready <span style="color:var(--clay)">before everyone else</span>.</h2>
-    <p class="p">The deadline may move; the work doesn't shrink. The open-source core is on PyPI today. <b>Pro</b> — hosted audits, signed vaults, and the CI gate — opens before enforcement. Waitlist members get onboarded first and keep launch pricing.</p>
-    <div class="orbook">Prefer to talk first? <a href="mailto:mahale.ajay01@gmail.com?subject=Glassbox%20—%20walkthrough%20request&body=Company%3A%0AAI%20system%20%2F%20use%20case%3A%0ATimeline%3A%0A">Book a 20-minute walkthrough</a> — we'll classify your system against Annex III and show a live audit on a comparable model.</div>
+    <h2>Stay in the loop <span style="color:var(--clay)">as Glassbox develops</span>.</h2>
+    <p class="p">The open-source core is on PyPI today. Leave your email to hear about releases and design-partner pilots. No hosted service, price or launch date is promised.</p>
+    <div class="orbook">Prefer to talk first? <a href="mailto:mahale.ajay01@gmail.com?subject=Glassbox%20—%20question">Email the author</a>. Glassbox does not give legal advice or classify systems under the AI Act.</div>
   </div>
   <div class="cbox reveal">
-    <h3>Join the Pro waitlist</h3>
+    <h3>Get release updates</h3>
     <form class="wlform" id="wlform" novalidate>
       <input type="email" id="wlemail" name="email" placeholder="work email" autocomplete="email" required aria-label="Work email">
       <button class="btn btn-primary" type="submit" id="wlbtn">Request access</button>
@@ -699,7 +696,7 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
 <section id="privacy" style="padding:clamp(40px,5vw,64px) 0;border-top:1px solid var(--line)"><div class="wrap">
   <span class="eyebrow">Privacy notice</span>
   <p style="font-size:13.5px;color:var(--ink-3);max-width:80ch;line-height:1.7;margin-top:8px">
-    The waitlist form collects your email address (and anything you choose to add) so we can contact you about Glassbox access and onboarding — that's the only purpose. Data controller: Ajay Pravin Mahale (contact: mahale.ajay01@gmail.com). Processing happens on Vercel (hosting), Resend (email delivery) and, if enabled, Upstash (storage), acting as processors. We don't sell or share your address, don't use it for third-party marketing, and delete it on request or once it's no longer needed. You can ask for access, correction, or deletion at any time by emailing the address above (GDPR Arts. 15–17). This site sets no cookies and loads no third-party fonts or trackers. <a href="privacy.html">Full privacy policy</a>.
+    The waitlist form collects your email address (and anything you choose to add) so we can send you Glassbox release updates and, if you ask, information about pilots — that's the only purpose. Data controller: Ajay Pravin Mahale (contact: mahale.ajay01@gmail.com). Processing happens on Vercel (hosting), Resend (email delivery) and, if enabled, Upstash (storage), acting as processors. We don't sell or share your address, don't use it for third-party marketing, and delete it on request or once it's no longer needed. You can ask for access, correction, or deletion at any time by emailing the address above (GDPR Arts. 15–17). This site sets no cookies and loads no third-party fonts or trackers. <a href="privacy.html">Full privacy policy</a>.
   </p>
 </div></section>
 
@@ -712,7 +709,7 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
     <div class="fcol"><h5>Product</h5>
       <a href="https://pypi.org/project/glassbox-mech-interp/">PyPI package</a>
       <a href="https://huggingface.co/spaces/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool">Live demo</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#pricing">Licensing</a>
       <a href="#how">How it works</a>
     </div>
     <div class="fcol"><h5>For engineers</h5>
@@ -723,7 +720,7 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
     <div class="fcol"><h5>For compliance</h5>
       <a href="#compliance">Annex IV</a>
       <a href="#compare">How it compares</a>
-      <a href="#waitlist">Book a walkthrough</a>
+      <a href="#waitlist">Release updates</a>
     </div>
     <div class="fcol"><h5>Research</h5>
       <a href="https://arxiv.org/abs/2603.09988">Paper</a>
@@ -819,7 +816,7 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
     var email=(wle.value||'').trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){wlm.textContent='Please enter a valid work email.';wlm.className='wlmsg err';return;}
     wlb.disabled=true;wlm.textContent='Submitting…';wlm.className='wlmsg';
-    fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,plan:'pro'})})
+    fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,plan:'updates'})})
       .then(function(r){return r.json();})
       .then(function(d){
         if(d&&d.success){wlm.textContent=d.message||"You're on the list — we'll reach out before August.";wlm.className='wlmsg';wle.value='';}

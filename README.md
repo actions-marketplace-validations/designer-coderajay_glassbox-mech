@@ -49,8 +49,8 @@ No install? Try the **[live demo on Hugging Face](https://huggingface.co/spaces/
 To use the investigation layer, install from source:
 
 ```bash
-git clone https://github.com/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool.git
-cd Glassbox-AI-2.0-Mechanistic-Interpretability-tool
+git clone https://github.com/designer-coderajay/glassbox-mech.git
+cd glassbox-mech
 pip install -e ".[dev]"
 ```
 

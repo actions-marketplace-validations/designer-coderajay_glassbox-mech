@@ -1,6 +1,6 @@
-# How to Get Your EU AI Act Annex IV Compliance Proof
+# Drafting EU AI Act Annex IV Technical Documentation with Glassbox
 
-**A 7-step guide — from `pip install` to a regulator-ready evidence package in under 2 seconds.**
+**A 7-step guide — from `pip install` to a draft Annex IV evidence package, for your own review.**
 
 > **Scope & disclaimer.** Glassbox generates the *technical* portion of Annex IV documentation from a model's internal circuits. It is engineering tooling, not legal advice. Whether a specific system is "high-risk," and whether machine-generated documentation satisfies a given national authority or notified body, is a legal determination you should confirm with qualified counsel. Article references below point to the EU AI Act (Regulation (EU) 2024/1689) for orientation, not as legal opinion.
 

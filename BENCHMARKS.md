@@ -146,7 +146,7 @@ dominated by JSON serialisation.
 
 ---
 
-## 8. Peer-Reviewed Results — arXiv:2603.09988
+## 8. Paper Results — arXiv:2603.09988 (preprint)
 
 The following figures are the **primary source of truth** for Glassbox's faithfulness
 claims. They come directly from the MSc research paper:

@@ -8,7 +8,7 @@ branding:
 
 inputs:
   api_url:
-    description: 'Glassbox API endpoint. Use the public hosted API or your self-hosted instance.'
+    description: 'Glassbox API endpoint. Defaults to the public demo Space: do not send confidential or personal data to it. For real data, use your self-hosted instance.'
     required: false
     default: 'https://designer-coderajay-glassbox-ai-2-0-mechanistic-interpretability-tool.hf.space'
 

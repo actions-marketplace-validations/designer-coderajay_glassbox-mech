@@ -96,3 +96,12 @@ logs/
 
 # Reports (generated at runtime, stored in volumes)
 reports/
+
+# Private strategy and business documents — never in an image
+private/
+GTM/
+*.docx
+*.pdf
+INTERVIEW_PREP*
+STRATEGY_*
+AUDIT_REPORT_*

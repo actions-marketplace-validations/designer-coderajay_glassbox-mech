@@ -98,7 +98,7 @@ jobs:
           # Glassbox AI — EU AI Act Annex IV Compliance
 
           Mechanistic interpretability + EU AI Act Annex IV compliance toolkit.
-          One function call generates a regulation-mapped evidence package for any LLM.
+          One function call drafts a regulation-mapped evidence package for open-weight transformer models.
 
           **Version**: 4.5.1 (GitHub @ ${SHORT_SHA})
 

@@ -1,11 +1,11 @@
-# Glassbox AI — Proprietary Methodology
+# Glassbox AI — Methodology
 
 **Author:** Ajay Pravin Mahale (`mahale.ajay01@gmail.com`)
 **Version documented:** 4.2.6
 **Date:** 2026-04-02
-**Status:** Proprietary — All rights reserved
+**Status:** Public documentation (licensed under MIT, see `NOTICE`). The methods described are publicly disclosed prior art (see `PATENTS.md`). Version-specific details may be outdated; `ASSURANCE.md` and `BENCHMARKS.md` hold current status and numbers.
 
-> This document describes the intellectual property embodied in the Glassbox AI
+> This document describes the design of the Glassbox AI
 > system: the specific architectural decisions, mathematical formulations, and
 > legal-technical translation logic that constitute the novel contribution of
 > this work. It is intended to support due diligence, prior-art reference, and
@@ -177,7 +177,7 @@ lead to discrimination."
 
 A steering vector extracted via Representation Engineering (Zou et al. 2023)
 constitutes a "technical measure to address risks" under Article 9(2)(b).
-Glassbox is the first tool to formalise this connection: by exporting the
+Glassbox formalises this connection: by exporting the
 vector with provenance metadata (layer, method, n_contrast_pairs, timestamp)
 and a quantified suppression test result, the vector becomes a documented
 and auditable risk mitigation measure rather than an ad-hoc patch.

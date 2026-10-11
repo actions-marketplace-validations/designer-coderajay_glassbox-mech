@@ -1,7 +1,11 @@
-# Large Model Support — Glassbox AI v4.3.1
+# Large Model Support
 
-Complete guide for running Glassbox circuit analysis on billion-parameter models:
-Llama-3-70B, Mistral-7B, Gemma-7B, Phi-3, Qwen2, and any HuggingFace transformer.
+> **Status (2026-10-11):** circuit analysis is validated end-to-end from 82M to 12B parameters
+> across 9 architecture families (`docs/VALIDATION_LOG.md`). Above about 13B (for example
+> Llama-3-70B) the memory-saving paths below are implemented but **not yet validated live**.
+
+Guide for running Glassbox circuit analysis on larger models such as Mistral-7B, Gemma,
+Phi-3 and Qwen2, and the experimental path for 70B-class models.
 
 ---
 

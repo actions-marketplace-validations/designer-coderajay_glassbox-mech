@@ -7,7 +7,7 @@ date-released: "2026-06-27"
 license:
   - MIT
   - BUSL-1.1
-repository-code: "https://github.com/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool"
+repository-code: "https://github.com/designer-coderajay/glassbox-mech"
 url: "https://repo-ashen-psi.vercel.app"
 authors:
   - family-names: Mahale
