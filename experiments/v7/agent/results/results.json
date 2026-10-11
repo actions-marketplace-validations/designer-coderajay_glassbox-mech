@@ -1,0 +1,391 @@
+{
+ "protocol": "experiments/v7/agent/PROTOCOL.md v1.0",
+ "model": "Qwen/Qwen2.5-0.5B",
+ "settings": {
+  "n_per_cell": 30,
+  "n_perm": 999,
+  "alpha": 0.05,
+  "temperature": 1.0,
+  "max_decisions": 4,
+  "p_timeout": 0.5,
+  "distinct_prompts_scored": 464,
+  "traces_committed": false
+ },
+ "criteria": {
+  "G1_sensitivity": {
+   "applicable": false,
+   "large_pairs": 0,
+   "attributed": 0,
+   "pass": false
+  },
+  "G2_specificity": {
+   "log_level_attributed": 0,
+   "pass": true
+  },
+  "G3_trace_fidelity": {
+   "cases_ok": 4,
+   "pass": true
+  },
+  "G4_determinism": {
+   "max_abs_diff": 0.0,
+   "pass": true
+  },
+  "G5_exact_vs_observed": {
+   "cases_ok": 4,
+   "pass": true
+  }
+ },
+ "overall": "INCONCLUSIVE",
+ "per_case": {
+  "c1": {
+   "exact_baseline": {
+    "0": 0.993743609096981,
+    "1": 0.0007020798472014724,
+    "2+": 0.0055543110558175755
+   },
+   "exact_candidate": {
+    "0": 0.9989909567942873,
+    "1": 8.150252746290282e-06,
+    "2+": 0.0010008929529664395
+   },
+   "pairs": {
+    "system_prompt": {
+     "true_tvd": 0.005238,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "tool_format": {
+     "true_tvd": 2.2e-05,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "framework_retry": {
+     "true_tvd": 0.000306,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "log_level": {
+     "true_tvd": 0.0,
+     "class": "zero",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    }
+   },
+   "necessity_significant": [],
+   "cell_counts": {
+    "baseline": {
+     "0": 30
+    },
+    "candidate": {
+     "0": 30
+    },
+    "only_system_prompt": {
+     "0": 30
+    },
+    "all_but_system_prompt": {
+     "0": 30
+    },
+    "only_tool_format": {
+     "0": 30
+    },
+    "all_but_tool_format": {
+     "0": 30
+    },
+    "only_framework_retry": {
+     "0": 30
+    },
+    "all_but_framework_retry": {
+     "0": 30
+    },
+    "only_log_level": {
+     "0": 30
+    },
+    "all_but_log_level": {
+     "0": 30
+    }
+   },
+   "fidelity_ok": true,
+   "runs_checked": 300,
+   "gof_p": 0.9999999999999978,
+   "group_diff": {
+    "first_beyond_noise": [
+     "chat#0",
+     "glassbox.content.gen_ai.input.messages.sha256"
+    ],
+    "flagged_steps": [
+     "chat#0"
+    ]
+   }
+  },
+  "c2": {
+   "exact_baseline": {
+    "0": 0.9940112296538774,
+    "1": 0.0007032468321040365,
+    "2+": 0.0052855235140185
+   },
+   "exact_candidate": {
+    "0": 0.9991017592028371,
+    "1": 8.004804277940071e-06,
+    "2+": 0.0008902359928849222
+   },
+   "pairs": {
+    "system_prompt": {
+     "true_tvd": 0.005089,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "tool_format": {
+     "true_tvd": 3e-05,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "framework_retry": {
+     "true_tvd": 0.000298,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "log_level": {
+     "true_tvd": 0.0,
+     "class": "zero",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    }
+   },
+   "necessity_significant": [],
+   "cell_counts": {
+    "baseline": {
+     "0": 30
+    },
+    "candidate": {
+     "0": 30
+    },
+    "only_system_prompt": {
+     "0": 30
+    },
+    "all_but_system_prompt": {
+     "0": 30
+    },
+    "only_tool_format": {
+     "0": 30
+    },
+    "all_but_tool_format": {
+     "0": 30
+    },
+    "only_framework_retry": {
+     "0": 30
+    },
+    "all_but_framework_retry": {
+     "0": 30
+    },
+    "only_log_level": {
+     "0": 30
+    },
+    "all_but_log_level": {
+     "0": 30
+    }
+   },
+   "fidelity_ok": true,
+   "runs_checked": 300,
+   "gof_p": 1.0,
+   "group_diff": {
+    "first_beyond_noise": [
+     "chat#0",
+     "glassbox.content.gen_ai.input.messages.sha256"
+    ],
+    "flagged_steps": [
+     "chat#0"
+    ]
+   }
+  },
+  "c3": {
+   "exact_baseline": {
+    "0": 0.9920252620072121,
+    "1": 0.0008002024706234565,
+    "2+": 0.007174535522164443
+   },
+   "exact_candidate": {
+    "0": 0.9987795125372225,
+    "1": 8.9041501719599e-06,
+    "2+": 0.001211583312605397
+   },
+   "pairs": {
+    "system_prompt": {
+     "true_tvd": 0.00674,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "tool_format": {
+     "true_tvd": 3e-05,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "framework_retry": {
+     "true_tvd": 0.000359,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "log_level": {
+     "true_tvd": 0.0,
+     "class": "zero",
+     "observed_tvd": 0.033333,
+     "p_value": 1.0,
+     "attributed": false
+    }
+   },
+   "necessity_significant": [],
+   "cell_counts": {
+    "baseline": {
+     "0": 30
+    },
+    "candidate": {
+     "0": 30
+    },
+    "only_system_prompt": {
+     "0": 30
+    },
+    "all_but_system_prompt": {
+     "0": 30
+    },
+    "only_tool_format": {
+     "0": 30
+    },
+    "all_but_tool_format": {
+     "0": 30
+    },
+    "only_framework_retry": {
+     "0": 30
+    },
+    "all_but_framework_retry": {
+     "0": 30
+    },
+    "only_log_level": {
+     "0": 29,
+     "1": 1
+    },
+    "all_but_log_level": {
+     "0": 30
+    }
+   },
+   "fidelity_ok": true,
+   "runs_checked": 300,
+   "gof_p": 0.9999999999999996,
+   "group_diff": {
+    "first_beyond_noise": [
+     "chat#0",
+     "glassbox.content.gen_ai.input.messages.sha256"
+    ],
+    "flagged_steps": [
+     "chat#0"
+    ]
+   }
+  },
+  "c4": {
+   "exact_baseline": {
+    "0": 0.9938146197100626,
+    "1": 0.0007341582033420096,
+    "2+": 0.005451222086595434
+   },
+   "exact_candidate": {
+    "0": 0.9990356071633761,
+    "1": 8.245923153528492e-06,
+    "2+": 0.000956146913470407
+   },
+   "pairs": {
+    "system_prompt": {
+     "true_tvd": 0.005219,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "tool_format": {
+     "true_tvd": 2.2e-05,
+     "class": "small",
+     "observed_tvd": 0.033333,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "framework_retry": {
+     "true_tvd": 0.000316,
+     "class": "small",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "log_level": {
+     "true_tvd": 0.0,
+     "class": "zero",
+     "observed_tvd": 0.0,
+     "p_value": 1.0,
+     "attributed": false
+    }
+   },
+   "necessity_significant": [],
+   "cell_counts": {
+    "baseline": {
+     "0": 30
+    },
+    "candidate": {
+     "0": 30
+    },
+    "only_system_prompt": {
+     "0": 30
+    },
+    "all_but_system_prompt": {
+     "0": 30
+    },
+    "only_tool_format": {
+     "0": 29,
+     "2+": 1
+    },
+    "all_but_tool_format": {
+     "0": 30
+    },
+    "only_framework_retry": {
+     "0": 30
+    },
+    "all_but_framework_retry": {
+     "0": 30
+    },
+    "only_log_level": {
+     "0": 30
+    },
+    "all_but_log_level": {
+     "0": 30
+    }
+   },
+   "fidelity_ok": true,
+   "runs_checked": 300,
+   "gof_p": 1.0,
+   "group_diff": {
+    "first_beyond_noise": [
+     "chat#0",
+     "glassbox.content.gen_ai.input.messages.sha256"
+    ],
+    "flagged_steps": [
+     "chat#0"
+    ]
+   }
+  }
+ }
+}
