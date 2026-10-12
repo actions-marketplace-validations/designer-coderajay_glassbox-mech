@@ -1,0 +1,9 @@
+{
+  "claim": "Traces written by independent instrumentation (OpenInference on the OpenTelemetry SDK) for a different framework (LlamaIndex), exported as OTLP JSON, were imported losslessly (32/32) into the common Glassbox representation, and the unchanged diff engine reached Experiment 1's conclusions on the same stale-index fault: localisation 4/4, specificity 4/4, recovery 8/8, determinism 8/8. Glassbox traces exported to OTLP JSON passed the official OTLP protobuf schema (32/32).",
+  "created_utc": "2026-10-12T18:08:28+00:00",
+  "integrity_note": "Integrity is not truth: a verifying manifest shows these files are unchanged since packaging; it does not show the experiment or the claim is correct.",
+  "package_id": "v7-exp8-cross-stack",
+  "schema": "glassbox.evidence/0.1",
+  "scope": "Pre-registered (protocol 5a5d2da, addenda 7fcc028 including a disclosed toy-corpus code smoke test, code 226a4eb). Stack B is retrieval only (no LLM call), deterministic, one framework, one injected fault, pipeline and corpus written by the author, cause known by construction. The schema check uses opentelemetry-proto 1.45.1 and is not a test against a live OTLP collector. Single author, not independently reproduced.",
+  "status": "EXPERIMENTALLY_SUPPORTED"
+}

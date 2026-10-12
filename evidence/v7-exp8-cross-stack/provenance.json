@@ -1,0 +1,12 @@
+{
+  "addenda_commit": "7fcc028",
+  "assurance_row": "V2.10",
+  "code_commit": "226a4eb",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "protocol_commit": "5a5d2da",
+  "python": "3.11.9",
+  "related_assurance_row": "V1.2 (schema check)",
+  "results_commit": "3f99b2b",
+  "stack_b": "llama-index-core 0.14.19, openinference-instrumentation-llama-index 4.6.0, opentelemetry-sdk 1.45.1",
+  "writeup_commit": "42b4f38"
+}

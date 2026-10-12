@@ -1,0 +1,76 @@
+{
+ "protocol": "experiments/v7/cross_stack/PROTOCOL.md v1.0 (5a5d2da)",
+ "criteria": {
+  "S1": {
+   "value": "32/32",
+   "pass": true,
+   "problems": []
+  },
+  "S2": {
+   "value": "4/4",
+   "pass": true
+  },
+  "S3": {
+   "value": "4/4",
+   "pass": true
+  },
+  "S4": {
+   "value": "8/8",
+   "pass": true
+  },
+  "S5": {
+   "value": "8/8",
+   "pass": true
+  },
+  "S6": {
+   "value": "now d00da8d53bcd442dcf58fe5eed0acebdb64c11390aeb2a5c23599cb19480227d / protocol d00da8d53bcd442dcf58fe5eed0acebdb64c11390aeb2a5c23599cb19480227d",
+   "pass": true
+  },
+  "S7": {
+   "value": "32/32",
+   "pass": true,
+   "problems": []
+  }
+ },
+ "overall": "PASS",
+ "descriptive": {
+  "D1_span_names_kinds": {
+   "BowEmbedding._get_query_embedding [EMBEDDING]": 32,
+   "BowEmbedding.get_query_embedding [EMBEDDING]": 32,
+   "VectorIndexRetriever._retrieve [RETRIEVER]": 32,
+   "VectorIndexRetriever.retrieve [RETRIEVER]": 32
+  },
+  "D2_vectors_dropped": 32,
+  "D3_same_document_as_stack_A": "32/32"
+ },
+ "stack_b_env": {
+  "python": "3.11.9",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "packages": {
+   "llama-index-core": {
+    "version": "0.14.19",
+    "license": "MIT"
+   },
+   "openinference-instrumentation-llama-index": {
+    "version": "4.6.0",
+    "license": "Apache-2.0"
+   },
+   "opentelemetry-sdk": {
+    "version": "1.45.1",
+    "license": "Apache-2.0"
+   },
+   "opentelemetry-exporter-otlp-proto-common": {
+    "version": "1.45.1",
+    "license": "Apache-2.0"
+   },
+   "opentelemetry-proto": {
+    "version": "1.45.1",
+    "license": "Apache-2.0"
+   },
+   "protobuf": {
+    "version": "7.36.2",
+    "license": "3-Clause BSD License"
+   }
+  }
+ }
+}

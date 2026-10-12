@@ -1,0 +1,379 @@
+{
+ "resourceSpans": [
+  {
+   "resource": {
+    "attributes": [
+     {
+      "key": "telemetry.sdk.language",
+      "value": {
+       "stringValue": "python"
+      }
+     },
+     {
+      "key": "telemetry.sdk.name",
+      "value": {
+       "stringValue": "opentelemetry"
+      }
+     },
+     {
+      "key": "telemetry.sdk.version",
+      "value": {
+       "stringValue": "1.45.1"
+      }
+     },
+     {
+      "key": "service.instance.id",
+      "value": {
+       "stringValue": "402e3a3a-08a5-48d6-8103-8e3c9f5dd3d2"
+      }
+     },
+     {
+      "key": "service.name",
+      "value": {
+       "stringValue": "glassbox-exp8-stack-b"
+      }
+     }
+    ]
+   },
+   "scopeSpans": [
+    {
+     "scope": {
+      "name": "openinference.instrumentation.llama_index",
+      "version": "4.6.0"
+     },
+     "spans": [
+      {
+       "traceId": "5A5r/1/gmBKnxwxRuNc0yg==",
+       "spanId": "2gYyTX7kFl0=",
+       "parentSpanId": "qfLuMSKKgD4=",
+       "name": "BowEmbedding._get_query_embedding",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126534780000",
+       "endTimeUnixNano": "1791828126534878000",
+       "attributes": [
+        {
+         "key": "embedding.model_name",
+         "value": {
+          "stringValue": "glassbox-bow"
+         }
+        },
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query\": \"In which city is the Vellmar research lab located?\"}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "EMBEDDING"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "5A5r/1/gmBKnxwxRuNc0yg==",
+       "spanId": "qfLuMSKKgD4=",
+       "parentSpanId": "wlRQAfw1LbU=",
+       "name": "BowEmbedding.get_query_embedding",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126534666000",
+       "endTimeUnixNano": "1791828126534952000",
+       "attributes": [
+        {
+         "key": "embedding.model_name",
+         "value": {
+          "stringValue": "glassbox-bow"
+         }
+        },
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query\": \"In which city is the Vellmar research lab located?\"}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "embedding.embeddings.0.embedding.text",
+         "value": {
+          "stringValue": "In which city is the Vellmar research lab located?"
+         }
+        },
+        {
+         "key": "embedding.embeddings.0.embedding.vector",
+         "value": {
+          "arrayValue": {
+           "values": [
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            }
+           ]
+          }
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "EMBEDDING"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "5A5r/1/gmBKnxwxRuNc0yg==",
+       "spanId": "wlRQAfw1LbU=",
+       "parentSpanId": "snW1yvkLqXU=",
+       "name": "VectorIndexRetriever._retrieve",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126534559000",
+       "endTimeUnixNano": "1791828126535083000",
+       "attributes": [
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query_bundle\": {\"query_str\": \"In which city is the Vellmar research lab located?\", \"image_path\": null, \"custom_embedding_strs\": null, \"embedding\": null}}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "output.value",
+         "value": {
+          "stringValue": "[\"<NodeWithScore(node=TextNode(id_=d2), score=0.912870929175277)>\"]"
+         }
+        },
+        {
+         "key": "output.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "RETRIEVER"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "5A5r/1/gmBKnxwxRuNc0yg==",
+       "spanId": "snW1yvkLqXU=",
+       "name": "VectorIndexRetriever.retrieve",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126534446000",
+       "endTimeUnixNano": "1791828126535174000",
+       "attributes": [
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "In which city is the Vellmar research lab located?"
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.id",
+         "value": {
+          "stringValue": "d2"
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.content",
+         "value": {
+          "stringValue": "The Vellmar research lab is located in the city of Oberstadt."
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.score",
+         "value": {
+          "doubleValue": 0.912870929175277
+         }
+        },
+        {
+         "key": "output.value",
+         "value": {
+          "stringValue": "[\"<NodeWithScore(node=TextNode(id_=d2), score=0.912870929175277)>\"]"
+         }
+        },
+        {
+         "key": "output.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "RETRIEVER"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

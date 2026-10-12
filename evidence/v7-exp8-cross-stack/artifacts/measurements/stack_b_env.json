@@ -1,0 +1,30 @@
+{
+ "python": "3.11.9",
+ "platform": "macOS-27.0.1-arm64-arm-64bit",
+ "packages": {
+  "llama-index-core": {
+   "version": "0.14.19",
+   "license": "MIT"
+  },
+  "openinference-instrumentation-llama-index": {
+   "version": "4.6.0",
+   "license": "Apache-2.0"
+  },
+  "opentelemetry-sdk": {
+   "version": "1.45.1",
+   "license": "Apache-2.0"
+  },
+  "opentelemetry-exporter-otlp-proto-common": {
+   "version": "1.45.1",
+   "license": "Apache-2.0"
+  },
+  "opentelemetry-proto": {
+   "version": "1.45.1",
+   "license": "Apache-2.0"
+  },
+  "protobuf": {
+   "version": "7.36.2",
+   "license": "3-Clause BSD License"
+  }
+ }
+}

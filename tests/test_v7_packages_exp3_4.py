@@ -1,4 +1,4 @@
-"""Evidence packages for V7 Experiments 3, 3b, 4, 5, 6 and 7b build and verify.
+"""Evidence packages for V7 Experiments 3, 3b, 4, 5, 6, 7b and 8 build and verify.
 
 Each package must carry the ASSURANCE status of its row, so a REFUTED result is never
 repackaged as supported.
@@ -35,6 +35,7 @@ CASES = [
     ),
     ("cross_model", "v7-exp6-cross-model", "EXPERIMENTALLY_SUPPORTED", "V3.6"),
     ("agent_b", "v7-exp7b-agent", "EXPERIMENTALLY_SUPPORTED", "V3.8"),
+    ("cross_stack", "v7-exp8-cross-stack", "EXPERIMENTALLY_SUPPORTED", "V2.10"),
 ]
 
 
@@ -96,3 +97,15 @@ def test_exp7b_package_carries_both_runs_and_numeric_check(tmp_path):
         assert required in names
     assert "not reproduced bit-identically" in mod.SCOPE
     assert "stopped sending" in mod.SCOPE
+
+
+def test_exp8_package_carries_otlp_imported_and_schema_check(tmp_path):
+    mod = _load("cross_stack")
+    pkg = build_package(tmp_path, mod.PACKAGE_ID, mod.spec())
+    arts = pkg / "artifacts"
+    assert len(list(arts.glob("otlp_*/*.otlp.json"))) == 32
+    assert len(list(arts.glob("imported_*/*.trace.jsonl"))) == 32
+    names = {p.name for p in arts.rglob("*") if p.is_file()}
+    for required in ("schema_check.json", "stack_b_env.json", "otlp.py", "subject.py"):
+        assert required in names
+    assert "retrieval only" in mod.SCOPE and "live OTLP collector" in mod.SCOPE
