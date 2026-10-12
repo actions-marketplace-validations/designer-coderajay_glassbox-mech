@@ -1,0 +1,379 @@
+{
+ "resourceSpans": [
+  {
+   "resource": {
+    "attributes": [
+     {
+      "key": "telemetry.sdk.language",
+      "value": {
+       "stringValue": "python"
+      }
+     },
+     {
+      "key": "telemetry.sdk.name",
+      "value": {
+       "stringValue": "opentelemetry"
+      }
+     },
+     {
+      "key": "telemetry.sdk.version",
+      "value": {
+       "stringValue": "1.45.1"
+      }
+     },
+     {
+      "key": "service.instance.id",
+      "value": {
+       "stringValue": "402e3a3a-08a5-48d6-8103-8e3c9f5dd3d2"
+      }
+     },
+     {
+      "key": "service.name",
+      "value": {
+       "stringValue": "glassbox-exp8-stack-b"
+      }
+     }
+    ]
+   },
+   "scopeSpans": [
+    {
+     "scope": {
+      "name": "openinference.instrumentation.llama_index",
+      "version": "4.6.0"
+     },
+     "spans": [
+      {
+       "traceId": "uXIJgsMOmIqGpcTIySEK2A==",
+       "spanId": "sQHwk+0C7dc=",
+       "parentSpanId": "rslAk12xqHE=",
+       "name": "BowEmbedding._get_query_embedding",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126536498000",
+       "endTimeUnixNano": "1791828126536602000",
+       "attributes": [
+        {
+         "key": "embedding.model_name",
+         "value": {
+          "stringValue": "glassbox-bow"
+         }
+        },
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query\": \"On which day is the Aldwyn project review meeting held?\"}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "EMBEDDING"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "uXIJgsMOmIqGpcTIySEK2A==",
+       "spanId": "rslAk12xqHE=",
+       "parentSpanId": "wBZdzODXU8Y=",
+       "name": "BowEmbedding.get_query_embedding",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126536358000",
+       "endTimeUnixNano": "1791828126536681000",
+       "attributes": [
+        {
+         "key": "embedding.model_name",
+         "value": {
+          "stringValue": "glassbox-bow"
+         }
+        },
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query\": \"On which day is the Aldwyn project review meeting held?\"}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "embedding.embeddings.0.embedding.text",
+         "value": {
+          "stringValue": "On which day is the Aldwyn project review meeting held?"
+         }
+        },
+        {
+         "key": "embedding.embeddings.0.embedding.vector",
+         "value": {
+          "arrayValue": {
+           "values": [
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.4472135954999579
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            }
+           ]
+          }
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "EMBEDDING"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "uXIJgsMOmIqGpcTIySEK2A==",
+       "spanId": "wBZdzODXU8Y=",
+       "parentSpanId": "dfndW4lz5LA=",
+       "name": "VectorIndexRetriever._retrieve",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126536205000",
+       "endTimeUnixNano": "1791828126536830000",
+       "attributes": [
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query_bundle\": {\"query_str\": \"On which day is the Aldwyn project review meeting held?\", \"image_path\": null, \"custom_embedding_strs\": null, \"embedding\": null}}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "output.value",
+         "value": {
+          "stringValue": "[\"<NodeWithScore(node=TextNode(id_=d3), score=0.912870929175277)>\"]"
+         }
+        },
+        {
+         "key": "output.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "RETRIEVER"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "uXIJgsMOmIqGpcTIySEK2A==",
+       "spanId": "dfndW4lz5LA=",
+       "name": "VectorIndexRetriever.retrieve",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126536090000",
+       "endTimeUnixNano": "1791828126536927000",
+       "attributes": [
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "On which day is the Aldwyn project review meeting held?"
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.id",
+         "value": {
+          "stringValue": "d3"
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.content",
+         "value": {
+          "stringValue": "The Aldwyn project review meeting is held every Tuesday."
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.score",
+         "value": {
+          "doubleValue": 0.912870929175277
+         }
+        },
+        {
+         "key": "output.value",
+         "value": {
+          "stringValue": "[\"<NodeWithScore(node=TextNode(id_=d3), score=0.912870929175277)>\"]"
+         }
+        },
+        {
+         "key": "output.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "RETRIEVER"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

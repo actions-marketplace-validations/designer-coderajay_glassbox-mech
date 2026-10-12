@@ -1,0 +1,379 @@
+{
+ "resourceSpans": [
+  {
+   "resource": {
+    "attributes": [
+     {
+      "key": "telemetry.sdk.language",
+      "value": {
+       "stringValue": "python"
+      }
+     },
+     {
+      "key": "telemetry.sdk.name",
+      "value": {
+       "stringValue": "opentelemetry"
+      }
+     },
+     {
+      "key": "telemetry.sdk.version",
+      "value": {
+       "stringValue": "1.45.1"
+      }
+     },
+     {
+      "key": "service.instance.id",
+      "value": {
+       "stringValue": "402e3a3a-08a5-48d6-8103-8e3c9f5dd3d2"
+      }
+     },
+     {
+      "key": "service.name",
+      "value": {
+       "stringValue": "glassbox-exp8-stack-b"
+      }
+     }
+    ]
+   },
+   "scopeSpans": [
+    {
+     "scope": {
+      "name": "openinference.instrumentation.llama_index",
+      "version": "4.6.0"
+     },
+     "spans": [
+      {
+       "traceId": "b2Mrp6ffT+6g12wz3op4pQ==",
+       "spanId": "5RlpdM87Rb4=",
+       "parentSpanId": "6DdBC4x+8Qg=",
+       "name": "BowEmbedding._get_query_embedding",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126540318000",
+       "endTimeUnixNano": "1791828126540412000",
+       "attributes": [
+        {
+         "key": "embedding.model_name",
+         "value": {
+          "stringValue": "glassbox-bow"
+         }
+        },
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query\": \"Which company shipped order 9023?\"}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "EMBEDDING"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "b2Mrp6ffT+6g12wz3op4pQ==",
+       "spanId": "6DdBC4x+8Qg=",
+       "parentSpanId": "YkwKKrT67GA=",
+       "name": "BowEmbedding.get_query_embedding",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126540202000",
+       "endTimeUnixNano": "1791828126540485000",
+       "attributes": [
+        {
+         "key": "embedding.model_name",
+         "value": {
+          "stringValue": "glassbox-bow"
+         }
+        },
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query\": \"Which company shipped order 9023?\"}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "embedding.embeddings.0.embedding.text",
+         "value": {
+          "stringValue": "Which company shipped order 9023?"
+         }
+        },
+        {
+         "key": "embedding.embeddings.0.embedding.vector",
+         "value": {
+          "arrayValue": {
+           "values": [
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.5773502691896258
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.5773502691896258
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.5773502691896258
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            }
+           ]
+          }
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "EMBEDDING"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "b2Mrp6ffT+6g12wz3op4pQ==",
+       "spanId": "YkwKKrT67GA=",
+       "parentSpanId": "E6PLxHGAskQ=",
+       "name": "VectorIndexRetriever._retrieve",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126540092000",
+       "endTimeUnixNano": "1791828126540617000",
+       "attributes": [
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query_bundle\": {\"query_str\": \"Which company shipped order 9023?\", \"image_path\": null, \"custom_embedding_strs\": null, \"embedding\": null}}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "output.value",
+         "value": {
+          "stringValue": "[\"<NodeWithScore(node=TextNode(id_=d5), score=0.6123724356957946)>\"]"
+         }
+        },
+        {
+         "key": "output.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "RETRIEVER"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "b2Mrp6ffT+6g12wz3op4pQ==",
+       "spanId": "E6PLxHGAskQ=",
+       "name": "VectorIndexRetriever.retrieve",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126539967000",
+       "endTimeUnixNano": "1791828126540711000",
+       "attributes": [
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "Which company shipped order 9023?"
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.id",
+         "value": {
+          "stringValue": "d5"
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.content",
+         "value": {
+          "stringValue": "Order 9023 from Mossgate Supplies was shipped by Halcyon Couriers on Friday."
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.score",
+         "value": {
+          "doubleValue": 0.6123724356957946
+         }
+        },
+        {
+         "key": "output.value",
+         "value": {
+          "stringValue": "[\"<NodeWithScore(node=TextNode(id_=d5), score=0.6123724356957946)>\"]"
+         }
+        },
+        {
+         "key": "output.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "RETRIEVER"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,379 @@
+{
+ "resourceSpans": [
+  {
+   "resource": {
+    "attributes": [
+     {
+      "key": "telemetry.sdk.language",
+      "value": {
+       "stringValue": "python"
+      }
+     },
+     {
+      "key": "telemetry.sdk.name",
+      "value": {
+       "stringValue": "opentelemetry"
+      }
+     },
+     {
+      "key": "telemetry.sdk.version",
+      "value": {
+       "stringValue": "1.45.1"
+      }
+     },
+     {
+      "key": "service.instance.id",
+      "value": {
+       "stringValue": "402e3a3a-08a5-48d6-8103-8e3c9f5dd3d2"
+      }
+     },
+     {
+      "key": "service.name",
+      "value": {
+       "stringValue": "glassbox-exp8-stack-b"
+      }
+     }
+    ]
+   },
+   "scopeSpans": [
+    {
+     "scope": {
+      "name": "openinference.instrumentation.llama_index",
+      "version": "4.6.0"
+     },
+     "spans": [
+      {
+       "traceId": "oGWExTGUcX4zQr4sk7DSeg==",
+       "spanId": "6uUmgJ4XyxY=",
+       "parentSpanId": "tH8H90uJKOA=",
+       "name": "BowEmbedding._get_query_embedding",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126538237000",
+       "endTimeUnixNano": "1791828126538332000",
+       "attributes": [
+        {
+         "key": "embedding.model_name",
+         "value": {
+          "stringValue": "glassbox-bow"
+         }
+        },
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query\": \"Who leads the support team at Pellan Labs?\"}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "EMBEDDING"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "oGWExTGUcX4zQr4sk7DSeg==",
+       "spanId": "tH8H90uJKOA=",
+       "parentSpanId": "PmWzX/78f90=",
+       "name": "BowEmbedding.get_query_embedding",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126538121000",
+       "endTimeUnixNano": "1791828126538405000",
+       "attributes": [
+        {
+         "key": "embedding.model_name",
+         "value": {
+          "stringValue": "glassbox-bow"
+         }
+        },
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query\": \"Who leads the support team at Pellan Labs?\"}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "embedding.embeddings.0.embedding.text",
+         "value": {
+          "stringValue": "Who leads the support team at Pellan Labs?"
+         }
+        },
+        {
+         "key": "embedding.embeddings.0.embedding.vector",
+         "value": {
+          "arrayValue": {
+           "values": [
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.5
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.5
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.5
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.5
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            },
+            {
+             "doubleValue": 0.0
+            }
+           ]
+          }
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "EMBEDDING"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "oGWExTGUcX4zQr4sk7DSeg==",
+       "spanId": "PmWzX/78f90=",
+       "parentSpanId": "UJVZVnwwjSw=",
+       "name": "VectorIndexRetriever._retrieve",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126538009000",
+       "endTimeUnixNano": "1791828126538540000",
+       "attributes": [
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "{\"query_bundle\": {\"query_str\": \"Who leads the support team at Pellan Labs?\", \"image_path\": null, \"custom_embedding_strs\": null, \"embedding\": null}}"
+         }
+        },
+        {
+         "key": "input.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "output.value",
+         "value": {
+          "stringValue": "[\"<NodeWithScore(node=TextNode(id_=d4), score=0.7559289460184545)>\"]"
+         }
+        },
+        {
+         "key": "output.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "RETRIEVER"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      },
+      {
+       "traceId": "oGWExTGUcX4zQr4sk7DSeg==",
+       "spanId": "UJVZVnwwjSw=",
+       "name": "VectorIndexRetriever.retrieve",
+       "kind": "SPAN_KIND_INTERNAL",
+       "startTimeUnixNano": "1791828126537888000",
+       "endTimeUnixNano": "1791828126538634000",
+       "attributes": [
+        {
+         "key": "input.value",
+         "value": {
+          "stringValue": "Who leads the support team at Pellan Labs?"
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.id",
+         "value": {
+          "stringValue": "d4"
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.content",
+         "value": {
+          "stringValue": "The support team at Pellan Labs is led by Marisol Venn."
+         }
+        },
+        {
+         "key": "retrieval.documents.0.document.score",
+         "value": {
+          "doubleValue": 0.7559289460184545
+         }
+        },
+        {
+         "key": "output.value",
+         "value": {
+          "stringValue": "[\"<NodeWithScore(node=TextNode(id_=d4), score=0.7559289460184545)>\"]"
+         }
+        },
+        {
+         "key": "output.mime_type",
+         "value": {
+          "stringValue": "application/json"
+         }
+        },
+        {
+         "key": "openinference.span.kind",
+         "value": {
+          "stringValue": "RETRIEVER"
+         }
+        }
+       ],
+       "status": {
+        "code": "STATUS_CODE_OK"
+       },
+       "flags": 256
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
