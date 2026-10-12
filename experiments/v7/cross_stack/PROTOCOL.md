@@ -156,3 +156,69 @@ by construction.
 
 ---
 *(Addenda, if any, go below this line, with dates.)*
+
+### Addendum 1 (2026-10-12): importer details fixed before any code is committed or run
+
+These are clarifications of §3 found while writing the tests. No code had been committed
+and nothing had been run. The criteria in §4 are unchanged.
+
+1. **Synthetic root.**
+   - **Why:** a Glassbox trace starts with a root span that the diff treats as
+     environment, not as a step. If stack B's own top span (the retriever) were the
+     root, it could never be the location of a divergence.
+   - **What the importer does:**
+     - wraps the imported spans under a synthetic root `glassbox.run`, carrying
+       `glassbox.trace.schema`, `glassbox.content.policy` and
+       `glassbox.import.source = "otlp"`;
+     - copies the OTLP resource attributes to that root as `glassbox.env.otlp.<key>`;
+     - makes the OTLP spans its descendants.
+   - **S1** counts only the OTLP spans, so its count rule excludes the synthetic root.
+2. **Content keys** follow the existing representation exactly:
+   `glassbox.content.<key>.sha256` and `glassbox.content.<key>.length`. §3 said
+   `.len`; `.length` is what `diff.py` and `trace.py` already use.
+3. **Span id encoding.**
+   - The OTLP/JSON specification encodes trace and span ids as hex.
+   - The generic protobuf JSON mapping (`google.protobuf.json_format`) encodes the same
+     bytes as base64.
+   - **Import:** accepts both, telling them apart by length (hex 32/16 characters,
+     base64 24/12).
+   - **Export:** has `id_encoding="hex"` (default) and `"base64"`.
+   - **S7** exports with `"base64"`, parses with `json_format.Parse(...,
+     ignore_unknown_fields=False)`, and additionally checks that every parsed trace id is
+     16 bytes and every span id 8 bytes, equal to the original ids.
+4. **Deterministic node ids in stack B.** The pipeline builds `TextNode(id_=<doc id>)`
+   directly, so LlamaIndex does not assign random node ids. Random ids would change on
+   every index build and make S4/S5 meaningless. The node text is the document text;
+   the metadata is empty.
+5. **Same tokenisation.** Stack B's bag-of-words embedding re-implements Experiment 1's
+   tokeniser (same regular expression and stopwords). A test checks that it produces
+   identical tokens for every corpus document and question.
+6. **S7 runs in stack B's venv**, because `opentelemetry-proto` is installed only there.
+   That venv loads `glassbox/v7/trace.py` and `glassbox/v7/otlp.py` by file path, as
+   Experiment 2 did, so it needs neither the Glassbox package nor torch.
+
+### Addendum 2 (2026-10-12): disclosed code smoke test on a toy corpus, before the run
+
+**What was run and why.** Before handing over the code, the assistant ran `subject.py
+record` once in a scratch venv with the pinned stack-B packages, which installed together
+at the pinned versions. The purpose was to make sure the code works at all.
+
+**Kept separate from the experiment.**
+- **Data:** a 2-document, 2-question **toy corpus** written for the purpose. It was
+  substituted for the experiment's corpus in memory.
+- **No experiment data was touched:**
+  - none of the experiment's 8 documents or questions was queried;
+  - no experiment OTLP file was produced;
+  - S7 was **not** run on Experiment 1's traces (only on one toy native trace).
+- **Outputs:** written to a temporary directory and discarded.
+
+**What it showed about the code (not about the criteria):**
+- The importer reads real OpenInference output: a fidelity check returned no problems.
+- OpenInference emits two retriever spans (`VectorIndexRetriever.retrieve` and
+  `._retrieve`) and two embedding spans per query.
+- The resource carries a random `service.instance.id`. It lands on the synthetic root
+  as environment, which the diff reports separately and never counts as a divergence.
+
+**One code fix came from it.** Pydantic could not resolve the `List` annotation of the
+locally defined embedding class, so `model_rebuild` with an explicit namespace was added.
+Nothing else changed. The criteria and mapping are unchanged.
