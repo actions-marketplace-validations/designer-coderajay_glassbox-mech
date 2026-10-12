@@ -180,3 +180,47 @@ baseline behaviour, which is what the competence rule allows.
    affect any computation. The tests are unchanged and still pass.
 
 The design, ladder, threshold, gates, N, permutations and seeds are all unchanged.
+
+### Addendum 2 (2026-10-12): run 1 completed, but its result files were lost; run 2 recovers them. No change to the design.
+
+Written **after** run 1 finished and before run 2 starts.
+
+**Run 1: what happened**
+- **Where it ran:** Kaggle notebook, interactive CPU session (4 CPU, 31 GB RAM). Commit
+  `2eb6aac`, Python 3.11.17 venv with the pinned stack, `device="cpu"`.
+- **When:** 2026-10-11, 18:01–21:24 by the notebook clock.
+- **Outcome:** it ran to completion and printed `EXPERIMENT 7b OVERALL: PASS`, with
+  G1–G5 PASS, ladder 0.5B 0.327629 / 1.5B 0.52456 / 3B 0.686497 (selected), and the
+  per-case table.
+- **What was lost:** the interactive session had no persistence and was restarted before
+  `results.json` and the traces could be downloaded. Those files no longer exist.
+- **What survives:** the complete printed output of run 1, inside the notebook the owner
+  downloaded. It is committed unchanged in `run1_kaggle/`:
+  - `notebook_run1.ipynb`, sha256 `e790de2509ca8a272b5e09ce85eba1e591f9f9eb0c9170a424d5f36ddf7a024e`;
+  - `run_log_run1.txt`, the run cell's output extracted verbatim, sha256
+    `4cf1b275617abefaaf48afd1db4b78d7e46980d38c584071105781938905c1cf`.
+
+**Run 2: rules fixed before it starts**
+1. **Purpose:** recover the result files, not to get a second chance at the outcome.
+   Everything is identical to run 1: same commit `2eb6aac`, same pins, seeds and
+   `device="cpu"`, same command and the same Kaggle CPU machine type.
+2. **How it runs:** as a Kaggle "Save Version → Save & Run All" batch run, whose
+   `/kaggle/working` output is retained. At the end it prints `results.json`, its
+   sha256 and `pip freeze` into the log.
+3. **The computation is deterministic** given the seeds and environment (run 1's G4:
+   max_abs_diff 0.0), so run 2's printed gate lines and per-case lines are expected to
+   be **identical** to run 1's.
+   - **If identical:** run 2's `results.json` is committed unchanged as the result
+     artifact, and RESULTS.md reports both runs. The result is the pre-registered
+     outcome, PASS.
+   - **If any printed line differs:** both runs are reported in full. The experiment is
+     recorded as **not reproduced**, and ASSURANCE V3.8 stays no higher than
+     `PRELIMINARY` until the difference is explained. A differing run 2 is not used to
+     replace or overrule run 1.
+4. **Descriptive observations from run 1's log**, recorded now so they cannot be
+   reframed later:
+   - the candidate change mostly made the agent send **no** email (about 0.97 of runs
+     sent zero), rather than duplicates (about 0.015 sent two or more);
+   - `framework_retry` (true effect about 0.34, "small" class) was attributed in c1 and
+     c3, but not in c2 and c4;
+   - `log_level` in c2 showed an observed effect of 0.233 (p = 0.088, not attributed).

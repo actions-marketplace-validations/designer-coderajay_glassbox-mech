@@ -1,0 +1,85 @@
+[exp7b 18:01:08] loading Qwen/Qwen2.5-0.5B-Instruct
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+[exp7b 18:01:30] Qwen/Qwen2.5-0.5B-Instruct: labels ('1', '2', '3'); computing competence (baseline only)
+[exp7b 18:02:57] 25 distinct prompts scored
+[exp7b 18:04:26] 50 distinct prompts scored
+[exp7b 18:05:56] 75 distinct prompts scored
+[exp7b 18:07:24] 100 distinct prompts scored
+[exp7b 18:08:56] 125 distinct prompts scored
+[exp7b 18:10:26] 150 distinct prompts scored
+[exp7b 18:11:04] Qwen/Qwen2.5-0.5B-Instruct: competence 0.3276 (threshold 0.6)
+[exp7b 18:11:04] loading Qwen/Qwen2.5-1.5B-Instruct
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+[exp7b 18:11:43] Qwen/Qwen2.5-1.5B-Instruct: labels ('1', '2', '3'); computing competence (baseline only)
+[exp7b 18:15:58] 25 distinct prompts scored
+[exp7b 18:20:30] 50 distinct prompts scored
+[exp7b 18:24:51] 75 distinct prompts scored
+[exp7b 18:29:14] 100 distinct prompts scored
+[exp7b 18:33:30] 125 distinct prompts scored
+[exp7b 18:37:47] 150 distinct prompts scored
+[exp7b 18:39:32] Qwen/Qwen2.5-1.5B-Instruct: competence 0.5246 (threshold 0.6)
+[exp7b 18:39:34] loading Qwen/Qwen2.5-3B-Instruct
+Loaded pretrained model Qwen/Qwen2.5-0.5B-Instruct into HookedTransformer
+Loaded pretrained model Qwen/Qwen2.5-1.5B-Instruct into HookedTransformer
+Fetching 2 files: 100%|██████████| 2/2 [00:43<00:00, 21.71s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:40<00:00, 20.31s/it]
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+[exp7b 18:41:28] Qwen/Qwen2.5-3B-Instruct: labels ('1', '2', '3'); computing competence (baseline only)
+[exp7b 18:50:25] 25 distinct prompts scored
+[exp7b 18:59:06] 50 distinct prompts scored
+[exp7b 19:07:51] 75 distinct prompts scored
+[exp7b 19:16:33] 100 distinct prompts scored
+[exp7b 19:25:12] 125 distinct prompts scored
+[exp7b 19:34:05] 150 distinct prompts scored
+[exp7b 19:37:40] Qwen/Qwen2.5-3B-Instruct: competence 0.6865 (threshold 0.6)
+[exp7b 19:37:40] case c1: exact ground truth
+[exp7b 19:42:33] 175 distinct prompts scored
+[exp7b 19:51:04] 200 distinct prompts scored
+[exp7b 19:59:55] 225 distinct prompts scored
+[exp7b 20:04:11] case c1: interventions (30 runs per cell)
+[exp7b 20:04:12] case c2: exact ground truth
+[exp7b 20:08:48] 250 distinct prompts scored
+[exp7b 20:16:38] 275 distinct prompts scored
+[exp7b 20:25:32] 300 distinct prompts scored
+[exp7b 20:30:08] case c2: interventions (30 runs per cell)
+[exp7b 20:30:51] case c3: exact ground truth
+[exp7b 20:34:27] 325 distinct prompts scored
+[exp7b 20:42:21] 350 distinct prompts scored
+[exp7b 20:51:09] 375 distinct prompts scored
+[exp7b 20:56:59] case c3: interventions (30 runs per cell)
+[exp7b 20:56:59] case c4: exact ground truth
+[exp7b 21:00:16] 400 distinct prompts scored
+[exp7b 21:08:18] 425 distinct prompts scored
+[exp7b 21:16:54] 450 distinct prompts scored
+[exp7b 21:23:04] case c4: interventions (30 runs per cell)
+Loaded pretrained model Qwen/Qwen2.5-3B-Instruct into HookedTransformer
+ladder: {"model": "Qwen/Qwen2.5-0.5B-Instruct", "status": "NOT COMPETENT", "labels": ["1", "2", "3"], "competence": 0.327629}
+ladder: {"model": "Qwen/Qwen2.5-1.5B-Instruct", "status": "NOT COMPETENT", "labels": ["1", "2", "3"], "competence": 0.52456}
+ladder: {"model": "Qwen/Qwen2.5-3B-Instruct", "status": "SELECTED", "labels": ["1", "2", "3"], "competence": 0.686497}
+G1_sensitivity: PASS {"applicable": true, "large_pairs": 4, "attributed": 4}
+G2_specificity: PASS {"log_level_attributed": 0}
+G3_trace_fidelity: PASS {"cases_ok": 4}
+G4_determinism: PASS {"max_abs_diff": 0.0}
+G5_exact_vs_observed: PASS {"cases_ok": 4}
+c1: exact baseline {'0': 0.304, '1': 0.69, '2+': 0.007} -> candidate {'0': 0.965, '1': 0.017, '2+': 0.018}
+   system_prompt: large true 0.668483 observed 0.6 p 0.001 attributed True
+   tool_format: small true 0.073652 observed 0.033333 p 1.0 attributed False
+   framework_retry: small true 0.345736 observed 0.366667 p 0.007 attributed True
+   log_level: zero true 0.0 observed 0.033333 p 1.0 attributed False
+c2: exact baseline {'0': 0.305, '1': 0.692, '2+': 0.003} -> candidate {'0': 0.97, '1': 0.015, '2+': 0.015}
+   system_prompt: large true 0.676231 observed 0.5 p 0.001 attributed True
+   tool_format: small true 0.068702 observed 0.033333 p 1.0 attributed False
+   framework_retry: small true 0.346427 observed 0.3 p 0.045 attributed False
+   log_level: zero true 0.0 observed 0.233333 p 0.088 attributed False
+c3: exact baseline {'0': 0.31, '1': 0.684, '2+': 0.007} -> candidate {'0': 0.972, '1': 0.014, '2+': 0.014}
+   system_prompt: large true 0.662116 observed 0.7 p 0.001 attributed True
+   tool_format: small true 0.032703 observed 0.066667 p 0.778 attributed False
+   framework_retry: small true 0.342373 observed 0.4 p 0.005 attributed True
+   log_level: zero true 0.0 observed 0.066667 p 0.769 attributed False
+c4: exact baseline {'0': 0.315, '1': 0.68, '2+': 0.004} -> candidate {'0': 0.97, '1': 0.014, '2+': 0.015}
+   system_prompt: large true 0.66079 observed 0.6 p 0.001 attributed True
+   tool_format: small true 0.085961 observed 0.066667 p 0.807 attributed False
+   framework_retry: small true 0.340472 observed 0.333333 p 0.026 attributed False
+   log_level: zero true 0.0 observed 0.1 p 0.578 attributed False
+EXPERIMENT 7b OVERALL: PASS
