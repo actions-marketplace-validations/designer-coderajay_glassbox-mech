@@ -1,0 +1,208 @@
+{
+ "_about": "Reproduction recipes for V7 evidence packages (glassbox.v7.reproduce). 'commit' is the commit at which the results were committed unchanged, so its code is the code that produced them. Commands run from the root of a checkout at that commit and write to repro/, never to the committed results.",
+ "v7-exp1-rag-fault": {
+  "commit": "aedfebf",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps"
+  ],
+  "run": [
+   ".venv-repro/bin/python experiments/v7/rag_fault/run.py --out repro/exp1"
+  ],
+  "results": [
+   "repro/exp1/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [],
+  "runtime": "minutes on a laptop CPU; downloads GPT-2 small",
+  "notes": ""
+ },
+ "v7-exp2-llama-dedup": {
+  "commit": "72cb710",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps",
+   "python3 -m venv ~/.glassbox-venvs/li-0.14.17",
+   "~/.glassbox-venvs/li-0.14.17/bin/pip install -q \"llama-index-core==0.14.17\"",
+   "python3 -m venv ~/.glassbox-venvs/li-0.14.19",
+   "~/.glassbox-venvs/li-0.14.19/bin/pip install -q \"llama-index-core==0.14.19\""
+  ],
+  "run": [
+   "for v in 0.14.17 0.14.19; do for p in sync async; do for r in r1 r2; do ~/.glassbox-venvs/li-$v/bin/python experiments/v7/llama_dedup/subject.py --path $p --run $r --out repro/exp2; done; done; done",
+   ".venv-repro/bin/python experiments/v7/llama_dedup/evaluate.py --results repro/exp2"
+  ],
+  "results": [
+   "repro/exp2/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [
+   "environment_differences_bug_vs_fix"
+  ],
+  "runtime": "minutes; no model",
+  "notes": ""
+ },
+ "v7-exp3-noise-baseline": {
+  "commit": "3cf24ac",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps"
+  ],
+  "run": [
+   ".venv-repro/bin/python experiments/v7/noise_baseline/part_a.py --out repro/exp3/part_a",
+   ".venv-repro/bin/python experiments/v7/noise_baseline/part_b.py --out repro/exp3/part_b"
+  ],
+  "results": [
+   "repro/exp3/part_a/results.json",
+   "repro/exp3/part_b/results.json"
+  ],
+  "packaged_results": [
+   "measurements_part_a/results.json",
+   "measurements_part_b/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [],
+  "runtime": "part A synthetic (CPU minutes); part B samples GPT-2",
+  "notes": "The pre-registered outcome is FAIL; a reproduction must reproduce the FAIL."
+ },
+ "v7-exp3b-noise-baseline-merge": {
+  "commit": "55e8bcf",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps"
+  ],
+  "run": [
+   ".venv-repro/bin/python experiments/v7/noise_baseline_3b/run.py --out repro/exp3b"
+  ],
+  "results": [
+   "repro/exp3b/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [],
+  "runtime": "synthetic; CPU minutes",
+  "notes": ""
+ },
+ "v7-exp4-interventions": {
+  "commit": "ad75d43",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps"
+  ],
+  "run": [
+   ".venv-repro/bin/python experiments/v7/intervention/run.py --out repro/exp4"
+  ],
+  "results": [
+   "repro/exp4/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [],
+  "runtime": "synthetic; CPU minutes",
+  "notes": ""
+ },
+ "v7-exp5-real-interventions": {
+  "commit": "e47cf4e",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps"
+  ],
+  "run": [
+   ".venv-repro/bin/python experiments/v7/real_intervention/run.py --out repro/exp5"
+  ],
+  "results": [
+   "repro/exp5/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [],
+  "runtime": "GPT-2 small on CPU; under an hour on a laptop",
+  "notes": ""
+ },
+ "v7-exp6-cross-model": {
+  "commit": "3314c58",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps"
+  ],
+  "run": [
+   ".venv-repro/bin/python experiments/v7/cross_model/run.py --out repro/exp6"
+  ],
+  "results": [
+   "repro/exp6/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [],
+  "runtime": "three small models on CPU; downloads Pythia-160m, OPT-125m, Qwen2.5-0.5B",
+  "notes": ""
+ },
+ "v7-exp7b-agent": {
+  "commit": "2eb6aac",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps"
+  ],
+  "run": [
+   ".venv-repro/bin/python experiments/v7/agent_b/run.py --out repro/exp7b"
+  ],
+  "results": [
+   "repro/exp7b/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [],
+  "runtime": "about 3.5 h on a 4-CPU / 31 GB machine (Kaggle CPU); downloads three Qwen2.5-Instruct models up to 3B; needs >16 GB RAM",
+  "notes": "Exact probabilities can differ in the 6th decimal across machines (Addendum 3); tol 1e-4 covers that."
+ },
+ "v7-exp8-cross-stack": {
+  "commit": "226a4eb",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps",
+   "python3 -m venv ~/.glassbox-venvs/exp8-stack-b",
+   "~/.glassbox-venvs/exp8-stack-b/bin/pip install -q \"llama-index-core==0.14.19\" \"openinference-instrumentation-llama-index==4.6.0\" \"opentelemetry-sdk==1.45.1\" \"opentelemetry-exporter-otlp-proto-common==1.45.1\" \"opentelemetry-proto==1.45.1\""
+  ],
+  "run": [
+   "~/.glassbox-venvs/exp8-stack-b/bin/python experiments/v7/cross_stack/subject.py record --out repro/exp8",
+   "~/.glassbox-venvs/exp8-stack-b/bin/python experiments/v7/cross_stack/subject.py schema-check --out repro/exp8",
+   ".venv-repro/bin/python experiments/v7/cross_stack/evaluate.py --results repro/exp8"
+  ],
+  "results": [
+   "repro/exp8/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [
+   "stack_b_env"
+  ],
+  "runtime": "minutes; no model",
+  "notes": ""
+ }
+}
