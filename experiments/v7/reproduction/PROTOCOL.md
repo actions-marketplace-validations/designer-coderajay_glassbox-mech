@@ -107,3 +107,30 @@ For each package in §1:
 
 ---
 *(Addenda, if any, go below this line, with dates.)*
+
+### Addendum 1 (2026-10-12): attempt 1 stopped by a full disk; environment mechanics for attempt 2
+
+**Attempt 1** (notebook A, Kaggle CPU, main at `fe8103a`, Intel Xeon @ 2.20 GHz, AVX2):
+- `v7-exp4-interventions` ran and compared: **REPRODUCED**.
+- Then `/kaggle/working` (about 20 GB) ran out of space. Each package had its own venv
+  with the default CUDA build of torch (several GB each), and each worktree was a full
+  checkout. Every later package failed during installation, before running.
+- This is an infrastructure failure under §3 item 4. Attempt 1 is listed in RESULTS.md,
+  and notebook B was not started.
+
+**Attempt 2 changes only the mechanics.** The recipes' commits, run commands, pins,
+tolerances and criteria are unchanged.
+1. **torch 2.10.0 CPU build** (`2.10.0+cpu`, from the PyTorch CPU index) instead of the
+   default CUDA build. Same version; the original macOS runs also used a CPU-only build.
+   Installed first, then the other pinned packages from PyPI, unchanged.
+2. **One shared Python 3.11 venv per notebook** with the recipe pins.
+   - For each package, the venv is pointed at that package's worktree by an editable
+     install, and the worktree's `.venv-repro` is a symlink to it. The recipe's run
+     commands therefore still run literally.
+   - Before each comparison, the editable install is pointed back at the current `main`,
+     so `compare` always uses `main`'s code.
+3. **Working files live in `/tmp`.** Worktrees and venvs are created there, and each
+   worktree is removed after its comparison. Only reports, logs, freezes, commits and
+   the fresh `results.json` files are kept in `/kaggle/working`. Disk usage is printed.
+4. **Attempt 2 repeats Experiment 4** with the others, so all eight packages are judged
+   from the same attempt. Both Experiment 4 results are reported.
