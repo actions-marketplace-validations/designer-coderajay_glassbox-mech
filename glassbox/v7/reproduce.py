@@ -22,6 +22,13 @@ Verdicts:
   more than ``tol``;
 * ``NOT_REPRODUCED``: any non-float value differs, or a key is missing or added.
 
+Every report also carries a **decision-level** verdict (added for Experiment 9b):
+
+* ``DECISIONS_REPRODUCED``: no mismatch except floats and values under a raw-sample key
+  (``RAW_SAMPLE_KEYS``, i.e. ``cell_counts``: individual sampled outcomes);
+* ``DECISIONS_NOT_REPRODUCED``: anything else differs, e.g. a verdict, a pass flag, an
+  attribution, a class label, a criterion count, or a missing/added key.
+
 A report by the author in another environment is a same-author reproduction. Only a
 report by an independent person can support the ``REPRODUCED`` status in ASSURANCE.md.
 
@@ -43,6 +50,8 @@ from glassbox.v7.evidence import verify_package
 PathLike = Union[str, Path]
 REPO = Path(__file__).resolve().parents[2]
 RECIPES = REPO / "experiments" / "v7" / "reproduce_recipes.json"
+#: Keys whose values are raw sampled outcomes, ignored at the decision level (Exp 9b).
+RAW_SAMPLE_KEYS = ("cell_counts",)
 
 
 class ReproductionError(RuntimeError):
@@ -107,12 +116,27 @@ def compare_results(
         verdict = "DECISIONS_ONLY"
     else:
         verdict = "NOT_REPRODUCED"
+    decision_mismatches = [m for m in mismatches if _is_decision(m)]
     return {
         "verdict": verdict,
+        "decisions_verdict": (
+            "DECISIONS_NOT_REPRODUCED"
+            if decision_mismatches
+            else "DECISIONS_REPRODUCED"
+        ),
         "tol": tol,
         "ignore": list(ignore),
+        "raw_sample_keys": list(RAW_SAMPLE_KEYS),
         "mismatches": mismatches,
     }
+
+
+def _is_decision(mismatch: Dict[str, Any]) -> bool:
+    """A mismatch that is neither a float nor a raw sampled outcome."""
+    if mismatch["kind"] == "float":
+        return False
+    parts = mismatch["path"].replace("]", "").replace("[", ".").split(".")
+    return not any(key in parts for key in RAW_SAMPLE_KEYS)
 
 
 def _verified(package: PathLike) -> Path:
@@ -194,6 +218,11 @@ def check(
         parts.append({"packaged": str(orig_path.relative_to(pkg)), **cmp})
     order = ["REPRODUCED", "DECISIONS_ONLY", "NOT_REPRODUCED"]
     verdict = max((p["verdict"] for p in parts), key=order.index)
+    decisions = (
+        "DECISIONS_NOT_REPRODUCED"
+        if any(p["decisions_verdict"] == "DECISIONS_NOT_REPRODUCED" for p in parts)
+        else "DECISIONS_REPRODUCED"
+    )
     report = {
         "package": pkg.name,
         "package_manifest_sha256": _manifest_sha(pkg),
@@ -202,6 +231,7 @@ def check(
         "environment": environment,
         "checker_platform": platform.platform(),
         "verdict": verdict,
+        "decisions_verdict": decisions,
         "parts": parts,
     }
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -234,6 +264,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 f"   {m['kind']} {m['path']}: {m.get('a')} -> {m.get('b')}\n"
             )
     sys.stdout.write(f"VERDICT: {rep['verdict']}  (report: {args.out})\n")
+    sys.stdout.write(f"DECISIONS: {rep['decisions_verdict']}\n")
     return 0 if rep["verdict"] == "REPRODUCED" else 1
 
 

@@ -118,3 +118,60 @@ def test_check_refuses_tampered_package(tmp_path):
     recipe = {"packaged_results": ["measurements/results.json"], "results": ["x"]}
     with pytest.raises(reproduce.ReproductionError):
         reproduce.check(pkg, [fresh], tmp_path / "r.json", "A", "B", recipe=recipe)
+
+
+# --- decision-level verdict (Experiment 9b) -----------------------------------
+
+
+def test_decision_verdict_ignores_floats_and_raw_sample_counts():
+    a = {
+        "overall": "PASS",
+        "m": [
+            {"pairs": {"x": {"attributed": True, "p": 0.01}}, "cell_counts": {"c": 24}}
+        ],
+    }
+    b = _clone(a)
+    b["m"][0]["pairs"]["x"]["p"] = 0.02
+    b["m"][0]["cell_counts"]["c"] = 25
+    rep = reproduce.compare_results(a, b)
+    assert rep["verdict"] == "NOT_REPRODUCED"
+    assert rep["decisions_verdict"] == "DECISIONS_REPRODUCED"
+    assert reproduce.RAW_SAMPLE_KEYS == ("cell_counts",)
+
+
+@pytest.mark.parametrize(
+    "path,value",
+    [
+        (("overall",), "FAIL"),
+        (("criteria", "C1", "pass"), False),
+        (("criteria", "C1", "n"), 41),
+        (("criteria", "C1", "label"), "3/4"),
+    ],
+)
+def test_decision_verdict_catches_decision_changes(path, value):
+    fresh = _clone(ORIG)
+    node = fresh
+    for key in path[:-1]:
+        node = node[key]
+    node[path[-1]] = value
+    rep = reproduce.compare_results(ORIG, fresh)
+    assert rep["decisions_verdict"] == "DECISIONS_NOT_REPRODUCED"
+
+
+def test_decision_verdict_missing_key_fails():
+    fresh = _clone(ORIG)
+    del fresh["criteria"]["C1"]["pass"]
+    rep = reproduce.compare_results(ORIG, fresh)
+    assert rep["decisions_verdict"] == "DECISIONS_NOT_REPRODUCED"
+
+
+def test_check_report_carries_both_levels(tmp_path):
+    pkg = _toy_package(tmp_path)
+    fresh = tmp_path / "fresh.json"
+    changed = _clone(ORIG)
+    changed["criteria"]["C1"]["value"] = 0.9
+    fresh.write_text(json.dumps(changed))
+    recipe = {"packaged_results": ["measurements/results.json"], "results": ["x"]}
+    rep = reproduce.check(pkg, [fresh], tmp_path / "r.json", "A", "B", recipe=recipe)
+    assert rep["verdict"] == "DECISIONS_ONLY"
+    assert rep["decisions_verdict"] == "DECISIONS_REPRODUCED"

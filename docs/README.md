@@ -16,6 +16,7 @@ another document disagrees with it, ASSURANCE wins.
 | [../ENTERPRISE.md](../ENTERPRISE.md) | Self-hosted deployment, CI, containers and licensing |
 | [v7/TRACE_SPEC.md](v7/TRACE_SPEC.md) | Trace format of the investigation layer (research stage) |
 | [v7/SECURITY_PRIVACY.md](v7/SECURITY_PRIVACY.md) | Security and privacy controls (and limitations) for traces, each pinned by a test |
+| [v7/REPRODUCING.md](v7/REPRODUCING.md) | How someone other than the author can reproduce a V7 result and send a report |
 
 ## Evidence and methodology
 
