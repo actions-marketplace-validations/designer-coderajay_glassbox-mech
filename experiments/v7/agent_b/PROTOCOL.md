@@ -224,3 +224,48 @@ Written **after** run 1 finished and before run 2 starts.
    - `framework_retry` (true effect about 0.34, "small" class) was attributed in c1 and
      c3, but not in c2 and c4;
    - `log_level` in c2 showed an observed effect of 0.233 (p = 0.088, not attributed).
+
+### Addendum 3 (2026-10-12): numeric-explanation check. No change to the design or to the 7b result.
+
+Written after run 2 and before any explanation run.
+
+**Why.**
+- Run 2 matched run 1 on every gate, attribution, observed value and p-value.
+- But 13 of 81 printed numbers differed in the 6th decimal (max 9×10⁻⁶).
+- Under Addendum 2 this keeps ASSURANCE V3.8 at `PRELIMINARY` until the difference is
+  explained.
+- Hypothesis: the floating-point summation order differed between the two Kaggle sessions
+  (thread split or CPU vector instructions). It does not affect results beyond the last
+  digits.
+
+**Check.** `experiments/v7/agent_b/explain_numeric.py`, at the commit that adds this
+addendum, run on one Kaggle CPU machine with the same pinned environment. It recomputes
+the competence of `Qwen/Qwen2.5-0.5B-Instruct` (run 1 0.327629, run 2 0.327631) in four
+separate processes:
+
+| Config | Setting |
+|---|---|
+| A1, A2 | Default, twice |
+| B_threads1 | `OMP_NUM_THREADS=1`, `MKL_NUM_THREADS=1` |
+| C_scalar | `ATEN_CPU_CAPABILITY=default` (no vectorised kernels) |
+
+It also records the CPU model, the AVX2/AVX-512 flags, the torch version, the thread
+count and the ATen CPU capability of each process.
+
+**Criteria** (TOL = 1×10⁻⁴):
+- **E1:** A1 and A2 are bit-identical.
+- **E2:** B or C differs from A1 by more than 0 and at most TOL.
+- **E3:** every value is within TOL of both run 1 and run 2, and below 0.6, so the ladder
+  decision is unchanged.
+
+**Decision.**
+- **E1 ∧ E2 ∧ E3 → EXPLAINED.** The run 1 / run 2 differences are attributed to
+  floating-point summation order, and V3.8 may move to `EXPERIMENTALLY_SUPPORTED`.
+  RESULTS.md states this as an explanation on one machine, not a proof about the two
+  original sessions, whose CPUs were not recorded.
+- **Anything else → NOT EXPLAINED.** V3.8 stays `PRELIMINARY` and the outcome is
+  reported as it is.
+- The check is run once, and its output is committed unchanged, whatever it shows.
+
+**Scope.** Only the 0.5B competence is rechecked. It is one of the 13 differing numbers
+and the cheapest to compute. The 3B values are not re-run.
