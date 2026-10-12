@@ -1,0 +1,11159 @@
+{
+ "protocol": "experiments/v7/benchmark/PROTOCOL.md v1.0 + Addendum 1",
+ "seed": "bench-756cc149151099a213042981505f2de6",
+ "seed_sha256": "7dff29241343a904eda8c01a9e49790b3cbd988f1cad6e756a5638a1d79b3742",
+ "scorer": "GPT2Scorer",
+ "settings": {
+  "n_per_cell": 30,
+  "n_perm": 999,
+  "alpha": 0.05,
+  "large": 0.5,
+  "fix_tolerance": 0.1
+ },
+ "incidents": [
+  {
+   "id": "R01",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "template",
+     "base": "context_first",
+     "candidate": "question_first"
+    },
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "R02",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "top_k",
+     "base": 1,
+     "candidate": 2
+    },
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "R03",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "preamble",
+     "base": "none",
+     "candidate": "one_word"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "R04",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "index",
+     "base": "full",
+     "candidate": "stale"
+    },
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "R05",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "index",
+     "base": "full",
+     "candidate": "stale"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    },
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "R06",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "index",
+     "base": "full",
+     "candidate": "stale"
+    },
+    {
+     "name": "template",
+     "base": "context_first",
+     "candidate": "question_first"
+    },
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "R07",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "preamble",
+     "base": "none",
+     "candidate": "one_word"
+    },
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "R08",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "template",
+     "base": "context_first",
+     "candidate": "question_first"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "R09",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "preamble",
+     "base": "none",
+     "candidate": "one_word"
+    },
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "R10",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "top_k",
+     "base": 1,
+     "candidate": 2
+    },
+    {
+     "name": "index",
+     "base": "full",
+     "candidate": "stale"
+    },
+    {
+     "name": "preamble",
+     "base": "none",
+     "candidate": "one_word"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "R11",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "top_k",
+     "base": 1,
+     "candidate": 2
+    },
+    {
+     "name": "preamble",
+     "base": "none",
+     "candidate": "one_word"
+    },
+    {
+     "name": "index",
+     "base": "full",
+     "candidate": "stale"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "R12",
+   "family": "R",
+   "negative": false,
+   "factors": [
+    {
+     "name": "preamble",
+     "base": "none",
+     "candidate": "one_word"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "RN01",
+   "family": "R",
+   "negative": true,
+   "factors": [
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    },
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "RN02",
+   "family": "R",
+   "negative": true,
+   "factors": [
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "RN03",
+   "family": "R",
+   "negative": true,
+   "factors": [
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "RN04",
+   "family": "R",
+   "negative": true,
+   "factors": [
+    {
+     "name": "cache_mode",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "S01",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.117
+    },
+    {
+     "name": "resend_bias",
+     "base": 0.02,
+     "candidate": 0.197
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "S02",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "resend_bias",
+     "base": 0.02,
+     "candidate": 0.842
+    },
+    {
+     "name": "wrong_order",
+     "base": 0.03,
+     "candidate": 0.186
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "S03",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.643
+    },
+    {
+     "name": "resend_bias",
+     "base": 0.02,
+     "candidate": 0.725
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "S04",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.157
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "S05",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.801
+    },
+    {
+     "name": "resend_bias",
+     "base": 0.02,
+     "candidate": 0.673
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "S06",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.894
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "S07",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "early_stop",
+     "base": 0.02,
+     "candidate": 0.116
+    },
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.492
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "S08",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "framework_retry",
+     "base": "v1",
+     "candidate": "v2"
+    },
+    {
+     "name": "resend_bias",
+     "base": 0.02,
+     "candidate": 0.639
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "S09",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.468
+    },
+    {
+     "name": "framework_retry",
+     "base": "v1",
+     "candidate": "v2"
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "S10",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.875
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "S11",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "wrong_order",
+     "base": 0.03,
+     "candidate": 0.523
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "S12",
+   "family": "S",
+   "negative": false,
+   "factors": [
+    {
+     "name": "resend_bias",
+     "base": 0.02,
+     "candidate": 0.799
+    },
+    {
+     "name": "skip_check",
+     "base": 0.95,
+     "candidate": 0.813
+    },
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "SN01",
+   "family": "S",
+   "negative": true,
+   "factors": [
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    }
+   ]
+  },
+  {
+   "id": "SN02",
+   "family": "S",
+   "negative": true,
+   "factors": [
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "SN03",
+   "family": "S",
+   "negative": true,
+   "factors": [
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  },
+  {
+   "id": "SN04",
+   "family": "S",
+   "negative": true,
+   "factors": [
+    {
+     "name": "log_level",
+     "base": "info",
+     "candidate": "debug"
+    },
+    {
+     "name": "trace_sampling",
+     "base": "off",
+     "candidate": "on"
+    }
+   ]
+  }
+ ],
+ "gate11": "MET",
+ "v10_1": "PASS",
+ "criteria": {
+  "K1": {
+   "value": 0.75,
+   "rule": ">= 0.70",
+   "pass": true
+  },
+  "K2": {
+   "value": 0.25,
+   "rule": ">= +0.15 over the better baseline",
+   "pass": true
+  },
+  "K3": {
+   "value": 0.0033444816053511705,
+   "rule": "<= 0.05",
+   "pass": true
+  },
+  "K4": {
+   "value": 0.020833333333333332,
+   "rule": "<= 0.10",
+   "pass": true
+  },
+  "K5": {
+   "value": 0.8333333333333334,
+   "rule": ">= 0.80",
+   "pass": true
+  }
+ },
+ "pooled": {
+  "GB": {
+   "M1_detection": {
+    "k": 24,
+    "n": 28,
+    "value": 0.8571428571428571,
+    "wilson95": [
+     0.685098,
+     0.943011
+    ]
+   },
+   "M2_exact_diagnosis": {
+    "k": 21,
+    "n": 28,
+    "value": 0.75,
+    "wilson95": [
+     0.56644,
+     0.873237
+    ]
+   },
+   "M3_large_recall": {
+    "k": 24,
+    "n": 28,
+    "value": 0.8571428571428571,
+    "wilson95": [
+     0.685098,
+     0.943011
+    ]
+   },
+   "M4_zero_false_blame": {
+    "k": 1,
+    "n": 299,
+    "value": 0.0033444816053511705,
+    "wilson95": [
+     0.000591,
+     0.018699
+    ]
+   },
+   "M5_false_alarm": {
+    "k": 1,
+    "n": 48,
+    "value": 0.020833333333333332,
+    "wilson95": [
+     0.003687,
+     0.108995
+    ]
+   },
+   "M6_fix_verified": {
+    "k": 20,
+    "n": 24,
+    "value": 0.8333333333333334,
+    "wilson95": [
+     0.641465,
+     0.933214
+    ]
+   },
+   "M7_mean_runs": 180.0,
+   "small_M2_exact": {
+    "k": 10,
+    "n": 39,
+    "value": 0.2564102564102564,
+    "wilson95": [
+     0.145686,
+     0.41082
+    ]
+   },
+   "small_M3_recall": {
+    "k": 13,
+    "n": 43,
+    "value": 0.3023255813953488,
+    "wilson95": [
+     0.186018,
+     0.451056
+    ]
+   }
+  },
+  "B0": {
+   "M1_detection": {
+    "k": 24,
+    "n": 28,
+    "value": 0.8571428571428571,
+    "wilson95": [
+     0.685098,
+     0.943011
+    ]
+   },
+   "M2_exact_diagnosis": {
+    "k": 0,
+    "n": 28,
+    "value": 0.0,
+    "wilson95": [
+     0.0,
+     0.120647
+    ]
+   },
+   "M3_large_recall": {
+    "k": 24,
+    "n": 28,
+    "value": 0.8571428571428571,
+    "wilson95": [
+     0.685098,
+     0.943011
+    ]
+   },
+   "M4_zero_false_blame": {
+    "k": 79,
+    "n": 299,
+    "value": 0.26421404682274247,
+    "wilson95": [
+     0.217456,
+     0.316954
+    ]
+   },
+   "M5_false_alarm": {
+    "k": 1,
+    "n": 48,
+    "value": 0.020833333333333332,
+    "wilson95": [
+     0.003687,
+     0.108995
+    ]
+   },
+   "M6_fix_verified": {
+    "k": 24,
+    "n": 24,
+    "value": 1.0,
+    "wilson95": [
+     0.862019,
+     1.0
+    ]
+   },
+   "M7_mean_runs": 180.0,
+   "small_M2_exact": {
+    "k": 0,
+    "n": 39,
+    "value": 0.0,
+    "wilson95": [
+     0.0,
+     0.08967
+    ]
+   },
+   "small_M3_recall": {
+    "k": 26,
+    "n": 43,
+    "value": 0.6046511627906976,
+    "wilson95": [
+     0.455788,
+     0.736349
+    ]
+   }
+  },
+  "B1": {
+   "M1_detection": {
+    "k": 28,
+    "n": 28,
+    "value": 1.0,
+    "wilson95": [
+     0.879353,
+     1.0
+    ]
+   },
+   "M2_exact_diagnosis": {
+    "k": 14,
+    "n": 28,
+    "value": 0.5,
+    "wilson95": [
+     0.326328,
+     0.673672
+    ]
+   },
+   "M3_large_recall": {
+    "k": 28,
+    "n": 28,
+    "value": 1.0,
+    "wilson95": [
+     0.879353,
+     1.0
+    ]
+   },
+   "M4_zero_false_blame": {
+    "k": 18,
+    "n": 299,
+    "value": 0.06020066889632107,
+    "wilson95": [
+     0.038415,
+     0.093144
+    ]
+   },
+   "M5_false_alarm": {
+    "k": 15,
+    "n": 48,
+    "value": 0.3125,
+    "wilson95": [
+     0.199455,
+     0.453333
+    ]
+   },
+   "M6_fix_verified": {
+    "k": 27,
+    "n": 28,
+    "value": 0.9642857142857143,
+    "wilson95": [
+     0.822874,
+     0.993668
+    ]
+   },
+   "M7_mean_runs": 180.0,
+   "small_M2_exact": {
+    "k": 7,
+    "n": 39,
+    "value": 0.1794871794871795,
+    "wilson95": [
+     0.089772,
+     0.326684
+    ]
+   },
+   "small_M3_recall": {
+    "k": 33,
+    "n": 43,
+    "value": 0.7674418604651163,
+    "wilson95": [
+     0.622552,
+     0.868465
+    ]
+   }
+  }
+ },
+ "per_family": {
+  "R": {
+   "GB": {
+    "M1_detection": {
+     "k": 22,
+     "n": 26,
+     "value": 0.8461538461538461,
+     "wilson95": [
+      0.664684,
+      0.938501
+     ]
+    },
+    "M2_exact_diagnosis": {
+     "k": 19,
+     "n": 26,
+     "value": 0.7307692307692307,
+     "wilson95": [
+      0.539166,
+      0.862957
+     ]
+    },
+    "M3_large_recall": {
+     "k": 22,
+     "n": 26,
+     "value": 0.8461538461538461,
+     "wilson95": [
+      0.664684,
+      0.938501
+     ]
+    },
+    "M4_zero_false_blame": {
+     "k": 0,
+     "n": 203,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.018573
+     ]
+    },
+    "M5_false_alarm": {
+     "k": 0,
+     "n": 32,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.107183
+     ]
+    },
+    "M6_fix_verified": {
+     "k": 18,
+     "n": 22,
+     "value": 0.8181818181818182,
+     "wilson95": [
+      0.61483,
+      0.926932
+     ]
+    },
+    "M7_mean_runs": 168.75,
+    "small_M2_exact": {
+     "k": 1,
+     "n": 11,
+     "value": 0.09090909090909091,
+     "wilson95": [
+      0.016232,
+      0.377365
+     ]
+    },
+    "small_M3_recall": {
+     "k": 1,
+     "n": 11,
+     "value": 0.09090909090909091,
+     "wilson95": [
+      0.016232,
+      0.377365
+     ]
+    }
+   },
+   "B0": {
+    "M1_detection": {
+     "k": 22,
+     "n": 26,
+     "value": 0.8461538461538461,
+     "wilson95": [
+      0.664684,
+      0.938501
+     ]
+    },
+    "M2_exact_diagnosis": {
+     "k": 0,
+     "n": 26,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.128733
+     ]
+    },
+    "M3_large_recall": {
+     "k": 22,
+     "n": 26,
+     "value": 0.8461538461538461,
+     "wilson95": [
+      0.664684,
+      0.938501
+     ]
+    },
+    "M4_zero_false_blame": {
+     "k": 47,
+     "n": 203,
+     "value": 0.2315270935960591,
+     "wilson95": [
+      0.178813,
+      0.294214
+     ]
+    },
+    "M5_false_alarm": {
+     "k": 0,
+     "n": 32,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.107183
+     ]
+    },
+    "M6_fix_verified": {
+     "k": 22,
+     "n": 22,
+     "value": 1.0,
+     "wilson95": [
+      0.85134,
+      1.0
+     ]
+    },
+    "M7_mean_runs": 168.75,
+    "small_M2_exact": {
+     "k": 0,
+     "n": 11,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.25884
+     ]
+    },
+    "small_M3_recall": {
+     "k": 6,
+     "n": 11,
+     "value": 0.5454545454545454,
+     "wilson95": [
+      0.280088,
+      0.78729
+     ]
+    }
+   },
+   "B1": {
+    "M1_detection": {
+     "k": 26,
+     "n": 26,
+     "value": 1.0,
+     "wilson95": [
+      0.871267,
+      1.0
+     ]
+    },
+    "M2_exact_diagnosis": {
+     "k": 14,
+     "n": 26,
+     "value": 0.5384615384615384,
+     "wilson95": [
+      0.354576,
+      0.712444
+     ]
+    },
+    "M3_large_recall": {
+     "k": 26,
+     "n": 26,
+     "value": 1.0,
+     "wilson95": [
+      0.871267,
+      1.0
+     ]
+    },
+    "M4_zero_false_blame": {
+     "k": 18,
+     "n": 203,
+     "value": 0.08866995073891626,
+     "wilson95": [
+      0.056823,
+      0.135796
+     ]
+    },
+    "M5_false_alarm": {
+     "k": 5,
+     "n": 32,
+     "value": 0.15625,
+     "wilson95": [
+      0.068643,
+      0.317545
+     ]
+    },
+    "M6_fix_verified": {
+     "k": 25,
+     "n": 26,
+     "value": 0.9615384615384616,
+     "wilson95": [
+      0.811068,
+      0.993178
+     ]
+    },
+    "M7_mean_runs": 168.75,
+    "small_M2_exact": {
+     "k": 7,
+     "n": 11,
+     "value": 0.6363636363636364,
+     "wilson95": [
+      0.353797,
+      0.848338
+     ]
+    },
+    "small_M3_recall": {
+     "k": 11,
+     "n": 11,
+     "value": 1.0,
+     "wilson95": [
+      0.74116,
+      1.0
+     ]
+    }
+   }
+  },
+  "S": {
+   "GB": {
+    "M1_detection": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M2_exact_diagnosis": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M3_large_recall": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M4_zero_false_blame": {
+     "k": 1,
+     "n": 96,
+     "value": 0.010416666666666666,
+     "wilson95": [
+      0.001841,
+      0.056668
+     ]
+    },
+    "M5_false_alarm": {
+     "k": 1,
+     "n": 16,
+     "value": 0.0625,
+     "wilson95": [
+      0.011119,
+      0.283293
+     ]
+    },
+    "M6_fix_verified": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M7_mean_runs": 202.5,
+    "small_M2_exact": {
+     "k": 9,
+     "n": 28,
+     "value": 0.32142857142857145,
+     "wilson95": [
+      0.17933,
+      0.506615
+     ]
+    },
+    "small_M3_recall": {
+     "k": 12,
+     "n": 32,
+     "value": 0.375,
+     "wilson95": [
+      0.229337,
+      0.547459
+     ]
+    }
+   },
+   "B0": {
+    "M1_detection": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M2_exact_diagnosis": {
+     "k": 0,
+     "n": 2,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.657628
+     ]
+    },
+    "M3_large_recall": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M4_zero_false_blame": {
+     "k": 32,
+     "n": 96,
+     "value": 0.3333333333333333,
+     "wilson95": [
+      0.247056,
+      0.432437
+     ]
+    },
+    "M5_false_alarm": {
+     "k": 1,
+     "n": 16,
+     "value": 0.0625,
+     "wilson95": [
+      0.011119,
+      0.283293
+     ]
+    },
+    "M6_fix_verified": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M7_mean_runs": 202.5,
+    "small_M2_exact": {
+     "k": 0,
+     "n": 28,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.120647
+     ]
+    },
+    "small_M3_recall": {
+     "k": 20,
+     "n": 32,
+     "value": 0.625,
+     "wilson95": [
+      0.452541,
+      0.770663
+     ]
+    }
+   },
+   "B1": {
+    "M1_detection": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M2_exact_diagnosis": {
+     "k": 0,
+     "n": 2,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.657628
+     ]
+    },
+    "M3_large_recall": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M4_zero_false_blame": {
+     "k": 0,
+     "n": 96,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.038477
+     ]
+    },
+    "M5_false_alarm": {
+     "k": 10,
+     "n": 16,
+     "value": 0.625,
+     "wilson95": [
+      0.386406,
+      0.81519
+     ]
+    },
+    "M6_fix_verified": {
+     "k": 2,
+     "n": 2,
+     "value": 1.0,
+     "wilson95": [
+      0.342372,
+      1.0
+     ]
+    },
+    "M7_mean_runs": 202.5,
+    "small_M2_exact": {
+     "k": 0,
+     "n": 28,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.120647
+     ]
+    },
+    "small_M3_recall": {
+     "k": 22,
+     "n": 32,
+     "value": 0.6875,
+     "wilson95": [
+      0.51433,
+      0.820476
+     ]
+    }
+   }
+  }
+ },
+ "n_units": 192,
+ "n_positive_units": 28,
+ "units": [
+  {
+   "incident": "R01",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "template": 1.5e-05,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 1.5e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.5e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.5e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R01",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "template": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R01",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "template": 0.107522,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.107522,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.107522
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.107522
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666666,
+    "p_value": 0.089
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.2666666666666667,
+     "p_value": 0.012,
+     "significant": true
+    },
+    "cache_mode": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.201,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R01",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "template": 0.000372,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.000372,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.000372
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.000372
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R01",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "template": 2.5e-05,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 2.5e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2.5e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2.5e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R01",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "template": 1e-06,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 1e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R01",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "template": 0.046084,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.046084,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.046084
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.046084
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.752,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.201,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R01",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "template": 9e-06,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 9e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R02",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "top_k": 0.230512,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.230512,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.230512
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.19999999999999998,
+    "p_value": 0.018
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.16666666666666663,
+     "p_value": 0.054,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R02",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "top_k": 0.041287,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.041287,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.041287
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.041287
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R02",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "top_k": 0.211508,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.211508,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.211508
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.23333333333333334,
+    "p_value": 0.05
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.45,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.692,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R02",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "top_k": 0.292731,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.292731,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.292731
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.2666666666666667,
+    "p_value": 0.005
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.16666666666666663,
+     "p_value": 0.056,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R02",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "top_k": 0.633596,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.633596,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.6,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.7666666666666666,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R02",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "top_k": 0.927552,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.927552,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.9666666666666667,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.9,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R02",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "top_k": 0.405216,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.405216,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.405216
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.39999999999999997,
+    "p_value": 0.008
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.33333333333333326,
+     "p_value": 0.017,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.326,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R02",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "top_k": 0.360919,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.360919,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.4666666666666667,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.30000000000000004,
+     "p_value": 0.003,
+     "significant": true
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R03",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "preamble": 1.6e-05,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 1.6e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.6e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.6e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R03",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "preamble": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R03",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "preamble": 0.029155,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.029155,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.029155
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.029155
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.03333333333333333,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.13333333333333333,
+     "p_value": 0.254,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.09999999999999998,
+     "p_value": 0.441,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R03",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "preamble": 7.3e-05,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 7.3e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 7.3e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 7.3e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R03",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "preamble": 8e-06,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 8e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 8e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 8e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R03",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "preamble": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R03",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "preamble": 0.04236,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.04236,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.04236
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.04236
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.205
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.182,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.2,
+     "p_value": 0.118,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R03",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "preamble": 2e-06,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 2e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R04",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "index": 0.999906,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999906,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R04",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "index": 0.999993,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999993,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R04",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "index": 0.549163,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.549163,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.6333333333333333,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.6666666666666667,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "cache_mode": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.192,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.715,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R04",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "index": 0.999497,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999497,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "cache_mode",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R04",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "index": 0.0,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R04",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "index": 0.0,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R04",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "index": 0.0,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.16666666666666666,
+     "p_value": 0.143,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.758,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R04",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "index": 0.0,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R05",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "index": 0.999906,
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.999906,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "log_level",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R05",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "index": 0.999993,
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.999993,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "log_level",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R05",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "index": 0.549163,
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.549163,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "log_level",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.5666666666666667,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.6666666666666667,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.689,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R05",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "index": 0.999497,
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.999497,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "log_level",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R05",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "index": 0.0,
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R05",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "index": 0.0,
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R05",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "index": 0.0,
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.10000000000000003,
+     "p_value": 0.557,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.03333333333333334,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.784,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R05",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "index": 0.0,
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R06",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "index": 0.999906,
+    "template": 1.5e-05,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.999942,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 1.5e-05
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "template",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 1.5e-05
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R06",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "index": 0.999993,
+    "template": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.99999,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "template",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R06",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "index": 0.549163,
+    "template": 0.107522,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.509234,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.107522
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "template",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.107522
+    }
+   },
+   "total_test": {
+    "tvd": 0.43333333333333335,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.5,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "template": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.733,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.16666666666666666,
+     "p_value": 0.114,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R06",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "index": 0.999497,
+    "template": 0.000372,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.999517,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.000372
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "index",
+      "template",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.000372
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R06",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "index": 0.0,
+    "template": 2.5e-05,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 2.5e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2.5e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2.5e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R06",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "index": 0.0,
+    "template": 1e-06,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 1e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R06",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "index": 0.0,
+    "template": 0.046084,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.046084,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.046084
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.046084
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.258
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "template": {
+     "tvd": 0.03333333333333334,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.266,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R06",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "index": 0.0,
+    "template": 9e-06,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 9e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R07",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "preamble": 1.6e-05,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 1.6e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.6e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.6e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R07",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "preamble": 0.0,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R07",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "preamble": 0.029155,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.029155,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.029155
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.029155
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.212
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.678,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.677,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R07",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "preamble": 7.3e-05,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 7.3e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 7.3e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 7.3e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R07",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "preamble": 8e-06,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 8e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 8e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 8e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R07",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "preamble": 0.0,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R07",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "preamble": 0.04236,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.04236,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.04236
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.04236
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.10000000000000003,
+     "p_value": 0.515,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.356,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R07",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "preamble": 2e-06,
+    "cache_mode": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 2e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "R08",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "template": 1.5e-05,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 1.5e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.5e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.5e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R08",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "template": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R08",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "template": 0.107522,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.107522,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.107522
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "template",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.2666666666666667,
+    "p_value": 0.016
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.20000000000000004,
+     "p_value": 0.072,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R08",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "template": 0.000372,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.000372,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.000372
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.000372
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R08",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "template": 2.5e-05,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 2.5e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2.5e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2.5e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R08",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "template": 1e-06,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 1e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R08",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "template": 0.046084,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.046084,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.046084
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.046084
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.752,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R08",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "template": 9e-06,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 9e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "template"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "template": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R09",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "preamble": 1.6e-05,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 1.6e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.6e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.6e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R09",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "preamble": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R09",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "preamble": 0.029155,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.029155,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.029155
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "preamble",
+      "cache_mode"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.23333333333333336,
+    "p_value": 0.028
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.594,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R09",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "preamble": 7.3e-05,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 7.3e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 7.3e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 7.3e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R09",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "preamble": 8e-06,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 8e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 8e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 8e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R09",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "preamble": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R09",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "preamble": 0.04236,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.04236,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.04236
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.04236
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666671,
+    "p_value": 0.758
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.713,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.535,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R09",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "preamble": 2e-06,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 2e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R10",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "top_k": 0.230512,
+    "index": 0.999906,
+    "preamble": 1.6e-05,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999919,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 1.6e-05
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index",
+      "preamble",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 1.6e-05
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.2333333333333333,
+     "p_value": 0.01,
+     "significant": true
+    },
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R10",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "top_k": 0.041287,
+    "index": 0.999993,
+    "preamble": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999984,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.050744
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index",
+      "preamble",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.16666666666666663,
+     "p_value": 0.058,
+     "significant": false
+    },
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R10",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "top_k": 0.211508,
+    "index": 0.549163,
+    "preamble": 0.029155,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.491901,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.220933
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index",
+      "preamble",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 0.029155
+    }
+   },
+   "total_test": {
+    "tvd": 0.4666666666666667,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.2,
+     "p_value": 0.114,
+     "significant": false
+    },
+    "index": {
+     "tvd": 0.5666666666666667,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.474,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.614,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R10",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "top_k": 0.292731,
+    "index": 0.999497,
+    "preamble": 7.3e-05,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999468,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 7.3e-05
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index",
+      "preamble",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 7.3e-05
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.33333333333333337,
+     "p_value": 0.002,
+     "significant": true
+    },
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R10",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "top_k": 0.633596,
+    "index": 0.0,
+    "preamble": 8e-06,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 9e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 8e-06
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.6666666666666667,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R10",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "top_k": 0.927552,
+    "index": 0.0,
+    "preamble": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.9333333333333333,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R10",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "top_k": 0.405216,
+    "index": 0.0,
+    "preamble": 0.04236,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.012018,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.012018
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.012018
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 0.04236
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.3666666666666667,
+     "p_value": 0.012,
+     "significant": true
+    },
+    "index": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "preamble": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.408,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R10",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "top_k": 0.360919,
+    "index": 0.0,
+    "preamble": 2e-06,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 1e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 2e-06
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.5666666666666667,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R11",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "top_k": 0.230512,
+    "preamble": 1.6e-05,
+    "index": 0.999906,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999919,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.283904
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "preamble",
+      "index",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 1.6e-05
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.234,
+     "significant": false
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R11",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "top_k": 0.041287,
+    "preamble": 0.0,
+    "index": 0.999993,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999984,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.050744
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "preamble",
+      "index",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R11",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "top_k": 0.211508,
+    "preamble": 0.029155,
+    "index": 0.549163,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.491901,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "index"
+     ],
+     "fix_tvd": 0.220933
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "preamble",
+      "index",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 0.029155
+    }
+   },
+   "total_test": {
+    "tvd": 0.4666666666666667,
+    "p_value": 0.002
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.20000000000000004,
+     "p_value": 0.166,
+     "significant": false
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "index": {
+     "tvd": 0.4,
+     "p_value": 0.003,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.472,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R11",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "top_k": 0.292731,
+    "preamble": 7.3e-05,
+    "index": 0.999497,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.999468,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 7.3e-05
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "preamble",
+      "index",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 7.3e-05
+    }
+   },
+   "total_test": {
+    "tvd": 1.0,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.33333333333333337,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "index": {
+     "tvd": 1.0,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R11",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "top_k": 0.633596,
+    "preamble": 8e-06,
+    "index": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 9e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 9e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 8e-06
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.6,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R11",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "top_k": 0.927552,
+    "preamble": 0.0,
+    "index": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.9666666666666667,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R11",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "top_k": 0.405216,
+    "preamble": 0.04236,
+    "index": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.012018,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.012018
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.012018
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 0.04236
+    }
+   },
+   "total_test": {
+    "tvd": 0.03333333333333338,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.33333333333333326,
+     "p_value": 0.012,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.13333333333333333,
+     "p_value": 0.425,
+     "significant": false
+    },
+    "index": {
+     "tvd": 0.03333333333333338,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.09999999999999998,
+     "p_value": 0.598,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R11",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "top_k": 0.360919,
+    "preamble": 2e-06,
+    "index": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 1e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "top_k",
+      "index"
+     ],
+     "fix_tvd": 2e-06
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "top_k": {
+     "tvd": 0.4,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "index": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "R12",
+   "family": "R",
+   "negative": false,
+   "item": "q1",
+   "truth": {
+    "preamble": 1.6e-05,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 1.6e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.6e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 1.6e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R12",
+   "family": "R",
+   "negative": false,
+   "item": "q2",
+   "truth": {
+    "preamble": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R12",
+   "family": "R",
+   "negative": false,
+   "item": "q3",
+   "truth": {
+    "preamble": 0.029155,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.029155,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.029155
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.029155
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666665,
+    "p_value": 0.68
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.13333333333333333,
+     "p_value": 0.276,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.684,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R12",
+   "family": "R",
+   "negative": false,
+   "item": "q4",
+   "truth": {
+    "preamble": 7.3e-05,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 7.3e-05,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 7.3e-05
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 7.3e-05
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R12",
+   "family": "R",
+   "negative": false,
+   "item": "q5",
+   "truth": {
+    "preamble": 8e-06,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 8e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 8e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 8e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R12",
+   "family": "R",
+   "negative": false,
+   "item": "q6",
+   "truth": {
+    "preamble": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R12",
+   "family": "R",
+   "negative": false,
+   "item": "q7",
+   "truth": {
+    "preamble": 0.04236,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.04236,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.04236
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.04236
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.13333333333333336,
+    "p_value": 0.372
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.761,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.208,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "R12",
+   "family": "R",
+   "negative": false,
+   "item": "q8",
+   "truth": {
+    "preamble": 2e-06,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 2e-06,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2e-06
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 2e-06
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "preamble"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "preamble": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN01",
+   "family": "R",
+   "negative": true,
+   "item": "q1",
+   "truth": {
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN01",
+   "family": "R",
+   "negative": true,
+   "item": "q2",
+   "truth": {
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN01",
+   "family": "R",
+   "negative": true,
+   "item": "q3",
+   "truth": {
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666667,
+    "p_value": 0.753
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.19,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.705,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN01",
+   "family": "R",
+   "negative": true,
+   "item": "q4",
+   "truth": {
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN01",
+   "family": "R",
+   "negative": true,
+   "item": "q5",
+   "truth": {
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN01",
+   "family": "R",
+   "negative": true,
+   "item": "q6",
+   "truth": {
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN01",
+   "family": "R",
+   "negative": true,
+   "item": "q7",
+   "truth": {
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.248
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.2,
+     "p_value": 0.136,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.23333333333333334,
+     "p_value": 0.074,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN01",
+   "family": "R",
+   "negative": true,
+   "item": "q8",
+   "truth": {
+    "log_level": 0.0,
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "RN02",
+   "family": "R",
+   "negative": true,
+   "item": "q1",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN02",
+   "family": "R",
+   "negative": true,
+   "item": "q2",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN02",
+   "family": "R",
+   "negative": true,
+   "item": "q3",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.1333333333333333,
+    "p_value": 0.103
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.11,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN02",
+   "family": "R",
+   "negative": true,
+   "item": "q4",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN02",
+   "family": "R",
+   "negative": true,
+   "item": "q5",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN02",
+   "family": "R",
+   "negative": true,
+   "item": "q6",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN02",
+   "family": "R",
+   "negative": true,
+   "item": "q7",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.10000000000000003,
+    "p_value": 0.558
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.10000000000000003,
+     "p_value": 0.582,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN02",
+   "family": "R",
+   "negative": true,
+   "item": "q8",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN03",
+   "family": "R",
+   "negative": true,
+   "item": "q1",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN03",
+   "family": "R",
+   "negative": true,
+   "item": "q2",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN03",
+   "family": "R",
+   "negative": true,
+   "item": "q3",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN03",
+   "family": "R",
+   "negative": true,
+   "item": "q4",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN03",
+   "family": "R",
+   "negative": true,
+   "item": "q5",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN03",
+   "family": "R",
+   "negative": true,
+   "item": "q6",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN03",
+   "family": "R",
+   "negative": true,
+   "item": "q7",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN03",
+   "family": "R",
+   "negative": true,
+   "item": "q8",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN04",
+   "family": "R",
+   "negative": true,
+   "item": "q1",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN04",
+   "family": "R",
+   "negative": true,
+   "item": "q2",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN04",
+   "family": "R",
+   "negative": true,
+   "item": "q3",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN04",
+   "family": "R",
+   "negative": true,
+   "item": "q4",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN04",
+   "family": "R",
+   "negative": true,
+   "item": "q5",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN04",
+   "family": "R",
+   "negative": true,
+   "item": "q6",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN04",
+   "family": "R",
+   "negative": true,
+   "item": "q7",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.13333333333333336,
+    "p_value": 0.345
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.334,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "RN04",
+   "family": "R",
+   "negative": true,
+   "item": "q8",
+   "truth": {
+    "cache_mode": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.0,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "cache_mode": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "S01",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "skip_check": 0.094669,
+    "resend_bias": 0.084981,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.146691,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.146691
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.146691
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666663,
+    "p_value": 0.427
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.82,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.34,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.927,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.716,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S01",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "skip_check": 0.094669,
+    "resend_bias": 0.118974,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.183578,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.183578
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.183578
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.183578
+    }
+   },
+   "total_test": {
+    "tvd": 0.23333333333333334,
+    "p_value": 0.066
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.721,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.3,
+     "p_value": 0.025,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.752,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.721,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S01",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "skip_check": 0.094669,
+    "resend_bias": 0.050989,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.113588,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.113588
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.113588
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.369
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.26666666666666666,
+     "p_value": 0.063,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.1,
+     "p_value": 0.606,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.2,
+     "p_value": 0.223,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.2333333333333334,
+     "p_value": 0.099,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S01",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "skip_check": 0.094669,
+    "resend_bias": 0.101977,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.174119,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.174119
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.174119
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333395,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.10000000000000006,
+     "p_value": 0.682,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.772,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.641,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.10000000000000006,
+     "p_value": 0.659,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S02",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "resend_bias": 0.394659,
+    "wrong_order": 0.005316,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.398259,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.005316
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "wrong_order",
+      "trace_sampling",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "wrong_order"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.36666666666666664,
+    "p_value": 0.01
+   },
+   "sufficiency": {
+    "resend_bias": {
+     "tvd": 0.39999999999999997,
+     "p_value": 0.005,
+     "significant": true
+    },
+    "wrong_order": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.89,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.569,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S02",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "resend_bias": 0.552522,
+    "wrong_order": 0.005316,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.55665,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.005316
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "wrong_order",
+      "trace_sampling",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "wrong_order"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.6666666666666667,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "resend_bias": {
+     "tvd": 0.6000000000000001,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "wrong_order": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.883,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.823,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S02",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "resend_bias": 0.236795,
+    "wrong_order": 0.005316,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.239653,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.239653
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.239653
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "wrong_order"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666665,
+    "p_value": 0.784
+   },
+   "sufficiency": {
+    "resend_bias": {
+     "tvd": 0.16666666666666666,
+     "p_value": 0.352,
+     "significant": false
+    },
+    "wrong_order": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.836,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S02",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "resend_bias": 0.47359,
+    "wrong_order": 0.005316,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.476945,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.005316
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "wrong_order",
+      "trace_sampling",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "wrong_order"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.4666666666666667,
+    "p_value": 0.002
+   },
+   "sufficiency": {
+    "resend_bias": {
+     "tvd": 0.4,
+     "p_value": 0.005,
+     "significant": true
+    },
+    "wrong_order": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.09999999999999998,
+     "p_value": 0.502,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.643,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S03",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "skip_check": 0.008408,
+    "resend_bias": 0.338485,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.341748,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.008408
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.4,
+    "p_value": 0.003
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.301,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.5,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.116,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S03",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "skip_check": 0.008408,
+    "resend_bias": 0.473878,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.476512,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.008408
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.5333333333333333,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.64,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.5333333333333333,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.635,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S03",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "skip_check": 0.008408,
+    "resend_bias": 0.203091,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.20732,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.20732
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.3,
+    "p_value": 0.049
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.19999999999999996,
+     "p_value": 0.219,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.23333333333333334,
+     "p_value": 0.083,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.03333333333333335,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S03",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "skip_check": 0.008408,
+    "resend_bias": 0.406182,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.409928,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.409928
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.409928
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.409928
+    }
+   },
+   "total_test": {
+    "tvd": 0.26666666666666666,
+    "p_value": 0.07
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.314,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.2666666666666667,
+     "p_value": 0.075,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S04",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "skip_check": 0.072708,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.072708,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.072708
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.072708
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666667,
+    "p_value": 0.912
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.1,
+     "p_value": 0.73,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.651,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "S04",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "skip_check": 0.072708,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.072708,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.072708
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.072708
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.1333333333333333,
+    "p_value": 0.274
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.23333333333333334,
+     "p_value": 0.08,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.699,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "S04",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "skip_check": 0.072708,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.072708,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.072708
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.072708
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666668,
+    "p_value": 0.796
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.579,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.16666666666666666,
+     "p_value": 0.261,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "S04",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "skip_check": 0.072708,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.072708,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.072708
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.072708
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.13333333333333336,
+    "p_value": 0.448
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.2333333333333334,
+     "p_value": 0.061,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.48,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "S05",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "skip_check": 0.003323,
+    "resend_bias": 0.313518,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.314894,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.003323
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.5666666666666668,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.2666666666666667,
+     "p_value": 0.056,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.46666666666666673,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.679,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S05",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "skip_check": 0.003323,
+    "resend_bias": 0.438926,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.440087,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.003323
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.5666666666666667,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.2666666666666667,
+     "p_value": 0.027,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.6000000000000001,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "log_level": {
+     "tvd": 0.20000000000000004,
+     "p_value": 0.075,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S05",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "skip_check": 0.003323,
+    "resend_bias": 0.188111,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.189834,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.189834
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.189834
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.2333333333333333,
+    "p_value": 0.127
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.09999999999999998,
+     "p_value": 0.671,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.485,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.2,
+     "p_value": 0.136,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S05",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "skip_check": 0.003323,
+    "resend_bias": 0.376222,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.377806,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.377806
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.377806
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "resend_bias"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.2333333333333334,
+    "p_value": 0.087
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.16666666666666663,
+     "p_value": 0.196,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.2333333333333334,
+     "p_value": 0.118,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.03333333333333339,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S06",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "skip_check": 0.001126,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.001126,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.271
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.524,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S06",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "skip_check": 0.001126,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.001126,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666665,
+    "p_value": 0.88
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.09999999999999998,
+     "p_value": 0.675,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S06",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "skip_check": 0.001126,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.001126,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.519,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.917,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.518,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S06",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "skip_check": 0.001126,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.001126,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001126
+    }
+   },
+   "total_test": {
+    "tvd": 0.1,
+    "p_value": 0.644
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.6,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.295,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.865,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S07",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "early_stop": 0.159894,
+    "skip_check": 0.016038,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.225563,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.225563
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.225563
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "early_stop",
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.13333333333333336,
+    "p_value": 0.557
+   },
+   "sufficiency": {
+    "early_stop": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.589,
+     "significant": false
+    },
+    "skip_check": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.879,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.768,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S07",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "early_stop": 0.159894,
+    "skip_check": 0.016038,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.225563,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.225563
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.225563
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "early_stop",
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.20000000000000004,
+    "p_value": 0.203
+   },
+   "sufficiency": {
+    "early_stop": {
+     "tvd": 0.30000000000000004,
+     "p_value": 0.026,
+     "significant": false
+    },
+    "skip_check": {
+     "tvd": 0.10000000000000006,
+     "p_value": 0.636,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.626,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S07",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "early_stop": 0.159894,
+    "skip_check": 0.016038,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.225563,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.225563
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "early_stop",
+      "skip_check",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "early_stop",
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.3,
+    "p_value": 0.038
+   },
+   "sufficiency": {
+    "early_stop": {
+     "tvd": 0.2,
+     "p_value": 0.214,
+     "significant": false
+    },
+    "skip_check": {
+     "tvd": 0.1666666666666667,
+     "p_value": 0.282,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.16666666666666666,
+     "p_value": 0.267,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S07",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "early_stop": 0.159894,
+    "skip_check": 0.016038,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.225563,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.225563
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.225563
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "early_stop",
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.23333333333333336,
+    "p_value": 0.099
+   },
+   "sufficiency": {
+    "early_stop": {
+     "tvd": 0.1,
+     "p_value": 0.614,
+     "significant": false
+    },
+    "skip_check": {
+     "tvd": 0.1666666666666667,
+     "p_value": 0.277,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.1333333333333334,
+     "p_value": 0.335,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S08",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "framework_retry": 0.240242,
+    "resend_bias": 0.297194,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.537437,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.537437
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "framework_retry",
+      "resend_bias",
+      "trace_sampling",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "framework_retry"
+     ],
+     "fix_tvd": 0.297194
+    }
+   },
+   "total_test": {
+    "tvd": 0.6333333333333333,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "framework_retry": {
+     "tvd": 0.1,
+     "p_value": 0.606,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.3,
+     "p_value": 0.043,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.412,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.10000000000000003,
+     "p_value": 0.561,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S08",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "framework_retry": 0.115338,
+    "resend_bias": 0.416072,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.53141,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.115338
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "framework_retry",
+      "resend_bias",
+      "trace_sampling",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.115338
+    }
+   },
+   "total_test": {
+    "tvd": 0.6666666666666666,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "framework_retry": {
+     "tvd": 0.20000000000000007,
+     "p_value": 0.1,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.5333333333333333,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "trace_sampling": {
+     "tvd": 0.13333333333333333,
+     "p_value": 0.441,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.539,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S08",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "framework_retry": 0.403556,
+    "resend_bias": 0.178317,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.581873,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "framework_retry"
+     ],
+     "fix_tvd": 0.178317
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "framework_retry",
+      "resend_bias",
+      "trace_sampling",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.403556
+    }
+   },
+   "total_test": {
+    "tvd": 0.5,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "framework_retry": {
+     "tvd": 0.39999999999999997,
+     "p_value": 0.009,
+     "significant": true
+    },
+    "resend_bias": {
+     "tvd": 0.19999999999999998,
+     "p_value": 0.227,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.51,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S08",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "framework_retry": 0.269013,
+    "resend_bias": 0.356633,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.625646,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.269013
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "framework_retry",
+      "resend_bias",
+      "trace_sampling",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.269013
+    }
+   },
+   "total_test": {
+    "tvd": 0.7000000000000001,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "framework_retry": {
+     "tvd": 0.3,
+     "p_value": 0.021,
+     "significant": false
+    },
+    "resend_bias": {
+     "tvd": 0.4666666666666667,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "trace_sampling": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.766,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S09",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "skip_check": 0.01766,
+    "framework_retry": 0.240242,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.248896,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.248896
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.248896
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.248896
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666666,
+    "p_value": 0.327
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.548,
+     "significant": false
+    },
+    "framework_retry": {
+     "tvd": 0.13333333333333333,
+     "p_value": 0.555,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.443,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.033333333333333354,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S09",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "skip_check": 0.01766,
+    "framework_retry": 0.115338,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.127453,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.127453
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.127453
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check"
+     ],
+     "fix_tvd": 0.115338
+    }
+   },
+   "total_test": {
+    "tvd": 0.13333333333333336,
+    "p_value": 0.487
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.03333333333333334,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "framework_retry": {
+     "tvd": 0.10000000000000003,
+     "p_value": 0.648,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.03333333333333338,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.855,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S09",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "skip_check": 0.01766,
+    "framework_retry": 0.403556,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.408748,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "framework_retry"
+     ],
+     "fix_tvd": 0.01766
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "framework_retry",
+      "trace_sampling",
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.408748
+    }
+   },
+   "total_test": {
+    "tvd": 0.5333333333333334,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.03333333333333338,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "framework_retry": {
+     "tvd": 0.5333333333333334,
+     "p_value": 0.002,
+     "significant": true
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.747,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666671,
+     "p_value": 0.763,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S09",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "skip_check": 0.01766,
+    "framework_retry": 0.269013,
+    "trace_sampling": 0.0,
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.279398,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.279398
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.279398
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.279398
+    }
+   },
+   "total_test": {
+    "tvd": 0.03333333333333338,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.616,
+     "significant": false
+    },
+    "framework_retry": {
+     "tvd": 0.43333333333333335,
+     "p_value": 0.003,
+     "significant": true
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.79,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.13333333333333333,
+     "p_value": 0.316,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S10",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "skip_check": 0.001539,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.001539,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.306
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666672,
+     "p_value": 0.893,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "S10",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "skip_check": 0.001539,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.001539,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.10000000000000005,
+    "p_value": 0.677
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.63,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.854,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "S10",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "skip_check": 0.001539,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.001539,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666665,
+    "p_value": 0.839
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.10000000000000003,
+     "p_value": 0.652,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.10000000000000003,
+     "p_value": 0.633,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "S10",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "skip_check": 0.001539,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.001539,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "skip_check",
+      "trace_sampling"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.001539
+    }
+   },
+   "total_test": {
+    "tvd": 0.2333333333333333,
+    "p_value": 0.013
+   },
+   "sufficiency": {
+    "skip_check": {
+     "tvd": 0.16666666666666663,
+     "p_value": 0.061,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.233,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "S11",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "wrong_order": 0.013009,
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.013009,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "wrong_order"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "wrong_order": {
+     "tvd": 0.09999999999999998,
+     "p_value": 0.653,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.895,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.2,
+     "p_value": 0.158,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S11",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "wrong_order": 0.013009,
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.013009,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "wrong_order": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.293,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.654,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.10000000000000006,
+     "p_value": 0.643,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S11",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "wrong_order": 0.013009,
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.013009,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "wrong_order"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666667,
+    "p_value": 0.748
+   },
+   "sufficiency": {
+    "wrong_order": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.516,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.227,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.30000000000000004,
+     "p_value": 0.029,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S11",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "wrong_order": 0.013009,
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.013009,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.013009
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "wrong_order"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.1333333333333333,
+    "p_value": 0.257
+   },
+   "sufficiency": {
+    "wrong_order": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.789,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.09999999999999999,
+     "p_value": 0.43,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.16666666666666663,
+     "p_value": 0.185,
+     "significant": false
+    }
+   },
+   "runs": 240
+  },
+  {
+   "incident": "S12",
+   "family": "S",
+   "negative": false,
+   "item": "c1",
+   "truth": {
+    "resend_bias": 0.374013,
+    "skip_check": 0.003013,
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.375071,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.003013
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "skip_check",
+      "log_level",
+      "trace_sampling"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.36666666666666664,
+    "p_value": 0.01
+   },
+   "sufficiency": {
+    "resend_bias": {
+     "tvd": 0.4,
+     "p_value": 0.005,
+     "significant": true
+    },
+    "skip_check": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.03333333333333338,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.03333333333333338,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S12",
+   "family": "S",
+   "negative": false,
+   "item": "c2",
+   "truth": {
+    "resend_bias": 0.523619,
+    "skip_check": 0.003013,
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.524407,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.003013
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "skip_check",
+      "log_level",
+      "trace_sampling"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.6666666666666669,
+    "p_value": 0.001
+   },
+   "sufficiency": {
+    "resend_bias": {
+     "tvd": 0.43333333333333335,
+     "p_value": 0.002,
+     "significant": true
+    },
+    "skip_check": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.543,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.777,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.1333333333333334,
+     "p_value": 0.396,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S12",
+   "family": "S",
+   "negative": false,
+   "item": "c3",
+   "truth": {
+    "resend_bias": 0.224408,
+    "skip_check": 0.003013,
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.225857,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.225857
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "skip_check",
+      "log_level",
+      "trace_sampling"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.33333333333333326,
+    "p_value": 0.024
+   },
+   "sufficiency": {
+    "resend_bias": {
+     "tvd": 0.19999999999999998,
+     "p_value": 0.265,
+     "significant": false
+    },
+    "skip_check": {
+     "tvd": 0.0,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.781,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "S12",
+   "family": "S",
+   "negative": false,
+   "item": "c4",
+   "truth": {
+    "resend_bias": 0.448816,
+    "skip_check": 0.003013,
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.450025,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "resend_bias"
+     ],
+     "fix_tvd": 0.003013
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "skip_check",
+      "log_level",
+      "trace_sampling"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [
+      "resend_bias",
+      "skip_check"
+     ],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.3666666666666667,
+    "p_value": 0.003
+   },
+   "sufficiency": {
+    "resend_bias": {
+     "tvd": 0.4666666666666667,
+     "p_value": 0.001,
+     "significant": true
+    },
+    "skip_check": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "log_level": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.298,
+     "significant": false
+    }
+   },
+   "runs": 300
+  },
+  {
+   "incident": "SN01",
+   "family": "S",
+   "negative": true,
+   "item": "c1",
+   "truth": {
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.1333333333333334,
+    "p_value": 0.345
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.1333333333333334,
+     "p_value": 0.373,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN01",
+   "family": "S",
+   "negative": true,
+   "item": "c2",
+   "truth": {
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": true,
+     "blamed": [
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": true,
+     "blamed": [
+      "log_level"
+     ],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.23333333333333336,
+    "p_value": 0.045
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.23333333333333336,
+     "p_value": 0.04,
+     "significant": true
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN01",
+   "family": "S",
+   "negative": true,
+   "item": "c3",
+   "truth": {
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.1333333333333333,
+    "p_value": 0.471
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.1333333333333333,
+     "p_value": 0.454,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN01",
+   "family": "S",
+   "negative": true,
+   "item": "c4",
+   "truth": {
+    "log_level": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.033333333333333326,
+    "p_value": 1.0
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.033333333333333326,
+     "p_value": 1.0,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN02",
+   "family": "S",
+   "negative": true,
+   "item": "c1",
+   "truth": {
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666663,
+    "p_value": 0.285
+   },
+   "sufficiency": {
+    "trace_sampling": {
+     "tvd": 0.16666666666666663,
+     "p_value": 0.29,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN02",
+   "family": "S",
+   "negative": true,
+   "item": "c2",
+   "truth": {
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.09999999999999998,
+    "p_value": 0.699
+   },
+   "sufficiency": {
+    "trace_sampling": {
+     "tvd": 0.09999999999999998,
+     "p_value": 0.712,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN02",
+   "family": "S",
+   "negative": true,
+   "item": "c3",
+   "truth": {
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.13333333333333336,
+    "p_value": 0.403
+   },
+   "sufficiency": {
+    "trace_sampling": {
+     "tvd": 0.13333333333333336,
+     "p_value": 0.411,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN02",
+   "family": "S",
+   "negative": true,
+   "item": "c4",
+   "truth": {
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666665,
+    "p_value": 0.52
+   },
+   "sufficiency": {
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.465,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN03",
+   "family": "S",
+   "negative": true,
+   "item": "c1",
+   "truth": {
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.19999999999999996,
+    "p_value": 0.3
+   },
+   "sufficiency": {
+    "trace_sampling": {
+     "tvd": 0.19999999999999996,
+     "p_value": 0.242,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN03",
+   "family": "S",
+   "negative": true,
+   "item": "c2",
+   "truth": {
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.205
+   },
+   "sufficiency": {
+    "trace_sampling": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.206,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN03",
+   "family": "S",
+   "negative": true,
+   "item": "c3",
+   "truth": {
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.10000000000000005,
+    "p_value": 0.54
+   },
+   "sufficiency": {
+    "trace_sampling": {
+     "tvd": 0.10000000000000005,
+     "p_value": 0.519,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN03",
+   "family": "S",
+   "negative": true,
+   "item": "c4",
+   "truth": {
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666667,
+    "p_value": 0.675
+   },
+   "sufficiency": {
+    "trace_sampling": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.665,
+     "significant": false
+    }
+   },
+   "runs": 60
+  },
+  {
+   "incident": "SN04",
+   "family": "S",
+   "negative": true,
+   "item": "c1",
+   "truth": {
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666665,
+    "p_value": 0.823
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.16666666666666669,
+     "p_value": 0.312,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.917,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "SN04",
+   "family": "S",
+   "negative": true,
+   "item": "c2",
+   "truth": {
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.16666666666666669,
+    "p_value": 0.285
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.719,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666667,
+     "p_value": 0.736,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "SN04",
+   "family": "S",
+   "negative": true,
+   "item": "c3",
+   "truth": {
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.09999999999999998,
+    "p_value": 0.657
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.23333333333333336,
+     "p_value": 0.064,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.06666666666666665,
+     "p_value": 0.786,
+     "significant": false
+    }
+   },
+   "runs": 120
+  },
+  {
+   "incident": "SN04",
+   "family": "S",
+   "negative": true,
+   "item": "c4",
+   "truth": {
+    "log_level": 0.0,
+    "trace_sampling": 0.0
+   },
+   "candidate_total_tvd": 0.0,
+   "methods": {
+    "GB": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B0": {
+     "detected": false,
+     "blamed": [],
+     "fix_tvd": 0.0
+    },
+    "B1": {
+     "detected": true,
+     "blamed": [],
+     "fix_tvd": 0.0
+    }
+   },
+   "total_test": {
+    "tvd": 0.06666666666666665,
+    "p_value": 0.739
+   },
+   "sufficiency": {
+    "log_level": {
+     "tvd": 0.06666666666666672,
+     "p_value": 0.78,
+     "significant": false
+    },
+    "trace_sampling": {
+     "tvd": 0.10000000000000006,
+     "p_value": 0.675,
+     "significant": false
+    }
+   },
+   "runs": 120
+  }
+ ]
+}
