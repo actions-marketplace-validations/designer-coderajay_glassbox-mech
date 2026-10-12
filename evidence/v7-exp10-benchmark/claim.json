@@ -1,0 +1,9 @@
+{
+  "claim": "On a pre-registered benchmark of 32 known-cause incidents generated from a sealed seed (GPT-2 small RAG and a synthetic tool-using agent; 192 units, 28 positive), Glassbox interventions diagnosed the exact set of large causes in 21/28 positive units (0.75; first-divergence baseline 0.50, revert-all baseline 0.00), blamed 1/299 zero-effect factors, raised 1/48 false alarms on negative controls, and its implied fix was verified in 20/24 detected units. All five pre-declared criteria K1-K5 PASS; Hard Gate 11 met.",
+  "created_utc": "2026-10-12T20:13:05+00:00",
+  "integrity_note": "Integrity is not truth: a verifying manifest shows these files are unchanged since packaging; it does not show the experiment or the claim is correct.",
+  "package_id": "v7-exp10-benchmark",
+  "schema": "glassbox.evidence/0.1",
+  "scope": "Pre-registered (protocol 5328a2b, addendum 379f8ee with the sealed seed hash, code 416262f). Only 28 positive units, 26 of them from the GPT-2 RAG family; units share incidents and two factor sets were drawn twice, so Wilson intervals overstate precision; K1 interval 0.57-0.87. Four positive units whose co-changes cancelled at the outcome were missed; small effects were diagnosed exactly in 10/39 units. Factor pools, families and generator designed by the author; baselines are automated stand-ins, not human engineers; causes come from a known pool, so this is not blind diagnosis (Gate 3). Single author, one machine, one run, not independently reproduced.",
+  "status": "EXPERIMENTALLY_SUPPORTED"
+}

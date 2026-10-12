@@ -204,5 +204,26 @@
   ],
   "runtime": "minutes; no model",
   "notes": ""
+ },
+ "v7-exp10-benchmark": {
+  "commit": "1a0e13a",
+  "setup": [
+   "python3.11 -m venv .venv-repro",
+   ".venv-repro/bin/pip install -q \"numpy==1.26.4\" \"scipy==1.17.1\" \"einops==0.8.2\" \"torch==2.10.0\" \"transformer-lens==2.17.0\" \"transformers==4.57.6\" \"pyarrow==23.0.0\" \"datasets==4.5.0\" \"pandas==3.0.0\" pytest",
+   ".venv-repro/bin/pip install -q -e . --no-deps"
+  ],
+  "run": [
+   ".venv-repro/bin/python experiments/v7/benchmark/run.py --seed \"$(.venv-repro/bin/python -c 'import json; print(json.load(open(\"experiments/v7/benchmark/results/results.json\"))[\"seed\"])')\" --out repro/exp10"
+  ],
+  "results": [
+   "repro/exp10/results.json"
+  ],
+  "packaged_results": [
+   "measurements/results.json"
+  ],
+  "tol": 0.0001,
+  "ignore": [],
+  "runtime": "about a minute on a laptop CPU after GPT-2 small is downloaded",
+  "notes": "The sealed seed is read from the committed results.json, where it was published by design after the run; its sha256 is checked by run.py against Addendum 1."
  }
 }

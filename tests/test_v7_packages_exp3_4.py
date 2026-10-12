@@ -1,4 +1,4 @@
-"""Evidence packages for V7 Experiments 3, 3b, 4, 5, 6, 7b and 8 build and verify.
+"""Evidence packages for V7 Experiments 3, 3b, 4, 5, 6, 7b, 8 and 10 build and verify.
 
 Each package must carry the ASSURANCE status of its row, so a REFUTED result is never
 repackaged as supported.
@@ -36,6 +36,7 @@ CASES = [
     ("cross_model", "v7-exp6-cross-model", "EXPERIMENTALLY_SUPPORTED", "V3.6"),
     ("agent_b", "v7-exp7b-agent", "EXPERIMENTALLY_SUPPORTED", "V3.8"),
     ("cross_stack", "v7-exp8-cross-stack", "EXPERIMENTALLY_SUPPORTED", "V2.10"),
+    ("benchmark", "v7-exp10-benchmark", "EXPERIMENTALLY_SUPPORTED", "V10.1"),
 ]
 
 
@@ -109,3 +110,13 @@ def test_exp8_package_carries_otlp_imported_and_schema_check(tmp_path):
     for required in ("schema_check.json", "stack_b_env.json", "otlp.py", "subject.py"):
         assert required in names
     assert "retrieval only" in mod.SCOPE and "live OTLP collector" in mod.SCOPE
+
+
+def test_exp10_package_carries_sealed_seed_check_and_caveats(tmp_path):
+    mod = _load("benchmark")
+    for word in ("PASS", "28", "not blind"):
+        assert word in mod.CLAIM + mod.SCOPE
+    pkg = build_package(tmp_path, mod.PACKAGE_ID, mod.spec())
+    res = json.loads((pkg / "artifacts" / "measurements" / "results.json").read_text())
+    assert res["seed_sha256"] == mod.spec().provenance["sealed_seed_sha256"]
+    assert res["v10_1"] == "PASS" and res["gate11"] == "MET"

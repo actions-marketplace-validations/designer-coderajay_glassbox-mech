@@ -1,0 +1,19 @@
+{
+  "files": {
+    "README.md": "9d32bb55037b2fc24f1a9a5942592019541024c58b1047600ca9464336d99773",
+    "artifacts/code/demo_rag.py": "d6376825d74ef029a5beaad1c80d7e4d8ea94eabcf7db93176061dadb7c1b894",
+    "artifacts/code/families.py": "a1d28029e9bad64bc6a08400bd77335a56d30a7d6076483babdccc13110f4126",
+    "artifacts/code/generate.py": "b6ec06f335325f72003fd04ccffb13500be7f9aa8377c3dc36cb3bba75f2904f",
+    "artifacts/code/intervene.py": "42c5c0f745ae64add2f8a030bb9b4df72c688e4a0f172c866a1de8c8772a76df",
+    "artifacts/code/methods.py": "273d53bd785f13006249c93a6683fa61a81f11359927d4ecdc912477c286a846",
+    "artifacts/code/run.py": "b83b4a3f760fc09612e22742a04e34e534a07a8090224b0138013111156203ce",
+    "artifacts/code/score.py": "f907cb01cb285da5d60d833cb05e6254dc9c763775878bba79bcf7e574adaa56",
+    "artifacts/measurements/RESULTS.md": "dbca4775947d7b73b1d6cf1ba165583529c6ba59422bb7e2322f274cc9ea9f11",
+    "artifacts/measurements/results.json": "279d7d7e9403bb311ba0e741b8f03492bbbea18317a8ff646e9f2b07ca031b27",
+    "artifacts/protocol/PROTOCOL.md": "1cb3d7e92df985c52ab948f96fa545bad5bcb440327b891de5e930a15fbbe625",
+    "artifacts/tests/test_v7_benchmark.py": "b0fb7b3014b5869444a22fb8a9b5eac5791d4dea7cc6d4f7d650c1e4e34ed70c",
+    "claim.json": "f1e847e459ee8dcbb769118ab96b4aa529f8febf725aca5fa62dc7155a742099",
+    "provenance.json": "f5212aac0ee69d31ea02f8659930bba06a3ee6a223c263b98302ee397f50eed4"
+  },
+  "schema": "glassbox.evidence/0.1"
+}

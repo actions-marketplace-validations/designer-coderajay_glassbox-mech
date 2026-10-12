@@ -1,0 +1,13 @@
+{
+  "addendum_commit": "379f8ee",
+  "assurance_row": "V10.1",
+  "code_commit": "416262f",
+  "model": "GPT-2 small (TransformerLens), CPU",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "protocol_commit": "5328a2b",
+  "python": "3.11.9",
+  "related_assurance_rows": "V10 (Gate 11), V6",
+  "results_commit": "1a0e13a",
+  "sealed_seed_sha256": "7dff29241343a904eda8c01a9e49790b3cbd988f1cad6e756a5638a1d79b3742",
+  "writeup_commit": "d2cf7ed"
+}

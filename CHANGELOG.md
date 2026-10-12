@@ -74,6 +74,8 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `results/results.json` committed unchanged; write-up in
   `experiments/v7/benchmark/RESULTS.md`. ASSURANCE V10 and V10.1 are
   `EXPERIMENTALLY_SUPPORTED`, V6 is `IMPLEMENTED`.
+- **Evidence package** `evidence/v7-exp10-benchmark` (`experiments/v7/benchmark/package.py`)
+  and a reproduction recipe; listed in `docs/v7/REPRODUCING.md`.
 
 ### Results — V7 Experiment 9, reproduction in an independent environment (2026-10-12)
 

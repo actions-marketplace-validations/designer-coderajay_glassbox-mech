@@ -19,6 +19,7 @@ Short, model-free ones are the best start:
 | `v7-exp3b-noise-baseline-merge` | Noise-aware group diff | minutes |
 | `v7-exp8-cross-stack` | OpenTelemetry/OpenInference traces from LlamaIndex, imported and diffed | minutes (two venvs) |
 | `v7-exp1-rag-fault` | Stale-index fault in a GPT-2 RAG pipeline | about 5–15 min; downloads GPT-2 small |
+| `v7-exp10-benchmark` | The 32-incident investigation benchmark (Glassbox vs two baselines) | about a minute after GPT-2 small is downloaded |
 
 Run times are rough estimates from the author's runs; yours will differ.
 
