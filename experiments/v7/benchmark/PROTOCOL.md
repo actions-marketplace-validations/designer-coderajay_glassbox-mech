@@ -217,3 +217,84 @@ The pools, generator and baselines were designed by the author.
 
 ---
 *(Addenda, if any, go below this line, with dates.)*
+
+### Addendum 1 (2026-10-12): sealed seed and implementation details, before any benchmark code
+
+**Sealed seed.**
+- The owner generated the seed on their own machine and stored it outside the
+  repository (`~/.glassbox_bench_seed.txt`). It has the form `bench-` + 32 hex
+  characters. The assistant has not seen it.
+- Its sha256, of the stripped UTF-8 string, is:
+
+  `7dff29241343a904eda8c01a9e49790b3cbd988f1cad6e756a5638a1d79b3742`
+
+- `run.py` refuses to run unless `sha256(seed)` equals this value.
+
+**Details fixed now** (clarifications of §1–§3; the criteria in §6 are unchanged):
+
+1. **Negative controls change only inert factors.**
+   - Family R draws 1–2 of `log_level`, `cache_mode`; Family S draws 1–2 of
+     `log_level`, `trace_sampling`.
+   - §2's "policy factors drawn at their base value" is dropped. A factor whose
+     candidate equals its base is not a change, and `run_interventions` rejects it.
+2. **Positive incidents.** k ∈ {2, 3, 4} changed factors, chosen uniformly. Of these,
+   n_inert ∈ {1, …, min(2, k−1)} are inert (uniform) and the rest are drawn without
+   replacement from the effectful pool:
+   - **R:** `index`, `top_k`, `template`, `preamble`;
+   - **S:** `skip_check`, `early_stop`, `wrong_order`, `resend_bias`, `framework_retry`.
+3. **Family S magnitudes**, drawn uniformly and rounded to 3 decimals:
+
+   | Factor | Range |
+   |---|---|
+   | `skip_check` | a ∈ [0.05, 0.90] |
+   | `early_stop` | b ∈ [0.05, 0.80] |
+   | `wrong_order` | c ∈ [0.05, 0.80] |
+   | `resend_bias` | d ∈ [0.05, 0.90] |
+
+4. **Family S agent, exactly specified.** At most 4 decisions. Actions: `check`, `send`,
+   `finish`. Each state has weights, normalised to probabilities:
+
+   | State | Weights |
+   |---|---|
+   | nothing done yet | check `w_check` (base 0.95, `skip_check` → a), send `w_order` (base 0.03, `wrong_order` → c), finish `w_stop` (base 0.02, `early_stop` → b) |
+   | after a check, nothing sent | check 0.02, send 0.96, finish `w_stop` |
+   | after a send that reported a timeout | send `q_t`, finish 1 − `q_t` |
+   | after a send that reported ok | send `w_resend` (base 0.02, `resend_bias` → d), finish 1 − `w_resend` |
+
+   - **Every send delivers one email.** With probability `p_t` the send times out:
+     - framework v1: the agent sees the timeout;
+     - framework v2: the framework silently re-sends (one more email, recorded on the
+       tool span as `glassbox.tool.framework_retry`) and the agent sees "ok".
+   - **Test items c1–c4** differ only in (`p_t`, `q_t`): (0.5, 0.5), (0.3, 0.6),
+     (0.7, 0.4), (0.4, 0.3).
+   - **Outcome:** emails sent, recorded as `0`, `1` or `2+`.
+   - **Inert factors** (`log_level`, `trace_sampling`) are recorded only as root
+     environment attributes.
+5. **Family R pipeline, exactly specified.**
+   - Retrieval: Experiment 5's bag-of-words cosine over the 8 documents, with
+     `index = stale` dropping d1–d4. The top `top_k` documents are joined in rank order.
+   - Prompt: Experiment 5's two templates. When `preamble` is on, `Answer with one
+     word.\n` is prefixed.
+   - P(correct) = sigmoid(margin), with GPT-2 small margins cached per distinct prompt.
+   - Inert factors (`log_level`, `cache_mode`) are recorded only as root environment
+     attributes. `top_k` is also recorded on the retrieval span, as in Experiment 5.
+6. **B1 ownership map, made exact.** B1 takes the first divergence of
+   `diff_traces(baseline run 0, candidate run 0)`, reusing GB's first runs, so there is
+   no extra budget.
+   - **Family R:**
+     - aligned step `retrieval` → the changed factors among {`index`, `top_k`};
+     - step `chat` → the changed factors among {`template`, `preamble`};
+     - no divergence → no detection and no blame.
+   - **Family S:**
+     - a tool or decision step whose attributes include `glassbox.tool.framework_retry`
+       in either run → `framework_retry`, if changed;
+     - any other step → the changed factors among the four policy factors;
+     - no divergence → no detection and no blame.
+   - In both families, B1's **detection** = "a divergence exists".
+7. **Ground truth.**
+   - **Family R:** a factor's exact effect is |P_correct(baseline + only f) −
+     P_correct(baseline)|. That is the TVD of the two-outcome distribution.
+   - **Family S:** the exact TVD over {0, 1, 2+} from enumerating the decision and
+     timeout tree.
+   - **Fix check (M6):** the exact TVD between baseline and (candidate with the blamed
+     factors reverted) must be ≤ 0.10.
