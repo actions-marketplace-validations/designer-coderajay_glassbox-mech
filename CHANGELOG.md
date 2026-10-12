@@ -62,6 +62,18 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - the privacy policy purpose now matches the form;
   - the Impressum template is updated.
 
+### Added — OTLP import/export and V7 Experiment 8 (2026-10-12)
+
+- **`glassbox/v7/otlp.py`:** imports OTLP JSON from any OpenTelemetry instrumentation
+  into the Glassbox trace format and exports Glassbox traces to OTLP JSON. It uses only
+  the standard library and is BSL 1.1.
+- **Experiment 8 PASS** (Hard Gate 2). It used a LlamaIndex pipeline traced by
+  OpenInference on the OpenTelemetry SDK. The import was lossless (32/32), and the
+  unchanged diff engine reproduced Experiment 1's conclusions on the same fault. Glassbox
+  traces also pass the official OTLP protobuf schema (32/32).
+- **ASSURANCE:** V2.10 and V1.2 are `EXPERIMENTALLY_SUPPORTED`. V1.1 stays a hypothesis
+  for live-collector export.
+
 ### Added — V7 Experiment 7b and validation run 15 (2026-10-12)
 
 - **Experiment 7b PASS** in two Kaggle CPU runs, and Hard Gate 8 is met. ASSURANCE
