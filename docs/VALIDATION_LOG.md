@@ -352,3 +352,18 @@ python scripts/validate_models_matrix.py --models EleutherAI/pythia-1b --device 
   - Cause: CI pins `numpy==1.26.4` but did not pin `datasets`/`pyarrow`.
   - First failing run: commit `3462ed1` on 2026-10-11.
 
+
+## Run 15 — full test suite with coverage (after V7 Experiment 7b and its evidence package)
+
+- **Date:** 2026-10-12
+- **Hardware:** Apple Silicon Mac (owner's machine). This was a **local run, not CI**. The
+  Python version was not re-recorded for this run (Run 14 on the same machine used 3.11.9).
+- **Code:** the working tree at commit `a8e81c0` (glassbox-mech-interp 4.5.1). The run
+  includes the Experiment 7b package tests added in that commit. The untracked
+  `tests/_peek_tmp_test.py` is docstring-only and contains no tests.
+- **Command:** `pytest --cov=glassbox --cov-report=term -q`
+- **Result:** **1288 passed, 12 skipped**, 1 warning, 145.94 s.
+- **Coverage:** total 75.83% (8589 statements, 2076 missed). The gate is 58%.
+- **Supersedes:** Run 14 (1241 passed / 75.80%).
+- **Where the tests came from:** the +47 tests come from V7 Experiments 6 and 7/7b, the
+  Addendum 3 checker and the evidence-package tests.

@@ -62,6 +62,17 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - the privacy policy purpose now matches the form;
   - the Impressum template is updated.
 
+### Added — V7 Experiment 7b and validation run 15 (2026-10-12)
+
+- **Experiment 7b PASS** in two Kaggle CPU runs, and Hard Gate 8 is met. ASSURANCE
+  V3.8 is `EXPERIMENTALLY_SUPPORTED` after the pre-registered numeric-explanation check
+  (Addendum 3) traced the 6th-decimal differences between runs to floating-point
+  summation order. RESULTS.md records the caveats. The evidence package is
+  `evidence/v7-exp7b-agent`.
+- **Validation Run 15:** 1,288 passed, 12 skipped, 75.83% coverage. It supersedes 1,241 /
+  75.80%. README, website, ASSURANCE L11, METHODOLOGY_AND_ASSURANCE and the MCP servers
+  are updated.
+
 ### Fixed — citations and README
 
 - The citation in NOTICE, README and CITATION.cff now matches the arXiv record

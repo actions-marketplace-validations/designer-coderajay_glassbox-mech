@@ -101,7 +101,7 @@ When a model can't do a task, Glassbox says so instead of inventing a clean stor
 | **IOI benchmark** (GPT-2 Small, default circuit) | suff 1.00 · comp 0.543 · **F1 0.704 · Grade B** (1-head circuit). Full 26-head Wang et al. circuit: suff 1.00 · comp 0.47 · F1 0.64 |
 | **Key finding** | Confidence–faithfulness correlation **r = 0.009** |
 | **Validated scale** | **82M → 12B** across **9 architecture families** (10 model series) |
-| **Quality** | **1,241 tests** passing, 76% coverage (full run 2026-10-11; see `docs/VALIDATION_LOG.md`) |
+| **Quality** | **1,288 tests** passing, 76% coverage (full run 2026-10-12; see `docs/VALIDATION_LOG.md`) |
 
 Full methodology and raw data: [`BENCHMARKS.md`](BENCHMARKS.md). Reproduce with `scripts/benchmark.py`.
 
