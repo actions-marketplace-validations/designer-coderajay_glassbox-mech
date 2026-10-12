@@ -62,6 +62,16 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - the privacy policy purpose now matches the form;
   - the Impressum template is updated.
 
+### Added — trace security and privacy document (Hard Gate 10, 2026-10-12)
+
+- **`docs/v7/SECURITY_PRIVACY.md`:** the controls (C1–C8) and limitations (L1–L8) for
+  trace handling. `tests/test_v7_security_controls.py` pins each control, and also the
+  limitations that can be tested: unsalted hashes are pseudonymisation, and redaction is
+  best-effort. ASSURANCE V8 is `IMPLEMENTED`.
+- **Evidence package for Experiment 8:** `evidence/v7-exp8-cross-stack`.
+- **Corrections:** TRACE_SPEC's stale "no code implements it" header is fixed, and
+  SECURITY.md and the docs index link the new document.
+
 ### Added — OTLP import/export and V7 Experiment 8 (2026-10-12)
 
 - **`glassbox/v7/otlp.py`:** imports OTLP JSON from any OpenTelemetry instrumentation

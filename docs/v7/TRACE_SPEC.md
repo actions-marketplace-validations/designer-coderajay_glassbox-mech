@@ -1,7 +1,9 @@
 # Glassbox V7 Trace Specification — v0.1 (draft)
 
-*Status: `PLANNED` (ASSURANCE.md row V1). This is a design document. No code implements
-it yet. Written 2026-10-05, V7 Step 5.*
+*Written 2026-10-05 (V7 Step 5) as a design document. Since then it has been implemented
+in `glassbox/v7/trace.py` (ASSURANCE row V1, `IMPLEMENTED`) and extended with OTLP import
+and export in `glassbox/v7/otlp.py` (rows V1.2, V2.10). Security and privacy of trace
+handling: [`SECURITY_PRIVACY.md`](SECURITY_PRIVACY.md).*
 
 ## 1. Purpose
 

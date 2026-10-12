@@ -15,6 +15,7 @@ another document disagrees with it, ASSURANCE wins.
 | [LARGE_MODEL_VERIFICATION.md](LARGE_MODEL_VERIFICATION.md) | Runbook for verifying a large model live |
 | [../ENTERPRISE.md](../ENTERPRISE.md) | Self-hosted deployment, CI, containers and licensing |
 | [v7/TRACE_SPEC.md](v7/TRACE_SPEC.md) | Trace format of the investigation layer (research stage) |
+| [v7/SECURITY_PRIVACY.md](v7/SECURITY_PRIVACY.md) | Security and privacy controls (and limitations) for traces, each pinned by a test |
 
 ## Evidence and methodology
 

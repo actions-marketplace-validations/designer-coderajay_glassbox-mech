@@ -46,6 +46,15 @@ The hosted instance at `https://designer-coderajay-glassbox-ai-2-0-mechanistic-i
 
 ---
 
+## Investigation layer: trace handling
+
+Controls and limitations for traces recorded or imported by `glassbox/v7/` (content
+policies, hashing, redaction, integrity, OTLP import) are documented in
+[`docs/v7/SECURITY_PRIVACY.md`](docs/v7/SECURITY_PRIVACY.md). Each item is checked by
+`tests/test_v7_security_controls.py`.
+
+---
+
 ## Reporting Vulnerabilities
 
 Please report security issues **privately** to: [mahale.ajay01@gmail.com](mailto:mahale.ajay01@gmail.com)
