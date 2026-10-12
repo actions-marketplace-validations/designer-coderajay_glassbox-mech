@@ -62,6 +62,17 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - the privacy policy purpose now matches the form;
   - the Impressum template is updated.
 
+### Added — reproduce from an evidence package (2026-10-12)
+
+- **`glassbox/v7/reproduce.py`** has two commands:
+  - `plan` prints the verified steps to re-run a packaged experiment from its recipe;
+  - `compare` checks fresh results against the package and writes a reproduction report.
+
+  The recipes for all nine packages are in `experiments/v7/reproduce_recipes.json`.
+- **Experiment 9 (Hard Gate 5) pre-registered:** a same-author reproduction of
+  Experiments 1, 2, 3, 3b, 4, 5, 6 and 8 on Linux x86-64. The runbook is in
+  `experiments/v7/reproduction/KAGGLE_RUN.md`.
+
 ### Added — trace security and privacy document (Hard Gate 10, 2026-10-12)
 
 - **`docs/v7/SECURITY_PRIVACY.md`:** the controls (C1–C8) and limitations (L1–L8) for
