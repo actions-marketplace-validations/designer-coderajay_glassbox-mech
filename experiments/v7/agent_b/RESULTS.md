@@ -6,6 +6,8 @@
 - Addendum 1 (move to Kaggle, progress logging): `2eb6aac`. This is the code that ran.
 - Addendum 2 (run 1 files lost; rules for run 2): `7ae8a08`, 2026-10-12 09:10 +0200,
   committed after run 1 and before run 2.
+- Addendum 3 (numeric-explanation check): protocol `5d4ffcb`, checker `38dba0d`, both
+  committed before the check ran.
 
 `results/results.json` is run 2's file, committed unchanged.
 
@@ -14,8 +16,8 @@
 | | |
 |---|---|
 | **Pre-registered result** | **PASS**, in both runs (G1–G5 all pass) |
-| **Reproduction rule (Addendum 2)** | **Not reproduced bit-identically.** 13 of 81 printed numbers differ in the 6th decimal (max \|Δ\| = 9×10⁻⁶). Every gate, attribution decision, observed effect and p-value is identical. As pre-declared, ASSURANCE V3.8 is therefore `PRELIMINARY` until the difference is explained. |
-| **Hard Gate 8** | Met on the pre-registered criteria for one in-repository agent, subject to the reproduction caveat above |
+| **Reproduction rule (Addendum 2)** | **Not reproduced bit-identically.** 13 of 81 printed numbers differ in the 6th decimal (max \|Δ\| = 9×10⁻⁶). Every gate, attribution decision, observed effect and p-value is identical. As pre-declared, this kept V3.8 at `PRELIMINARY` until explained. **Addendum 3 check: EXPLAINED** (E1, E2, E3 all pass; see below). V3.8 is now `EXPERIMENTALLY_SUPPORTED`. |
+| **Hard Gate 8** | **Met** on the pre-registered criteria for one in-repository agent (scope limits below) |
 
 ## Runs
 
@@ -119,8 +121,52 @@ Exact outcome distributions, P(number of emails sent):
   thread scheduling. That would explain why G4, within one run, shows 0.0 while two
   sessions differ. **This is a hypothesis, not a demonstrated explanation.** The CPU
   model of each session was not recorded, so it cannot be checked after the fact.
-- **Consequence:** under the rule fixed in Addendum 2, V3.8 is `PRELIMINARY`, not
-  `EXPERIMENTALLY_SUPPORTED`, until an explanation check is run and recorded.
+- **Consequence at the time:** under the rule fixed in Addendum 2, V3.8 was
+  `PRELIMINARY` until an explanation check was run and recorded (resolved below).
+
+## Addendum 3: numeric-explanation check (result)
+
+Run once on a Kaggle CPU batch session on 2026-10-12, with the same pinned environment
+(`numeric_check/env_freeze.txt`, identical to run 2's). Files are committed unchanged in
+`numeric_check/`:
+- `numeric_check.json`, sha256 `2d5de7fef48621f86d2cb505c7ed114565c898165ebe634d0d378b4139a3af63`;
+- `numeric_check_log.txt`, sha256 `31e1bd2b5119b4ef7f6d52ee25a4c2326615d3bf9e3b4b9c6665b212f50e9ed5`;
+- download zip, sha256 `398cf68cb46fd0ba18179a781874be3ac6c942a32db174b00e302b397ac30818`.
+
+**Machine:** Intel Xeon @ 2.20 GHz, 4 logical CPUs, AVX2 yes, AVX-512 no; ATen
+capability AVX2; Python 3.11.17; torch 2.10.0.
+
+Competence of Qwen2.5-0.5B-Instruct, each in a separate process:
+
+| Config | Setting | Value | Δ vs A1 |
+|---|---|---|---|
+| A1 | default (2 threads, AVX2) | 0.3276292939523789 | — |
+| A2 | default, repeated | 0.3276292939523789 | 0 (bit-identical) |
+| B_threads1 | 1 thread | 0.32762893314116626 | 3.6×10⁻⁷ |
+| C_scalar | no vectorised kernels | 0.3276291525267644 | 1.4×10⁻⁷ |
+
+| Criterion | Result |
+|---|---|
+| E1 within-setting identical | **pass** |
+| E2 order-sensitive (0 < Δ ≤ 10⁻⁴) | **pass** (B and C both move only the last digits) |
+| E3 within 10⁻⁴ of runs 1 and 2, below 0.6 | **pass** |
+| **Verdict** | **EXPLAINED** |
+
+**Reading:**
+- Within one process setting the computation is bit-identical.
+- Changing only the thread count or the CPU vector code path shifts the result in the
+  7th decimal, without changing any decision.
+- This supports floating-point summation order as the cause of the run 1 / run 2
+  differences.
+
+**Limits, stated plainly:**
+- The CPUs of runs 1 and 2 were not recorded, so this explains the *kind* of difference,
+  not the exact pair of sessions.
+- The run 1 / run 2 gap for this number (0.327629 vs 0.327631, about 2×10⁻⁶) is larger
+  than the shifts produced here (≤ 4×10⁻⁷). A different CPU, for example one with
+  AVX-512, would plausibly change more of the computation, but that was not tested.
+- Only the 0.5B competence was rechecked, as pre-declared; the 3B values were not
+  re-run.
 
 ## What this does and does not show
 

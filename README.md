@@ -166,7 +166,7 @@ Each experiment was pre-registered: the protocol was committed before the code a
 | 5. Interventions, GPT-2 RAG (3 co-changes) | Known fault blamed 4/4; zero-effect and inert changes never blamed. True template effects of 0.108 and 0.046 were **not** detected | Experimentally supported |
 | 6. Same investigation on Pythia-160m, OPT-125m, Qwen2.5-0.5B | Every large true effect blamed (3/3, 3/3, 4/4); none of 36 zero effects. Detected effects of about 0.41; missed effects of about 0.16 | Experimentally supported |
 | 7. Tool-using LLM agent (duplicate-email incident) | The agent almost never acted, so the test could not be scored: **INCONCLUSIVE** | Unresolved |
-| 7b. Same incident with an instruction-tuned agent (Qwen2.5-3B-Instruct) | Large real cause blamed 4/4; inert change never blamed; hidden retries traced. **PASS** in two runs. The change was mostly "stopped sending", not duplicates. A mid-sized cause (about 0.34) was found 2/4 | Preliminary (second run matched every decision but differed in the 6th decimal; not yet explained) |
+| 7b. Same incident with an instruction-tuned agent (Qwen2.5-3B-Instruct) | Large real cause blamed 4/4; inert change never blamed; hidden retries traced. **PASS** in two runs. The change was mostly "stopped sending", not duplicates. A mid-sized cause (about 0.34) was found 2/4 | Experimentally supported (second run matched every decision; 6th-decimal differences traced to floating-point summation order by a pre-registered check) |
 
 **Not shown yet:**
 - that it finds **unknown** causes in real production systems;
