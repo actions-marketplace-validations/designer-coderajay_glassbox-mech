@@ -1,0 +1,498 @@
+{
+ "protocol": "experiments/v7/agent_b/PROTOCOL.md v1.0",
+ "ladder": [
+  {
+   "model": "Qwen/Qwen2.5-0.5B-Instruct",
+   "status": "NOT COMPETENT",
+   "labels": [
+    "1",
+    "2",
+    "3"
+   ],
+   "competence": 0.327631
+  },
+  {
+   "model": "Qwen/Qwen2.5-1.5B-Instruct",
+   "status": "NOT COMPETENT",
+   "labels": [
+    "1",
+    "2",
+    "3"
+   ],
+   "competence": 0.524561
+  },
+  {
+   "model": "Qwen/Qwen2.5-3B-Instruct",
+   "status": "SELECTED",
+   "labels": [
+    "1",
+    "2",
+    "3"
+   ],
+   "competence": 0.686496
+  }
+ ],
+ "selected_model": "Qwen/Qwen2.5-3B-Instruct",
+ "settings": {
+  "n_per_cell": 30,
+  "n_perm": 999,
+  "alpha": 0.05,
+  "p_timeout": 0.5,
+  "max_decisions": 4,
+  "competence_min": 0.6,
+  "traces_committed": false
+ },
+ "criteria": {
+  "G1_sensitivity": {
+   "applicable": true,
+   "large_pairs": 4,
+   "attributed": 4,
+   "pass": true
+  },
+  "G2_specificity": {
+   "log_level_attributed": 0,
+   "pass": true
+  },
+  "G3_trace_fidelity": {
+   "cases_ok": 4,
+   "pass": true
+  },
+  "G4_determinism": {
+   "max_abs_diff": 0.0,
+   "pass": true
+  },
+  "G5_exact_vs_observed": {
+   "cases_ok": 4,
+   "pass": true
+  }
+ },
+ "overall": "PASS",
+ "per_case": {
+  "c1": {
+   "exact_baseline": {
+    "0": 0.3037642686203142,
+    "1": 0.68973252902534,
+    "2+": 0.006503202354346276
+   },
+   "exact_candidate": {
+    "0": 0.9645304859976602,
+    "1": 0.017207875612259626,
+    "2+": 0.018261638390080253
+   },
+   "pairs": {
+    "system_prompt": {
+     "true_tvd": 0.668478,
+     "class": "large",
+     "observed_tvd": 0.6,
+     "p_value": 0.001,
+     "attributed": true
+    },
+    "tool_format": {
+     "true_tvd": 0.073651,
+     "class": "small",
+     "observed_tvd": 0.033333,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "framework_retry": {
+     "true_tvd": 0.345734,
+     "class": "small",
+     "observed_tvd": 0.366667,
+     "p_value": 0.007,
+     "attributed": true
+    },
+    "log_level": {
+     "true_tvd": 0.0,
+     "class": "zero",
+     "observed_tvd": 0.033333,
+     "p_value": 1.0,
+     "attributed": false
+    }
+   },
+   "necessity_significant": [
+    "system_prompt"
+   ],
+   "cell_counts": {
+    "baseline": {
+     "0": 12,
+     "1": 18
+    },
+    "candidate": {
+     "0": 28,
+     "1": 1,
+     "2+": 1
+    },
+    "only_system_prompt": {
+     "0": 30
+    },
+    "all_but_system_prompt": {
+     "0": 13,
+     "1": 5,
+     "2+": 12
+    },
+    "only_tool_format": {
+     "0": 11,
+     "1": 18,
+     "2+": 1
+    },
+    "all_but_tool_format": {
+     "0": 29,
+     "1": 1
+    },
+    "only_framework_retry": {
+     "0": 12,
+     "1": 7,
+     "2+": 11
+    },
+    "all_but_framework_retry": {
+     "0": 29,
+     "1": 1
+    },
+    "only_log_level": {
+     "0": 11,
+     "1": 19
+    },
+    "all_but_log_level": {
+     "0": 30
+    }
+   },
+   "fidelity_ok": true,
+   "runs_checked": 300,
+   "gof_p": 0.2880385969527902,
+   "group_diff": {
+    "first_beyond_noise": [
+     "chat#0",
+     "glassbox.content.gen_ai.input.messages.sha256"
+    ],
+    "flagged_steps": [
+     "chat#0",
+     "chat#1",
+     "chat#2",
+     "chat#3",
+     "execute_tool:check_calendar#3",
+     "execute_tool:send_confirmation#0",
+     "step:outcome#0"
+    ]
+   }
+  },
+  "c2": {
+   "exact_baseline": {
+    "0": 0.3047617300002748,
+    "1": 0.6921591458269212,
+    "2+": 0.003079124172803783
+   },
+   "exact_candidate": {
+    "0": 0.9698646474460068,
+    "1": 0.014745855192627414,
+    "2+": 0.015389497361365535
+   },
+   "pairs": {
+    "system_prompt": {
+     "true_tvd": 0.676227,
+     "class": "large",
+     "observed_tvd": 0.5,
+     "p_value": 0.001,
+     "attributed": true
+    },
+    "tool_format": {
+     "true_tvd": 0.068698,
+     "class": "small",
+     "observed_tvd": 0.033333,
+     "p_value": 1.0,
+     "attributed": false
+    },
+    "framework_retry": {
+     "true_tvd": 0.346425,
+     "class": "small",
+     "observed_tvd": 0.3,
+     "p_value": 0.045,
+     "attributed": false
+    },
+    "log_level": {
+     "true_tvd": 0.0,
+     "class": "zero",
+     "observed_tvd": 0.233333,
+     "p_value": 0.088,
+     "attributed": false
+    }
+   },
+   "necessity_significant": [
+    "system_prompt"
+   ],
+   "cell_counts": {
+    "baseline": {
+     "0": 14,
+     "1": 16
+    },
+    "candidate": {
+     "0": 29,
+     "1": 1
+    },
+    "only_system_prompt": {
+     "0": 29,
+     "1": 1
+    },
+    "all_but_system_prompt": {
+     "0": 15,
+     "1": 9,
+     "2+": 6
+    },
+    "only_tool_format": {
+     "0": 13,
+     "1": 16,
+     "2+": 1
+    },
+    "all_but_tool_format": {
+     "0": 28,
+     "1": 2
+    },
+    "only_framework_retry": {
+     "0": 10,
+     "1": 11,
+     "2+": 9
+    },
+    "all_but_framework_retry": {
+     "0": 29,
+     "1": 1
+    },
+    "only_log_level": {
+     "0": 7,
+     "1": 23
+    },
+    "all_but_log_level": {
+     "0": 30
+    }
+   },
+   "fidelity_ok": true,
+   "runs_checked": 300,
+   "gof_p": 0.059485962706149496,
+   "group_diff": {
+    "first_beyond_noise": [
+     "chat#0",
+     "glassbox.content.gen_ai.input.messages.sha256"
+    ],
+    "flagged_steps": [
+     "chat#0",
+     "chat#1",
+     "chat#2",
+     "chat#3",
+     "execute_tool:check_calendar#3",
+     "execute_tool:send_confirmation#0",
+     "step:outcome#0"
+    ]
+   }
+  },
+  "c3": {
+   "exact_baseline": {
+    "0": 0.30962549801479355,
+    "1": 0.6838095985780863,
+    "2+": 0.006564903407119579
+   },
+   "exact_candidate": {
+    "0": 0.9715888296683247,
+    "1": 0.01392415994895251,
+    "2+": 0.014487010382722541
+   },
+   "pairs": {
+    "system_prompt": {
+     "true_tvd": 0.662118,
+     "class": "large",
+     "observed_tvd": 0.7,
+     "p_value": 0.001,
+     "attributed": true
+    },
+    "tool_format": {
+     "true_tvd": 0.032712,
+     "class": "small",
+     "observed_tvd": 0.066667,
+     "p_value": 0.778,
+     "attributed": false
+    },
+    "framework_retry": {
+     "true_tvd": 0.342375,
+     "class": "small",
+     "observed_tvd": 0.4,
+     "p_value": 0.005,
+     "attributed": true
+    },
+    "log_level": {
+     "true_tvd": 0.0,
+     "class": "zero",
+     "observed_tvd": 0.066667,
+     "p_value": 0.769,
+     "attributed": false
+    }
+   },
+   "necessity_significant": [
+    "system_prompt"
+   ],
+   "cell_counts": {
+    "baseline": {
+     "0": 8,
+     "1": 22
+    },
+    "candidate": {
+     "0": 30
+    },
+    "only_system_prompt": {
+     "0": 29,
+     "1": 1
+    },
+    "all_but_system_prompt": {
+     "0": 12,
+     "1": 4,
+     "2+": 14
+    },
+    "only_tool_format": {
+     "0": 9,
+     "1": 20,
+     "2+": 1
+    },
+    "all_but_tool_format": {
+     "0": 27,
+     "1": 1,
+     "2+": 2
+    },
+    "only_framework_retry": {
+     "0": 8,
+     "1": 10,
+     "2+": 12
+    },
+    "all_but_framework_retry": {
+     "0": 28,
+     "1": 2
+    },
+    "only_log_level": {
+     "0": 6,
+     "1": 23,
+     "2+": 1
+    },
+    "all_but_log_level": {
+     "0": 30
+    }
+   },
+   "fidelity_ok": true,
+   "runs_checked": 300,
+   "gof_p": 0.5596551089771444,
+   "group_diff": {
+    "first_beyond_noise": [
+     "chat#0",
+     "glassbox.content.gen_ai.input.messages.sha256"
+    ],
+    "flagged_steps": [
+     "chat#0",
+     "chat#1",
+     "chat#2",
+     "chat#3",
+     "execute_tool:check_calendar#3",
+     "execute_tool:send_confirmation#0",
+     "step:outcome#0"
+    ]
+   }
+  },
+  "c4": {
+   "exact_baseline": {
+    "0": 0.31522376962870713,
+    "1": 0.6802808826941661,
+    "2+": 0.004495347677126674
+   },
+   "exact_candidate": {
+    "0": 0.9704653983922796,
+    "1": 0.014341397537076072,
+    "2+": 0.015193204070644029
+   },
+   "pairs": {
+    "system_prompt": {
+     "true_tvd": 0.66079,
+     "class": "large",
+     "observed_tvd": 0.6,
+     "p_value": 0.001,
+     "attributed": true
+    },
+    "tool_format": {
+     "true_tvd": 0.085966,
+     "class": "small",
+     "observed_tvd": 0.066667,
+     "p_value": 0.807,
+     "attributed": false
+    },
+    "framework_retry": {
+     "true_tvd": 0.340472,
+     "class": "small",
+     "observed_tvd": 0.333333,
+     "p_value": 0.026,
+     "attributed": false
+    },
+    "log_level": {
+     "true_tvd": 0.0,
+     "class": "zero",
+     "observed_tvd": 0.1,
+     "p_value": 0.578,
+     "attributed": false
+    }
+   },
+   "necessity_significant": [
+    "system_prompt"
+   ],
+   "cell_counts": {
+    "baseline": {
+     "0": 10,
+     "1": 20
+    },
+    "candidate": {
+     "0": 30
+    },
+    "only_system_prompt": {
+     "0": 28,
+     "1": 2
+    },
+    "all_but_system_prompt": {
+     "0": 13,
+     "1": 7,
+     "2+": 10
+    },
+    "only_tool_format": {
+     "0": 12,
+     "1": 18
+    },
+    "all_but_tool_format": {
+     "0": 30
+    },
+    "only_framework_retry": {
+     "0": 13,
+     "1": 10,
+     "2+": 7
+    },
+    "all_but_framework_retry": {
+     "0": 28,
+     "1": 2
+    },
+    "only_log_level": {
+     "0": 7,
+     "1": 23
+    },
+    "all_but_log_level": {
+     "0": 30
+    }
+   },
+   "fidelity_ok": true,
+   "runs_checked": 300,
+   "gof_p": 0.8729667032526381,
+   "group_diff": {
+    "first_beyond_noise": [
+     "chat#0",
+     "glassbox.content.gen_ai.input.messages.sha256"
+    ],
+    "flagged_steps": [
+     "chat#0",
+     "chat#1",
+     "chat#2",
+     "chat#3",
+     "execute_tool:check_calendar#3",
+     "execute_tool:send_confirmation#0",
+     "step:outcome#0"
+    ]
+   }
+  }
+ }
+}
