@@ -168,6 +168,7 @@ Each experiment was pre-registered: the protocol was committed before the code a
 | 7. Tool-using LLM agent (duplicate-email incident) | The agent almost never acted, so the test could not be scored: **INCONCLUSIVE** | Unresolved |
 | 7b. Same incident with an instruction-tuned agent (Qwen2.5-3B-Instruct) | Large real cause blamed 4/4; inert change never blamed; hidden retries traced. **PASS** in two runs. The change was mostly "stopped sending", not duplicates. A mid-sized cause (about 0.34) was found 2/4 | Experimentally supported (second run matched every decision; 6th-decimal differences traced to floating-point summation order by a pre-registered check) |
 | 8. Same fault on a second stack (LlamaIndex, traced by OpenInference/OpenTelemetry, imported from OTLP) | Import lossless 32/32; unchanged diff engine localised the fault 4/4, silent 4/4, recovery 8/8, deterministic 8/8; Glassbox traces pass the official OTLP schema 32/32 | Experimentally supported (retrieval only; one framework) |
+| 9. Re-run 8 packaged experiments on Linux x86-64 (Kaggle) instead of the original macOS arm64 | 7/8 reproduced exactly (incl. Experiment 3's FAIL). Experiment 6: every decision the same, but one sampled run flipped from tiny float differences, so **FAIL** as pre-registered | Refuted (same-author; Gate 5 not met) |
 
 **Not shown yet:**
 - that it finds **unknown** causes in real production systems;

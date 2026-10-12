@@ -62,6 +62,17 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - the privacy policy purpose now matches the form;
   - the Impressum template is updated.
 
+### Results — V7 Experiment 9, reproduction in an independent environment (2026-10-12)
+
+- **FAIL as pre-registered (7/8).** Re-run from their evidence packages on Linux x86-64
+  (Kaggle CPU) instead of the original macOS arm64:
+  - Experiments 1, 2, 3 (including its FAIL), 3b, 4, 5 and 8 reproduced with zero
+    mismatches;
+  - Experiment 6 did not. Every decision was identical, but one seeded Pythia draw
+    flipped after cross-architecture float differences.
+- **Hard Gate 5 is not met by this experiment.** ASSURANCE V9.1 is `REFUTED`; V3.6 is
+  reconsidered openly and kept; seven rows are annotated as same-author reproduced.
+
 ### Added — reproduce from an evidence package (2026-10-12)
 
 - **`glassbox/v7/reproduce.py`** has two commands:
