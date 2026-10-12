@@ -1,0 +1,99 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+[exp7b 15:32:39] 25 distinct prompts scored
+[exp7b 15:33:50] 50 distinct prompts scored
+[exp7b 15:35:02] 75 distinct prompts scored
+[exp7b 15:36:13] 100 distinct prompts scored
+[exp7b 15:37:24] 125 distinct prompts scored
+[exp7b 15:38:35] 150 distinct prompts scored
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+[exp7b 15:40:36] 25 distinct prompts scored
+[exp7b 15:41:49] 50 distinct prompts scored
+[exp7b 15:43:05] 75 distinct prompts scored
+[exp7b 15:44:18] 100 distinct prompts scored
+[exp7b 15:45:32] 125 distinct prompts scored
+[exp7b 15:46:46] 150 distinct prompts scored
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+[exp7b 15:49:54] 25 distinct prompts scored
+[exp7b 15:52:16] 50 distinct prompts scored
+[exp7b 15:54:44] 75 distinct prompts scored
+[exp7b 15:57:06] 100 distinct prompts scored
+[exp7b 15:59:28] 125 distinct prompts scored
+[exp7b 16:01:51] 150 distinct prompts scored
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+[exp7b 16:04:37] 25 distinct prompts scored
+[exp7b 16:05:56] 50 distinct prompts scored
+[exp7b 16:07:16] 75 distinct prompts scored
+[exp7b 16:08:35] 100 distinct prompts scored
+[exp7b 16:09:54] 125 distinct prompts scored
+[exp7b 16:11:12] 150 distinct prompts scored
+{
+ "protocol": "experiments/v7/agent_b/PROTOCOL.md Addendum 3",
+ "model": "Qwen/Qwen2.5-0.5B-Instruct",
+ "reference": {
+  "run1": 0.327629,
+  "run2": 0.327631,
+  "tol": 0.0001
+ },
+ "machine": {
+  "model_name": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+  "logical_cpus": 4,
+  "avx2": true,
+  "avx512f": false,
+  "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+  "python": "3.11.17"
+ },
+ "records": [
+  {
+   "value": "0.3276292939523789",
+   "torch": "2.10.0+cu128",
+   "threads": 2,
+   "aten_cpu_capability": "AVX2",
+   "config": "A1",
+   "env": {}
+  },
+  {
+   "value": "0.3276292939523789",
+   "torch": "2.10.0+cu128",
+   "threads": 2,
+   "aten_cpu_capability": "AVX2",
+   "config": "A2",
+   "env": {}
+  },
+  {
+   "value": "0.32762893314116626",
+   "torch": "2.10.0+cu128",
+   "threads": 1,
+   "aten_cpu_capability": "AVX2",
+   "config": "B_threads1",
+   "env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+   }
+  },
+  {
+   "value": "0.3276291525267644",
+   "torch": "2.10.0+cu128",
+   "threads": 2,
+   "aten_cpu_capability": "DEFAULT",
+   "config": "C_scalar",
+   "env": {
+    "ATEN_CPU_CAPABILITY": "default"
+   }
+  }
+ ],
+ "evaluation": {
+  "E1_within_setting_identical": true,
+  "E2_order_sensitive": true,
+  "E3_close_and_same_decision": true,
+  "moves_vs_A1": {
+   "B_threads1": 3.6081121262965254e-07,
+   "C_scalar": 1.414256144971482e-07
+  },
+  "verdict": "EXPLAINED"
+ }
+}
+ADDENDUM 3 VERDICT: EXPLAINED
