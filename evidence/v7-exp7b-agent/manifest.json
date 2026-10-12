@@ -1,0 +1,19 @@
+{
+  "files": {
+    "README.md": "b1aa4a406b7103bb81928b57b1f34f664879295a4aa3c999d39fd0bfabf871cd",
+    "artifacts/code/explain_numeric.py": "2746dfa5679e80d137056e2529d3ec93bf7a43b4477ffa83a3f6dd0419635a86",
+    "artifacts/code/run.py": "0d20a1882faa0812870dbe103e66b3aa66425b9e462ca15e1430110a17047eba",
+    "artifacts/measurements/RESULTS.md": "15efe751240a8499cc8e31caefba074f86624e9788811a4b7abaa556494de81e",
+    "artifacts/measurements/results.json": "a4b4cabca42b6dfe5fdc534004f7574de2862dc7c743026cc63ced9fcc6f182d",
+    "artifacts/numeric_check/numeric_check.json": "2d5de7fef48621f86d2cb505c7ed114565c898165ebe634d0d378b4139a3af63",
+    "artifacts/numeric_check/numeric_check_log.txt": "31e1bd2b5119b4ef7f6d52ee25a4c2326615d3bf9e3b4b9c6665b212f50e9ed5",
+    "artifacts/protocol/PROTOCOL.md": "89a5f6e4f454ec29a2d2ba4f6093653fce93ac72eee7879c08b4cb3960e28edb",
+    "artifacts/run1/notebook_run1.ipynb": "e790de2509ca8a272b5e09ce85eba1e591f9f9eb0c9170a424d5f36ddf7a024e",
+    "artifacts/run1/run_log_run1.txt": "4cf1b275617abefaaf48afd1db4b78d7e46980d38c584071105781938905c1cf",
+    "artifacts/run2/env_freeze.txt": "7dd667b2c928a768683f34471d6a4f8e486a6c6b0d6b62d75cf2f48ea0032642",
+    "artifacts/run2/run_log_run2.txt": "447e50f3c058c426d72d18e40462e308fd344fa838484b3878eef580b905dcfd",
+    "claim.json": "231380ce0aab176caa6ca5bab80188c3e797ec7287be3df9cdd1ae810e37d727",
+    "provenance.json": "e811374c97055f0ab3552f9159f2457259815722bd28b896577a94abdf5343b2"
+  },
+  "schema": "glassbox.evidence/0.1"
+}

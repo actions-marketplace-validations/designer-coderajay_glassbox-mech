@@ -1,0 +1,66 @@
+{
+ "protocol": "experiments/v7/agent_b/PROTOCOL.md Addendum 3",
+ "model": "Qwen/Qwen2.5-0.5B-Instruct",
+ "reference": {
+  "run1": 0.327629,
+  "run2": 0.327631,
+  "tol": 0.0001
+ },
+ "machine": {
+  "model_name": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+  "logical_cpus": 4,
+  "avx2": true,
+  "avx512f": false,
+  "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+  "python": "3.11.17"
+ },
+ "records": [
+  {
+   "value": "0.3276292939523789",
+   "torch": "2.10.0+cu128",
+   "threads": 2,
+   "aten_cpu_capability": "AVX2",
+   "config": "A1",
+   "env": {}
+  },
+  {
+   "value": "0.3276292939523789",
+   "torch": "2.10.0+cu128",
+   "threads": 2,
+   "aten_cpu_capability": "AVX2",
+   "config": "A2",
+   "env": {}
+  },
+  {
+   "value": "0.32762893314116626",
+   "torch": "2.10.0+cu128",
+   "threads": 1,
+   "aten_cpu_capability": "AVX2",
+   "config": "B_threads1",
+   "env": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+   }
+  },
+  {
+   "value": "0.3276291525267644",
+   "torch": "2.10.0+cu128",
+   "threads": 2,
+   "aten_cpu_capability": "DEFAULT",
+   "config": "C_scalar",
+   "env": {
+    "ATEN_CPU_CAPABILITY": "default"
+   }
+  }
+ ],
+ "evaluation": {
+  "E1_within_setting_identical": true,
+  "E2_order_sensitive": true,
+  "E3_close_and_same_decision": true,
+  "moves_vs_A1": {
+   "B_threads1": 3.6081121262965254e-07,
+   "C_scalar": 1.414256144971482e-07
+  },
+  "verdict": "EXPLAINED"
+ }
+}

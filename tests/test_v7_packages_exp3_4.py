@@ -1,4 +1,4 @@
-"""Evidence packages for V7 Experiments 3, 3b, 4, 5 and 6 build and verify.
+"""Evidence packages for V7 Experiments 3, 3b, 4, 5, 6 and 7b build and verify.
 
 Each package must carry the ASSURANCE status of its row, so a REFUTED result is never
 repackaged as supported.
@@ -34,6 +34,7 @@ CASES = [
         "V3.3",
     ),
     ("cross_model", "v7-exp6-cross-model", "EXPERIMENTALLY_SUPPORTED", "V3.6"),
+    ("agent_b", "v7-exp7b-agent", "EXPERIMENTALLY_SUPPORTED", "V3.8"),
 ]
 
 
@@ -78,3 +79,20 @@ def test_exp3_package_says_fail_and_carries_part_b_traces(tmp_path):
     assert len(roles) == 3 * 8  # one role per (condition, question)
     traces = list((pkg / "artifacts").glob("traces_part_b_*/*.trace.jsonl"))
     assert len(traces) == 3 * 8 * 20
+
+
+def test_exp7b_package_carries_both_runs_and_numeric_check(tmp_path):
+    mod = _load("agent_b")
+    pkg = build_package(tmp_path, mod.PACKAGE_ID, mod.spec())
+    names = {p.name for p in (pkg / "artifacts").rglob("*") if p.is_file()}
+    for required in (
+        "results.json",
+        "run_log_run1.txt",
+        "notebook_run1.ipynb",
+        "run_log_run2.txt",
+        "numeric_check.json",
+        "explain_numeric.py",
+    ):
+        assert required in names
+    assert "not reproduced bit-identically" in mod.SCOPE
+    assert "stopped sending" in mod.SCOPE

@@ -1,0 +1,13 @@
+{
+  "addendum2_commit": "7ae8a08",
+  "addendum3_commits": "5d4ffcb, 38dba0d",
+  "assurance_row": "V3.8",
+  "code_commit": "b807af7",
+  "numeric_check_commit": "4bcf553",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "protocol_commit": "821333a",
+  "python": "3.11.9",
+  "run2_results_commit": "80197c5",
+  "run_code_commit": "2eb6aac",
+  "writeup_commit": "222abd6"
+}
