@@ -1,0 +1,3 @@
+artifacts/measurements_part_a/results.json: REPRODUCED
+artifacts/measurements_part_b/results.json: REPRODUCED
+VERDICT: REPRODUCED  (report: /kaggle/working/reports/v7-exp3-noise-baseline.json)

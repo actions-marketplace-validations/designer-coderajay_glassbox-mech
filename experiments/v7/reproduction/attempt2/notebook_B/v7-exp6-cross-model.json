@@ -1,0 +1,259 @@
+{
+ "package": "v7-exp6-cross-model",
+ "package_manifest_sha256": "389482fcf1f4adb89ef507f766edd3bfe97d91bdcebfe2b5f87de82e57351b5f",
+ "recipe_commit": "3314c58",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "Intel(R) Xeon(R) CPU @ 2.20GHz / Linux x86-64 / Kaggle CPU",
+ "checker_platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+ "verdict": "NOT_REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "NOT_REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [],
+   "mismatches": [
+    {
+     "path": "models[0].per_question.q1.margins.full|context_first",
+     "kind": "float",
+     "a": 11.880677,
+     "b": 11.880478
+    },
+    {
+     "path": "models[0].per_question.q1.margins.full|question_first",
+     "kind": "float",
+     "a": 12.681703,
+     "b": 12.680364
+    },
+    {
+     "path": "models[0].per_question.q1.margins.stale|context_first",
+     "kind": "float",
+     "a": -10.878119,
+     "b": -10.878261
+    },
+    {
+     "path": "models[0].per_question.q1.margins.stale|question_first",
+     "kind": "float",
+     "a": -10.922903,
+     "b": -10.919521
+    },
+    {
+     "path": "models[0].per_question.q2.margins.full|context_first",
+     "kind": "float",
+     "a": 18.082446,
+     "b": 18.077986
+    },
+    {
+     "path": "models[0].per_question.q2.margins.full|question_first",
+     "kind": "float",
+     "a": 16.585403,
+     "b": 16.587236
+    },
+    {
+     "path": "models[0].per_question.q2.margins.stale|context_first",
+     "kind": "float",
+     "a": -14.471754,
+     "b": -14.472623
+    },
+    {
+     "path": "models[0].per_question.q2.margins.stale|question_first",
+     "kind": "float",
+     "a": -14.591869,
+     "b": -14.593821
+    },
+    {
+     "path": "models[0].per_question.q3.margins.full|context_first",
+     "kind": "float",
+     "a": 0.879019,
+     "b": 0.879494
+    },
+    {
+     "path": "models[0].per_question.q3.margins.full|question_first",
+     "kind": "float",
+     "a": 0.197891,
+     "b": 0.198421
+    },
+    {
+     "path": "models[0].per_question.q3.margins.stale|context_first",
+     "kind": "float",
+     "a": -0.886086,
+     "b": -0.887579
+    },
+    {
+     "path": "models[0].per_question.q3.margins.stale|question_first",
+     "kind": "float",
+     "a": -0.816547,
+     "b": -0.81501
+    },
+    {
+     "path": "models[0].per_question.q3.pairs.index.true_tvd",
+     "kind": "float",
+     "a": 0.414701,
+     "b": 0.415108
+    },
+    {
+     "path": "models[0].per_question.q4.margins.full|context_first",
+     "kind": "float",
+     "a": 7.749676,
+     "b": 7.748542
+    },
+    {
+     "path": "models[0].per_question.q4.margins.full|question_first",
+     "kind": "float",
+     "a": 7.16958,
+     "b": 7.171541
+    },
+    {
+     "path": "models[0].per_question.q4.margins.stale|context_first",
+     "kind": "float",
+     "a": -8.450492,
+     "b": -8.451903
+    },
+    {
+     "path": "models[0].per_question.q4.margins.stale|question_first",
+     "kind": "float",
+     "a": -8.285775,
+     "b": -8.285593
+    },
+    {
+     "path": "models[0].per_question.q5.margins.full|context_first",
+     "kind": "float",
+     "a": 10.971537,
+     "b": 10.971314
+    },
+    {
+     "path": "models[0].per_question.q5.margins.full|question_first",
+     "kind": "float",
+     "a": 11.404431,
+     "b": 11.40913
+    },
+    {
+     "path": "models[0].per_question.q5.margins.stale|context_first",
+     "kind": "float",
+     "a": 10.971537,
+     "b": 10.971314
+    },
+    {
+     "path": "models[0].per_question.q5.margins.stale|question_first",
+     "kind": "float",
+     "a": 11.404431,
+     "b": 11.40913
+    },
+    {
+     "path": "models[0].per_question.q6.margins.full|context_first",
+     "kind": "float",
+     "a": 14.957076,
+     "b": 14.957554
+    },
+    {
+     "path": "models[0].per_question.q6.margins.full|question_first",
+     "kind": "float",
+     "a": 15.848257,
+     "b": 15.847088
+    },
+    {
+     "path": "models[0].per_question.q6.margins.stale|context_first",
+     "kind": "float",
+     "a": 14.957076,
+     "b": 14.957554
+    },
+    {
+     "path": "models[0].per_question.q6.margins.stale|question_first",
+     "kind": "float",
+     "a": 15.848257,
+     "b": 15.847088
+    },
+    {
+     "path": "models[0].per_question.q7.baseline_p_correct",
+     "kind": "float",
+     "a": 0.832041,
+     "b": 0.832361
+    },
+    {
+     "path": "models[0].per_question.q7.cell_counts.only_log_level.correct",
+     "kind": "value",
+     "a": 24,
+     "b": 25
+    },
+    {
+     "path": "models[0].per_question.q7.cell_counts.only_log_level.distractor",
+     "kind": "value",
+     "a": 6,
+     "b": 5
+    },
+    {
+     "path": "models[0].per_question.q7.margins.full|context_first",
+     "kind": "float",
+     "a": 1.600164,
+     "b": 1.602455
+    },
+    {
+     "path": "models[0].per_question.q7.margins.stale|context_first",
+     "kind": "float",
+     "a": 1.600164,
+     "b": 1.602455
+    },
+    {
+     "path": "models[0].per_question.q7.pairs.log_level.observed_tvd",
+     "kind": "float",
+     "a": 0.0,
+     "b": 0.033333
+    },
+    {
+     "path": "models[0].per_question.q7.pairs.template.true_tvd",
+     "kind": "float",
+     "a": 0.072381,
+     "b": 0.072693
+    },
+    {
+     "path": "models[0].per_question.q8.margins.full|context_first",
+     "kind": "float",
+     "a": 9.096458,
+     "b": 9.095938
+    },
+    {
+     "path": "models[0].per_question.q8.margins.full|question_first",
+     "kind": "float",
+     "a": 8.887257,
+     "b": 8.884803
+    },
+    {
+     "path": "models[0].per_question.q8.margins.stale|context_first",
+     "kind": "float",
+     "a": 9.096458,
+     "b": 9.095938
+    },
+    {
+     "path": "models[0].per_question.q8.margins.stale|question_first",
+     "kind": "float",
+     "a": 8.887257,
+     "b": 8.884803
+    },
+    {
+     "path": "models[2].per_question.q2.margins.full|context_first",
+     "kind": "float",
+     "a": 19.807492,
+     "b": 19.807371
+    },
+    {
+     "path": "models[2].per_question.q2.margins.stale|question_first",
+     "kind": "float",
+     "a": -19.27163,
+     "b": -19.271517
+    },
+    {
+     "path": "models[2].per_question.q8.margins.full|context_first",
+     "kind": "float",
+     "a": 15.515654,
+     "b": 15.515479
+    },
+    {
+     "path": "models[2].per_question.q8.margins.stale|context_first",
+     "kind": "float",
+     "a": 15.515654,
+     "b": 15.515479
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "package": "v7-exp8-cross-stack",
+ "package_manifest_sha256": "e9a3c812ef9053bad20d556703e123d20fe144865c47cddfdbea9214501dc10f",
+ "recipe_commit": "226a4eb",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "Intel(R) Xeon(R) CPU @ 2.20GHz / Linux x86-64 / Kaggle CPU",
+ "checker_platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [
+    "stack_b_env"
+   ],
+   "mismatches": []
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "package": "v7-exp4-interventions",
+ "package_manifest_sha256": "5bfac43189473533bb64896375b441a1ac9853747fba2f44084aee9d6c13e14b",
+ "recipe_commit": "ad75d43",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "Intel(R) Xeon(R) CPU @ 2.20GHz / Linux x86-64 / Kaggle CPU",
+ "checker_platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [],
+   "mismatches": []
+  }
+ ]
+}

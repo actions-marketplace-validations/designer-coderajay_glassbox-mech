@@ -1,0 +1,22 @@
+artifacts/measurements/results.json: NOT_REPRODUCED
+   float models[0].per_question.q1.margins.full|context_first: 11.880677 -> 11.880478
+   float models[0].per_question.q1.margins.full|question_first: 12.681703 -> 12.680364
+   float models[0].per_question.q1.margins.stale|context_first: -10.878119 -> -10.878261
+   float models[0].per_question.q1.margins.stale|question_first: -10.922903 -> -10.919521
+   float models[0].per_question.q2.margins.full|context_first: 18.082446 -> 18.077986
+   float models[0].per_question.q2.margins.full|question_first: 16.585403 -> 16.587236
+   float models[0].per_question.q2.margins.stale|context_first: -14.471754 -> -14.472623
+   float models[0].per_question.q2.margins.stale|question_first: -14.591869 -> -14.593821
+   float models[0].per_question.q3.margins.full|context_first: 0.879019 -> 0.879494
+   float models[0].per_question.q3.margins.full|question_first: 0.197891 -> 0.198421
+   float models[0].per_question.q3.margins.stale|context_first: -0.886086 -> -0.887579
+   float models[0].per_question.q3.margins.stale|question_first: -0.816547 -> -0.81501
+   float models[0].per_question.q3.pairs.index.true_tvd: 0.414701 -> 0.415108
+   float models[0].per_question.q4.margins.full|context_first: 7.749676 -> 7.748542
+   float models[0].per_question.q4.margins.full|question_first: 7.16958 -> 7.171541
+   float models[0].per_question.q4.margins.stale|context_first: -8.450492 -> -8.451903
+   float models[0].per_question.q4.margins.stale|question_first: -8.285775 -> -8.285593
+   float models[0].per_question.q5.margins.full|context_first: 10.971537 -> 10.971314
+   float models[0].per_question.q5.margins.full|question_first: 11.404431 -> 11.40913
+   float models[0].per_question.q5.margins.stale|context_first: 10.971537 -> 10.971314
+VERDICT: NOT_REPRODUCED  (report: /kaggle/working/reports/v7-exp6-cross-model.json)

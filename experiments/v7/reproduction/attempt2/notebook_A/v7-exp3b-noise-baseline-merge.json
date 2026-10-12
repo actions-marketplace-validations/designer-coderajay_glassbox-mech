@@ -1,0 +1,18 @@
+{
+ "package": "v7-exp3b-noise-baseline-merge",
+ "package_manifest_sha256": "8845c8e3c311af0634f43120754687762075910112d2f80a0186021b78654b50",
+ "recipe_commit": "55e8bcf",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "Intel(R) Xeon(R) CPU @ 2.20GHz / Linux x86-64 / Kaggle CPU",
+ "checker_platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [],
+   "mismatches": []
+  }
+ ]
+}

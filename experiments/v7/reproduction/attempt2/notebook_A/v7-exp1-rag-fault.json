@@ -1,0 +1,18 @@
+{
+ "package": "v7-exp1-rag-fault",
+ "package_manifest_sha256": "65b85eab5af4e27cf17529dd2026a1873016a6fca0908abbc85a0c23b4463a51",
+ "recipe_commit": "aedfebf",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "Intel(R) Xeon(R) CPU @ 2.20GHz / Linux x86-64 / Kaggle CPU",
+ "checker_platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [],
+   "mismatches": []
+  }
+ ]
+}

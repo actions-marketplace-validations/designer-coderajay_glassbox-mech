@@ -1,0 +1,20 @@
+{
+ "package": "v7-exp2-llama-dedup",
+ "package_manifest_sha256": "9d1a1d7bb13af9f376f87bc8f0c0c78432c6a0c13ce478056550afb5b242f7f5",
+ "recipe_commit": "72cb710",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "Intel(R) Xeon(R) CPU @ 2.20GHz / Linux x86-64 / Kaggle CPU",
+ "checker_platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [
+    "environment_differences_bug_vs_fix"
+   ],
+   "mismatches": []
+  }
+ ]
+}
