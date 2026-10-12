@@ -62,6 +62,19 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - the privacy policy purpose now matches the form;
   - the Impressum template is updated.
 
+### Results — V7 Experiment 10, investigation benchmark (2026-10-12)
+
+- **Hard Gate 11 met; V10.1 PASS (K1–K5).** 32 incidents generated from the sealed
+  seed (hash matches Addendum 1), 192 units, 28 positive. Glassbox exact diagnosis
+  21/28 (0.75) against 0.50 for first-divergence blame and 0.00 for revert-all;
+  zero-effect causes blamed 1/299; false alarms 1/48; implied fix verified 20/24.
+- **Reported shortfalls:** 4 positive units where co-changes cancelled at the outcome
+  were not detected; 3 over-blamed a small real cause; small effects were diagnosed
+  exactly in 10/39 units. 26 of the 28 positive units come from the GPT-2 RAG family.
+- `results/results.json` committed unchanged; write-up in
+  `experiments/v7/benchmark/RESULTS.md`. ASSURANCE V10 and V10.1 are
+  `EXPERIMENTALLY_SUPPORTED`, V6 is `IMPLEMENTED`.
+
 ### Results — V7 Experiment 9, reproduction in an independent environment (2026-10-12)
 
 - **FAIL as pre-registered (7/8).** Re-run from their evidence packages on Linux x86-64
