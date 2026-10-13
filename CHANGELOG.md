@@ -8,6 +8,18 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [4.6.0] — 2026-10-13
+
+### Fixed — packaging
+
+- **The wheel now installs only the `glassbox` package.** Up to 4.5.1 it also
+  installed top-level `tests`, `scripts`, `benchmarks`, `examples`, `api`,
+  `dashboard`, `experiments` and `mcp` packages into site-packages. The `mcp` one
+  shadows the official `mcp` SDK. If you installed 4.5.1, upgrading removes them.
+  `tests/test_packaging.py` pins this.
+- **First PyPI release containing the AI-system investigation layer** (`glassbox.v7`,
+  BSL 1.1; see NOTICE). Every entry below in this 4.6.0 section ships in it.
+
 ### Changed — licensing (effective 2026-10-11)
 
 - **The AI-system investigation layer is now BSL 1.1:** `glassbox/v7/` and
