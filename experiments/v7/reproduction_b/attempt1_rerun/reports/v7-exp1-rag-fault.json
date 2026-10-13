@@ -1,0 +1,23 @@
+{
+ "package": "v7-exp1-rag-fault",
+ "package_manifest_sha256": "65b85eab5af4e27cf17529dd2026a1873016a6fca0908abbc85a0c23b4463a51",
+ "recipe_commit": "aedfebf",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "AMD EPYC 7763 64-Core Processor / Linux x86-64 / GitHub Actions ubuntu-24.04",
+ "checker_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "decisions_verdict": "DECISIONS_REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "decisions_verdict": "DECISIONS_REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [],
+   "raw_sample_keys": [
+    "cell_counts"
+   ],
+   "mismatches": []
+  }
+ ]
+}

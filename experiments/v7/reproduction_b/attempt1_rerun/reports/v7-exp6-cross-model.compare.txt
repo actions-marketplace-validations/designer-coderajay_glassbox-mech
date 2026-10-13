@@ -1,0 +1,23 @@
+artifacts/measurements/results.json: DECISIONS_ONLY
+   float models[0].per_question.q1.margins.full|question_first: 12.681703 -> 12.68042
+   float models[0].per_question.q1.margins.stale|context_first: -10.878119 -> -10.878303
+   float models[0].per_question.q1.margins.stale|question_first: -10.922903 -> -10.9205
+   float models[0].per_question.q2.margins.full|context_first: 18.082446 -> 18.078696
+   float models[0].per_question.q2.margins.full|question_first: 16.585403 -> 16.582601
+   float models[0].per_question.q2.margins.stale|context_first: -14.471754 -> -14.471903
+   float models[0].per_question.q2.margins.stale|question_first: -14.591869 -> -14.593679
+   float models[0].per_question.q3.margins.full|context_first: 0.879019 -> 0.87928
+   float models[0].per_question.q3.margins.full|question_first: 0.197891 -> 0.19874
+   float models[0].per_question.q3.margins.stale|context_first: -0.886086 -> -0.887569
+   float models[0].per_question.q3.margins.stale|question_first: -0.816547 -> -0.815487
+   float models[0].per_question.q3.pairs.index.true_tvd: 0.414701 -> 0.415061
+   float models[0].per_question.q3.pairs.template.true_tvd: 0.157307 -> 0.157151
+   float models[0].per_question.q4.margins.full|context_first: 7.749676 -> 7.748641
+   float models[0].per_question.q4.margins.full|question_first: 7.16958 -> 7.172665
+   float models[0].per_question.q4.margins.stale|context_first: -8.450492 -> -8.451623
+   float models[0].per_question.q4.margins.stale|question_first: -8.285775 -> -8.28445
+   float models[0].per_question.q5.margins.full|question_first: 11.404431 -> 11.408465
+   float models[0].per_question.q5.margins.stale|question_first: 11.404431 -> 11.408465
+   float models[0].per_question.q6.margins.full|context_first: 14.957076 -> 14.957587
+VERDICT: DECISIONS_ONLY  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp6-cross-model.json)
+DECISIONS: DECISIONS_REPRODUCED

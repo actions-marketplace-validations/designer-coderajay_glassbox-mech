@@ -1,0 +1,13 @@
+recorded 32 OTLP files
+schema check: 32/32 ok
+S1: PASS 32/32
+S2: PASS 4/4
+S3: PASS 4/4
+S4: PASS 8/8
+S5: PASS 8/8
+S6: PASS now d00da8d53bcd442dcf58fe5eed0acebdb64c11390aeb2a5c23599cb19480227d / protocol d00da8d53bcd442dcf58fe5eed0acebdb64c11390aeb2a5c23599cb19480227d
+S7: PASS 32/32
+D1_span_names_kinds: {"BowEmbedding._get_query_embedding [EMBEDDING]": 32, "BowEmbedding.get_query_embedding [EMBEDDING]": 32, "VectorIndexRetriever._retrieve [RETRIEVER]": 32, "VectorIndexRetriever.retrieve [RETRIEVER]": 32}
+D2_vectors_dropped: 32
+D3_same_document_as_stack_A: "32/32"
+EXPERIMENT 8 OVERALL: PASS

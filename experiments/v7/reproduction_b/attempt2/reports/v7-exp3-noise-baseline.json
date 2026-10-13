@@ -1,0 +1,34 @@
+{
+ "package": "v7-exp3-noise-baseline",
+ "package_manifest_sha256": "5e9ac21612f608887d7c60905ebd9ea32da2d20d95a6598a31c9b7774034b759",
+ "recipe_commit": "3cf24ac",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "AMD EPYC 7763 64-Core Processor / Linux x86-64 / GitHub Actions ubuntu-24.04",
+ "checker_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "decisions_verdict": "DECISIONS_REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements_part_a/results.json",
+   "verdict": "REPRODUCED",
+   "decisions_verdict": "DECISIONS_REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [],
+   "raw_sample_keys": [
+    "cell_counts"
+   ],
+   "mismatches": []
+  },
+  {
+   "packaged": "artifacts/measurements_part_b/results.json",
+   "verdict": "REPRODUCED",
+   "decisions_verdict": "DECISIONS_REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [],
+   "raw_sample_keys": [
+    "cell_counts"
+   ],
+   "mismatches": []
+  }
+ ]
+}

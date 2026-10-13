@@ -1,0 +1,25 @@
+{
+ "package": "v7-exp2-llama-dedup",
+ "package_manifest_sha256": "9d1a1d7bb13af9f376f87bc8f0c0c78432c6a0c13ce478056550afb5b242f7f5",
+ "recipe_commit": "72cb710",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "AMD EPYC 7763 64-Core Processor / Linux x86-64 / GitHub Actions ubuntu-24.04",
+ "checker_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "decisions_verdict": "DECISIONS_REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "decisions_verdict": "DECISIONS_REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [
+    "environment_differences_bug_vs_fix"
+   ],
+   "raw_sample_keys": [
+    "cell_counts"
+   ],
+   "mismatches": []
+  }
+ ]
+}

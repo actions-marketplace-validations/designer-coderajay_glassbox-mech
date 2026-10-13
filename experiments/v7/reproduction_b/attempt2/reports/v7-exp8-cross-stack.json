@@ -1,0 +1,25 @@
+{
+ "package": "v7-exp8-cross-stack",
+ "package_manifest_sha256": "e9a3c812ef9053bad20d556703e123d20fe144865c47cddfdbea9214501dc10f",
+ "recipe_commit": "226a4eb",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "AMD EPYC 7763 64-Core Processor / Linux x86-64 / GitHub Actions ubuntu-24.04",
+ "checker_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "decisions_verdict": "DECISIONS_REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "decisions_verdict": "DECISIONS_REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [
+    "stack_b_env"
+   ],
+   "raw_sample_keys": [
+    "cell_counts"
+   ],
+   "mismatches": []
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+I1_type_I: PASS {"rate": 0.025, "rule": "<= 0.08"}
+I2_single_cause: PASS {"rate": 0.825, "rule": ">= 0.80"}
+I3_inert_not_blamed: PASS {"rate": 0.02, "rule": "<= 0.08"}
+I4_two_causes: PASS {"rate": 0.9, "rule": ">= 0.80"}
+I5_total_change: {"V1": 0.915, "V2": 1.0}
+I6_necessity: {"V1": {"retrieval_r": 0.855, "log_level": 0.04}, "V2": {"retrieval_r": 0.055, "chat_cr": 0.375}}
+I7_diff_vs_intervention_V1: {"group_diff_flags_chat": 0.92, "interventions_attribute_other_than_retrieval": 0.02}
+EXPERIMENT 4 OVERALL: PASS

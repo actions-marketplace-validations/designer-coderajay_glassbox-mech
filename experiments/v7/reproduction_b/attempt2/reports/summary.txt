@@ -1,0 +1,16 @@
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp1-rag-fault.json)
+DECISIONS: DECISIONS_REPRODUCED
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp2-llama-dedup.json)
+DECISIONS: DECISIONS_REPRODUCED
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp3-noise-baseline.json)
+DECISIONS: DECISIONS_REPRODUCED
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp3b-noise-baseline-merge.json)
+DECISIONS: DECISIONS_REPRODUCED
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp4-interventions.json)
+DECISIONS: DECISIONS_REPRODUCED
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp5-real-interventions.json)
+DECISIONS: DECISIONS_REPRODUCED
+VERDICT: DECISIONS_ONLY  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp6-cross-model.json)
+DECISIONS: DECISIONS_REPRODUCED
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp8-cross-stack.json)
+DECISIONS: DECISIONS_REPRODUCED

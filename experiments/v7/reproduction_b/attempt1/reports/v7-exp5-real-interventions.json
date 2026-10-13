@@ -1,0 +1,23 @@
+{
+ "package": "v7-exp5-real-interventions",
+ "package_manifest_sha256": "3d21e940aa1a5ed4d924e7cb0dcd7a960c87dde90f4883a03c601d5541d11097",
+ "recipe_commit": "e47cf4e",
+ "reproducer": "Ajay Pravin Mahale (author)",
+ "environment": "AMD EPYC 7763 64-Core Processor / Linux x86-64 / GitHub Actions ubuntu-24.04",
+ "checker_platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+ "verdict": "REPRODUCED",
+ "decisions_verdict": "DECISIONS_REPRODUCED",
+ "parts": [
+  {
+   "packaged": "artifacts/measurements/results.json",
+   "verdict": "REPRODUCED",
+   "decisions_verdict": "DECISIONS_REPRODUCED",
+   "tol": 0.0001,
+   "ignore": [],
+   "raw_sample_keys": [
+    "cell_counts"
+   ],
+   "mismatches": []
+  }
+ ]
+}

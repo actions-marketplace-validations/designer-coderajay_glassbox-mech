@@ -1,0 +1,33 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING:root:You are not using LayerNorm, so the writing weights can't be centered! Skipping
+Loaded pretrained model EleutherAI/pythia-160m into HookedTransformer
+Loaded pretrained model facebook/opt-125m into HookedTransformer
+Loaded pretrained model Qwen/Qwen2.5-0.5B into HookedTransformer
+Pythia (EleutherAI/pythia-160m): X1 PASS 3/3 large | X2 PASS 0/12 zero blamed | X3 PASS 0.0
+   q1 base P(correct) 0.999993 {'index': ('large', 0.999974, True), 'template': ('small', 4e-06, False), 'log_level': ('zero', 0.0, False)}
+   q2 base P(correct) 1.0 {'index': ('large', 0.999999, True), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q3 base P(correct) 0.706673 {'index': ('small', 0.415061, True), 'template': ('small', 0.157151, False), 'log_level': ('zero', 0.0, False)}
+   q4 base P(correct) 0.999569 {'index': ('large', 0.999355, True), 'template': ('small', 0.000336, False), 'log_level': ('zero', 0.0, False)}
+   q5 base P(correct) 0.999983 {'index': ('zero', 0.0, False), 'template': ('small', 6e-06, False), 'log_level': ('zero', 0.0, False)}
+   q6 base P(correct) 1.0 {'index': ('zero', 0.0, False), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q7 base P(correct) 0.832215 {'index': ('zero', 0.0, False), 'template': ('small', 0.072379, False), 'log_level': ('zero', 0.0, False)}
+   q8 base P(correct) 0.999888 {'index': ('zero', 0.0, False), 'template': ('small', 2.6e-05, False), 'log_level': ('zero', 0.0, False)}
+OPT (facebook/opt-125m): X1 PASS 3/3 large | X2 PASS 0/12 zero blamed | X3 PASS 0.0
+   q1 base P(correct) 0.999976 {'index': ('large', 0.999965, True), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q2 base P(correct) 1.0 {'index': ('large', 1.0, True), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q3 base P(correct) 0.772184 {'index': ('small', 0.416937, True), 'template': ('small', 0.023547, False), 'log_level': ('zero', 0.0, False)}
+   q4 base P(correct) 0.999779 {'index': ('large', 0.999766, True), 'template': ('small', 0.000111, False), 'log_level': ('zero', 0.0, False)}
+   q5 base P(correct) 0.99999 {'index': ('zero', 0.0, False), 'template': ('small', 9e-06, False), 'log_level': ('zero', 0.0, False)}
+   q6 base P(correct) 1.0 {'index': ('zero', 0.0, False), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q7 base P(correct) 0.707496 {'index': ('zero', 0.0, False), 'template': ('small', 0.018166, False), 'log_level': ('zero', 0.0, False)}
+   q8 base P(correct) 0.999995 {'index': ('zero', 0.0, False), 'template': ('small', 7e-06, False), 'log_level': ('zero', 0.0, False)}
+Qwen 2.5 (Qwen/Qwen2.5-0.5B): X1 PASS 4/4 large | X2 PASS 0/12 zero blamed | X3 PASS 0.0
+   q1 base P(correct) 0.999999 {'index': ('large', 0.999997, True), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q2 base P(correct) 1.0 {'index': ('large', 1.0, True), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q3 base P(correct) 0.952121 {'index': ('large', 0.654512, True), 'template': ('small', 0.024393, False), 'log_level': ('zero', 0.0, False)}
+   q4 base P(correct) 0.999999 {'index': ('large', 0.999991, True), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q5 base P(correct) 1.0 {'index': ('zero', 0.0, False), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q6 base P(correct) 1.0 {'index': ('zero', 0.0, False), 'template': ('small', 0.0, False), 'log_level': ('zero', 0.0, False)}
+   q7 base P(correct) 0.93654 {'index': ('zero', 0.0, False), 'template': ('small', 0.144686, False), 'log_level': ('zero', 0.0, False)}
+   q8 base P(correct) 1.0 {'index': ('zero', 0.0, False), 'template': ('small', 1e-06, False), 'log_level': ('zero', 0.0, False)}
+EXPERIMENT 6 OVERALL: PASS

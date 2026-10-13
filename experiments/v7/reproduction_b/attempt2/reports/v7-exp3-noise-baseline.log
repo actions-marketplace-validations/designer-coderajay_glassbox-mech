@@ -1,0 +1,15 @@
+A1_type_I: PASS {"rate": 0.015, "rule": "<= 0.08"}
+A2_chat_localisation: FAIL {"rate": 0.79, "rule": ">= 0.80"}
+A2b_no_false_upstream: PASS {"rate": 0.015, "rule": "<= 0.08"}
+A3_retrieval_localisation: PASS {"rate": 0.94, "rule": ">= 0.80"}
+A4_free_text_untestable: PASS {"all_untestable": true}
+A5_one_vs_two_causes: {"chat_flagged_W2": 0.505, "chat_flagged_W3": 0.955, "descriptive": true}
+A6_pairwise_noise: {"mean_pairwise_divergence_rate_W0": 1.0, "descriptive": true}
+PART A OVERALL: FAIL
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loaded pretrained model gpt2 into HookedTransformer
+B1_real_null: PASS {"per_question": {"q1": true, "q2": true, "q3": true, "q4": true, "q5": true, "q6": true, "q7": true, "q8": true}, "rule": ">= 7/8"}
+B2_real_localisation: PASS {"per_question": {"q1": true, "q2": true, "q3": true, "q4": true}, "rule": "4/4"}
+B3_real_specificity: PASS {"per_question": {"q5": true, "q6": true, "q7": true, "q8": true}, "rule": "4/4"}
+B4_descriptive: {"pairwise_divergence_rate_baseline_vs_more": 1.0, "contains_correct_rate": {"baseline": {"q1": 0.1, "q2": 0.45, "q3": 0.2, "q4": 0.05, "q5": 0.35, "q6": 0.15, "q7": 0.15, "q8": 0.0}, "baseline_more": {"q1": 0.2, "q2": 0.5, "q3": 0.1, "q4": 0.05, "q5": 0.2, "q6": 0.35, "q7": 0.15, "q8": 0.0}, "fault": {"q1": 0.0, "q2": 0.0, "q3": 0.05, "q4": 0.0, "q5": 0.25, "q6": 0.25, "q7": 0.05, "q8": 0.05}}, "descriptive": true}
+PART B OVERALL: PASS

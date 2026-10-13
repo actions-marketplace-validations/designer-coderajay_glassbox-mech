@@ -1,0 +1,15 @@
+0.14.17 sync r1: 1 node(s)
+0.14.17 sync r2: 1 node(s)
+0.14.17 async r1: 2 node(s)
+0.14.17 async r2: 2 node(s)
+0.14.19 sync r1: 2 node(s)
+0.14.19 sync r2: 2 node(s)
+0.14.19 async r1: 2 node(s)
+0.14.19 async r2: 2 node(s)
+C1_localisation_bug: {"pass": true}
+C2_fix_confirmed: {"pass": true}
+C3a_intervention_sync: {"pass": true}
+C3b_specificity_async: {"pass": true}
+C4_determinism: {"per_condition": {"0.14.17/sync": true, "0.14.17/async": true, "0.14.19/sync": true, "0.14.19/async": true}, "pass": true}
+C5_n_documents: {"0.14.17/sync": 1, "0.14.17/async": 2, "0.14.19/sync": 2, "0.14.19/async": 2}
+OVERALL: PASS

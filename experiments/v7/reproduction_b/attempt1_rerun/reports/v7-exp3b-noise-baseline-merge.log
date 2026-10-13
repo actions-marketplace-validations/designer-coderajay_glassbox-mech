@@ -1,0 +1,10 @@
+A1p_type_I: PASS {"rate_by_N": {"10": 0.005, "20": 0.02, "30": 0.02, "50": 0.015}, "rule": "<= 0.08 at each N"}
+A2p_chat_localisation: PASS {"rate": 0.875, "N": 30, "rule": ">= 0.80"}
+A2bp_no_false_upstream: PASS {"rate_by_N": {"10": 0.0, "20": 0.02, "30": 0.005, "50": 0.005}, "rule": "<= 0.08 at each N"}
+A3p_retrieval_localisation: PASS {"rate": 0.94, "N": 30, "rule": ">= 0.80"}
+A4p_free_text_untestable: PASS {"all_untestable": true}
+A7_merge_validity: PASS {"rate": 1.0, "N": 30, "rule": ">= 0.95"}
+D1_power_curve: {"10": {"W1_first_at_chat": 0.235, "W1_any_detection": 0.235, "W2_first_at_retrieval": 0.385, "W2_any_detection": 0.4}, "20": {"W1_first_at_chat": 0.685, "W1_any_detection": 0.705, "W2_first_at_retrieval": 0.865, "W2_any_detection": 0.865}, "30": {"W1_first_at_chat": 0.875, "W1_any_detection": 0.88, "W2_first_at_retrieval": 0.94, "W2_any_detection": 0.94}, "50": {"W1_first_at_chat": 0.98, "W1_any_detection": 0.985, "W2_first_at_retrieval": 1.0, "W2_any_detection": 1.0}}
+D2_merge_effect_unmerged: {"10": {"W0_any_significant": 0.005, "W1_first_at_chat": 0.13}, "20": {"W0_any_significant": 0.005, "W1_first_at_chat": 0.61}, "30": {"W0_any_significant": 0.005, "W1_first_at_chat": 0.82}, "50": {"W0_any_significant": 0.0, "W1_first_at_chat": 0.965}}
+D3_one_vs_two_causes: {"10": {"chat_flagged_W2": 0.155, "chat_flagged_W3": 0.46}, "20": {"chat_flagged_W2": 0.47, "chat_flagged_W3": 0.855}, "30": {"chat_flagged_W2": 0.595, "chat_flagged_W3": 0.975}, "50": {"chat_flagged_W2": 0.905, "chat_flagged_W3": 1.0}}
+EXPERIMENT 3b OVERALL: PASS

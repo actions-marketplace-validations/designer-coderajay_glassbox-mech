@@ -1,0 +1,17 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loaded pretrained model gpt2 into HookedTransformer
+E1_real_fault_attributed: PASS {"per_question": {"q1": true, "q2": true, "q3": true, "q4": true}, "rule": "4/4"}
+E2_no_false_index_blame: PASS {"per_question": {"q5": true, "q6": true, "q7": true, "q8": true}, "rule": ">= 3/4"}
+E3_inert_never_blamed: PASS {"per_question": {"q1": false, "q2": false, "q3": false, "q4": false, "q5": false, "q6": false, "q7": false, "q8": false}, "rule": "<= 1/8"}
+E4_scorer_determinism: PASS {"max_abs_diff": 0.0, "rule": "<= 1e-9"}
+D1_template: {"q1": {"attributed": false, "p_correct_baseline": 1.0, "p_correct_only_template": 1.0}, "q2": {"attributed": false, "p_correct_baseline": 1.0, "p_correct_only_template": 1.0}, "q3": {"attributed": false, "p_correct_baseline": 0.9, "p_correct_only_template": 0.7666666666666667}, "q4": {"attributed": false, "p_correct_baseline": 1.0, "p_correct_only_template": 1.0}, "q5": {"attributed": false, "p_correct_baseline": 1.0, "p_correct_only_template": 1.0}, "q6": {"attributed": false, "p_correct_baseline": 1.0, "p_correct_only_template": 1.0}, "q7": {"attributed": false, "p_correct_baseline": 0.7666666666666667, "p_correct_only_template": 0.6}, "q8": {"attributed": false, "p_correct_baseline": 1.0, "p_correct_only_template": 1.0}}
+D4_exp1_crosscheck: {"max_abs_diff": 1.899999999821489e-05}
+q1: attributed ['index']  p(correct) {'baseline': 1.0, 'candidate': 0.0, 'only_index': 0.0, 'all_but_index': 1.0, 'only_template': 1.0, 'all_but_template': 0.0, 'only_log_level': 1.0, 'all_but_log_level': 0.0}
+q2: attributed ['index']  p(correct) {'baseline': 1.0, 'candidate': 0.0, 'only_index': 0.0, 'all_but_index': 1.0, 'only_template': 1.0, 'all_but_template': 0.0, 'only_log_level': 1.0, 'all_but_log_level': 0.0}
+q3: attributed ['index']  p(correct) {'baseline': 0.9, 'candidate': 0.26666666666666666, 'only_index': 0.36666666666666664, 'all_but_index': 0.8333333333333334, 'only_template': 0.7666666666666667, 'all_but_template': 0.43333333333333335, 'only_log_level': 0.9333333333333333, 'all_but_log_level': 0.5333333333333333}
+q4: attributed ['index']  p(correct) {'baseline': 1.0, 'candidate': 0.0, 'only_index': 0.0, 'all_but_index': 1.0, 'only_template': 1.0, 'all_but_template': 0.0, 'only_log_level': 1.0, 'all_but_log_level': 0.0}
+q5: attributed []  p(correct) {'baseline': 1.0, 'candidate': 1.0, 'only_index': 1.0, 'all_but_index': 1.0, 'only_template': 1.0, 'all_but_template': 1.0, 'only_log_level': 1.0, 'all_but_log_level': 1.0}
+q6: attributed []  p(correct) {'baseline': 1.0, 'candidate': 1.0, 'only_index': 1.0, 'all_but_index': 1.0, 'only_template': 1.0, 'all_but_template': 1.0, 'only_log_level': 1.0, 'all_but_log_level': 1.0}
+q7: attributed []  p(correct) {'baseline': 0.7666666666666667, 'candidate': 0.7666666666666667, 'only_index': 0.8666666666666667, 'all_but_index': 0.7333333333333333, 'only_template': 0.6, 'all_but_template': 0.8, 'only_log_level': 0.8, 'all_but_log_level': 0.7}
+q8: attributed []  p(correct) {'baseline': 1.0, 'candidate': 1.0, 'only_index': 1.0, 'all_but_index': 1.0, 'only_template': 1.0, 'all_but_template': 1.0, 'only_log_level': 1.0, 'all_but_log_level': 1.0}
+EXPERIMENT 5 OVERALL: PASS

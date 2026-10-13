@@ -1,0 +1,3 @@
+artifacts/measurements/results.json: REPRODUCED
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp1-rag-fault.json)
+DECISIONS: DECISIONS_REPRODUCED

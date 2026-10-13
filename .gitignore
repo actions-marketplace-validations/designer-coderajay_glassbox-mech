@@ -101,3 +101,6 @@ paper/
 
 # Local demo runs (python -m glassbox.v7.investigate demo --out demo_output/...)
 demo_output/
+
+# V7 Experiment 9b workflow artifacts are evidence and must be committed unchanged
+!experiments/v7/reproduction_b/*/reports/

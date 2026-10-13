@@ -1,0 +1,8 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loaded pretrained model gpt2 into HookedTransformer
+C1_localisation: PASS {"q1": true, "q2": true, "q3": true, "q4": true}
+C2_specificity: PASS {"q5": {"retrieval_unchanged": true, "pass": true}, "q6": {"retrieval_unchanged": true, "pass": true}, "q7": {"retrieval_unchanged": true, "pass": true}, "q8": {"retrieval_unchanged": true, "pass": true}}
+C3_intervention: PASS {"q1": true, "q2": true, "q3": true, "q4": true, "q5": true, "q6": true, "q7": true, "q8": true}
+C4_determinism: PASS {"q1": true, "q2": true, "q3": true, "q4": true, "q5": true, "q6": true, "q7": true, "q8": true}
+C5_effect:  {"baseline_correct_affected": 4, "fault_correct_affected": 0, "n_affected": 4}
+OVERALL: PASS

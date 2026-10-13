@@ -1,0 +1,4 @@
+artifacts/measurements_part_a/results.json: REPRODUCED
+artifacts/measurements_part_b/results.json: REPRODUCED
+VERDICT: REPRODUCED  (report: /home/runner/work/glassbox-mech/glassbox-mech/out/reports/v7-exp3-noise-baseline.json)
+DECISIONS: DECISIONS_REPRODUCED
