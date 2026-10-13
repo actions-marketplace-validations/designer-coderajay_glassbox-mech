@@ -367,3 +367,24 @@ python scripts/validate_models_matrix.py --models EleutherAI/pythia-1b --device 
 - **Supersedes:** Run 14 (1241 passed / 75.80%).
 - **Where the tests came from:** the +47 tests come from V7 Experiments 6 and 7/7b, the
   Addendum 3 checker and the evidence-package tests.
+
+## Run 16 — full test suite with coverage (release 4.6.0)
+
+- **Date:** 2026-10-13
+- **Hardware:** Apple Silicon Mac (the owner's machine), Python 3.11.9. This was a
+  **local run, not CI**.
+- **Code:** commit `1da69d5`, glassbox-mech-interp 4.6.0, the version published on PyPI
+  the same day. The untracked `tests/_peek_tmp_test.py` contains only a docstring and
+  no tests.
+- **Command:** `pytest --cov=glassbox --cov-report=term -q`
+- **Result:** **1357 passed, 12 skipped**, 1 warning, 146.33 s.
+- **Coverage:** total 76.26% (8916 statements, 2117 missed). The gate is 58%.
+- **Supersedes:** Run 15 (1288 passed / 75.83%).
+- **Where the new tests came from.** The +69 tests come from:
+  - V7 Experiment 8 (OTLP import/export, stack B) and its evidence package;
+  - the Gate 10 security and privacy controls;
+  - `glassbox.v7.reproduce` and the decision-level verdict;
+  - Experiment 10 (the benchmark and its package);
+  - `tests/test_packaging.py`.
+
+  The per-commit split was not measured.
