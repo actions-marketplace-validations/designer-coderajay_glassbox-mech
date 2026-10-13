@@ -112,3 +112,41 @@ Every attempt is listed. A re-run must use the same commit and workflow.
 
 ---
 *(Addenda, if any, go below this line, with dates.)*
+
+## Addendum 1 (2026-10-13): attempt 1 stopped by a workflow defect; fix and rule for attempt 2
+
+*Written after attempt 1 and before attempt 2. §§0–6 are unchanged.*
+
+1. **What happened.**
+   - Attempt 1 (Actions run `38303022533`, from `main` `6c08ddc`) compared 7 of 8
+     packages. All 7 were `DECISIONS_REPRODUCED`: six `REPRODUCED`, and Experiment 6
+     `DECISIONS_ONLY`.
+   - The step then stopped. GitHub runs bash steps with `-e -o pipefail`, and
+     `reproduce compare` exits 1 on any verdict other than `REPRODUCED`.
+   - Experiment 3 never ran.
+   - Full record and the artifact, unchanged: `attempt1/RECORD.md`, `attempt1/reports/`.
+2. **Classification.**
+   - This is a harness defect, not a reproduction result. It is handled like the
+     infrastructure failures in §4: a re-run is allowed and every attempt is listed.
+   - Strictly, it is not one of the listed infrastructure causes, and this addendum
+     says so.
+3. **The fix, and only the fix.**
+   - The workflow step now starts with `set +e`.
+   - The compare pipeline ends in `|| true`, so a non-`REPRODUCED` verdict is recorded
+     and the run continues.
+   - Nothing else changes:
+     - the packages, recipe commits and recipe commands;
+     - `glassbox/v7/reproduce.py`;
+     - the tolerance, ignore lists and `RAW_SAMPLE_KEYS`;
+     - the package order;
+     - the criteria.
+   - Attempt 2 is triggered from the commit that adds this addendum and the fix.
+     Because §1's "same commit and workflow" rule cannot hold after a workflow fix,
+     this addendum replaces it for attempt 2 only.
+4. **Rule for the result, fixed before attempt 2.**
+   - B1 and B2 are judged on **attempt 2 alone**, which must cover all 8 packages.
+   - Attempt 1's 7 completed comparisons are reported alongside.
+   - If any package's `decisions_verdict` differs between the two attempts, that is
+     reported, and 9b is **FAIL**.
+   - If attempt 2 also fails to complete for infrastructure reasons, the same
+     procedure applies again: record it, add an addendum, then re-run.

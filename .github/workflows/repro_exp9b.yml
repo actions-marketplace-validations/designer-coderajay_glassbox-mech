@@ -3,6 +3,7 @@ name: V7 Experiment 9b reproduction
 # Manual only. Re-runs 8 V7 evidence packages from their recipe commits on a fresh
 # GitHub-hosted ubuntu-24.04 runner and compares them with the packaged results
 # (experiments/v7/reproduction_b/PROTOCOL.md). Results are uploaded as an artifact.
+# Addendum 1: the step runs with set +e so a non-REPRODUCED verdict never stops the run.
 
 on:
   workflow_dispatch: {}
@@ -18,6 +19,7 @@ jobs:
       - name: Reproduce 8 packages
         shell: bash
         run: |
+          set +e
           set -uo pipefail
           W=$GITHUB_WORKSPACE/out
           T=/tmp/repro
@@ -50,7 +52,7 @@ jobs:
             uv pip install -q --python $PY -e $MAIN --no-deps
             mkdir -p $W/reports/$p.fresh
             for f in "$@"; do cp "$f" $W/reports/$p.fresh/$(echo "$f" | sed "s|$T/wt/$p/||; s|/|__|g") 2>/dev/null; done
-            (cd $MAIN && $PY -m glassbox.v7.reproduce compare evidence/$p "$@" --reproducer "Ajay Pravin Mahale (author)" --environment "$CPU" --out $W/reports/$p.json) 2>&1 | tee $W/reports/$p.compare.txt
+            (cd $MAIN && $PY -m glassbox.v7.reproduce compare evidence/$p "$@" --reproducer "Ajay Pravin Mahale (author)" --environment "$CPU" --out $W/reports/$p.json) 2>&1 | tee $W/reports/$p.compare.txt || true
             git -C $MAIN worktree remove --force $T/wt/$p
           }
 
@@ -91,7 +93,7 @@ jobs:
 
           df -h /tmp | tee $W/reports/disk_end.txt
           echo "== summary"
-          grep -h -E "^(VERDICT|DECISIONS):" $W/reports/*.compare.txt | tee $W/reports/summary.txt
+          grep -h -E "^(VERDICT|DECISIONS):" $W/reports/*.compare.txt | tee $W/reports/summary.txt || true
 
       - name: Upload reports
         if: always()
