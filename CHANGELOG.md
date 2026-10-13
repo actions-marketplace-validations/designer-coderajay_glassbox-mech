@@ -8,6 +8,42 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added — agent investigation demo (2026-10-14)
+
+- **New Space tab "Agent trajectory (simulated)"** (`dashboard/v7_agent_demo.py`, BSL 1.1):
+  a simulated tool-using booking agent with four possible changes. It runs the same
+  one-change-at-a-time investigation as on a real agent, shows each change's measured
+  effect next to its exact true effect (known because the agent is simulated), and
+  shows one before/after trajectory with its first divergent step.
+
+### Changed — public claims audit (2026-10-14)
+
+- **Removed every legal date, countdown and penalty figure** from the README, docs,
+  website, generated reports, MCP server and API description. Readers are pointed to
+  Regulation (EU) 2024/1689 and Regulation (EU) 2026/1744 (Digital Omnibus on AI)
+  instead.
+- **Annex IV wording corrected.**
+  - "8 of 9 sections auto-filled" and "content-hashed" are replaced. The draft lays out
+    all 9 sections, fills the measured fields and marks provider-only fields
+    `[PROVIDER TO COMPLETE]`.
+  - A real 4.6.0 run left provider fields in 7 of the 9 sections.
+  - The Annex IV draft is not content-hashed.
+- **Removed unverifiable or comparative claims**, including:
+  - "21 frameworks";
+  - "strategic monopoly release" and "first open-source tool";
+  - the competitor ✅/❌ table;
+  - "no other open-source tool";
+  - the faithfulness threshold "derived from Article 15(1)";
+  - untested model lists and "any OpenAI-compatible API including Claude/Gemini";
+  - "Python 3.8+" (the badge now says 3.11, which CI tests).
+- **Fixed the API metadata licence**, which said Apache 2.0 and now reads MIT core
+  plus BSL 1.1 components.
+- **The PyPI description no longer claims "21/21 frameworks".** This takes effect with
+  the next release.
+- **Website:** the timeline banner and countdown are removed. "37×" is shown as the
+  canonical "15–37×", and the Annex IV example card reflects a real IOI run.
+  `docs/index.redesign.html` (an old draft) is removed from the repository.
+
 ### Changed — HuggingFace Space redesign (2026-10-13)
 
 - **New look and structure.** The theme follows the visitor's light or dark setting.

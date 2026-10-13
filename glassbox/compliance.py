@@ -27,7 +27,7 @@ Consult qualified legal counsel for jurisdiction-specific guidance.
 
 Regulatory References (informational only)
 ------------------------------------------
-Regulation (EU) 2024/1689 — EU AI Act, applicable from 2 August 2026:
+Regulation (EU) 2024/1689 — EU AI Act (as amended by Regulation (EU) 2026/1744):
   Article 6 + Annex III  — Classification of high-risk AI systems
   Article 9              — Risk management system obligations
   Article 10             — Data and data governance requirements
@@ -658,8 +658,8 @@ authorised only for the stated purpose and deployment context listed above.
 
 **Overall compliance status:** `{compliance_status.replace("_", " ").title()}`
 
-> Enforcement deadline: **August 2026** — Regulation (EU) 2024/1689, Article 99(4):
-> non-compliance penalties up to €15M or 3% of global annual turnover.
+> Application dates and penalties: see Regulation (EU) 2024/1689 as amended by
+> Regulation (EU) 2026/1744. This report does not restate them.
 
 ## Explainability Metrics (Article 13)
 
@@ -1278,7 +1278,7 @@ See full Annex IV Section 4 — Data Governance in the [compliance report JSON].
         ))
         story.append(Spacer(1, 4))
         story.append(Paragraph(
-            "Enforcement date: 2 August 2026 (high-risk AI systems under Annex III, Article 6).",
+            "Application dates: see Regulation (EU) 2024/1689 as amended by Regulation (EU) 2026/1744.",
             styles["legal_ref"],
         ))
         return story

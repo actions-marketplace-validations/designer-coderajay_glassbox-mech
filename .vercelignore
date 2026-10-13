@@ -18,4 +18,3 @@ requirements/
 
 # Superseded page drafts — kept in the repo as restore points, not served
 docs/_design-snapshot/
-docs/index.redesign.html

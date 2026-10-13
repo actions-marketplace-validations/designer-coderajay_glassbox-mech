@@ -1,7 +1,7 @@
 # Glassbox V5 — From Research Demo to Production Compliance Engine
 ## The honest gap analysis, the mathematical foundation, and the path to any-model, any-prompt, billion-ops auditing
 
-*Drafted 2026-06-12, revised same day after self-review (Part 9 holds the red-team findings). This document states problems plainly before solving them. Estimates are labeled. Research risks are named, not hidden. Regulatory note: the Digital Omnibus (provisionally agreed 7 May 2026, pending adoption) defers Annex III enforcement to 2 Dec 2027 — timelines here are driven by product strategy, not the legal date.*
+*Drafted 2026-06-12, revised same day after self-review (Part 9 holds the red-team findings). This document states problems plainly before solving them. Estimates are labeled. Research risks are named, not hidden. Timelines here are driven by product strategy, not legal dates.*
 
 ---
 
@@ -224,7 +224,7 @@ Rules: a tier downgrade is never silent (the reason is stated in §4 of the repo
 
 ## Part 8 — Sequencing (what to build, in order)
 
-**Phase A — weeks, before launch (mostly wiring around existing math). Note: the Digital Omnibus (agreed 7 May 2026, pending adoption) defers Annex III enforcement to 2 Dec 2027 — Phase A timing is driven by our launch, not the legal date:**
+**Phase A — weeks, before launch (mostly wiring around existing math). Phase A timing is driven by our launch, not a legal date:**
 1. Decision functional v1: verbalizer sets + multi-token spans (2.1) — replaces the single-token straitjacket
 2. Counterfactual verification gate + discard reporting (3.3)
 3. Degradation ladder + tier labels on every report (6)

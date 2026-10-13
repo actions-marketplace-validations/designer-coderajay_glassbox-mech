@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Glassbox — prove what your model did</title>
-<meta name="description" content="Glassbox traces the exact circuit behind a model's decision, measures how faithful that explanation is, and writes the EU AI Act Annex IV documentation. One function call, on open-weight models.">
+<meta name="description" content="Glassbox traces the exact circuit behind a model's decision, measures how faithful that explanation is, and drafts EU AI Act Annex IV documentation from it. One function call, on open-weight models.">
 <link rel="canonical" href="https://repo-ashen-psi.vercel.app">
 <meta property="og:title" content="Glassbox — prove what your model did">
 <meta property="og:description" content="Causal circuit discovery + measured faithfulness + draft EU AI Act Annex IV documentation, from one function call.">
@@ -338,7 +338,6 @@ footer .fcol a:hover{color:#fff}
 </head>
 <body>
 
-<div class="announce"><div class="wrap"><span class="dot"></span> <span>Timeline update: the Digital Omnibus (agreed 7 May 2026, pending adoption) defers Annex III obligations to <b>2 Dec 2027</b> — current law still says 2 Aug 2026 · <a href="#compliance">what that means</a></span></div></div>
 
 <nav><div class="wrap">
   <a class="brand" href="#top" aria-label="Glassbox home">
@@ -366,7 +365,7 @@ footer .fcol a:hover{color:#fff}
   <div class="reveal">
     <span class="eyebrow">Mechanistic interpretability for the EU AI Act</span>
     <h1>Prove what your model <span class="em">actually</span> did.</h1>
-    <p class="sub">Glassbox traces the circuit behind a decision, measures how faithful that explanation is, and writes the Annex IV documentation for you. One function call, on open-weight models.</p>
+    <p class="sub">Glassbox traces the circuit behind a decision, measures how faithful that explanation is, and drafts Annex IV documentation from it. One function call, on open-weight models.</p>
     <div class="cta">
       <button class="pill-cmd" id="copycmd" aria-label="Copy install command">
         <span><span class="pf">$</span>&nbsp;pip install glassbox-mech-interp</span>
@@ -399,13 +398,13 @@ footer .fcol a:hover{color:#fff}
   <a class="fcard reveal" href="https://github.com/designer-coderajay/glassbox-mech#quickstart">
     <span class="fk">I build models</span>
     <h3>Find the circuit in three forward passes</h3>
-    <p>Attribution patching, ACDC, causal scrubbing, DAS, Hessian bounds — 21 frameworks behind one Python API. pip install and audit in minutes.</p>
+    <p>Attribution patching, ACDC, causal scrubbing, DAS and Hessian bounds behind one Python API. pip install and run on an open-weight model.</p>
     <span class="go">Read the quickstart <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </a>
   <a class="fcard reveal" href="#compliance">
     <span class="fk">I own compliance</span>
     <h3>Get Annex IV documentation grounded in measurement</h3>
-    <p>Eight of nine sections drafted from the model's measured behaviour, content-hashed against quiet edits. No notebook required — your engineers run it, you review it.</p>
+    <p>All nine sections laid out from one analysis: measured fields filled, everything only you can supply clearly marked. Your engineers run it, you review and complete it.</p>
     <span class="go">See what you hand over <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </a>
 </div></div></div>
@@ -445,8 +444,8 @@ footer .fcol a:hover{color:#fff}
       <span class="pnum">03</span>
       <div class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5" stroke-linejoin="round"/></svg></div>
       <h3>Document</h3>
-      <p>Eight of the nine Annex IV sections are written straight from the model and content-hashed, so nothing can be edited quietly. The ninth, the Declaration of Conformity, stays in your hands.</p>
-      <div class="stat"><b>9 sections</b> structured · 8 auto-filled · hashed</div>
+      <p>The nine Annex IV sections are laid out from the analysis. Fields the measurement supports are filled; fields only the provider can supply, including the §8 declaration of conformity, are marked for you to complete.</p>
+      <div class="stat"><b>9 sections</b> laid out · measured fields filled · the rest marked</div>
     </div>
   </div>
 </div></section>
@@ -457,9 +456,9 @@ footer .fcol a:hover{color:#fff}
     <h2 class="h" style="color:#fff">Numbers you can reproduce</h2>
   </div>
   <div class="grid">
-    <div class="m reveal"><div class="n" data-count="37" data-suffix="×">37×</div><div class="l">faster than ACDC, up to<br><b>15–37×</b> across the GPT-2 family</div></div>
+    <div class="m reveal"><div class="n">15–37×</div><div class="l">faster than ACDC<br>across the <b>GPT-2 family</b></div></div>
     <div class="m reveal"><div class="n" data-count="0.704" data-dp="3">0.704</div><div class="l">faithfulness <b>F1</b>, Grade B<br>IOI task (gpt2), vs full ablation</div></div>
-    <div class="m reveal"><div class="n">8<em>/</em>9</div><div class="l">Annex IV sections <b>auto-filled</b><br>§8 declaration stays human</div></div>
+    <div class="m reveal"><div class="n">9</div><div class="l">Annex IV sections <b>laid out</b><br>provider-only fields marked</div></div>
     <div class="m reveal"><div class="n" data-count="0.009" data-dp="3">0.009</div><div class="l">confidence ↔ faithfulness<br><b>correlation</b> (r), orthogonal</div></div>
   </div>
   <p class="src reveal">Wall-clock timings from <span class="mono">gb.analyze()</span> on Apple M1 Pro, weights pre-loaded; ACDC baseline per Conmy et al. 2023. Full methodology, hardware specs and raw data in <a href="https://github.com/designer-coderajay/glassbox-mech/blob/main/BENCHMARKS.md">BENCHMARKS.md</a> — reproduce with <span class="mono">scripts/benchmark.py</span>. Every approximation is disclosed in the result dict.</p>
@@ -469,12 +468,12 @@ footer .fcol a:hover{color:#fff}
   <div class="section-head reveal">
     <span class="eyebrow">From prompt to evidence</span>
     <h2 class="h">One call. Many kinds of decision.</h2>
-    <p class="lead">The same call works whether you're auditing a loan model, a triage classifier, or a CV screener. It picks its own counterfactual when you let it.</p>
+    <p class="lead">The same call accepts any prompt and any set of answer tokens, and picks a counterfactual when you let it. Whether a faithful circuit exists is what it measures: raw GPT-2 has none for credit decisions, and Glassbox says so.</p>
   </div>
   <div class="split">
     <div class="code reveal">
       <div class="bar"><i></i><i></i><i></i><span class="fn">audit.py</span></div>
-      <pre><span class="c"># any prompt, any domain</span>
+      <pre><span class="c"># faithfulness is measured, not assumed</span>
 <span class="k">from</span> glassbox <span class="k">import</span> <span class="f">GlassboxV2</span>, build_annex_iv_vault
 
 gb = <span class="f">GlassboxV2</span>(model)
@@ -491,7 +490,7 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
     <div class="steps reveal">
       <div class="step"><span class="sn">1</span><div><h4>Point it at a model</h4><p>Load a supported open-weight transformer. No fine-tuning and no labels.</p></div></div>
       <div class="step"><span class="sn">2</span><div><h4>Run one call</h4><p>It finds the circuit, verifies the counterfactual actually moved the decision, and scores how faithful the explanation is — then grades its own evidence tier.</p></div></div>
-      <div class="step"><span class="sn">3</span><div><h4>Get the vault</h4><p>A draft Annex IV record, content-hashed, for your own review and sign-off.</p></div></div>
+      <div class="step"><span class="sn">3</span><div><h4>Get the vault</h4><p>A draft Annex IV record for your own review, completion and sign-off.</p></div></div>
     </div>
   </div>
 </div></section>
@@ -499,23 +498,22 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
 <section id="compliance" class="alt"><div class="wrap">
   <div class="section-head reveal">
     <span class="eyebrow">EU AI Act · Annex IV</span>
-    <h2 class="h">The documentation, written<br>from the model itself</h2>
-    <p class="lead">Every high-risk AI system placed on the EU market must keep Annex IV technical documentation (Article 11). Under current law that applies from 2 August 2026; the Digital Omnibus agreement of 7 May 2026 — pending formal adoption — defers Annex III systems to 2 December 2027. Either way the work is months, not weeks: Glassbox fills eight of the nine sections directly from the model's measured behaviour.</p>
+    <h2 class="h">Annex IV documentation,<br>drafted from measurement</h2>
+    <p class="lead">Providers of high-risk AI systems must keep Annex IV technical documentation (Article 11 of Regulation (EU) 2024/1689). Application dates and penalties were amended by <a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj" target="_blank" rel="noopener">Regulation (EU) 2026/1744</a>; check the current legal text. Glassbox drafts the parts of that documentation a measurement can support.</p>
   </div>
   <div class="risk">
-    <div class="rc reveal"><div class="rn"><em>€15M</em></div><div class="rl">or 3% of global annual turnover, whichever is higher — the penalty ceiling for documentation obligations under Article 99(4).</div></div>
-    <div class="rc reveal"><div class="rn"><em id="cdays2">—</em> days</div><div class="rl">until 2 December 2027 — the expected Annex III enforcement date under the Digital Omnibus (pending formal adoption; 2 Aug 2026 under current law).</div></div>
-    <div class="rc reveal"><div class="rn"><em>8</em> of 9</div><div class="rl">Annex IV sections generated automatically; the Declaration of Conformity stays a human sign-off.</div></div>
+    <div class="rc reveal"><div class="rn"><em>§8</em></div><div class="rl">the declaration of conformity is never auto-filled: it is the provider's signed statement.</div></div>
+    <div class="rc reveal"><div class="rn"><em>9</em> sections</div><div class="rl">laid out in the Annex IV structure; fields only you can supply are marked [PROVIDER TO COMPLETE].</div></div>
   </div>
 
   <div class="vaultwrap">
     <div class="vaultcopy reveal">
       <h3>What you actually hand over</h3>
-      <p>Every run produces a structured Annex IV record. The nine sections map to the regulation, each one grounded in the measured circuit, with a SHA-256 hash so the evidence can't be edited after the fact.</p>
+      <p>Every run produces a structured Annex IV draft as JSON. Measured evidence (the circuit, faithfulness metrics and their evidence tier) is filled in; data governance, risk measures and the declaration are left for you, and marked so nothing is silently skipped.</p>
       <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Reproducible: the same input gives the same vault and hash</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Faithfulness scores carried into §4, not just asserted</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Exportable as JSON or PDF for your technical file</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Measured fields filled; provider-only fields marked to complete</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Faithfulness metrics included with their evidence-tier disclosure</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Exported as JSON for your technical file</li>
       </ul>
       <div class="artref">
         <span><b>Art. 9</b> risk</span><span><b>Art. 13</b> transparency</span><span><b>Art. 15</b> accuracy</span><span><b>Art. 72</b> post-market</span>
@@ -523,14 +521,14 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
     </div>
     <div class="doc reveal">
       <div class="dh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5" stroke-linejoin="round"/></svg><span class="dn">annex_iv_vault.json</span><span class="ex">example output</span></div>
-      <div class="dhash"><b>sha256</b> 3f9a0c7e…1d4be7c1 · model gpt2-small · 1.8s</div>
-      <div class="rowsec"><span class="sg">§1</span><span class="stt">General description of the system</span><span class="sx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>filled</span></div>
-      <div class="rowsec"><span class="sg">§2</span><span class="stt">Development process and design</span><span class="sx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>filled</span></div>
-      <div class="rowsec"><span class="sg">§3</span><span class="stt">Monitoring, functioning and control</span><span class="sx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>filled</span></div>
-      <div class="rowsec"><span class="sg">§4</span><span class="stt">Performance &amp; faithfulness metrics</span><span class="sx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>filled</span></div>
-      <div class="rowsec"><span class="sg">§5</span><span class="stt">Risk management (Article 9)</span><span class="sx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg>filled</span></div>
-      <div class="rowsec signrow"><span class="sg">§8</span><span class="stt">Declaration of conformity</span><span class="sx">human sign-off</span></div>
-      <div class="dfoot"><span>F1 <b>0.00</b></span><span>grade <b>C</b></span><span><b>NON-COMPLIANT</b></span><span>no faithful circuit</span></div>
+      <div class="dhash">IOI example · model gpt2 · AnnexIVReport</div>
+      <div class="rowsec"><span class="sg">§1</span><span class="stt">General description of the system</span><span class="sx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> filled</span></div>
+      <div class="rowsec"><span class="sg">§2</span><span class="stt">Development and design, incl. circuit evidence</span><span class="sx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg> filled</span></div>
+      <div class="rowsec signrow"><span class="sg">§3</span><span class="stt">Monitoring, functioning and control</span><span class="sx">partly · your input</span></div>
+      <div class="rowsec signrow"><span class="sg">§4</span><span class="stt">Data and data governance</span><span class="sx">your input</span></div>
+      <div class="rowsec signrow"><span class="sg">§5</span><span class="stt">Risk management</span><span class="sx">partly · your input</span></div>
+      <div class="rowsec signrow"><span class="sg">§8</span><span class="stt">EU declaration of conformity</span><span class="sx">your signature</span></div>
+      <div class="dfoot"><span>IOI example</span><span>F1 <b>0.704</b></span><span>grade <b>B</b></span><span>provider fields marked</span></div>
     </div>
   </div>
 </div></section>
@@ -621,14 +619,14 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
 
 <section id="domains" class="alt"><div class="wrap">
   <div class="section-head reveal">
-    <span class="eyebrow">Any prompt, any domain</span>
-    <h2 class="h">Not just toy tasks</h2>
-    <p class="lead">Early circuit tools only handled name-swap puzzles. Glassbox picks a counterfactual that fits the prompt in front of it, and every strategy traces to a published method.</p>
+    <span class="eyebrow">Beyond name-swap tasks</span>
+    <h2 class="h">Decision prompts, not just puzzles</h2>
+    <p class="lead">Glassbox picks a counterfactual that fits the prompt in front of it, so you can point it at decision-style prompts. Whether the model has a faithful circuit for that decision is then measured, not assumed.</p>
   </div>
   <div class="rows reveal">
-    <div class="row"><h4>Credit</h4><p>Loan affordability and limit decisions</p><span class="ref">Annex III §5(b)</span></div>
-    <div class="row"><h4>Medical triage</h4><p>Priority and severity classification</p><span class="ref">high-risk</span></div>
-    <div class="row"><h4>Employment</h4><p>CV screening and candidate ranking</p><span class="ref">Annex III §4</span></div>
+    <div class="row"><h4>Credit</h4><p>Loan affordability and limit decisions</p><span class="ref">example</span></div>
+    <div class="row"><h4>Medical triage</h4><p>Priority and severity classification</p><span class="ref">example</span></div>
+    <div class="row"><h4>Employment</h4><p>CV screening and candidate ranking</p><span class="ref">example</span></div>
     <div class="row"><h4>Corruption strategies</h4><p>name-swap, antonym, semantic negation, random-token fallback</p><span class="ref">auto</span></div>
   </div>
 </div></section>
@@ -670,7 +668,7 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
     </a>
     <a class="fitem reveal" href="https://pypi.org/project/glassbox-mech-interp/">
       <span class="fd">v4.4.0</span>
-      <span class="ft">Verbalizer sets + evidence tiers<span>Any-decision audits via logsumexp pooling, counterfactual verification on every run at zero extra cost, self-graded evidence tiers A–D.</span></span>
+      <span class="ft">Verbalizer sets + evidence tiers<span>Multi-token answer sets via logsumexp pooling, a counterfactual check on every run, self-graded evidence tiers A–D.</span></span>
       <span class="fk">Release</span>
       <span class="fa" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     </a>
@@ -746,11 +744,6 @@ vault = <span class="f">build_annex_iv_vault</span>(result)</pre>
   if(mt){mt.addEventListener('click',function(){var o=mo.style.display==='block';mo.style.display=o?'none':'block';mt.setAttribute('aria-expanded',String(!o));});
     mo.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mo.style.display='none';mt.setAttribute('aria-expanded','false');});});}
 
-  // countdown to expected Annex III enforcement (Digital Omnibus, pending adoption)
-  var deadline=Date.UTC(2027,11,2),now=Date.now();
-  var days=Math.max(0,Math.ceil((deadline-now)/86400000));
-  var c2=document.getElementById('cdays2');
-  if(c2)c2.textContent=days;
 
   var cmd=document.getElementById('copycmd'),ci=document.getElementById('cpicon');
   if(cmd){cmd.addEventListener('click',function(){

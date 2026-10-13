@@ -225,4 +225,8 @@ def test_space_requirements_are_pinned():
     ]
     assert reqs and all("==" in r for r in reqs), reqs
     assert "pyarrow==23.0.0" in reqs and "numpy==1.26.4" in reqs
-    assert 'sdk_version: "5.50.0"' in wf and "space_ui.py" in wf
+    assert (
+        'sdk_version: "5.50.0"' in wf
+        and "space_ui.py" in wf
+        and "v7_agent_demo.py" in wf
+    )

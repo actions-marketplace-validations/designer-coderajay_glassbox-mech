@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name        = "glassbox-mech-interp"
 version     = "4.6.0"
-description = "Mechanistic interpretability + EU AI Act Annex IV compliance. 21/21 frameworks: ACDC edge-circuit discovery, multi-arch GQA/RMSNorm adapter (Llama-3/Mistral/Phi-3), cross-model comparison, causal scrubbing, DAS, Hessian bounds, BH FDR, folded LayerNorm, SAE polysemanticity, multi-corruption, held-out validation. Dual-licensed (MIT core + BSL 1.1 compliance engine and AI-system investigation layer)."
+description = "Mechanistic interpretability for transformers: causal circuit discovery, measured faithfulness (sufficiency, comprehensiveness, F1) and draft EU AI Act Annex IV documentation. Includes an AI-system investigation layer. Dual-licensed (MIT core + BSL 1.1 compliance engine and investigation layer)."
 readme      = "README.md"
 license     = { text = "MIT AND LicenseRef-BUSL-1.1" }
 authors     = [{ name = "Ajay Pravin Mahale", email = "mahale.ajay01@gmail.com" }]

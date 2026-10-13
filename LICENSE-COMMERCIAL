@@ -12,6 +12,8 @@ Licensed Work:        Glassbox AI — Commercial Components
                         glassbox/cross_model.py
                         glassbox/v7/ (every file in this directory)
                         dashboard/v7_investigation.py
+                        dashboard/v7_agent_demo.py (from its first
+                        commit, 2026-10-14)
 
                       glassbox/cross_model.py, glassbox/v7/ and
                       dashboard/v7_investigation.py are covered from the

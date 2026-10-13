@@ -488,7 +488,11 @@ clean story.
 ### Investigation layer (research preview)
 
 The *Investigate a change* tab answers a different question: an AI system started
-behaving differently after several changes, so which change mattered? On a
+behaving differently after several changes, so which change mattered? It has two worked
+examples: a simulated tool-using agent, where the true effect of each change is known
+and shown next to Glassbox's answer, and a RAG assistant on GPT-2. A change can be any
+configuration difference you can switch on and off (model version, prompt, retrieval
+setting, framework version, tool behaviour). On a
 pre-registered benchmark of 32 known-cause incidents designed by the author, it named
 exactly the large causes in 21 of 28 positive cases (0.75, against 0.50 for the
 better baseline). Status of every claim: [ASSURANCE.md]({LINKS['assurance']}).
@@ -612,6 +616,7 @@ footer { display:none !important; }
 .gb-ll-bar { height:12px; background:var(--gb-surface-2); border-radius:6px; overflow:hidden; }
 .gb-ll-bar span { display:block; height:100%; background:var(--gb-accent); border-radius:6px; }
 .gb-scroll { overflow-x:auto; }
+.gb-traj { margin:0; padding-left:20px; color:var(--gb-ink); font:12.5px/1.7 var(--font-mono); }
 .gb-attn { grid-template-columns:90px repeat(var(--cols), minmax(16px,1fr)); min-width:320px; }
 .gb-attn .gb-q { justify-content:flex-end; padding-right:6px; }
 .gb-rot { writing-mode:vertical-rl; transform:rotate(180deg); min-height:60px;

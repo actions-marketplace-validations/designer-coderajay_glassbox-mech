@@ -11,7 +11,7 @@ Trace the circuit behind a model's decision, measure how *faithful* that explana
 [![PyPI version](https://img.shields.io/pypi/v/glassbox-mech-interp?color=blue)](https://pypi.org/project/glassbox-mech-interp/)
 [![PyPI downloads](https://img.shields.io/pypi/dm/glassbox-mech-interp?color=blue&label=downloads%2Fmonth)](https://pypistats.org/packages/glassbox-mech-interp)
 [![License: MIT core](https://img.shields.io/badge/Core-MIT-green.svg)](LICENSE) [![License: BSL 1.1](https://img.shields.io/badge/Compliance%20%2B%20Investigation-BSL%201.1-orange.svg)](LICENSE-COMMERCIAL)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
+[![Python 3.11 (tested in CI)](https://img.shields.io/badge/python-3.11%20tested-blue.svg)](.github/workflows/ci.yml)
 [![arXiv](https://img.shields.io/badge/arXiv-2603.09988-b31b1b?logo=arxiv)](https://arxiv.org/abs/2603.09988)
 [![HuggingFace Space](https://img.shields.io/badge/🤗%20HuggingFace-Live%20Demo-yellow)](https://huggingface.co/spaces/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool)
 [![Website](https://img.shields.io/badge/Website-glassbox--ai-blue)](https://repo-ashen-psi.vercel.app)
@@ -80,12 +80,14 @@ Measured on GPT-2 IOI with the current build: **suff 1.00 · comp 0.543 · F1 0.
 - **The circuit:** which attention heads causally drive the decision, ranked.
 - **Faithfulness metrics and a grade (A–D):** sufficiency, comprehensiveness and their F1, *computed by ablation*, so they are reproducible rather than asserted.
 - **A plain-English explanation** and a self-graded evidence tier.
-- **An EU AI Act Annex IV file:** 9 sections, **8 auto-filled** from the evidence and content-hashed. §8 (Declaration of Conformity) is left for a human to sign.
+- **An EU AI Act Annex IV draft:** all 9 sections laid out. Fields the analysis can measure (circuit, faithfulness, model details) are filled; fields only the provider can supply, including the §8 declaration of conformity, are marked `[PROVIDER TO COMPLETE]`.
 
 ```python
-from glassbox import build_annex_iv_vault
-vault = build_annex_iv_vault(gb_result=result, model_name="gpt2", provider="Acme Corp",
-                             output_json="annex-iv.json", output_html="annex-iv.html")
+from glassbox import AnnexIVReport
+report = AnnexIVReport(model_name="gpt2", system_purpose="...", provider_name="Acme Corp",
+                       provider_address="...")
+report.add_analysis(result)
+report.save_json("annex-iv.json")
 ```
 
 ## Honest by design
@@ -124,12 +126,9 @@ See [`docs/VALIDATION_LOG.md`](docs/VALIDATION_LOG.md).
 
 ## EU AI Act: Annex IV
 
-Providers of high-risk AI systems must draw up Annex IV technical documentation (Article 11). Glassbox auto-fills **8 of the 9 sections** from the model's measured behaviour. It maps to Article 13 (transparency), Article 72 (post-market monitoring) and Article 9 (risk), with a cross-walk to the NIST AI RMF and ISO/IEC 42001.
+Providers of high-risk AI systems must draw up Annex IV technical documentation (Article 11 of [Regulation (EU) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)). Glassbox drafts the 9-section structure from one analysis: measured evidence fills what it can, and the rest is marked for the provider. Report packs also map to the NIST AI RMF and ISO/IEC 42001.
 
-**Dates and penalties:**
-- Under current law, high-risk obligations apply from **2 August 2026**.
-- The Digital Omnibus (provisionally agreed 7 May 2026, pending adoption) would defer Annex III to **2 December 2027**. Plan against both dates.
-- The penalty for documentation non-compliance is up to **€15M or 3% of global turnover** (Art. 99(4)).
+Application dates for high-risk obligations were amended by [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj) (the Digital Omnibus on AI). Check the current legal text for the dates that apply to your system; this README does not restate them.
 
 > Glassbox produces **evidence and documentation**, not a conformity declaration. It is **not legal advice** and does not by itself make anyone compliant. The EU AI Act does not require mechanistic interpretability. See [Legal Notices](docs/USER_GUIDE.md#legal-notices--regulatory-disclaimer).
 
@@ -150,7 +149,9 @@ Try the built-in demo, a small RAG incident with three simultaneous changes:
 python -m glassbox.v7.investigate demo --out demo_out --scorer gpt2
 ```
 
-It writes a plain-language `REPORT.md` and an evidence package. The same investigation is available as a tab in the Gradio demo (`dashboard/`).
+It writes a plain-language `REPORT.md` and an evidence package. The live demo has two worked examples: this RAG incident on GPT-2, and a simulated tool-using agent whose true effects are known and shown next to Glassbox's answer.
+
+**On your own system**, a "change" is any configuration difference you can switch on and off and re-run: model version, prompt, retrieval setting, framework or tool version. You supply a function that runs your system under a given configuration and records a trace, plus one that reads the outcome; `glassbox.v7.intervene.run_interventions` does the rest. Only the change types listed in the experiments below have been tested.
 
 ### What has been tested so far
 
@@ -183,7 +184,7 @@ A first divergence shows *where* runs differ, not *why*. Causal statements need 
 
 1. **Discover:** rank every attention head by causal effect (attribution patching, 3 passes).
 2. **Verify:** keep the minimal circuit, then measure sufficiency and comprehensiveness against full ablation.
-3. **Document:** grade the result and write the content-hashed Annex IV file.
+3. **Document:** grade the result and draft the Annex IV file, with provider-only fields marked.
 
 ## Documentation
 
@@ -221,7 +222,7 @@ Glassbox is dual-licensed. [NOTICE](NOTICE) holds the authoritative file-by-file
 |---|---|---|
 | Interpretability core (circuit discovery, faithfulness, everything not listed below), tests, examples, docs | **MIT** ([LICENSE](LICENSE)) | Use, modify and redistribute freely, including commercially |
 | Compliance engine: `compliance.py`, `circuit_diff.py`, `risk_register.py`, `bias.py`, `audit_log.py`, `cross_model.py` | **BSL 1.1** ([LICENSE-COMMERCIAL](LICENSE-COMMERCIAL)) | See the summary below |
-| Investigation layer: `glassbox/v7/`, `dashboard/v7_investigation.py` | **BSL 1.1** (from 2026-10-11) | See the summary below |
+| Investigation layer: `glassbox/v7/`, `dashboard/v7_investigation.py`, `dashboard/v7_agent_demo.py` | **BSL 1.1** (from 2026-10-11) | See the summary below |
 
 **BSL 1.1 summary:**
 - **Free** for non-production use, and for production use inside your own organisation (for example, investigating or documenting your own AI systems).

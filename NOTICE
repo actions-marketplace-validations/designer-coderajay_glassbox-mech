@@ -21,6 +21,8 @@ the authoritative map; LICENSE-COMMERCIAL repeats the BSL file list.
                                       diff, group diff, interventions,
                                       investigation report, evidence packages)
        dashboard/v7_investigation.py — Investigation tab of the web demo
+       dashboard/v7_agent_demo.py   — Agent investigation tab of the web demo
+                                      (BSL from its first commit, 2026-10-14)
 
      cross_model.py, glassbox/v7/ and dashboard/v7_investigation.py are
      covered from 2026-10-11 and from the first PyPI release after 4.5.1.

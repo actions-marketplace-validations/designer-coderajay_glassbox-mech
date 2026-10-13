@@ -147,7 +147,7 @@ Glassbox produces **evidence and documentation** toward specific obligations:
 
 | Obligation | What Glassbox contributes |
 |---|---|
-| **Art. 11 + Annex IV** (technical documentation) | Auto-fills 8 of 9 sections from the circuit + faithfulness evidence; §8 (Declaration of Conformity) is left for human sign-off. |
+| **Art. 11 + Annex IV** (technical documentation) | Drafts the 9-section structure; fills the fields the circuit and faithfulness evidence support and marks provider-only fields (including the §8 declaration of conformity) to complete. |
 | **Art. 13** (transparency) | The faithfulness-graded circuit is measured transparency evidence. |
 | **Art. 15** (accuracy, robustness) | Robustness / multi-corruption tests + held-out validation. |
 | **Art. 9 / Art. 72** (risk management, post-market monitoring) | Risk register + CUSUM drift detector. |
@@ -159,31 +159,29 @@ mechanistic interpretability and defines **no faithfulness threshold**. The
 gate, not a legal ruling** — never present it as a regulator's verdict. Conformity
 is determined by the provider's conformity assessment (self-assessment or a
 notified body) against harmonised standards that are still being written.
-Glassbox's output is a strong **input** to that process; it does not by itself
+Glassbox's output is an **input** to that process; it does not by itself
 make anyone compliant, and it is **not legal advice or certification**.
 
-Enforcement dates: high-risk obligations apply from **2 August 2026** under
-current law; the **Digital Omnibus** (provisionally agreed 7 May 2026, pending
-formal adoption) would defer the Annex III timeline to **2 December 2027** — plan
-against both until it is adopted. Documentation non-compliance penalty: up to
-**€15M or 3% of global annual turnover** (Art. 99(4)).
+Application dates and penalties are set by Regulation (EU) 2024/1689 as amended by
+Regulation (EU) 2026/1744 (Digital Omnibus on AI). This document does not restate
+them; check the current legal text.
 
 ---
 
 ## 6. Worked example (reproduces the honesty)
 
 `examples/loan_decision_audit.py` runs a loan-approval-style decision on gpt2 end
-to end. gpt2 cannot underwrite, so it scores **sufficiency ≈ 0.48, F1 ≈ 0.58,
-Grade C**, and the report is marked **NON-COMPLIANT** — the correct outcome for a
-model with no real decision circuit. The plumbing (real model → real circuit →
+to end. gpt2 cannot underwrite, so it finds no faithful decision circuit and the report is
+marked **NON-COMPLIANT** (Glassbox's own quality gate, not a legal finding) — the
+correct outcome for a model with no real decision circuit. The plumbing (real model → real circuit →
 measured faithfulness → Annex IV file) is what is real; point it at a fine-tuned
 decision model for a meaningful audit.
 
 ---
 
 *All figures are from the reconciled benchmark set (`BENCHMARKS.md`) and the test
-suite (1,288 passing, 76% coverage; full run 2026-10-12, 4.5.1). Regulatory statements reflect a
-reading of the EU AI Act and the pending Digital Omnibus as of June 2026 and
-should be confirmed with qualified counsel. Citations name the established methods
+suite (1,357 passing, 76% coverage; full run 2026-10-13 on 4.6.0, `docs/VALIDATION_LOG.md`
+Run 16). Regulatory statements are a reading of the EU AI Act and should be confirmed
+with qualified counsel. Citations name the established methods
 this tool builds on; verify them against the primary sources before relying on
 them in a formal filing.*

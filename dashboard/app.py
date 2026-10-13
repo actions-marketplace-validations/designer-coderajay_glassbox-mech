@@ -437,17 +437,38 @@ with gr.Blocks(
 
         # 4 ── Investigation layer
         with gr.Tab("Investigate a change", id="investigate"):
-            try:
-                from v7_investigation import build_tab
-            except ImportError as exc:
-                gr.HTML(
-                    ui.message_html(
-                        f"This tab needs glassbox with glassbox.v7 installed ({exc}).",
-                        "error",
-                    )
-                )
-            else:
-                build_tab(gr, api_name="investigate", **MODEL_QUEUE)
+            gr.HTML(
+                '<p class="gb-intro">An AI system started behaving differently after '
+                "several changes. Which change mattered? Two worked examples: a "
+                "simulated tool-using agent (instant, true effects shown) and a RAG "
+                "assistant on GPT-2.</p>"
+            )
+            with gr.Tabs():
+                with gr.Tab("Agent trajectory (simulated)", id="investigate_agent"):
+                    try:
+                        from v7_agent_demo import build_tab as build_agent_tab
+                    except ImportError as exc:
+                        gr.HTML(ui.message_html(f"Unavailable: {exc}", "error"))
+                    else:
+                        build_agent_tab(
+                            gr,
+                            api_name="investigate_agent",
+                            concurrency_id="agent",
+                            concurrency_limit=2,
+                        )
+                with gr.Tab("RAG assistant (GPT-2)", id="investigate_rag"):
+                    try:
+                        from v7_investigation import build_tab
+                    except ImportError as exc:
+                        gr.HTML(
+                            ui.message_html(
+                                "This tab needs glassbox with glassbox.v7 installed "
+                                f"({exc}).",
+                                "error",
+                            )
+                        )
+                    else:
+                        build_tab(gr, api_name="investigate", **MODEL_QUEUE)
 
         # 5 ── Annex IV draft
         with gr.Tab("Annex IV draft", id="annex"):

@@ -24,7 +24,7 @@
 
 ---
 
-**For compliance teams:** Regulation (EU) 2024/1689 (AI Act) requires Annex IV technical documentation for every high-risk AI system (Article 11). Under current law these obligations apply from 2 August 2026; the Digital Omnibus agreement of 7 May 2026 (pending formal adoption) defers Annex III high-risk obligations to 2 December 2027 — verify the current date with counsel. Glassbox automates generation of the full 9-section Annex IV draft — from open-source models (white-box) or any proprietary API like GPT-4 and Claude (black-box). Outputs are structured documentation aids; they do not constitute legal advice, a declaration of conformity, or a guarantee of regulatory compliance. See [Legal Notices](#legal-notices--regulatory-disclaimer).
+**For compliance teams:** Regulation (EU) 2024/1689 (AI Act) requires Annex IV technical documentation for every high-risk AI system (Article 11). Application dates and penalties are set by that Regulation as amended by [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj) (Digital Omnibus on AI); check the current legal text. Glassbox drafts the 9-section Annex IV structure from a measured analysis of an open-weight model (white-box); for API-only models it offers a weaker black-box tier, because faithfulness cannot be measured without the weights. Outputs are structured documentation aids; they do not constitute legal advice, a declaration of conformity, or a guarantee of regulatory compliance. See [Legal Notices](#legal-notices--regulatory-disclaimer).
 
 **For researchers:** one function call discovers the minimum faithful circuit in a transformer — the smallest subgraph of attention heads causally responsible for a prediction. Preliminary benchmarks show 15–37× faster than ACDC on GPT-2 (single-run, Apple M1 Pro — see [Benchmarks](#benchmarks)). Every approximation is disclosed.
 
@@ -49,7 +49,7 @@
 - [EU AI Act Compliance — Annex IV Reports](#eu-ai-act-compliance--annex-iv-reports)
 - [Black-Box Audit — Any Model via API](#black-box-audit--any-model-via-api)
 - [REST API (Hosted)](#rest-api-hosted)
-- [What's Novel](#whats-novel)
+- [Feature summary](#feature-summary)
 - [How It Works](#how-it-works)
 - [Benchmarks](#benchmarks)
 - [Usage Examples](#usage-examples)
@@ -123,7 +123,7 @@ This is the most common question we receive. Here is the complete answer, step b
 
 ### Who this applies to
 
-EU AI Act Article 6 + Annex III defines **high-risk AI systems** that require Annex IV technical documentation (applies 2 Aug 2026 under current law; expected deferral to 2 Dec 2027 under the Digital Omnibus, pending adoption). You are almost certainly in scope if your LLM is used in:
+EU AI Act Article 6 + Annex III defines **high-risk AI systems** that require Annex IV technical documentation. Whether your system is high-risk is a legal question; uses listed in Annex III include areas such as:
 
 - **Finance** — credit scoring, loan decisions, fraud detection, insurance underwriting
 - **Healthcare** — medical triage, clinical decision support, diagnosis assistance
@@ -132,7 +132,6 @@ EU AI Act Article 6 + Annex III defines **high-risk AI systems** that require An
 - **Law enforcement / border control** — risk profiling, identity verification
 - **Critical infrastructure** — energy grid, water, transport management
 
-Non-compliance: up to **€35 million or 7% of global annual turnover** (Article 99).
 
 > **Legal disclaimer.** Glassbox generates structured technical documentation intended to support — not replace — the legal and regulatory review required under EU AI Act Article 11. Whether your system is high-risk under Article 6/Annex III, and whether this documentation satisfies all applicable obligations, must be confirmed by qualified legal counsel and/or a notified body (Article 43). See [Legal Notices](#legal-notices--regulatory-disclaimer).
 
@@ -210,7 +209,7 @@ print(result["explainability_grade"])        # 'A' through 'F' per Annex IV Arti
 
 ### Step 4 — Generate the Annex IV evidence package
 
-One call drafts a PDF + machine-readable JSON in the 9-section Annex IV structure; 8 sections are auto-filled (Section 8, the EU Declaration of Conformity per Article 47, is a provider-signed legal reference — see `docs/EU_AI_ACT_COMPLIANCE_GUIDE.md`):
+One call drafts machine-readable JSON in the 9-section Annex IV structure. Fields the analysis supports are filled; provider-only fields, including Section 8 (the EU declaration of conformity, Article 47), are marked `[PROVIDER TO COMPLETE]` — see `docs/EU_AI_ACT_COMPLIANCE_GUIDE.md`:
 
 ```python
 from glassbox.compliance import AnnexIVReport, DeploymentContext
@@ -509,33 +508,32 @@ print(report.summary())
 print(report.attribution_table())
 ```
 
-### Mathematical Completeness: 21 Frameworks
+### Implemented methods
 
 | Framework | v4.1.0 | v4.2.0 |
 |-----------|--------|--------|
-| Attribution Patching (Nanda 2023) | ✓ | ✓ |
-| Edge Attribution Patching (Syed 2024) | ✓ | ✓ |
-| Causal Scrubbing (Chan et al. 2022) | ✓ | ✓ |
-| Distributed Alignment Search (Geiger 2023) | ✓ | ✓ |
-| Hessian Error Bounds (Pearlmutter 1994) | ✓ | ✓ |
+| Attribution Patching | ✓ | ✓ |
+| Edge Attribution Patching | ✓ | ✓ |
+| Causal Scrubbing | ✓ | ✓ |
+| Distributed Alignment Search | ✓ | ✓ |
+| Hessian Error Bounds | ✓ | ✓ |
 | Folded LayerNorm Correction | ✓ | ✓ |
 | Benjamini-Hochberg FDR | ✓ | ✓ |
 | SAE Polysemanticity | ✓ | ✓ |
 | Multi-Corruption Robustness | ✓ | ✓ |
 | Held-Out Validation | ✓ | ✓ |
 | Sample Size Gate (Fisher Z) | ✓ | ✓ |
-| Head Composition (Elhage 2021) | ✓ | ✓ |
+| Head Composition | ✓ | ✓ |
 | Bootstrap CI | ✓ | ✓ |
 | Minimum Faithful Circuit (MFC) | ✓ | ✓ |
 | Circuit Diff (v-to-v) | ✓ | ✓ |
 | Bias Analysis (counterfactual) | ✓ | ✓ |
 | Multi-Agent Liability | ✓ | ✓ |
 | Logit Lens | ✓ | ✓ |
-| **ACDC (Conmy 2023)** | — | ✓ |
+| **ACDC** | — | ✓ |
 | **GQA Multi-Arch Adapter** | — | ✓ |
 | **Cross-Model Comparison** | — | ✓ |
 
-**Score: 18 → 21 frameworks**
 
 ---
 
@@ -788,11 +786,11 @@ print(val.generalises)   # True
 
 ## What's New in v3.4.0
 
-Glassbox v3.4.0 is the **strategic monopoly release** — three features that no other open-source interpretability tool ships, purpose-built for the EU AI Act high-risk enforcement deadline.
+Glassbox v3.4.0 added three features aimed at EU AI Act documentation work.
 
 ### 1. MultiAgentAudit — Causal Handoff Tracing (Article 9 system-level risk)
 
-The first open-source tool that traces bias contamination and semantic drift *across multi-agent chains* — not just individual models. Identify exactly which agent introduced or amplified a bias, and generate a per-agent liability report with Annex IV narrative.
+Traces bias contamination and semantic drift *across multi-agent chains*, not just individual models. Identify exactly which agent introduced or amplified a bias, and generate a per-agent liability report with Annex IV narrative.
 
 ```python
 from glassbox import MultiAgentAudit, AgentCall
@@ -1317,7 +1315,7 @@ print(attn["headTypes"])    # {'L9H9': 'focused', ...}
 
 ## EU AI Act Compliance — Annex IV Reports
 
-[Regulation (EU) 2024/1689](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689) requires Annex IV technical documentation (Article 11) for high-risk AI systems in finance, healthcare, HR, legal, and critical infrastructure. Under current law these obligations apply from 2 August 2026; the Digital Omnibus agreement of 7 May 2026 (pending formal adoption) defers Annex III high-risk obligations to 2 December 2027 — verify the current date with counsel. Non-compliance penalties: up to €15 million or 3% of global annual turnover, whichever is higher (Article 99(4)).
+[Regulation (EU) 2024/1689](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689) requires Annex IV technical documentation (Article 11) for high-risk AI systems. Application dates and penalties were amended by [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj); check the current legal text.
 
 > **Documentation aid, not legal certification.** Glassbox-generated reports are structured documentation drafts intended to support — not replace — the legal and technical review process required under EU AI Act Article 11. Whether your system qualifies as high-risk under Article 6 and Annex III, and whether generated documentation satisfies applicable obligations, must be determined by qualified legal counsel and/or a notified body (Article 43). See [Legal Notices](#legal-notices--regulatory-disclaimer).
 
@@ -1471,30 +1469,28 @@ curl https://YOUR_API_URL/v1/audit/pdf/{report_id}  # download PDF
 
 ---
 
-## What's Novel
+## Feature summary
 
-Features not available in any other single open-source toolkit (as of March 2026):
+What the Glassbox toolkit implements (see the API reference below for each):
 
-| Feature | Glassbox | TransformerLens | Baukit | Pyvene |
-|---------|:--------:|:---------------:|:------:|:------:|
-| O(3) Attribution Patching | ✅ | ✅ (manual) | ✅ (manual) | ✅ (manual) |
-| Integrated Gradients (path-integral) | ✅ | ❌ | ❌ | ❌ |
-| Edge Attribution Patching (Syed et al. 2024) | ✅ | ❌ | ❌ | ❌ |
-| Logit Lens + Per-head Direct Effects | ✅ | Partial | ❌ | ❌ |
-| Attribution Stability (Kendall τ-b) | ✅ | ❌ | ❌ | ❌ |
-| SAE Feature Attribution (sae-lens) | ✅ | ❌ | ❌ | ❌ |
-| QK / OV Composition Scores | ✅ | ❌ | ❌ | ❌ |
-| Token-level Saliency Maps | ✅ | ❌ | ❌ | ❌ |
-| Attention Pattern Analysis + Head Typing | ✅ | ❌ | ❌ | ❌ |
-| Bootstrap 95% CI on faithfulness | ✅ | ❌ | ❌ | ❌ |
-| Cross-model circuit alignment (FCAS) | ✅ | ❌ | ❌ | ❌ |
-| MLP attribution | ✅ | ❌ | ❌ | ❌ |
-| **EU AI Act Annex IV report (all 9 sections)** | ✅ | ❌ | ❌ | ❌ |
-| **Black-box audit — any API model** | ✅ | ❌ | ❌ | ❌ |
-| **REST API (FastAPI)** | ✅ | ❌ | ❌ | ❌ |
-| **Compliance officer web dashboard** | ✅ | ❌ | ❌ | ❌ |
-| One-call API | ✅ | ❌ | ❌ | ❌ |
-| Interactive dashboard (HF Spaces) | ✅ | ❌ | ❌ | ❌ |
+- O(3) Attribution Patching
+- Integrated Gradients (path-integral)
+- Edge Attribution Patching
+- Logit Lens + Per-head Direct Effects
+- Attribution Stability (Kendall τ-b)
+- SAE Feature Attribution (sae-lens)
+- QK / OV Composition Scores
+- Token-level Saliency Maps
+- Attention Pattern Analysis + Head Typing
+- Bootstrap 95% CI on faithfulness
+- Cross-model circuit alignment (FCAS)
+- MLP attribution
+- EU AI Act Annex IV report (9-section draft)
+- Black-box audit for API-only models (weaker tier)
+- REST API (FastAPI)
+- Compliance officer web dashboard
+- One-call API
+- Interactive dashboard (HF Spaces)
 
 ---
 
@@ -1909,18 +1905,11 @@ One-click deploy to Railway (always-on, no sleep):
 
 ## Supported Models
 
-Glassbox works with any model loaded via TransformerLens. Tested on:
-
-| Model family | Examples |
-|-------------|---------|
-| GPT-2 | `gpt2`, `gpt2-medium`, `gpt2-large`, `gpt2-xl` |
-| GPT-Neo (EleutherAI) | `EleutherAI/gpt-neo-125m`, `EleutherAI/gpt-neo-1.3B` |
-| Pythia (EleutherAI) | `EleutherAI/pythia-70m`, `EleutherAI/pythia-160m`, `EleutherAI/pythia-410m` |
-| OPT (Meta) | `facebook/opt-125m`, `facebook/opt-1.3b` |
+Glassbox runs on models loaded via TransformerLens. Which families and sizes have actually been validated, and how, is recorded in [`VALIDATION_LOG.md`](VALIDATION_LOG.md) and [`MODEL_SUPPORT_MATRIX.md`](MODEL_SUPPORT_MATRIX.md).
 
 SAE feature attribution currently supports GPT-2 small via Joseph Bloom's pretrained SAEs. Pythia SAEs are available via `sae-lens` — pass `sae_release` explicitly.
 
-Black-box audit works on **any model with an OpenAI-compatible API**, including GPT-4, Claude, Gemini, Llama (via Together/Groq), and custom endpoints.
+Black-box audit is designed for endpoints with an OpenAI-compatible chat API. It has not been validated against specific providers.
 
 ---
 
@@ -2080,13 +2069,13 @@ class GlassboxClient {
 
 ## Methodology & IP Documentation
 
-The core innovation in Glassbox is not the mechanistic interpretability math — that's academic. The core innovation is the **legal-technical translation layer**: the specific, proprietary mapping from mathematical circuit analysis results to EU AI Act provisions that makes Annex IV reports both mathematically rigorous and legally structured.
+Besides the interpretability methods, Glassbox maps circuit-analysis results onto the structure of EU AI Act Annex IV documentation. That mapping is a documentation aid; it is not a legal interpretation.
 
 Full documentation is in [`METHODOLOGY.md`](METHODOLOGY.md). Key claims:
 
 **Taylor-approximated circuit discovery in O(3) passes.** The standard approach (ACDC) requires O(E) passes where E is the number of edges in the computation graph. Glassbox uses a first-order Taylor approximation to reduce this to exactly 3 passes, enabling circuit discovery on consumer hardware without loss of Annex IV documentation value.
 
-**Faithfulness F1 as a compliance gate.** F1_faith = harmonic mean(sufficiency, comprehensiveness). Neither metric alone is sufficient — high sufficiency with low comprehensiveness signals backup mechanisms (unpredictable behaviour under distribution shift); the combination catches both. Threshold of 0.65 derived from Article 15(1).
+**Faithfulness F1 as a compliance gate.** F1_faith = harmonic mean(sufficiency, comprehensiveness). Neither metric alone is sufficient — high sufficiency with low comprehensiveness signals backup mechanisms (unpredictable behaviour under distribution shift); the combination catches both. The 0.65 threshold is a Glassbox design choice; the AI Act does not specify a faithfulness threshold.
 
 **Multi-agent contamination scoring.** `contamination(A→B) = |bias_tokens(B) ∩ bias_tokens(A)| / |bias_tokens(B)|`. This formalises a chain-of-causation argument for Article 9 system-level liability that no other tool implements.
 
@@ -2270,9 +2259,9 @@ All regulation references in this codebase and documentation cite the following 
 |------------|-----------|-------|
 | EU AI Act | Regulation (EU) 2024/1689 | Risk management (Art. 9), Technical documentation (Art. 11, Annex IV), Transparency (Art. 13), Data governance (Art. 10), Accuracy & robustness (Art. 15), Post-market monitoring (Art. 72), Conformity assessment (Art. 43), Declaration of conformity (Art. 47), Penalties (Art. 99) |
 | GDPR | Regulation (EU) 2016/679 | Personal data processed through or about the AI system |
-| EU AI Act Implementing Acts | To be adopted by European Commission | Technical harmonised standards (Art. 40), common specifications (Art. 41) — **not yet finalised as of March 2026** |
+| EU AI Act Implementing Acts | To be adopted by European Commission | Technical harmonised standards (Art. 40), common specifications (Art. 41) |
 
-> **Important:** The EU AI Act entered into force 1 August 2024. Most obligations for high-risk AI providers apply from **2 August 2026** under current law; the Digital Omnibus agreement of 7 May 2026 (pending formal adoption) is expected to defer Annex III obligations to **2 December 2027**. Implementing acts, harmonised standards, and guidance from the European AI Office are still being developed. The regulatory landscape will evolve before enforcement. Regulatory interpretations in Glassbox's output reflect publicly available text as of the tool's release date and may not reflect subsequent guidance. Always consult the [EU AI Act official text](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689) and current European AI Office guidance.
+> **Important:** Application dates and penalties are set by Regulation (EU) 2024/1689 as amended by [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj) (Digital Omnibus on AI); check the current legal text. Implementing acts, harmonised standards and guidance from the European AI Office may change how obligations apply. Regulatory references in Glassbox's output reflect the text available when the tool was released. Always consult the [EU AI Act official text](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) and current European AI Office guidance.
 
 ### 3. No Warranty
 

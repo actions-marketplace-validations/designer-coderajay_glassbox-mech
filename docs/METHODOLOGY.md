@@ -30,7 +30,6 @@ simultaneously:
 1. A mathematically rigorous mechanistic interpretability result, and
 2. A legally structured Annex IV technical documentation draft.
 
-No other open-source tool, as of March 2026, implements this co-design.
 
 ---
 

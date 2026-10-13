@@ -16,11 +16,11 @@ and licensing. It states what has been verified and what has not.
 
 | Capability | Status |
 |---|---|
-| Annex IV draft: 9-section structure, **8 sections auto-filled**, §8 (Declaration of Conformity) left for a human to sign | Released (PyPI 4.5.1) |
+| Annex IV draft: 9-section structure; measured fields filled from the analysis, provider-only fields (including the §8 declaration of conformity) marked `[PROVIDER TO COMPLETE]` | Released |
 | Circuit discovery and faithfulness metrics (suff / comp / F1, grade A–D) | Released; validated 82M → 12B across 9 architecture families (see `docs/VALIDATION_LOG.md`) |
 | Larger models (> ~13B) via gradient checkpointing and offload | Implemented, **not yet validated live** |
 | CircuitDiff (version-to-version circuit comparison) | Released |
-| Content-hashed reports and a SHA-256 hash-chained audit log | Released. Hashing supports integrity checks; it is **not** a digital signature. |
+| SHA-256 hash-chained audit log (and hashed evidence packages for investigations) | Released. Hashing supports integrity checks; it is **not** a digital signature. |
 | Container image for self-hosted scans (`scan.Dockerfile`) | Available; build it yourself |
 | AI-system investigation layer (`glassbox/v7/`) | In the PyPI package from 4.6.0; research stage (see `ASSURANCE.md`) |
 
@@ -104,7 +104,7 @@ end-to-end by the maintainer; test it in your environment.
 | Component | License | Your use |
 |---|---|---|
 | Interpretability core and everything not listed below | MIT | Free for any use |
-| Compliance engine (`compliance.py`, `circuit_diff.py`, `risk_register.py`, `bias.py`, `audit_log.py`, `cross_model.py`) and the investigation layer (`glassbox/v7/`, `dashboard/v7_investigation.py`) | BSL 1.1 | Free for non-production use and for production use inside your own organisation. A separate commercial license is needed to offer them to third parties as a compliance, governance, investigation, debugging or observability service or product. Each version converts to Apache-2.0 four years after first publication. |
+| Compliance engine (`compliance.py`, `circuit_diff.py`, `risk_register.py`, `bias.py`, `audit_log.py`, `cross_model.py`) and the investigation layer (`glassbox/v7/`, `dashboard/v7_investigation.py`, `dashboard/v7_agent_demo.py`) | BSL 1.1 | Free for non-production use and for production use inside your own organisation. A separate commercial license is needed to offer them to third parties as a compliance, governance, investigation, debugging or observability service or product. Each version converts to Apache-2.0 four years after first publication. |
 
 `NOTICE` is the authoritative file-by-file map; `LICENSE` and `LICENSE-COMMERCIAL` contain
 the license texts. Commercial license and design-partner enquiries:
@@ -112,5 +112,3 @@ the license texts. Commercial license and design-partner enquiries:
 
 ---
 
-Penalty context: documentation non-compliance under the EU AI Act can be fined up to
-€15M or 3% of global annual turnover (Article 99(4)).

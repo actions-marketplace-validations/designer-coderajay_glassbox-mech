@@ -19,8 +19,7 @@ abstract: >
   attribution patching (3 forward passes per analysis), selects a minimal
   circuit, and measures its faithfulness (sufficiency, comprehensiveness, F1)
   by ablation. It can draft EU AI Act Annex IV technical documentation from
-  that evidence (8 of 9 sections; the Declaration of Conformity is a human
-  sign-off). The repository also contains an AI-system investigation layer
+  that evidence, marking the fields only the provider can supply. The repository also contains an AI-system investigation layer
   (traces, noise-aware diffs, one-factor interventions and verifiable evidence
   packages), validated so far in pre-registered experiments on small
   open-weight models. Key finding (arXiv:2603.09988): model confidence and

@@ -265,11 +265,11 @@ def create_app() -> "FastAPI":
             "EU AI Act Annex IV compliance report generator. "
             "White-box mechanistic interpretability analysis + "
             "black-box behavioural audit. "
-            "Regulation (EU) 2024/1689 — enforced August 2026."
+            "Regulation (EU) 2024/1689 (as amended)."
         ),
         version=_get_version(),
         contact={"name": "Ajay Pravin Mahale", "email": "mahale.ajay01@gmail.com"},
-        license_info={"name": "Apache 2.0"},
+        license_info={"name": "MIT core; BSL 1.1 components (see NOTICE)"},
     )
 
     # Add CORS middleware for Vercel and local development.

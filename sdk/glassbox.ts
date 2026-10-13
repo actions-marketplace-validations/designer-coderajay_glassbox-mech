@@ -21,7 +21,7 @@
  *
  * References
  * ----------
- * EU AI Act, Regulation (EU) 2024/1689 — enforcement August 2026
+ * EU AI Act, Regulation (EU) 2024/1689 (as amended)
  * Annex IV — technical documentation requirements for high-risk AI
  * Article 13 — transparency obligations
  */

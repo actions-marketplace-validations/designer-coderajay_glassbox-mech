@@ -8,15 +8,15 @@
 
 ## Why this matters
 
-Providers of high-risk AI systems placed on the EU market must maintain technical documentation as set out in **Annex IV** (Article 11). Under current law this applies from **2 August 2026**; the Digital Omnibus agreement of 7 May 2026 (pending formal adoption) defers Annex III obligations to **2 December 2027**. Penalties for documentation non-compliance under **Article 99(4)** reach **up to €15,000,000 or 3% of total worldwide annual turnover**, whichever is higher (the €35M/7% ceiling in Article 99(3) applies to prohibited practices, not documentation).
+Providers of high-risk AI systems placed on the EU market must maintain technical documentation as set out in **Annex IV** (Article 11 of Regulation (EU) 2024/1689). Application dates and penalties are set by that Regulation as amended by [Regulation (EU) 2026/1744](https://eur-lex.europa.eu/eli/reg/2026/1744/oj) (Digital Omnibus on AI); this guide does not restate them, so check the current legal text.
 
-Writing Annex IV by hand takes weeks of combined ML + legal effort per model. Annex IV of Regulation (EU) 2024/1689 has **9 numbered points** ([primary source](https://artificialintelligenceact.eu/annex/4/)). Glassbox produces the full **9-section Annex IV structure** automatically from the model's own circuits — with one honest caveat: **Section 8 is the EU Declaration of Conformity (Article 47), a legal attestation the provider must sign.** Glassbox supplies the structured reference/placeholder for it, not the signed declaration itself. So the accurate claim is "generates the full 9-section structure; 8 of 9 are produced from the model, 1 is a provider-signed legal reference."
+Annex IV has **9 numbered points** ([EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)). Glassbox's `AnnexIVReport` lays out all 9 and fills the fields that one analysis can support (model details, circuit, faithfulness metrics). Fields only the provider can supply are marked `[PROVIDER TO COMPLETE]`; in a typical run most sections contain some. **Section 8 is the EU declaration of conformity (Article 47), a legal attestation the provider must sign;** Glassbox supplies only its placeholder fields.
 
 | Capability | Verified figure |
 |---|---|
-| Annex IV sections (full structure) | 9 of 9 (§8 is a provider-signed legal reference) |
-| Time to full audit (GPT-2 Small) | < 2 seconds |
-| Circuit discovery vs. ACDC baseline | 37× faster (1.8s vs ~65s, GPT-2 Small) |
+| Annex IV sections laid out | 9 of 9 (provider-only fields marked; §8 is a provider-signed declaration) |
+| `analyze()` time (GPT-2 Small) | about 1.8 s on an Apple M1 Pro (4.2 s on an 8-core CPU) |
+| Circuit discovery vs. ACDC baseline | 15–37× faster across the GPT-2 family (see `BENCHMARKS.md`) |
 | Faithfulness F1 | 0.704 (Grade B) — GPT-2 IOI, default circuit, current build |
 | Confidence ↔ faithfulness correlation | r = 0.009 (orthogonal — see Step 6) |
 

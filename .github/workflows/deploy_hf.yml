@@ -18,6 +18,7 @@ on:
       - "dashboard/app.py"
       - "dashboard/space_ui.py"
       - "dashboard/v7_investigation.py"
+      - "dashboard/v7_agent_demo.py"
       - "glassbox/**"
       - ".github/workflows/deploy_hf.yml"
   workflow_dispatch:
@@ -65,6 +66,7 @@ jobs:
           cp dashboard/app.py hf_payload/app.py
           cp dashboard/space_ui.py hf_payload/space_ui.py
           cp dashboard/v7_investigation.py hf_payload/v7_investigation.py
+          cp dashboard/v7_agent_demo.py hf_payload/v7_agent_demo.py
 
           SHORT_SHA=$(git rev-parse --short HEAD)
 
@@ -117,7 +119,7 @@ jobs:
 
           - **Explain a prediction:** circuit, sufficiency, comprehensiveness, F1 and a grade.
           - **Layer by layer** and **Attention:** where the answer forms and what each head reads.
-          - **Investigate a change** (research preview): which of several changes altered an AI system's behaviour.
+          - **Investigate a change** (research preview): which of several changes altered an AI system's behaviour, on a simulated tool-using agent and a GPT-2 RAG assistant.
           - **Annex IV draft:** evidence for EU AI Act technical documentation, with every field you must complete marked. Not legal advice.
 
           \`pip install glassbox-mech-interp\` · [Paper](https://arxiv.org/abs/2603.09988) ·

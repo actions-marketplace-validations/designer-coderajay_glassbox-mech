@@ -384,11 +384,11 @@ async def glassbox_compliance_report(params: ComplianceReportInput) -> str:
     """
     Generate a complete EU AI Act Annex IV technical documentation report.
 
-    Produces all 9 required sections grounded in Glassbox's causal interpretability
+    Drafts the 9 Annex IV sections (provider-only fields marked) grounded in Glassbox's causal interpretability
     analysis. The compliance grade is based on faithfulness F1 (not model confidence).
     Output is GRC-importable JSON.
 
-    Enforcement: August 2026 for high-risk AI systems.
+    Application dates: see Regulation (EU) 2024/1689 as amended by (EU) 2026/1744.
     GPAI models: Article 51-55 obligations apply additionally.
 
     Args:
