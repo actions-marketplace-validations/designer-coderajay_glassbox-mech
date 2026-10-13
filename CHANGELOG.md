@@ -62,6 +62,17 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - the privacy policy purpose now matches the form;
   - the Impressum template is updated.
 
+### Results — V7 Experiment 9b, decision-level reproduction (2026-10-13)
+
+- **PASS: 8/8 packages `DECISIONS_REPRODUCED`, 8/8 verified, 7/8 exact.** The run used
+  a previously unused GitHub Actions ubuntu-24.04 runner (AMD EPYC 7763), and
+  Experiment 6 differs only in floats (max 0.0040).
+- **Hard Gate 5 met at the decision level, for a same-author reproduction only.**
+  ASSURANCE V9.2 is `EXPERIMENTALLY_SUPPORTED`; V9.1 (Experiment 9) stays `REFUTED`.
+- **Attempt 1 and its re-run stopped after 7 packages** because of a workflow defect:
+  GitHub's `bash -e` plus `compare` exiting 1 on `DECISIONS_ONLY`. They are recorded
+  with Addenda 1–2, and their decisions match attempt 2.
+
 ### Results — V7 Experiment 10, investigation benchmark (2026-10-12)
 
 - **Hard Gate 11 met; V10.1 PASS (K1–K5).** 32 incidents generated from the sealed
