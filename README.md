@@ -30,8 +30,8 @@ Most explainability tools describe a model **from the outside** and can't tell y
 
 | Part | What it does | Status |
 |---|---|---|
-| **Circuit + faithfulness + Annex IV** | Explains one model decision and drafts documentation | Released on PyPI (`glassbox-mech-interp` 4.5.1) |
-| **Investigation layer** (`glassbox/v7/`) | Explains why an AI system's behaviour changed between two versions | In this repository, **not yet in a PyPI release**; research stage (see [below](#investigating-why-an-ai-system-changed)) |
+| **Circuit + faithfulness + Annex IV** | Explains one model decision and drafts documentation | Released on PyPI (`glassbox-mech-interp` 4.6.0) |
+| **Investigation layer** (`glassbox/v7/`) | Explains why an AI system's behaviour changed between two versions | Included in the PyPI release from 4.6.0; research stage (see [below](#investigating-why-an-ai-system-changed)) |
 
 Every claim in this README is tracked, with its evidence and status, in [`ASSURANCE.md`](ASSURANCE.md).
 
@@ -46,7 +46,7 @@ pip install glassbox-mech-interp
 Extras: `pip install "glassbox-mech-interp[compliance]"` (Annex IV engine) · `[jupyter]` (notebook widget) · `[dev]` (tests + lint).
 No install? Try the **[live demo on Hugging Face](https://huggingface.co/spaces/designer-coderajay/Glassbox-AI-2.0-Mechanistic-Interpretability-tool)**.
 
-To use the investigation layer, install from source:
+The investigation layer (`glassbox.v7`) ships in the same package from 4.6.0. To re-run the experiments or reproduce an evidence package, install from source, since the experiments and recipes are not in the wheel:
 
 ```bash
 git clone https://github.com/designer-coderajay/glassbox-mech.git
@@ -135,7 +135,7 @@ Providers of high-risk AI systems must draw up Annex IV technical documentation 
 
 ## Investigating why an AI system changed
 
-*Research stage. In the repository, not yet in a PyPI release. Licensed under BSL 1.1.*
+*Research stage. In the PyPI package from 4.6.0. Licensed under BSL 1.1.*
 
 When a RAG assistant or an agent starts behaving differently after a week of changes (new index, edited prompt, new framework version), the investigation layer:
 

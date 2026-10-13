@@ -1,6 +1,6 @@
 # Glassbox — Assurance: what is built, what is evidenced, what is only planned
 
-*Created 2026-10-05 (V7 Step 2). Package version `glassbox-mech-interp` 4.5.1.*
+*Created 2026-10-05 (V7 Step 2), when the package version was `glassbox-mech-interp` 4.5.1. Current release: 4.6.0 (2026-10-13), the first to include `glassbox.v7`.*
 
 This file prevents claims from running ahead of evidence. Every public statement
 about Glassbox should trace to a row here. If a claim has no row, it is not yet a

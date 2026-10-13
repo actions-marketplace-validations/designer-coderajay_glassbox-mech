@@ -22,7 +22,7 @@ and licensing. It states what has been verified and what has not.
 | CircuitDiff (version-to-version circuit comparison) | Released |
 | Content-hashed reports and a SHA-256 hash-chained audit log | Released. Hashing supports integrity checks; it is **not** a digital signature. |
 | Container image for self-hosted scans (`scan.Dockerfile`) | Available; build it yourself |
-| AI-system investigation layer (`glassbox/v7/`) | In the repository, not yet in a PyPI release; research stage (see `ASSURANCE.md`) |
+| AI-system investigation layer (`glassbox/v7/`) | In the PyPI package from 4.6.0; research stage (see `ASSURANCE.md`) |
 
 There is currently **no hosted service, no SLA and no paid support plan**.
 
