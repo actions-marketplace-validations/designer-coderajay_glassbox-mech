@@ -10,6 +10,7 @@ Usage:
     python3 scripts/sync_versions.py          # dry-run (prints changes)
     python3 scripts/sync_versions.py --apply  # write changes to disk
 """
+
 import re
 import sys
 from pathlib import Path
@@ -59,148 +60,131 @@ def main() -> None:
     changed += patch_file(
         ROOT / "glassbox" / "__init__.py",
         [
-            (r'__version__\s*=\s*"\d+\.\d+\.\d+"',
-             '__version__ = "{version}"'),
+            (r'__version__\s*=\s*"\d+\.\d+\.\d+"', '__version__ = "{version}"'),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
-    # ── dashboard/app.py ──────────────────────────────────────────────────────
+    # ── dashboard/space_ui.py (HF Space version shown in header/footer) ───────
     changed += patch_file(
-        ROOT / "dashboard" / "app.py",
-        [
-            # Docstring header
-            (r"Glassbox \d+\.\d+\.\d+ — Causal Mechanistic",
-             "Glassbox {version} — Causal Mechanistic"),
-            (r"HuggingFace Space — v\d+\.\d+\.\d+",
-             "HuggingFace Space — v{version}"),
-            # Inline version references
-            (r"Glassbox v\d+\.\d+\.\d+ ·",
-             "Glassbox v{version} ·"),
-            (r"Built on TransformerLens &nbsp;&middot;&nbsp; v\d+\.\d+\.\d+",
-             "Built on TransformerLens &nbsp;&middot;&nbsp; v{version}"),
-            (r"version = \{\d+\.\d+\.\d+\}",
-             "version = {{{version}}}"),
-        ],
-        version, apply,
-    )
-
-    # ── README.md ─────────────────────────────────────────────────────────────
-    changed += patch_file(
-        ROOT / "README.md",
-        [
-            (r"# Glassbox \d+\.\d+\.\d+", "# Glassbox {version}"),
-            (r"\|\s*Version\s*\|\s*`v\d+\.\d+\.\d+`\s*\|",
-             "| Version | `v{version}` |"),
-        ],
-        version, apply,
+        ROOT / "dashboard" / "space_ui.py",
+        [(r'^VERSION = "\d+\.\d+\.\d+"', 'VERSION = "{version}"')],
+        version,
+        apply,
     )
 
     # ── .github/workflows/deploy_hf.yml ──────────────────────────────────────
     changed += patch_file(
         ROOT / ".github" / "workflows" / "deploy_hf.yml",
         [
-            (r"glassbox-mech-interp>=\d+\.\d+\.\d+",
-             "glassbox-mech-interp>={version}"),
-            (r"\*\*Version\*\*: \d+\.\d+\.\d+ \(GitHub",
-             "**Version**: {version} (GitHub"),
+            (r"glassbox-mech-interp>=\d+\.\d+\.\d+", "glassbox-mech-interp>={version}"),
+            (
+                r"\*\*Version\*\*: \d+\.\d+\.\d+ \(GitHub",
+                "**Version**: {version} (GitHub",
+            ),
+            (r"glassbox-mech-interp==\d+\.\d+\.\d+", "glassbox-mech-interp=={version}"),
+            (r"Version \d+\.\d+\.\d+ · deployed", "Version {version} · deployed"),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     # ── docs/index.html ──────────────────────────────────────────────────────
     changed += patch_file(
         ROOT / "docs" / "index.html",
         [
-            (r"glassbox-mech-interp==\d+\.\d+\.\d+",
-             "glassbox-mech-interp=={version}"),
+            (r"glassbox-mech-interp==\d+\.\d+\.\d+", "glassbox-mech-interp=={version}"),
             # Nav + footer version badges and JSON-LD softwareVersion
-            (r'<span class="v">v\d+\.\d+\.\d+</span>',
-             '<span class="v">v{version}</span>'),
-            (r'"softwareVersion":"\d+\.\d+\.\d+"',
-             '"softwareVersion":"{version}"'),
+            (
+                r'<span class="v">v\d+\.\d+\.\d+</span>',
+                '<span class="v">v{version}</span>',
+            ),
+            (r'"softwareVersion":"\d+\.\d+\.\d+"', '"softwareVersion":"{version}"'),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     # ── mcp/server.py ────────────────────────────────────────────────────────
     changed += patch_file(
         ROOT / "mcp" / "server.py",
         [
-            (r"glassbox-mech-interp v\d+\.\d+\.\d+",
-             "glassbox-mech-interp v{version}"),
+            (r"glassbox-mech-interp v\d+\.\d+\.\d+", "glassbox-mech-interp v{version}"),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     # ── mcp/glassbox_mcp/server.py ───────────────────────────────────────────
     changed += patch_file(
         ROOT / "mcp" / "glassbox_mcp" / "server.py",
         [
-            (r"glassbox-mech-interp v\d+\.\d+\.\d+",
-             "glassbox-mech-interp v{version}"),
+            (r"glassbox-mech-interp v\d+\.\d+\.\d+", "glassbox-mech-interp v{version}"),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     # ── mcp/requirements.txt ─────────────────────────────────────────────────
     changed += patch_file(
         ROOT / "mcp" / "requirements.txt",
         [
-            (r"glassbox-mech-interp>=\d+\.\d+\.\d+",
-             "glassbox-mech-interp>={version}"),
+            (r"glassbox-mech-interp>=\d+\.\d+\.\d+", "glassbox-mech-interp>={version}"),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     # ── mcp/pyproject.toml ───────────────────────────────────────────────────
     changed += patch_file(
         ROOT / "mcp" / "pyproject.toml",
         [
-            (r'^version\s*=\s*"\d+\.\d+\.\d+"',
-             'version = "{version}"'),
-            (r"glassbox-mech-interp>=\d+\.\d+\.\d+",
-             "glassbox-mech-interp>={version}"),
+            (r'^version\s*=\s*"\d+\.\d+\.\d+"', 'version = "{version}"'),
+            (r"glassbox-mech-interp>=\d+\.\d+\.\d+", "glassbox-mech-interp>={version}"),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     # ── mcp/glassbox_mcp/__init__.py ─────────────────────────────────────────
     changed += patch_file(
         ROOT / "mcp" / "glassbox_mcp" / "__init__.py",
         [
-            (r'__version__\s*=\s*"\d+\.\d+\.\d+"',
-             '__version__ = "{version}"'),
+            (r'__version__\s*=\s*"\d+\.\d+\.\d+"', '__version__ = "{version}"'),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     # ── mcp/README.md ─────────────────────────────────────────────────────────
     changed += patch_file(
         ROOT / "mcp" / "README.md",
         [
-            (r"glassbox-mcp==\d+\.\d+\.\d+",
-             "glassbox-mcp=={version}"),
-            (r"pip install glassbox-mcp==\d+\.\d+\.\d+",
-             "pip install glassbox-mcp=={version}"),
-            (r"\*\*Current version:\*\* \d+\.\d+\.\d+",
-             "**Current version:** {version}"),
-            (r"Current version: \d+\.\d+\.\d+",
-             "Current version: {version}"),
-            (r"glassbox-mcp v\d+\.\d+\.\d+",
-             "glassbox-mcp v{version}"),
+            (r"glassbox-mcp==\d+\.\d+\.\d+", "glassbox-mcp=={version}"),
+            (
+                r"pip install glassbox-mcp==\d+\.\d+\.\d+",
+                "pip install glassbox-mcp=={version}",
+            ),
+            (
+                r"\*\*Current version:\*\* \d+\.\d+\.\d+",
+                "**Current version:** {version}",
+            ),
+            (r"Current version: \d+\.\d+\.\d+", "Current version: {version}"),
+            (r"glassbox-mcp v\d+\.\d+\.\d+", "glassbox-mcp v{version}"),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     # ── ENTERPRISE.md ─────────────────────────────────────────────────────────
     changed += patch_file(
         ROOT / "ENTERPRISE.md",
         [
-            (r"Glassbox AI v\d+\.\d+\.\d+",
-             "Glassbox AI v{version}"),
+            (r"Glassbox AI v\d+\.\d+\.\d+", "Glassbox AI v{version}"),
         ],
-        version, apply,
+        version,
+        apply,
     )
 
     print(f"\n{'Applied' if apply else 'Would apply'} changes to {changed} file(s).")

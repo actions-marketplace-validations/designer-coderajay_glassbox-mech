@@ -8,6 +8,26 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed — HuggingFace Space redesign (2026-10-13)
+
+- **New look and structure.** The theme follows the visitor's light or dark setting.
+  There are six focused tabs: Explain a prediction, Layer by layer, Attention,
+  Investigate a change, Annex IV draft, and About & limits. Charts are native HTML, so
+  they stay sharp in both themes, and examples are cached after first use.
+- **Copy corrected to the canonical facts.** Removed: the stale v4.3.0 header,
+  "regulator-ready", "9/9 Annex IV sections automated", "Compliant" status labels and
+  the pricing link. The Annex IV tab now shows, section by section, which fields the
+  analysis filled and which the provider must complete.
+- **Reliability.**
+  - Every Space dependency is pinned to the CI stack, with Gradio 5.50.0 and CPU torch.
+  - GPT-2 is preloaded at build time.
+  - Model access is serialised (TransformerLens hooks are not thread-safe).
+  - Demo work folders are cleaned up automatically.
+- **Privacy.** The Space no longer writes visitors' prompts to an audit log on disk.
+- **Removed** the custom `/analyze` and `/health` REST routes. Use the Gradio API
+  endpoints (`/explain`, `/logit_lens`, `/attention`, `/annex_iv_draft`,
+  `/investigate`) instead.
+
 ## [4.6.0] — 2026-10-13
 
 ### Fixed — packaging

@@ -39,21 +39,20 @@ SCORERS: Dict[str, str] = {
 }
 SEED = "space-demo"
 INTRO = """
-### What changed this week, and which change matters?
+**What changed this week, and which change matters?** *Research preview.*
 
-A small RAG assistant answers 8 questions about fictional companies. This week, several
-things changed at once, and users now report wrong answers.
+A small RAG assistant answers 8 questions about fictional companies. Three things
+changed at once and users now report wrong answers. Glassbox runs every question
+**many times** before and after, separates real differences from run-to-run noise,
+then re-runs with **one change at a time** to see which change actually moves the
+answers. You get a plain-language report and an evidence package that anyone can
+check with `python -m glassbox.v7.evidence verify <folder>`.
 
-Glassbox runs every test question **repeatedly** before and after, compares the runs
-**beyond run-to-run noise** (where do they differ?), then re-runs with **one change at
-a time** (which change actually alters the answers?).
-
-You get a plain-language report and an evidence package anyone can verify with
-`python -m glassbox.v7.evidence verify <folder>`.
-
-*The method's evidence: pre-registered Experiments 3b, 4 and 5 in the repository
-(`ASSURANCE.md` rows V2.9, V3.1, V3.3). A run here is a demonstration, not new evidence.*
+*A run here is a demonstration, not new evidence. The method's evidence is in the
+pre-registered experiments (`ASSURANCE.md` rows V2.9, V3.1, V3.3, V10.1).*
 """
+STALE_AFTER_S = 3600
+TMP_PREFIX = "glassbox_v7_"
 
 _SCORER_CACHE: Dict[str, demo_rag.Scorer] = {}
 
@@ -83,7 +82,9 @@ def run_investigation(
     runs = int(runs)
     if not 5 <= runs <= 100:
         return "Runs per configuration must be between 5 and 100.", None
-    base = Path(workdir) if workdir else Path(tempfile.mkdtemp(prefix="glassbox_v7_"))
+    if workdir is None:
+        cleanup_stale(Path(tempfile.gettempdir()))
+    base = Path(workdir) if workdir else Path(tempfile.mkdtemp(prefix=TMP_PREFIX))
     try:
         scorer = _scorer(SCORERS[scorer_label])
     except (ImportError, OSError, RuntimeError) as exc:
@@ -106,28 +107,62 @@ def run_investigation(
     return report, archive
 
 
-def build_tab(gr: Any) -> None:
-    """Add the investigation UI inside the caller's ``gr.Blocks`` / ``gr.Tab``."""
+def cleanup_stale(root: Path, max_age_s: float = STALE_AFTER_S) -> int:
+    """Delete earlier demo work folders in ``root`` older than ``max_age_s``.
+
+    Keeps a long-running Space from filling its disk. Returns how many were removed.
+    """
+    import time
+
+    removed = 0
+    cutoff = time.time() - max_age_s
+    for path in root.glob(f"{TMP_PREFIX}*"):
+        try:
+            if path.is_dir() and path.stat().st_mtime < cutoff:
+                shutil.rmtree(path, ignore_errors=True)
+                removed += 1
+        except OSError:
+            continue
+    return removed
+
+
+def build_tab(gr: Any, **click_kwargs: Any) -> None:
+    """Add the investigation UI inside the caller's ``gr.Blocks`` / ``gr.Tab``.
+
+    ``click_kwargs`` are passed to the button's ``click`` (e.g. concurrency settings).
+    """
     gr.Markdown(INTRO)
     labels: List[str] = list(CHANGES)
-    changes = gr.CheckboxGroup(
-        choices=labels, value=labels, label="What changed this week?"
-    )
-    runs = gr.Slider(
-        minimum=10, maximum=50, value=30, step=10, label="Runs per configuration"
-    )
-    scorer = gr.Radio(
-        choices=list(SCORERS),
-        value=list(SCORERS)[0],
-        label="Model behind the assistant",
-    )
-    button = gr.Button("Investigate", variant="primary")
-    report = gr.Markdown()
-    evidence = gr.File(label="Evidence package (zip)")
+    with gr.Row(equal_height=False):
+        with gr.Column(scale=4, min_width=300):
+            changes = gr.CheckboxGroup(
+                choices=labels, value=labels, label="What changed this week?"
+            )
+            runs = gr.Slider(
+                minimum=10,
+                maximum=50,
+                value=30,
+                step=10,
+                label="Runs per configuration",
+                info="More runs separate real effects from noise better, but take longer.",
+            )
+            scorer = gr.Radio(
+                choices=list(SCORERS),
+                value=list(SCORERS)[0],
+                label="Model behind the assistant",
+            )
+            button = gr.Button("Investigate", variant="primary")
+        with gr.Column(scale=7, min_width=360):
+            report = gr.Markdown(
+                "*Pick which changes happened and press **Investigate**. With GPT-2 and 30 "
+                "runs this can take a couple of minutes on this free CPU.*"
+            )
+            evidence = gr.File(label="Evidence package (zip)")
     button.click(
         fn=run_investigation,
         inputs=[changes, runs, scorer],
         outputs=[report, evidence],
+        **click_kwargs,
     )
 
 

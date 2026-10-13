@@ -16,6 +16,7 @@ on:
     branches: [main]
     paths:
       - "dashboard/app.py"
+      - "dashboard/space_ui.py"
       - "dashboard/v7_investigation.py"
       - "glassbox/**"
       - ".github/workflows/deploy_hf.yml"
@@ -62,56 +63,69 @@ jobs:
         run: |
           mkdir -p hf_payload
           cp dashboard/app.py hf_payload/app.py
+          cp dashboard/space_ui.py hf_payload/space_ui.py
           cp dashboard/v7_investigation.py hf_payload/v7_investigation.py
 
           SHORT_SHA=$(git rev-parse --short HEAD)
 
+          # Exact pins = the stack CI tests with (ci.yml) + gradio from sdk_version below.
+          # Unpinned installs broke the Space before (pyarrow needing NumPy 2), so every
+          # direct dependency is pinned. torch comes from the CPU wheel index (smaller).
           cat > hf_payload/requirements.txt << 'REQS'
-          gradio>=4.43.0,<5.0
-          # Pin huggingface_hub: HfFolder removed in >=0.26.0, breaking gradio 4.x oauth.py
-          huggingface_hub>=0.22.0,<0.26.0
-          numpy>=1.24.0,<2.0
-          # transformer_lens imports datasets -> pyarrow; an unpinned newer pyarrow requires
-          # NumPy >= 2.0, which glassbox excludes. 23.0.0 is the version CI runs with
-          # numpy 1.26.4. datasets/pandas are left to the resolver (gradio 4 and the
-          # huggingface_hub<0.26 pin constrain them).
+          --extra-index-url https://download.pytorch.org/whl/cpu
+          torch==2.10.0
+          numpy==1.26.4
+          scipy==1.17.1
+          einops==0.8.2
+          transformer-lens==2.17.0
+          transformers==4.57.6
           pyarrow==23.0.0
-          scipy>=1.9.0
-          matplotlib>=3.7.0
-          Pillow>=9.0.0
-          transformer-lens>=1.19.0
-          glassbox-mech-interp>=4.6.0
-          torch>=2.3.0
-          einops>=0.6.1
-          fancy_einsum>=0.0.3
-          jaxtyping>=0.2.20
+          datasets==4.5.0
+          glassbox-mech-interp==4.6.0
           REQS
 
           cat > hf_payload/README.md << RDME
           ---
-          title: Glassbox AI
+          title: Glassbox
           emoji: 🔬
-          colorFrom: indigo
-          colorTo: blue
+          colorFrom: red
+          colorTo: yellow
           sdk: gradio
-          sdk_version: "4.43.0"
-          app_file: app.py
-          pinned: false
+          sdk_version: "5.50.0"
           python_version: "3.11"
+          app_file: app.py
+          pinned: true
+          short_description: Find the circuit behind a prediction and test it
+          startup_duration_timeout: 1h
+          models:
+            - openai-community/gpt2
+          preload_from_hub:
+            - gpt2 config.json,model.safetensors,tokenizer.json,vocab.json,merges.txt,tokenizer_config.json,generation_config.json
+          tags:
+            - interpretability
+            - mechanistic-interpretability
+            - explainability
+            - transformer-lens
+            - eu-ai-act
+          license: other
           ---
 
-          # Glassbox AI — EU AI Act Annex IV Compliance
+          # Glassbox
 
-          Mechanistic interpretability + EU AI Act Annex IV compliance toolkit.
-          One function call drafts a regulation-mapped evidence package for open-weight transformer models.
+          Find which attention heads drive a transformer's prediction, then measure how
+          faithful that explanation is by ablating them. Live on GPT-2 small.
 
-          **Version**: 4.6.0 (GitHub @ ${SHORT_SHA})
+          - **Explain a prediction:** circuit, sufficiency, comprehensiveness, F1 and a grade.
+          - **Layer by layer** and **Attention:** where the answer forms and what each head reads.
+          - **Investigate a change** (research preview): which of several changes altered an AI system's behaviour.
+          - **Annex IV draft:** evidence for EU AI Act technical documentation, with every field you must complete marked. Not legal advice.
 
-          **pip install:** \`pip install glassbox-mech-interp\`
+          \`pip install glassbox-mech-interp\` · [Paper](https://arxiv.org/abs/2603.09988) ·
+          [GitHub](https://github.com/designer-coderajay/glassbox-mech) ·
+          [What is proven](https://github.com/designer-coderajay/glassbox-mech/blob/main/ASSURANCE.md)
 
-          **Website:** https://repo-ashen-psi.vercel.app
-
-          **GitHub:** https://github.com/designer-coderajay/glassbox-mech
+          Licence: core MIT; compliance engine and investigation layer BSL 1.1 (see NOTICE in the repository).
+          Version 4.6.0 · deployed from GitHub @ ${SHORT_SHA}
           RDME
 
           echo "Payload built — files:"

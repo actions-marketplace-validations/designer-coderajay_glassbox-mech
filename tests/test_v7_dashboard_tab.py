@@ -117,3 +117,19 @@ def test_evidence_package_records_toy_scorer(tab, tmp_path):
         zf.extractall(out)
     prov = json.loads((out / "provenance.json").read_text())
     assert "toy heuristic (NOT a language model)" in json.dumps(prov)
+
+
+def test_cleanup_stale_removes_only_old_demo_folders(tab, tmp_path):
+    import os
+    import time
+
+    old = tmp_path / f"{tab.TMP_PREFIX}old"
+    new = tmp_path / f"{tab.TMP_PREFIX}new"
+    other = tmp_path / "unrelated"
+    for d in (old, new, other):
+        d.mkdir()
+    past = time.time() - 2 * tab.STALE_AFTER_S
+    os.utime(old, (past, past))
+    os.utime(other, (past, past))
+    assert tab.cleanup_stale(tmp_path) == 1
+    assert not old.exists() and new.exists() and other.exists()
