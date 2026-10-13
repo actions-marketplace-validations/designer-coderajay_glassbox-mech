@@ -150,3 +150,17 @@ Every attempt is listed. A re-run must use the same commit and workflow.
      reported, and 9b is **FAIL**.
    - If attempt 2 also fails to complete for infrastructure reasons, the same
      procedure applies again: record it, add an addendum, then re-run.
+
+## Addendum 2 (2026-10-13): an extra run of the unfixed workflow
+
+*Written before attempt 2. Nothing in §§0–6 or Addendum 1 changes.*
+
+- **What happened.** Run `38303022533` was started again with GitHub's "Re-run jobs".
+  That reuses commit `6c08ddc` and the unfixed workflow.
+- **Result.** It stopped at the same point. Its 7 completed comparisons match
+  attempt 1's decisions exactly.
+- **Record.** It is listed in `attempt1_rerun/RECORD.md`, with the artifact unchanged.
+- **How it counts.** It is not attempt 2. It counts only towards Addendum 1 item 4,
+  the decision consistency check across attempts.
+- **Attempt 2.** It must be a new run started with "Run workflow" on `main` at or
+  after `20fcea2`.
