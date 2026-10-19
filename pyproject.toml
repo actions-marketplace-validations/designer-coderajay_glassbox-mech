@@ -1,5 +1,5 @@
 [build-system]
-requires      = ["setuptools>=61,<74", "wheel"]  # <74 keeps Metadata-Version 2.3 (PyPI-safe)
+requires      = ["setuptools>=84.0.0,<85", "wheel"]  # <74 keeps Metadata-Version 2.3 (PyPI-safe)
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -85,9 +85,9 @@ dependencies = [
     # NumPy 2.x + torch nightly and the engine fails (see CI run #3, 2026-06-08).
     "torch>=2.0,<2.11",
     "transformer_lens>=1.0,<3.0",
-    "einops>=0.6",
+    "einops>=0.8.2",
     "numpy>=1.24,<2.0",
-    "scipy>=1.9",
+    "scipy>=1.15.3",
 ]
 
 
@@ -100,52 +100,52 @@ Paper         = "https://arxiv.org/abs/2603.09988"
 
 [project.optional-dependencies]
 sae = [
-    "sae-lens>=3.0",
+    "sae-lens>=6.54.5",
 ]
 compliance = [
-    "reportlab>=3.6.0",
+    "reportlab>=5.0.1",
 ]
 api = [
-    "fastapi>=0.109.0",
-    "uvicorn[standard]>=0.27.0",
-    "pydantic>=2.0.0",
-    "reportlab>=3.6.0",
+    "fastapi>=0.143.2",
+    "uvicorn[standard]>=0.54.0",
+    "pydantic>=2.14.1",
+    "reportlab>=5.0.1",
 ]
 jupyter = [
-    "ipywidgets>=8.0",
-    "ipython>=7.0",
+    "ipywidgets>=8.1.9",
+    "ipython>=8.39.0",
 ]
 telemetry = [
-    "opentelemetry-sdk>=1.20.0",
-    "opentelemetry-exporter-otlp>=1.20.0",
+    "opentelemetry-sdk>=1.45.1",
+    "opentelemetry-exporter-otlp>=1.45.1",
 ]
 hf = [
-    "huggingface_hub>=0.20.0",
+    "huggingface_hub>=2.2.0",
 ]
 mlflow = [
-    "mlflow>=2.10.0",
+    "mlflow>=3.17.1",
 ]
 notify = []  # Webhook-based; no extra pip deps needed
 all = [
-    "sae-lens>=3.0",
-    "reportlab>=3.6.0",
-    "ipywidgets>=8.0",
-    "opentelemetry-sdk>=1.20.0",
-    "opentelemetry-exporter-otlp>=1.20.0",
-    "huggingface_hub>=0.20.0",
-    "mlflow>=2.10.0",
-    "fastapi>=0.109.0",
-    "uvicorn[standard]>=0.27.0",
-    "pydantic>=2.0.0",
+    "sae-lens>=6.54.5",
+    "reportlab>=5.0.1",
+    "ipywidgets>=8.1.9",
+    "opentelemetry-sdk>=1.45.1",
+    "opentelemetry-exporter-otlp>=1.45.1",
+    "huggingface_hub>=2.2.0",
+    "mlflow>=3.17.1",
+    "fastapi>=0.143.2",
+    "uvicorn[standard]>=0.54.0",
+    "pydantic>=2.14.1",
 ]
 dev = [
-    "pytest>=7.0",
-    "sae-lens>=3.0",
-    "reportlab>=3.6.0",
-    "ipywidgets>=8.0",
-    "opentelemetry-sdk>=1.20.0",
-    "huggingface_hub>=0.20.0",
-    "mlflow>=2.10.0",
+    "pytest>=9.1.1",
+    "sae-lens>=6.54.5",
+    "reportlab>=5.0.1",
+    "ipywidgets>=8.1.9",
+    "opentelemetry-sdk>=1.45.1",
+    "huggingface_hub>=2.2.0",
+    "mlflow>=3.17.1",
 ]
 [project.scripts]
 glassbox-ai = "glassbox.cli:main"

@@ -1,6 +1,6 @@
-mcp>=1.0.0
-fastmcp>=0.1.0
-pydantic>=2.0.0
+mcp>=2.3.0
+fastmcp>=4.1.0
+pydantic>=2.14.1
 transformer-lens>=2.0.0
 torch>=2.0.0
-glassbox-mech-interp>=4.5.1
+glassbox-mech-interp>=4.6.0
