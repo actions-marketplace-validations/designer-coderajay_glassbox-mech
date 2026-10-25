@@ -184,45 +184,34 @@ A first divergence shows *where* runs differ, not *why*. Causal statements need 
 
 ### The whole system in one picture
 
-```mermaid
-flowchart LR
-    A["You give Glassbox<br/>a model + a prompt +<br/>correct vs. wrong answer"] --> B["1. DISCOVER<br/>rank every attention head<br/>by causal effect"]
-    B --> C["2. VERIFY<br/>keep the smallest circuit,<br/>then test it by ablation"]
-    C --> D["3. DOCUMENT<br/>grade it and draft<br/>EU AI Act Annex IV"]
-    D --> E[("You get: circuit,<br/>faithfulness grade,<br/>plain-English explanation,<br/>Annex IV draft")]
+<p align="center">
+  <img src="docs/anatomy/glassbox-bench.gif" alt="An animated isometric pegboard. A board of 144 pegs, one per attention head, rises to each head's causal score. The top few light up as the circuit. Keeping only the circuit reads sufficiency 1.00 on one dial, removing it reads comprehensiveness 0.543 on a second, and a third reads F1 0.704 and sets the grade plate to B." width="900">
+</p>
 
-    F["Something changed in<br/>your AI system?"] -.-> G["INVESTIGATE (research stage)<br/>record runs, diff them,<br/>test each change alone"]
-    G -.-> H[("Evidence bundle<br/>with sha256 manifest")]
+| On the bench | In Glassbox |
+|---|---|
+| The prompt cards on the tray | The decision to explain: a prompt, the answer it should give, and the wrong one, plus a corrupted copy of the prompt |
+| 144 pegs rising to different heights | Attribution patching scores every attention head in 3 forward passes (GPT-2 small: 12 layers by 12 heads) |
+| A few pegs lighting up | The circuit: the smallest set of heads that still carries the decision |
+| Dial S, only the circuit left | Sufficiency: does the circuit alone reproduce the decision? |
+| Dial C, the circuit removed | Comprehensiveness: does removing it break the decision? |
+| Dial F1 and the grade plate | F1 of the two, and the letter grade A to D |
 
-    classDef core fill:#e8f1ff,stroke:#2b5fd9,color:#111;
-    classDef out fill:#e9f8ec,stroke:#2e8b57,color:#111;
-    classDef research fill:#fff4e0,stroke:#d98a1f,color:#111;
-    class B,C,D core;
-    class E,H out;
-    class F,G research;
-```
+Open [`docs/anatomy/glassbox-bench-light.html`](docs/anatomy/glassbox-bench-light.html) in a browser to scrub through it (details in [`docs/anatomy/README.md`](docs/anatomy/README.md)). The three dial readings are the IOI benchmark on GPT-2 small from [Measured results](#measured-results); the per-head scores and which heads are lit are drawn for the picture, not taken from a run.
 
-Solid path: released and on PyPI. Dotted path: the investigation layer, research stage (see [above](#investigating-why-an-ai-system-changed)).
+Two paths, two maturity levels. **Path 1** (explain one decision) is released on PyPI. **Path 2** (find out why an AI system changed) is the investigation layer, research stage; see [above](#investigating-why-an-ai-system-changed).
 
 ### Path 1: explain one decision (`GlassboxV2.analyze`)
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant U as You
-    participant G as GlassboxV2
-    participant M as Model (open weights)
-    U->>G: analyze(prompt, correct, incorrect)
-    G->>G: Build a corrupted prompt (auto-picked strategy)
-    G->>M: Clean run, corrupted run, gradient pass (3 passes)
-    M-->>G: Per-head effect on logit(correct) - logit(wrong)
-    G->>G: Greedy forward selection until sufficiency target is met
-    G->>M: Backward pruning, 2 passes per head tried
-    G->>G: Counterfactual gate checks the corrupted prompt is a valid contrast
-    G->>M: Patch activations to test the circuit alone and its removal
-    M-->>G: Sufficiency and comprehensiveness
-    G-->>U: circuit, F1, grade A-D, evidence tier, explanation
-```
+<p align="center">
+  <img src="docs/illustrations/04-find-circuit.png" alt="A creature shines a flashlight at a wall of one hundred small squares, one per attention head; a few of them glow red. The note reads: keep the few that carry the decision." width="860"><br>
+  <sub><b>Find the circuit.</b> Score every head in 3 passes, keep the few that carry the decision.</sub>
+</p>
+
+<p align="center">
+  <img src="docs/illustrations/05-test-by-ablation.png" alt="A creature pulls a few squares out of a board of heads while a dial shows whether the decision breaks. The note reads: ablate, don't assert." width="860"><br>
+  <sub><b>Test it by taking it out.</b> Faithfulness is computed by re-running the model with parts ablated, not asserted.</sub>
+</p>
 
 | Step | What happens | Why it matters |
 |---|---|---|
@@ -237,21 +226,17 @@ sequenceDiagram
 
 ### Path 2: find out why an AI system changed (`glassbox.v7`)
 
-```mermaid
-flowchart TD
-    S["Incident: a system changed in several ways at once<br/>(index, prompt, framework version, ...)"] --> R["1. RECORD<br/>each run becomes a local trace:<br/>nested spans, tool calls, hashed content"]
-    R --> D["2. COMPARE<br/>group diff of runs before vs. after,<br/>separating real differences from run-to-run noise"]
-    D --> W["Result: WHERE runs first differ"]
-    W --> I["3. INTERVENE<br/>switch each change on alone,<br/>and revert each alone"]
-    I --> Y["Result: WHICH change moved the outcome"]
-    Y --> P["4. PACKAGE<br/>REPORT.md + evidence bundle<br/>with sha256 manifest"]
-    P --> V{{"Anyone can verify<br/>the manifest"}}
+<p align="center">
+  <img src="docs/illustrations/06-why-it-changed.png" alt="Three switches labelled new index, edited prompt and new framework, with one switched on alone. The notes read: switch each one on alone, then revert each alone; where runs differ is not why." width="860"><br>
+  <sub><b>Which change mattered?</b> Switch each change on alone and revert each alone. Where runs first differ is not why.</sub>
+</p>
 
-    N["Limit: 'where' is not 'why'.<br/>Causal claims come only from step 3."]:::note
-    W -.- N
-
-    classDef note fill:#fff4e0,stroke:#d98a1f,color:#111;
-```
+| Step | What happens | Result |
+|---|---|---|
+| **1. Record** | Each run becomes a local trace: nested spans, tool calls and hashed content. | Raw text is not stored by default. |
+| **2. Compare** | A noise-aware group diff of runs before and after, separating real differences from run-to-run noise. | **Where** the runs first differ. |
+| **3. Intervene** | Switch each change on alone, and revert each alone. | **Which** change moved the outcome. Causal claims come only from this step. |
+| **4. Package** | `REPORT.md` plus an evidence bundle with a sha256 manifest. | Anyone can verify the manifest. |
 
 Run the built-in demo, a small RAG incident with three simultaneous changes:
 
@@ -303,6 +288,8 @@ Two optional [Agent Skills](https://agentskills.io) are set up under `.claude/sk
 | `ian-xiaohei-illustrations` | Hand-drawn 16:9 article illustrations in Ian's "Xiaohei" style, for Chinese-language text. It writes image prompts, so it needs an image-generation model. | [helloianneo/ian-xiaohei-illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations) (MIT; keep attribution per its `NOTICE.md`) |
 
 Re-install either with `git clone <source> .claude/skills/<name>`.
+
+The bench figure in [`docs/anatomy/`](docs/anatomy/) is built with `anatomy`; the three English illustrations in [`docs/illustrations/`](docs/illustrations/) follow the Xiaohei style and are hand-drawn vectors with their generator included, not AI-generated art.
 
 ## Contributing
 
