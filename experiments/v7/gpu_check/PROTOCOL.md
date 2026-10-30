@@ -81,3 +81,33 @@ record it, then re-run. It is never scored as PASS.
 
 ---
 *(Addenda, if any, go below this line, with dates.)*
+
+## Addendum 1 (2026-10-30): attempt 1 was an infrastructure failure; setup fixed
+
+**What happened.**
+- Attempt 1 ran on Colab (Tesla T4, Python 3.13.16, torch 2.10.0+cu128, CUDA 12.8) at
+  commit `c5bd4c2`.
+- The setup checks passed: GPU visible, `torch.cuda.is_available()` True, 25 tests
+  passed.
+- It then crashed while configuration A was **loading** GPT-2, before any
+  investigation ran:
+  - `RuntimeError: operator torchvision::nms does not exist`;
+  - then `ModuleNotFoundError: Could not import module 'BertForPreTraining'`.
+- Cause: Colab preinstalls `torchvision 0.26.0+cu130`, which requires torch 2.11.0. The
+  pinned torch 2.10.0 replaced torch but not torchvision. `transformers` imports
+  torchvision when it is present, so importing `transformer_lens` failed.
+- No `results.json` was written. The log is kept unchanged in `attempt1/run.log`
+  (sha256 `abb136eef9e14985134918a8af5ccd4c3602996f9eb3ac98649780254348e682`).
+- No decision data exists from attempt 1. It is not scored, per §4.
+
+**Changes for attempt 2.** Setup only. The question, configurations, settings,
+criteria and `run.py` are unchanged.
+1. After installing the pins, uninstall `torchvision` and `torchaudio`. Neither is
+   used by Glassbox or GPT-2 scoring.
+2. Before the run, the setup check also imports `transformer_lens` and loads GPT-2
+   once. Attempt 1 passed the tests only because they use fakes.
+3. Output goes to `experiments/v7/gpu_check/attempt2/`, so both attempts stay on
+   record.
+
+`docs/v7/COLAB_GPU.md` is updated to match. The attempt 2 run uses the commit that
+adds this addendum.

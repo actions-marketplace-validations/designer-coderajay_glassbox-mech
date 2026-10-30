@@ -1,0 +1,2 @@
+2026-10-30 15:33:10,737 INFO protocol experiments/v7/gpu_check/PROTOCOL.md v1.0, settings {'n_per_cell': 30, 'n_perm': 999, 'alpha': 0.05, 'seed': 'gpu-check'}
+2026-10-30 15:33:10,738 INFO A: start (cpu, float32)
