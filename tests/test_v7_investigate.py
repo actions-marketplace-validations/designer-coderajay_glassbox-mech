@@ -136,3 +136,44 @@ def test_model_label_is_in_description():
     inc = demo_rag.make_incident(demo_rag.toy_scorer)
     assert "toy heuristic (NOT a language model)" in inc.description
     assert demo_rag.model_label(lambda p, a: 0.0).startswith("custom scorer")
+
+
+def test_export_evidence_records_environment(toy_investigation, tmp_path):
+    env = {"device": "cuda", "dtype": "bfloat16", "gpu_name": "Tesla T4"}
+    pkg = toy_investigation.export_evidence(tmp_path / "ev", "inv-env", environment=env)
+    assert verify_package(pkg) == []
+    prov = json.loads((pkg / "provenance.json").read_text())
+    assert json.loads(prov["environment"])["gpu_name"] == "Tesla T4"
+
+
+def test_cli_demo_gpt2_passes_compute_and_records_it(tmp_path, monkeypatch):
+
+    from glassbox.v7 import compute
+
+    seen = {}
+
+    class FakeScorer:
+        def __init__(self, cfg):
+            self.compute = cfg
+
+        def __call__(self, prompt, answer):
+            return demo_rag.toy_scorer(prompt, answer)
+
+    def fake_make_scorer(kind, cfg=None):
+        seen["kind"], seen["cfg"] = kind, cfg
+        return FakeScorer(cfg)
+
+    monkeypatch.setattr(demo_rag, "make_scorer", fake_make_scorer)
+    monkeypatch.setattr(
+        compute,
+        "environment_record",
+        lambda cfg, torch_module=None: {"device": cfg.device, "dtype": cfg.dtype},
+    )
+    out = tmp_path / "gpu"
+    args = ["demo", "--out", str(out), "--scorer", "gpt2", "--runs", "6"]
+    assert main(args + ["--device", "auto", "--dtype", "bfloat16"]) == 0
+    assert seen["cfg"] == compute.ComputeConfig("auto", "bfloat16")
+    prov = json.loads(
+        (out / "evidence" / "investigation" / "provenance.json").read_text()
+    )
+    assert json.loads(prov["environment"]) == {"device": "auto", "dtype": "bfloat16"}

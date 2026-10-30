@@ -8,6 +8,19 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added — GPU option for V7 scorers (V8 phase B, 2026-10-30)
+
+- **`glassbox.v7.compute`.** `ComputeConfig(device, dtype)` with `cpu` / `cuda` /
+  `auto` and `float32` / `float16` / `bfloat16`.
+  - The default stays CPU float32, so published experiments reproduce unchanged.
+  - Requesting CUDA without a GPU is a clear error, and half precision on CPU is
+    rejected.
+  - `environment_record()` records device, dtype, GPU name, CUDA, torch and Python
+    versions.
+- **`GPT2Scorer(compute=...)` and `make_scorer(kind, compute)`.**
+- **`python -m glassbox.v7.investigate demo --device ... --dtype ...`.** The
+  environment record is written into the evidence package provenance.
+
 ### Added — agent investigation demo (2026-10-14)
 
 - **New Space tab "Agent trajectory (simulated)"** (`dashboard/v7_agent_demo.py`, BSL 1.1):

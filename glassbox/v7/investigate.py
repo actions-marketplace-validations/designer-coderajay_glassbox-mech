@@ -25,6 +25,7 @@ investigation, not new evidence for those claims.
 
 Usage:
     python -m glassbox.v7.investigate demo --out DIR [--scorer toy|gpt2] [--runs N]
+        [--device cpu|cuda|auto] [--dtype float32|float16|bfloat16]
 """
 
 from __future__ import annotations
@@ -36,6 +37,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Sequence
 
+from glassbox.v7 import compute
 from glassbox.v7.evidence import PackageSpec, build_package
 from glassbox.v7.groupdiff import group_diff
 from glassbox.v7.intervene import (
@@ -125,8 +127,17 @@ class Investigation:
         """Plain-language report."""
         return render_report(self)
 
-    def export_evidence(self, out_dir: Path, package_id: str) -> Path:
-        """Write report, JSON and baseline/candidate traces as an evidence package."""
+    def export_evidence(
+        self,
+        out_dir: Path,
+        package_id: str,
+        environment: Optional[Dict[str, Any]] = None,
+    ) -> Path:
+        """Write report, JSON and baseline/candidate traces as an evidence package.
+
+        ``environment`` (e.g. :func:`glassbox.v7.compute.environment_record`) is stored
+        in the package provenance so the package states where it ran.
+        """
         out_dir = Path(out_dir)
         work = self.trace_dir.parent
         report, data = work / "REPORT.md", work / "investigation.json"
@@ -148,6 +159,11 @@ class Investigation:
                 "incident_description": self.incident.description,
                 "settings": json.dumps(self.settings.__dict__, sort_keys=True),
                 "method_evidence": "ASSURANCE.md rows V2.9, V3.1, V3.3",
+                **(
+                    {"environment": json.dumps(environment, sort_keys=True)}
+                    if environment
+                    else {}
+                ),
             },
         )
         return build_package(out_dir, package_id, spec)
@@ -317,16 +333,23 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     demo.add_argument("--scorer", choices=("toy", "gpt2"), default="gpt2")
     demo.add_argument("--runs", type=int, default=30)
     demo.add_argument("--seed", default="demo")
+    compute.add_cli_args(demo)
     args = parser.parse_args(argv)
     from glassbox.v7 import demo_rag
 
     out: Path = args.out
     if out.exists() and any(out.iterdir()):
         raise FileExistsError(f"{out} is not empty; choose a new directory")
-    incident = demo_rag.make_incident(demo_rag.make_scorer(args.scorer))
+    environment = None
+    if args.scorer == "gpt2":
+        scorer = demo_rag.make_scorer("gpt2", compute.from_args(args))
+        environment = compute.environment_record(scorer.compute)
+    else:
+        scorer = demo_rag.make_scorer(args.scorer)
+    incident = demo_rag.make_incident(scorer)
     settings = InterventionSettings(args.runs, 999, 0.05, args.seed)
     inv = investigate(incident, out / "work", settings)
-    pkg = inv.export_evidence(out / "evidence", "investigation")
+    pkg = inv.export_evidence(out / "evidence", "investigation", environment)
     (out / "REPORT.md").write_text(inv.report_markdown(), encoding="utf-8")
     sys.stdout.write(inv.report_markdown())
     sys.stdout.write(f"\nEvidence package: {pkg}\n")

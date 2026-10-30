@@ -29,6 +29,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
+from glassbox.v7.compute import ComputeConfig
 from glassbox.v7.intervene import Factor, Runner
 from glassbox.v7.investigate import Incident
 from glassbox.v7.trace import Recorder, read_trace
@@ -134,14 +135,27 @@ def toy_scorer(prompt: str, answer: str) -> float:
 
 
 class GPT2Scorer:
-    """Teacher-forced log p(answer | prompt) under GPT-2 (loads torch lazily)."""
+    """Teacher-forced log p(answer | prompt) under GPT-2 (loads torch lazily).
 
-    def __init__(self, model_name: str = "gpt2") -> None:
+    ``compute`` selects device and precision (V8 phase B). The default (CPU, float32)
+    loads the model exactly as every published experiment did.
+    """
+
+    def __init__(
+        self, model_name: str = "gpt2", compute: Optional[ComputeConfig] = None
+    ) -> None:
         import torch
         from transformer_lens import HookedTransformer
 
+        from glassbox.v7.compute import resolve, torch_dtype
+
         self._torch = torch
-        self.model = HookedTransformer.from_pretrained(model_name, device="cpu")
+        requested = compute or ComputeConfig()
+        self.compute = resolve(requested, torch)
+        kwargs: Dict[str, Any] = {"device": self.compute.device}
+        if self.compute.dtype != "float32":
+            kwargs["dtype"] = torch_dtype(self.compute, torch)
+        self.model = HookedTransformer.from_pretrained(model_name, **kwargs)
         self.model.eval()
 
     def __call__(self, prompt: str, answer: str) -> float:
@@ -164,12 +178,12 @@ def model_label(scorer: Scorer) -> str:
     return f"custom scorer {type(scorer).__name__}"
 
 
-def make_scorer(kind: str) -> Scorer:
-    """``toy`` (heuristic, instant) or ``gpt2`` (GPT-2 small on CPU)."""
+def make_scorer(kind: str, compute: Optional[ComputeConfig] = None) -> Scorer:
+    """``toy`` (heuristic, instant) or ``gpt2`` (GPT-2 small; CPU unless ``compute``)."""
     if kind == "toy":
         return toy_scorer
     if kind == "gpt2":
-        return GPT2Scorer()
+        return GPT2Scorer(compute=compute) if compute is not None else GPT2Scorer()
     raise ValueError(f"unknown scorer {kind!r}")
 
 
