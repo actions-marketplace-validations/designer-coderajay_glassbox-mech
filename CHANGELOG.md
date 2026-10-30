@@ -20,6 +20,8 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **`GPT2Scorer(compute=...)` and `make_scorer(kind, compute)`.**
 - **`python -m glassbox.v7.investigate demo --device ... --dtype ...`.** The
   environment record is written into the evidence package provenance.
+- **GPU sanity check runner** (`experiments/v7/gpu_check/run.py`, pre-registered in
+  its `PROTOCOL.md`) and the Colab runbook `docs/v7/COLAB_GPU.md`. Not yet run.
 
 ### Added — agent investigation demo (2026-10-14)
 
