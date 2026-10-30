@@ -111,3 +111,26 @@ criteria and `run.py` are unchanged.
 
 `docs/v7/COLAB_GPU.md` is updated to match. The attempt 2 run uses the commit that
 adds this addendum.
+
+## Addendum 2 (2026-10-30): attempt 2 stopped at the setup check; isolated environment
+
+**What happened.**
+- Attempt 2 was set up per Addendum 1 at commit `6467d56`: a fresh runtime, Tesla T4,
+  torch 2.10.0+cu128, 25 tests passed.
+- The new model-load check failed:
+  `ImportError: cannot import name 'BertForPreTraining' from 'transformers'`.
+  Just before the error, TensorFlow printed start-up lines, so this time
+  `transformers` was importing Colab's preinstalled TensorFlow.
+- `run.py` was **not started**, so there is no output and no log for attempt 2.
+- The likely cause is the same as in attempt 1: Colab preinstalls packages built for a
+  newer stack, and removing them one by one does not hold. **This diagnosis is
+  inferred from the import order; it is not confirmed.**
+
+**Change.** Setup only. The question, configurations, settings, criteria and `run.py`
+are unchanged.
+- Everything runs in a separate virtual environment created with `uv`, using
+  **Python 3.11 (the CI's version)** and only the CI pins.
+- Colab's own packages are not visible inside it.
+- Attempt 2 keeps its name, because nothing ran. It uses the commit that adds this
+  addendum, writes to `attempt2/`, and records the venv's Python version in
+  `environment.python_version`.

@@ -25,7 +25,7 @@ change it and start again.
 ## 2. Get the code at the exact commit
 
 Replace `RUN_COMMIT` with the commit the protocol names for this attempt (for
-attempt 2, the commit that adds Addendum 1).
+attempt 2, the commit that adds Addendum 2).
 
 ```
 !git clone https://github.com/designer-coderajay/glassbox-mech.git
@@ -36,37 +36,36 @@ attempt 2, the commit that adds Addendum 1).
 
 Expected: the last line shows that commit.
 
-## 3. Install the pinned stack
+## 3. Install the pinned stack in its own environment
 
-These are the versions the CI uses (`.github/workflows/ci.yml`). Glassbox itself is
-installed from the checkout with `--no-deps`, so pip cannot swap the pins.
-
-```
-!python3 --version
-!pip install -q "numpy==1.26.4" "scipy==1.17.1" "einops==0.8.2" "torch==2.10.0" "transformer-lens==2.17.0" "transformers==4.57.6" "pyarrow==23.0.0" "datasets==4.5.0" "pandas==3.0.0" pytest
-!pip install -q -e . --no-deps
-!pip uninstall -y -q torchvision torchaudio
-```
-
-Expected: no error after the last two commands. pip prints a long block headed
-`ERROR: pip's dependency resolver ...` listing Colab's own packages (opencv, jax,
-gradio and so on). That block is a **warning about packages we don't use**, and it is
-normal.
-
-Colab's preinstalled `torchvision` and `torchaudio` are built for a newer torch. Left
-installed, they break `import transformers` (see the gpu_check protocol, Addendum 1).
-Glassbox needs neither, so they are removed.
-
-If an install fails because a pinned version has no build for Colab's Python version
-(shown by the first line), stop and send the output. The pins are then changed in a
-dated addendum before anything runs.
-
-## 4. Check the GPU from torch, and run the tests
+Colab's preinstalled packages (TensorFlow, torchvision, JAX and others) are built for
+newer torch and NumPy. When they are present, `transformers` imports them and breaks
+(gpu_check protocol, Addenda 1 and 2). So everything runs in a separate virtual
+environment with **Python 3.11, the CI's version**, containing only the CI pins
+(`.github/workflows/ci.yml`). `uv` downloads that Python; no system change is needed.
 
 ```
-!python3 -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available(), torch.cuda.get_device_name(0))"
-!python3 -m pytest -q tests/test_v7_gpu_check.py tests/test_v7_compute.py
-!python3 -c "from transformer_lens import HookedTransformer; m = HookedTransformer.from_pretrained('gpt2', device='cuda'); print('gpt2 loaded on', m.cfg.device)"
+!pip install -q uv
+!uv --version
+!uv venv /content/gbenv --python 3.11
+!uv pip install --python /content/gbenv/bin/python "numpy==1.26.4" "scipy==1.17.1" "einops==0.8.2" "torch==2.10.0" "transformer-lens==2.17.0" "transformers==4.57.6" "pyarrow==23.0.0" "datasets==4.5.0" "pandas==3.0.0" pytest
+!uv pip install --python /content/gbenv/bin/python -e . --no-deps
+!/content/gbenv/bin/python --version
+```
+
+Expected: no error, and the last line says `Python 3.11.x`. (uv only builds the
+environment; its version is printed for the record. The package pins are what matter.) From here on, every command
+uses `/content/gbenv/bin/python`, never `python3`.
+
+If an install fails, stop and send the output. The setup is then changed in a dated
+addendum before anything runs.
+
+## 4. Check the GPU from torch, run the tests, load the model
+
+```
+!/content/gbenv/bin/python -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+!/content/gbenv/bin/python -m pytest -q tests/test_v7_gpu_check.py tests/test_v7_compute.py
+!/content/gbenv/bin/python -c "from transformer_lens import HookedTransformer; m = HookedTransformer.from_pretrained('gpt2', device='cuda'); print('gpt2 loaded on', m.cfg.device)"
 ```
 
 Expected:
@@ -79,7 +78,7 @@ The tests use fakes, so the last line is the real check that the model stack wor
 ## 5. Run the check
 
 ```
-!python3 experiments/v7/gpu_check/run.py --out experiments/v7/gpu_check/attempt2
+!/content/gbenv/bin/python experiments/v7/gpu_check/run.py --out experiments/v7/gpu_check/attempt2
 ```
 
 Expected: it ends with `overall: PASS`, `overall: FAIL` or
